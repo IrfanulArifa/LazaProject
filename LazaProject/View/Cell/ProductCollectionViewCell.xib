@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCollectionViewCell" id="gTV-IL-0wX" customClass="ProductCollectionViewCell" customModule="LazaProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="257"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="160" height="257"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcx-q9-yUc">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="257"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ot2-JJ-9LC">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="203"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="203" id="36P-7H-hxS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dda-QP-gIt">
+                                <rect key="frame" x="0.0" y="208" width="160" height="13.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYZ-RX-g9n">
+                                <rect key="frame" x="0.0" y="226.33333333333334" width="160" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Love" translatesAutoresizingMaskIntoConstraints="NO" id="QXj-0z-UFw">
+                                <rect key="frame" x="128" y="25" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="fsi-eN-Mwf"/>
+                                    <constraint firstAttribute="width" constant="20" id="i9K-Bp-Xff"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Dda-QP-gIt" secondAttribute="trailing" id="3d6-or-ZQh"/>
+                            <constraint firstItem="dYZ-RX-g9n" firstAttribute="top" secondItem="Dda-QP-gIt" secondAttribute="bottom" constant="5" id="AUq-pO-DWm"/>
+                            <constraint firstItem="Ot2-JJ-9LC" firstAttribute="leading" secondItem="lcx-q9-yUc" secondAttribute="leading" id="HVH-Kb-iFs"/>
+                            <constraint firstItem="Ot2-JJ-9LC" firstAttribute="top" secondItem="lcx-q9-yUc" secondAttribute="top" id="XYj-j0-1aT"/>
+                            <constraint firstAttribute="trailing" secondItem="dYZ-RX-g9n" secondAttribute="trailing" id="Ye1-1A-tcC"/>
+                            <constraint firstItem="QXj-0z-UFw" firstAttribute="top" secondItem="lcx-q9-yUc" secondAttribute="top" constant="25" id="dQG-0R-OUo"/>
+                            <constraint firstAttribute="trailing" secondItem="Ot2-JJ-9LC" secondAttribute="trailing" id="fYs-vR-hLp"/>
+                            <constraint firstItem="Dda-QP-gIt" firstAttribute="top" secondItem="Ot2-JJ-9LC" secondAttribute="bottom" constant="5" id="kG4-9M-wQ4"/>
+                            <constraint firstAttribute="trailing" secondItem="QXj-0z-UFw" secondAttribute="trailing" constant="12" id="v9D-ZU-Qwe"/>
+                            <constraint firstItem="dYZ-RX-g9n" firstAttribute="leading" secondItem="lcx-q9-yUc" secondAttribute="leading" id="zA2-Tf-TbD"/>
+                            <constraint firstItem="Dda-QP-gIt" firstAttribute="leading" secondItem="lcx-q9-yUc" secondAttribute="leading" id="zqY-BP-YHN"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="lcx-q9-yUc" secondAttribute="trailing" id="3I9-j8-032"/>
+                <constraint firstItem="lcx-q9-yUc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3cj-Gd-g5a"/>
+                <constraint firstAttribute="bottom" secondItem="lcx-q9-yUc" secondAttribute="bottom" id="M6Y-9h-AdH"/>
+                <constraint firstItem="lcx-q9-yUc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ujS-md-TY9"/>
+            </constraints>
+            <size key="customSize" width="160" height="257"/>
+            <connections>
+                <outlet property="productImage" destination="Ot2-JJ-9LC" id="e5N-yL-JAy"/>
+                <outlet property="productName" destination="Dda-QP-gIt" id="LPg-zh-hb2"/>
+                <outlet property="productPrice" destination="dYZ-RX-g9n" id="QgG-RN-6C7"/>
+            </connections>
+            <point key="canvasLocation" x="135.87786259541986" y="92.605633802816911"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Love" width="21" height="20"/>
+    </resources>
+</document>
