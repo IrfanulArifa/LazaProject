@@ -10,6 +10,7 @@ import SDWebImage
 
 class DetailViewController: UIViewController {
   
+  // MARK: Get Welcome Element Data
   var viewModel: WelcomeElement!
   
   @IBOutlet weak var imageDetail: UIImageView!
@@ -27,8 +28,9 @@ class DetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let image = URL(string: viewModel.image)
-    imageDetail.sd_setImage(with: image)
+    let image = URL(string: viewModel.image) // Convert ImageString into URL
+    imageDetail.sd_setImage(with: image) // Download image with SDWebImage Package
+    // Set data For View
     textCategory.text = viewModel.category.rawValue.capitalized
     titleDetail.text = viewModel.title
     priceTxtDetail.text = "$"+String(viewModel.price)
@@ -37,14 +39,17 @@ class DetailViewController: UIViewController {
     setRatingImage(viewModel.rating.rate)
   }
   
+  // MARK: Function that Configure Data from Collection into DetailView
   func configure(data: WelcomeElement) {
     viewModel = data
   }
   
+  // MARK: Back button when Clicked -> Back to Previous View
   @IBAction func backButtonClicked(_ sender: UIButton) {
     self.navigationController?.popViewController(animated: true)
   }
   
+  // MARK: Function that Set Star Image Style from RatingValue in API
   func setRatingImage(_ value: Double){
     if value == 5 {
       Star1.image = UIImage(systemName: "star.fill")

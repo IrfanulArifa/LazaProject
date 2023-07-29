@@ -1,13 +1,13 @@
 //
-//  WishlistViewController.swift
+//  UserViewController.swift
 //  LazaProject
 //
-//  Created by Irfanul Arifa on 27/07/23.
+//  Created by Irfanul Arifa on 29/07/23.
 //
 
 import UIKit
 
-class WishlistViewController: UIViewController {
+class UserViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()

@@ -9,18 +9,16 @@ import UIKit
 
 class NewPasswordViewController: UIViewController {
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    // Do any additional setup after loading the view.
-  }
+  override func viewDidLoad() { super.viewDidLoad() }
   
+  // MARK: Back Button Clicked -> Back to Previous View
   @IBAction func backButtonClicked(_ sender: UIButton) {
     self.navigationController?.popViewController(animated: true)
   }
+  
+  // MARK: Reset Password Clicked -> Go To Welcome View
   @IBAction func resetPasswordClicked(_ sender: UIButton) {
     let storyboard = UIStoryboard(name: "WelcomeViewController", bundle: nil).instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
-    self.navigationItem.title = ""
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
 }
