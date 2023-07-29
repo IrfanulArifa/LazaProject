@@ -24,6 +24,7 @@ class UpdatePasswordViewController: UIViewController {
       passwordTf.isSecureTextEntry = true
     }
   }
+  // Done
   
   @IBOutlet weak var emailTf: UITextField!
   @IBOutlet weak var firstNameTf: UITextField!
