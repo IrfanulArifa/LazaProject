@@ -19,7 +19,7 @@ class UserViewController: UIViewController {
     let label = UILabel()
     label.numberOfLines = 1
     label.textAlignment = .center
-    label.text = "Wishlist"
+    label.text = "User"
     label.font = UIFont(name: "Inter-Medium", size: 11)
     label.textColor = UIColor(named: "PurpleButton")
     label.sizeToFit()

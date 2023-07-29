@@ -10,15 +10,44 @@ import UIKit
 class LoginViewController: UIViewController {
   
   let viewModel = ViewModel()
+  private let userModel = UserModel()
   
   @IBOutlet weak var usernameTxtField: UITextField!
-  @IBOutlet weak var passwordTextField: UITextField!
-  @IBOutlet weak var validImage: UIImageView!
-  @IBOutlet weak var validText: UILabel!
+  @IBOutlet weak var passwordTextField: UITextField!{
+    didSet {
+      passwordTextField.isSecureTextEntry = true
+    }
+  }
+  
+  @IBOutlet weak var validImage: UIImageView!{
+    didSet {
+      validImage.isHidden = true
+    }
+  }
+  
+  @IBOutlet weak var validText: UILabel!{
+    didSet {
+      validText.isHidden = true
+    }
+  }
+  @IBOutlet weak var loginBtn: UIButton!{
+    didSet {
+      loginBtn.isEnabled = false
+      loginBtn.backgroundColor = UIColor(named: "invalidButton")
+    }
+  }
+  
+  @IBOutlet weak var loginBackground: UIView!{
+    didSet {
+      loginBackground.backgroundColor = UIColor(named: "invalidButton")
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     viewModel.loadDataUser()
+    passwordTextField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
+    usernameTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
   }
   
   // MARK: Back Button when Clicked -> Back to Previous View
@@ -39,6 +68,41 @@ class LoginViewController: UIViewController {
   }
   
   @objc func checkValidation() {
+    var isValidUsernameTxt = false
+    var isValidPasswordStat = false
+    let username = usernameTxtField.text
+    let password = passwordTextField.text
     
+    for uname in 0..<viewModel.userData.count{
+      if username == viewModel.userData[uname].username {
+        isValidUsernameTxt = true
+        break
+      } else {
+        isValidUsernameTxt = false
+      }
+    }
+    
+    for uname in 0..<viewModel.userData.count{
+      if password == viewModel.userData[uname].password {
+        isValidPasswordStat = true
+        break
+      } else {
+        isValidPasswordStat = false
+      }
+    }
+    
+    let isValidPasswordTxt = passwordTextField.validPassword(passwordTextField.text ?? "")
+    
+    if isValidUsernameTxt == true {
+      validImage.isHidden = false
+    }
+    
+    if isValidPasswordTxt && (isValidUsernameTxt && isValidPasswordStat) {
+      loginBtn.isEnabled = true
+      loginBtn.backgroundColor = UIColor(named: "PurpleButton")
+      loginBackground.backgroundColor = UIColor(named: "PurpleButton")
+      validText.isHidden = false
+      
+    }
   }
 }
