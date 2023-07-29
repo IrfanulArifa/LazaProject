@@ -43,7 +43,6 @@
 		00A74B402A72064300BB07B9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B3F2A72064300BB07B9 /* DetailViewController.swift */; };
 		00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A74B412A72065500BB07B9 /* DetailViewController.storyboard */; };
 		00A74B442A72465100BB07B9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B432A72465100BB07B9 /* OrderViewController.swift */; };
-		00A74B462A72467500BB07B9 /* MyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B452A72467500BB07B9 /* MyCardViewController.swift */; };
 		00A74B482A72468200BB07B9 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B472A72468200BB07B9 /* WishlistViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +81,6 @@
 		00A74B3F2A72064300BB07B9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		00A74B412A72065500BB07B9 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		00A74B432A72465100BB07B9 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
-		00A74B452A72467500BB07B9 /* MyCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardViewController.swift; sourceTree = "<group>"; };
 		00A74B472A72468200BB07B9 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,7 +205,6 @@
 				007B0F8C2A70F8D50034E7A5 /* HomepageViewController.swift */,
 				00A74B3F2A72064300BB07B9 /* DetailViewController.swift */,
 				00A74B432A72465100BB07B9 /* OrderViewController.swift */,
-				00A74B452A72467500BB07B9 /* MyCardViewController.swift */,
 				00A74B472A72468200BB07B9 /* WishlistViewController.swift */,
 				006B4C7D2A753AE2001247C4 /* UserViewController.swift */,
 			);
@@ -332,7 +329,6 @@
 				007B0F812A70CD430034E7A5 /* SignUpViewController.swift in Sources */,
 				007B0F7B2A70BF960034E7A5 /* StartedViewController.swift in Sources */,
 				00A74B482A72468200BB07B9 /* WishlistViewController.swift in Sources */,
-				00A74B462A72467500BB07B9 /* MyCardViewController.swift in Sources */,
 				007B0F8D2A70F8D50034E7A5 /* HomepageViewController.swift in Sources */,
 				007B0F952A710E3C0034E7A5 /* ShopModel.swift in Sources */,
 				007B0F982A71171D0034E7A5 /* ProductCollectionViewCell.swift in Sources */,

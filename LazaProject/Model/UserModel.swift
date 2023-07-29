@@ -14,14 +14,11 @@ struct UserModel {
   static let firstnameKey = "firstname"
   static let lastnameKey = "lastname"
   static let phoneKey = "phonenumber"
+  static let passwordKey = "password"
   
   static var stateLogin: Bool {
-    get {
-      return UserDefaults.standard.bool(forKey: stateLoginKey)
-    }
-    set {
-      UserDefaults.standard.set(newValue, forKey: stateLoginKey)
-    }
+    get { return UserDefaults.standard.bool(forKey: stateLoginKey) }
+    set { UserDefaults.standard.set(newValue, forKey: stateLoginKey) }
   }
   
   static var name: String {
@@ -47,6 +44,11 @@ struct UserModel {
   static var phonenumber: String {
     get { return UserDefaults.standard.string(forKey: phoneKey) ?? "" }
     set { UserDefaults.standard.set(newValue, forKey: phoneKey)}
+  }
+  
+  static var password: String {
+    get { return UserDefaults.standard.string(forKey: passwordKey) ?? "" }
+    set { UserDefaults.standard.set(newValue, forKey: passwordKey)}
   }
   
   static func deleteAll() -> Bool {

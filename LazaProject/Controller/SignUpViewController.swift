@@ -64,6 +64,9 @@ class SignUpViewController: UIViewController {
     passwordTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     emailAddressTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     phonenumberTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
+    usernameTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
+    firstnameTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
+    lastnameTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
   }
   
   // MARK: Back Button when Clicked -> Back to Previous View
@@ -81,6 +84,10 @@ class SignUpViewController: UIViewController {
     let validPasswordTxt = passwordTxtField.validPassword(passwordTxtField.text ?? "")
     let validEmailTxt = emailAddressTxtField.validEmail(emailAddressTxtField.text ?? "")
     let validNumberTxt = phonenumberTxtField.validNumber(phonenumberTxtField.text ?? "")
+    let validFirstNameTxt = firstnameTxtField.text !=  ""
+    let validLastNameTxt = lastnameTxtField.text != ""
+    let userNameTxt = usernameTxtField.text != ""
+    
     if validEmailTxt {
       validEmail.isHidden = false
     }
@@ -90,6 +97,22 @@ class SignUpViewController: UIViewController {
     }
     if validNumberTxt {
       validNumber.isHidden = false
+    }
+    
+    if validFirstNameTxt {
+      validFirstName.isHidden = false
+    }
+    
+    if validLastNameTxt {
+      validLastName.isHidden = false
+    }
+    
+    if userNameTxt {
+      validUsername.isHidden = false
+    }
+    
+    if ( validEmailTxt && validNumberTxt && validPasswordTxt && validNumberTxt && validFirstNameTxt && validLastNameTxt ) {
+      viewModel.saveProfil(name: usernameTxtField.text!, email: emailAddressTxtField.text!, firstname: firstnameTxtField.text!, lastname: lastnameTxtField.text!, phonenumber: phonenumberTxtField.text!, password: passwordTxtField.text!)
     }
   }
 }

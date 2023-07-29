@@ -73,7 +73,7 @@ class ViewModel {
   func getCategoriesData() async {
     do {
       welcome = try await getCategories()
-//      print(welcome)
+      //      print(welcome)
       reloadCategory?() // Closure For Reload Table
     } catch {
       print("Error")
@@ -94,9 +94,18 @@ class ViewModel {
   func getUserData() async {
     do {
       userData = try await getUser()
-//      print(userData)
     } catch {
       print("Error")
     }
+  }
+  
+  func saveProfil(name: String, email: String, firstname: String, lastname: String, phonenumber: String, password: String) {
+    UserModel.stateLogin = true
+    UserModel.name = name
+    UserModel.email = email
+    UserModel.firstname = firstname
+    UserModel.lastname = lastname
+    UserModel.phonenumber = phonenumber
+    UserModel.password = password
   }
 }
