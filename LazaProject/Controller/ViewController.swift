@@ -32,7 +32,9 @@ class ViewController: UIViewController {
     didSet{ skipBtn.titleLabel!.font = UIFont(name: "Inter", size: 17) }
   }
   
-  override func viewDidLoad() { super.viewDidLoad() }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
   
   // MARK: Men Button When Clicked -> Change to Started View
   @IBAction func menBtnClicked(_ sender: UIButton) {

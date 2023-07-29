@@ -18,7 +18,7 @@ class NewPasswordViewController: UIViewController {
   
   // MARK: Reset Password Clicked -> Go To Welcome View
   @IBAction func resetPasswordClicked(_ sender: UIButton) {
-    let storyboard = UIStoryboard(name: "WelcomeViewController", bundle: nil).instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+    let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
 }

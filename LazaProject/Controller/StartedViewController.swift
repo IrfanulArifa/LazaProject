@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FacebookLogin
 
 class StartedViewController: UIViewController {
   
@@ -16,6 +17,22 @@ class StartedViewController: UIViewController {
   
   override func viewDidLoad() { super.viewDidLoad() }
   
+  @IBAction func facebookButtonClicked(_ sender: Any) {
+    let loginManager = LoginManager()
+    loginManager.logIn(permissions: ["public_profile", "email"], from: self, handler: { result, error in
+      if error != nil {
+        print("ERROR: Trying to get login results")
+      } else if result?.isCancelled != nil {
+        print("The token is \(result?.token?.tokenString ?? "")")
+        if result?.token?.tokenString != nil {
+          print("Logged in")
+          //                        self.getUserProfile(token: result?.token, userId: result?.token?.userID)
+        } else {
+          print("Cancelled")
+        }
+      }
+    })
+  }
   // MARK: Create Button When Clicked -> Change to SignUp View
   @IBAction func CreateAccBtnClicked(_ sender: UIButton) {
     let storyboard = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
@@ -24,7 +41,7 @@ class StartedViewController: UIViewController {
   
   // MARK: SignIn Button When Clicked -> Change to Welcome View
   @IBAction func signInBtnClicked(_ sender: UIButton) {
-    let storyboard = UIStoryboard(name: "WelcomeViewController", bundle: nil).instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+    let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
   

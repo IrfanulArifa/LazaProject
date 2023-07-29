@@ -26,6 +26,7 @@ class HomepageViewController: UIViewController {
     // Load Data From API
     viewModel.loadData()
     
+    
     // Closure that Reload Collection Data
     viewModel.reloadCategory = {
       DispatchQueue.main.async {
@@ -38,10 +39,6 @@ class HomepageViewController: UIViewController {
       DispatchQueue.main.async {
         self.productCollection.reloadData()
       }
-    }
-    
-    // Closure that Reload Collection Data
-    viewModel.reloadUser = {
     }
     
     categoryCollection.dataSource = self

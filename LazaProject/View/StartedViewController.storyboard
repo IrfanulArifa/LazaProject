@@ -91,6 +91,9 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="facebookButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="TQY-at-nVH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLh-dF-5sL">
                                 <rect key="frame" x="20" y="383.66666666666669" width="353" height="50"/>

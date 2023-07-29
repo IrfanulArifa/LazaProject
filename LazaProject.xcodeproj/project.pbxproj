@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		006B4C7E2A753AE2001247C4 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C7D2A753AE2001247C4 /* UserViewController.swift */; };
+		006B4C812A755460001247C4 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 006B4C802A755460001247C4 /* FacebookCore */; };
+		006B4C832A755460001247C4 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 006B4C822A755460001247C4 /* FacebookLogin */; };
 		007B0F562A70B2410034E7A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F552A70B2410034E7A5 /* AppDelegate.swift */; };
 		007B0F582A70B2410034E7A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F572A70B2410034E7A5 /* SceneDelegate.swift */; };
 		007B0F5A2A70B2410034E7A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F592A70B2410034E7A5 /* ViewController.swift */; };
@@ -21,8 +23,8 @@
 		007B0F7D2A70CAD80034E7A5 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F7C2A70CAD80034E7A5 /* ViewModel.swift */; };
 		007B0F7F2A70CD350034E7A5 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B0F7E2A70CD350034E7A5 /* SignUpViewController.storyboard */; };
 		007B0F812A70CD430034E7A5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F802A70CD430034E7A5 /* SignUpViewController.swift */; };
-		007B0F832A70D5A30034E7A5 /* WelcomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B0F822A70D5A30034E7A5 /* WelcomeViewController.storyboard */; };
-		007B0F852A70D5BD0034E7A5 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F842A70D5BD0034E7A5 /* WelcomeViewController.swift */; };
+		007B0F832A70D5A30034E7A5 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B0F822A70D5A30034E7A5 /* LoginViewController.storyboard */; };
+		007B0F852A70D5BD0034E7A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F842A70D5BD0034E7A5 /* LoginViewController.swift */; };
 		007B0F872A70DF340034E7A5 /* NewPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B0F862A70DF340034E7A5 /* NewPasswordViewController.storyboard */; };
 		007B0F892A70DF450034E7A5 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F882A70DF450034E7A5 /* NewPasswordViewController.swift */; };
 		007B0F8B2A70F8C40034E7A5 /* HomepageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B0F8A2A70F8C40034E7A5 /* HomepageViewController.storyboard */; };
@@ -43,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		006B4C7D2A753AE2001247C4 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		006B4C842A7556A5001247C4 /* LazaProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LazaProject.entitlements; sourceTree = "<group>"; };
 		007B0F522A70B2410034E7A5 /* LazaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LazaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007B0F552A70B2410034E7A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		007B0F572A70B2410034E7A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,8 +61,8 @@
 		007B0F7C2A70CAD80034E7A5 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		007B0F7E2A70CD350034E7A5 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
 		007B0F802A70CD430034E7A5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		007B0F822A70D5A30034E7A5 /* WelcomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeViewController.storyboard; sourceTree = "<group>"; };
-		007B0F842A70D5BD0034E7A5 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		007B0F822A70D5A30034E7A5 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		007B0F842A70D5BD0034E7A5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		007B0F862A70DF340034E7A5 /* NewPasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewPasswordViewController.storyboard; sourceTree = "<group>"; };
 		007B0F882A70DF450034E7A5 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		007B0F8A2A70F8C40034E7A5 /* HomepageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomepageViewController.storyboard; sourceTree = "<group>"; };
@@ -81,7 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006B4C832A755460001247C4 /* FacebookLogin in Frameworks */,
 				007B0F9E2A7124E10034E7A5 /* SDWebImageMapKit in Frameworks */,
+				006B4C812A755460001247C4 /* FacebookCore in Frameworks */,
 				007B0F9C2A7124E10034E7A5 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +113,7 @@
 		007B0F542A70B2410034E7A5 /* LazaProject */ = {
 			isa = PBXGroup;
 			children = (
+				006B4C842A7556A5001247C4 /* LazaProject.entitlements */,
 				007B0F732A70B85E0034E7A5 /* Controller */,
 				007B0F6E2A70B2CA0034E7A5 /* Font */,
 				007B0F6D2A70B2C50034E7A5 /* Base */,
@@ -136,7 +142,7 @@
 				007B0F602A70B2420034E7A5 /* LaunchScreen.storyboard */,
 				007B0F782A70BF560034E7A5 /* StartedViewController.storyboard */,
 				007B0F7E2A70CD350034E7A5 /* SignUpViewController.storyboard */,
-				007B0F822A70D5A30034E7A5 /* WelcomeViewController.storyboard */,
+				007B0F822A70D5A30034E7A5 /* LoginViewController.storyboard */,
 				007B0F862A70DF340034E7A5 /* NewPasswordViewController.storyboard */,
 				007B0F8A2A70F8C40034E7A5 /* HomepageViewController.storyboard */,
 				00A74B412A72065500BB07B9 /* DetailViewController.storyboard */,
@@ -185,7 +191,7 @@
 				007B0F592A70B2410034E7A5 /* ViewController.swift */,
 				007B0F7A2A70BF960034E7A5 /* StartedViewController.swift */,
 				007B0F802A70CD430034E7A5 /* SignUpViewController.swift */,
-				007B0F842A70D5BD0034E7A5 /* WelcomeViewController.swift */,
+				007B0F842A70D5BD0034E7A5 /* LoginViewController.swift */,
 				007B0F882A70DF450034E7A5 /* NewPasswordViewController.swift */,
 				007B0F8C2A70F8D50034E7A5 /* HomepageViewController.swift */,
 				00A74B3F2A72064300BB07B9 /* DetailViewController.swift */,
@@ -234,6 +240,8 @@
 			packageProductDependencies = (
 				007B0F9B2A7124E10034E7A5 /* SDWebImage */,
 				007B0F9D2A7124E10034E7A5 /* SDWebImageMapKit */,
+				006B4C802A755460001247C4 /* FacebookCore */,
+				006B4C822A755460001247C4 /* FacebookLogin */,
 			);
 			productName = LazaProject;
 			productReference = 007B0F522A70B2410034E7A5 /* LazaProject.app */;
@@ -265,6 +273,7 @@
 			mainGroup = 007B0F492A70B2410034E7A5;
 			packageReferences = (
 				007B0F9A2A7124E10034E7A5 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				006B4C7F2A755460001247C4 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 007B0F532A70B2410034E7A5 /* Products */;
 			projectDirPath = "";
@@ -289,7 +298,7 @@
 				007B0F992A71171D0034E7A5 /* ProductCollectionViewCell.xib in Resources */,
 				007B0F5D2A70B2410034E7A5 /* Main.storyboard in Resources */,
 				007B0F932A710A660034E7A5 /* CategoryCollectionViewCell.xib in Resources */,
-				007B0F832A70D5A30034E7A5 /* WelcomeViewController.storyboard in Resources */,
+				007B0F832A70D5A30034E7A5 /* LoginViewController.storyboard in Resources */,
 				007B0F702A70B2F40034E7A5 /* Inter.ttf in Resources */,
 				007B0F872A70DF340034E7A5 /* NewPasswordViewController.storyboard in Resources */,
 			);
@@ -304,7 +313,7 @@
 			files = (
 				007B0F722A70B3030034E7A5 /* UIViewExt.swift in Sources */,
 				006B4C7E2A753AE2001247C4 /* UserViewController.swift in Sources */,
-				007B0F852A70D5BD0034E7A5 /* WelcomeViewController.swift in Sources */,
+				007B0F852A70D5BD0034E7A5 /* LoginViewController.swift in Sources */,
 				007B0F812A70CD430034E7A5 /* SignUpViewController.swift in Sources */,
 				007B0F7B2A70BF960034E7A5 /* StartedViewController.swift in Sources */,
 				00A74B482A72468200BB07B9 /* WishlistViewController.swift in Sources */,
@@ -464,6 +473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LazaProject/LazaProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W6HK24QZS4;
@@ -492,6 +502,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LazaProject/LazaProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W6HK24QZS4;
@@ -539,6 +550,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		006B4C7F2A755460001247C4 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.0;
+			};
+		};
 		007B0F9A2A7124E10034E7A5 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -550,6 +569,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		006B4C802A755460001247C4 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 006B4C7F2A755460001247C4 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		006B4C822A755460001247C4 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 006B4C7F2A755460001247C4 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
 		007B0F9B2A7124E10034E7A5 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 007B0F9A2A7124E10034E7A5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
