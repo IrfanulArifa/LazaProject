@@ -99,6 +99,4 @@ class ViewModel {
       print("Error")
     }
   }
-  
-  
 }

@@ -7,8 +7,12 @@
 
 import UIKit
 import FacebookLogin
+import Swifter
 
 class StartedViewController: UIViewController {
+  
+  //  var swifter: Swifter!
+  var accToken: Credential.OAuthAccessToken?
   
   // MARK: Font Setting Type
   @IBOutlet weak var startedTitleTxt: UILabel!{
@@ -17,7 +21,7 @@ class StartedViewController: UIViewController {
   
   override func viewDidLoad() { super.viewDidLoad() }
   
-  @IBAction func facebookButtonClicked(_ sender: Any) {
+  @IBAction func facebookButtonClicked(_ sender: UIButton) {
     let loginManager = LoginManager()
     loginManager.logIn(permissions: ["public_profile", "email"], from: self, handler: { result, error in
       if error != nil {
@@ -31,6 +35,15 @@ class StartedViewController: UIViewController {
           print("Cancelled")
         }
       }
+    })
+  }
+  @IBAction func twitterButtonClicked(_ sender: UIButton) {
+    let swifter = Swifter(consumerKey: TwitterConstants.CONSUMER_KEY, consumerSecret: TwitterConstants.CONSUMER_SECRET_KEY)
+    swifter.authorize(withCallback: URL(string: TwitterConstants.CALLBACK_URL)!, presentingFrom: self, success: { accessToken, _ in
+      self.accToken = accessToken
+      //            self.getUserProfile()
+    }, failure: { error in
+      print("ERROR: Trying to authorize - \(error)")
     })
   }
   // MARK: Create Button When Clicked -> Change to SignUp View

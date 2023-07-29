@@ -10,6 +10,8 @@
 		006B4C7E2A753AE2001247C4 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C7D2A753AE2001247C4 /* UserViewController.swift */; };
 		006B4C812A755460001247C4 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 006B4C802A755460001247C4 /* FacebookCore */; };
 		006B4C832A755460001247C4 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 006B4C822A755460001247C4 /* FacebookLogin */; };
+		006B4C872A756057001247C4 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 006B4C862A756057001247C4 /* Swifter */; };
+		006B4C892A7562AB001247C4 /* TwitterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C882A7562AB001247C4 /* TwitterConstants.swift */; };
 		007B0F562A70B2410034E7A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F552A70B2410034E7A5 /* AppDelegate.swift */; };
 		007B0F582A70B2410034E7A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F572A70B2410034E7A5 /* SceneDelegate.swift */; };
 		007B0F5A2A70B2410034E7A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F592A70B2410034E7A5 /* ViewController.swift */; };
@@ -46,6 +48,7 @@
 /* Begin PBXFileReference section */
 		006B4C7D2A753AE2001247C4 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		006B4C842A7556A5001247C4 /* LazaProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LazaProject.entitlements; sourceTree = "<group>"; };
+		006B4C882A7562AB001247C4 /* TwitterConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterConstants.swift; sourceTree = "<group>"; };
 		007B0F522A70B2410034E7A5 /* LazaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LazaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007B0F552A70B2410034E7A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		007B0F572A70B2410034E7A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 				007B0F9E2A7124E10034E7A5 /* SDWebImageMapKit in Frameworks */,
 				006B4C812A755460001247C4 /* FacebookCore in Frameworks */,
 				007B0F9C2A7124E10034E7A5 /* SDWebImage in Frameworks */,
+				006B4C872A756057001247C4 /* Swifter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				007B0F942A710E3C0034E7A5 /* ShopModel.swift */,
+				006B4C882A7562AB001247C4 /* TwitterConstants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				007B0F9D2A7124E10034E7A5 /* SDWebImageMapKit */,
 				006B4C802A755460001247C4 /* FacebookCore */,
 				006B4C822A755460001247C4 /* FacebookLogin */,
+				006B4C862A756057001247C4 /* Swifter */,
 			);
 			productName = LazaProject;
 			productReference = 007B0F522A70B2410034E7A5 /* LazaProject.app */;
@@ -274,6 +280,7 @@
 			packageReferences = (
 				007B0F9A2A7124E10034E7A5 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				006B4C7F2A755460001247C4 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				006B4C852A756056001247C4 /* XCRemoteSwiftPackageReference "Swifter" */,
 			);
 			productRefGroup = 007B0F532A70B2410034E7A5 /* Products */;
 			projectDirPath = "";
@@ -324,6 +331,7 @@
 				007B0F5A2A70B2410034E7A5 /* ViewController.swift in Sources */,
 				007B0F562A70B2410034E7A5 /* AppDelegate.swift in Sources */,
 				007B0F7D2A70CAD80034E7A5 /* ViewModel.swift in Sources */,
+				006B4C892A7562AB001247C4 /* TwitterConstants.swift in Sources */,
 				007B0F922A710A660034E7A5 /* CategoryCollectionViewCell.swift in Sources */,
 				00A74B442A72465100BB07B9 /* OrderViewController.swift in Sources */,
 				007B0F582A70B2410034E7A5 /* SceneDelegate.swift in Sources */,
@@ -558,6 +566,14 @@
 				minimumVersion = 14.0.0;
 			};
 		};
+		006B4C852A756056001247C4 /* XCRemoteSwiftPackageReference "Swifter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattdonnelly/Swifter";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		007B0F9A2A7124E10034E7A5 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -578,6 +594,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 006B4C7F2A755460001247C4 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookLogin;
+		};
+		006B4C862A756057001247C4 /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 006B4C852A756056001247C4 /* XCRemoteSwiftPackageReference "Swifter" */;
+			productName = Swifter;
 		};
 		007B0F9B2A7124E10034E7A5 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;

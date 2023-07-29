@@ -17,6 +17,15 @@
         "revision" : "633996a807442ec28df9d33b0f88ce57a0e2fdbf",
         "version" : "5.17.0"
       }
+    },
+    {
+      "identity" : "swifter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattdonnelly/Swifter",
+      "state" : {
+        "revision" : "50682ebe64e4c08f18957ccfd16888f035c20755",
+        "version" : "2.5.0"
+      }
     }
   ],
   "version" : 2

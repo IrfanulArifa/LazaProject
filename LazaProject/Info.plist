@@ -34,6 +34,14 @@
           <string>fb1094658281939538</string>
         </array>
       </dict>
+      <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>twittersigninexample</string>
+        </array>
+      </dict>
     </array>
     <key>FacebookAppID</key>
     <string>1094658281939538</string>
