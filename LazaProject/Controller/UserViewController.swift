@@ -9,27 +9,11 @@ import UIKit
 
 class UserViewController: UIViewController {
   
-  @IBOutlet weak var usernameDefault: UILabel!{
-    didSet {
-      usernameDefault.text = UserDefaults.standard.string(forKey: "name")
-    }
-  }
-  
-  @IBOutlet weak var emailDefault: UILabel!{
-    didSet {
-      emailDefault.text = UserDefaults.standard.string(forKey: "email")
-    }
-  }
-  
-  @IBOutlet weak var phoneNumberDefault: UILabel!{
-    didSet {
-      phoneNumberDefault.text = UserDefaults.standard.string(forKey: "phonenumber")
-    }
-  }
-  
+  @IBOutlet weak var usernameDefault: UILabel!
+  @IBOutlet weak var emailDefault: UILabel!
+  @IBOutlet weak var phoneNumberDefault: UILabel!
   @IBOutlet weak var passwordDefault: UITextField!{
     didSet {
-      passwordDefault.text = UserDefaults.standard.string(forKey: "password")
       passwordDefault.isSecureTextEntry = true
       passwordDefault.isEnabled = false
     }
@@ -39,8 +23,21 @@ class UserViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    UserModel.synchronize()
+    usernameDefault.text = UserDefaults.standard.string(forKey: "name")
+    passwordDefault.text = UserDefaults.standard.string(forKey: "password")
+    emailDefault.text = UserDefaults.standard.string(forKey: "email")
+    phoneNumberDefault.text = UserDefaults.standard.string(forKey: "phonenumber")
     setupTabBarItemImage() // Calling Function
     
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    UserModel.synchronize()
+    usernameDefault.text = UserDefaults.standard.string(forKey: "name")
+    passwordDefault.text = UserDefaults.standard.string(forKey: "password")
+    emailDefault.text = UserDefaults.standard.string(forKey: "email")
+    phoneNumberDefault.text = UserDefaults.standard.string(forKey: "phonenumber")
   }
   
   // MARK: Setup BarItem when Clicked Change into Text
@@ -72,5 +69,10 @@ class UserViewController: UIViewController {
       let storyboard = UIStoryboard(name: "StartedViewController", bundle: nil).instantiateViewController(withIdentifier: "StartedViewController") as! StartedViewController
       self.navigationController?.pushViewController(storyboard, animated: true)
     }
+  }
+  
+  @IBAction func editClicked(_ sender: Any) {
+    let storyboard = UIStoryboard(name: "UpdatePasswordViewController", bundle: nil).instantiateViewController(withIdentifier: "UpdatePasswordViewController") as! UpdatePasswordViewController
+    self.navigationController?.pushViewController(storyboard, animated: true)
   }
 }

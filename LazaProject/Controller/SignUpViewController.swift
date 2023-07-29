@@ -11,6 +11,13 @@ class SignUpViewController: UIViewController {
   
   let viewModel = ViewModel()
   
+  var validEmailTxt = false
+  var validPasswordTxt = false
+  var validNumberTxt = false
+  var validFirstNameTxt = false
+  var validLastNameTxt = false
+  var userNameTxt = false
+  
   @IBOutlet weak var usernameTxtField: UITextField!
   @IBOutlet weak var passwordTxtField: UITextField!{
     didSet {
@@ -76,17 +83,20 @@ class SignUpViewController: UIViewController {
   
   // MARK: SignUp Button when Clicked -> Go to Wellcome View
   @IBAction func signUpButtonClicked(_ sender: Any) {
-    let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-    self.navigationController?.pushViewController(storyboard, animated: true)
+    if ( validEmailTxt && validNumberTxt && validPasswordTxt && validNumberTxt && validFirstNameTxt && validLastNameTxt ) {
+      viewModel.saveProfil(name: usernameTxtField.text!, email: emailAddressTxtField.text!, firstname: firstnameTxtField.text!, lastname: lastnameTxtField.text!, phonenumber: phonenumberTxtField.text!, password: passwordTxtField.text!)
+      let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+      self.navigationController?.pushViewController(storyboard, animated: true)
+    }
   }
   
   @objc func checkValidation(){
-    let validPasswordTxt = passwordTxtField.validPassword(passwordTxtField.text ?? "")
-    let validEmailTxt = emailAddressTxtField.validEmail(emailAddressTxtField.text ?? "")
-    let validNumberTxt = phonenumberTxtField.validNumber(phonenumberTxtField.text ?? "")
-    let validFirstNameTxt = firstnameTxtField.text !=  ""
-    let validLastNameTxt = lastnameTxtField.text != ""
-    let userNameTxt = usernameTxtField.text != ""
+    validPasswordTxt = passwordTxtField.validPassword(passwordTxtField.text ?? "")
+    validEmailTxt = emailAddressTxtField.validEmail(emailAddressTxtField.text ?? "")
+    validNumberTxt = phonenumberTxtField.validNumber(phonenumberTxtField.text ?? "")
+    validFirstNameTxt = firstnameTxtField.text !=  ""
+    validLastNameTxt = lastnameTxtField.text != ""
+    userNameTxt = usernameTxtField.text != ""
     
     if validEmailTxt {
       validEmail.isHidden = false
@@ -109,10 +119,6 @@ class SignUpViewController: UIViewController {
     
     if userNameTxt {
       validUsername.isHidden = false
-    }
-    
-    if ( validEmailTxt && validNumberTxt && validPasswordTxt && validNumberTxt && validFirstNameTxt && validLastNameTxt ) {
-      viewModel.saveProfil(name: usernameTxtField.text!, email: emailAddressTxtField.text!, firstname: firstnameTxtField.text!, lastname: lastnameTxtField.text!, phonenumber: phonenumberTxtField.text!, password: passwordTxtField.text!)
     }
   }
 }

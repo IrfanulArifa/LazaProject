@@ -38,7 +38,7 @@ struct UserModel {
   
   static var lastname: String {
     get { return UserDefaults.standard.string(forKey: lastnameKey) ?? "" }
-    set { UserDefaults.standard.set(newValue, forKey: firstname) }
+    set { UserDefaults.standard.set(newValue, forKey: lastnameKey) }
   }
   
   static var phonenumber: String {

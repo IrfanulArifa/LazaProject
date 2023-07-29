@@ -198,6 +198,9 @@
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="editClicked:" destination="syy-KN-bV8" eventType="touchUpInside" id="SWx-6i-48p"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lK-Ds-zcH">
                                                 <rect key="frame" x="174" y="0.0" width="159" height="50"/>
