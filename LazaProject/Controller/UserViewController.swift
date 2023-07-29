@@ -66,8 +66,9 @@ class UserViewController: UIViewController {
   
   @IBAction func logoutButton(_ sender: UIButton) {
     if UserModel.deleteAll() {
-      let storyboard = UIStoryboard(name: "StartedViewController", bundle: nil).instantiateViewController(withIdentifier: "StartedViewController") as! StartedViewController
-      self.navigationController?.pushViewController(storyboard, animated: true)
+      UserModel.stateLogin = false
+//      let storyboard = UIStoryboard(name: "StartedViewController", bundle: nil).instantiateViewController(withIdentifier: "StartedViewController") as! StartedViewController
+//      self.navigationController?.pushViewController(storyboard, animated: true)
     }
   }
   

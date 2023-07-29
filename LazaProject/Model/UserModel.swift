@@ -8,6 +8,7 @@
 import Foundation
 
 struct UserModel {
+  // MARK: Declare User Model
   static let stateLoginKey = "state"
   static let nameKey = "name"
   static let emailKey = "email"
@@ -16,6 +17,7 @@ struct UserModel {
   static let phoneKey = "phonenumber"
   static let passwordKey = "password"
   
+  // Encaptulation ??
   static var stateLogin: Bool {
     get { return UserDefaults.standard.bool(forKey: stateLoginKey) }
     set { UserDefaults.standard.set(newValue, forKey: stateLoginKey) }
@@ -51,6 +53,7 @@ struct UserModel {
     set { UserDefaults.standard.set(newValue, forKey: passwordKey)}
   }
   
+  // MARK: For Deleting All User
   static func deleteAll() -> Bool {
     if let domain = Bundle.main.bundleIdentifier {
       UserDefaults.standard.removePersistentDomain(forName: domain)
@@ -59,6 +62,7 @@ struct UserModel {
     } else { return false }
   }
   
+  // MARK : Synchronize
   static func synchronize() {
     UserDefaults.standard.synchronize()
   }

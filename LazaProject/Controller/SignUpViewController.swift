@@ -90,6 +90,8 @@ class SignUpViewController: UIViewController {
     }
   }
   
+  
+  // MARK: Check Validation For Textfields
   @objc func checkValidation(){
     validPasswordTxt = passwordTxtField.validPassword(passwordTxtField.text ?? "")
     validEmailTxt = emailAddressTxtField.validEmail(emailAddressTxtField.text ?? "")
