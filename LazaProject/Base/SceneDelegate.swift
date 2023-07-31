@@ -14,23 +14,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     guard let _ = (scene as? UIWindowScene) else { return }
-    
-//    let initialViewController: UIViewController?
-//
-//    window = UIWindow(windowScene: windowScene)
-//    if UserModel.stateLogin {
-//      let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
-//      initialViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-//
-//    } else {
-//
-//      let storyboard = UIStoryboard(name: "StartedViewController", bundle: nil)
-//      initialViewController = storyboard
-//        .instantiateViewController(withIdentifier: "StartedViewController") as! StartedViewController
-//    }
-//
-//    window?.rootViewController = initialViewController
-//    window?.makeKeyAndVisible()
   }
   
   func sceneDidDisconnect(_ scene: UIScene) {

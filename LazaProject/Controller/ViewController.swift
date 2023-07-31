@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
   
   let viewModel = ViewModel()
+  let userModel = UserModel()
   
   // MARK: View Settings -> Change Font Type
   @IBOutlet weak var titleTxt: UILabel!{
@@ -34,6 +35,10 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    if UserDefaults.standard.bool(forKey: "state") {
+      let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+      self.navigationController?.pushViewController(storyboard, animated: true)
+    }
   }
   
   // MARK: Men Button When Clicked -> Change to Started View
