@@ -7,10 +7,17 @@
 
 import UIKit
 import SDWebImage
+import SideMenu
 
 class HomepageViewController: UIViewController {
   // MARK: Assign View Model
   let viewModel = ViewModel()
+  
+  @IBOutlet weak var menuButton: UIButton! {
+    didSet {
+      menuButton.addTarget(self, action: #selector(sideMenuPressed), for: .touchUpInside)
+    }
+  }
   
   @IBOutlet weak var searchBarStyle: UISearchBar!{
     didSet{ searchBarStyle.searchBarStyle = .minimal } // Change Bar Style to Minimal
@@ -68,6 +75,16 @@ class HomepageViewController: UIViewController {
     
     tabBarItem.standardAppearance?.selectionIndicatorTintColor = UIColor(named: "PurpleButton")
     tabBarItem.selectedImage = UIImage(view: label)
+  }
+  @IBAction func sideMenuClicked(_ sender: Any) {
+//    performSegue(withIdentifier: "SideMenu", sender: self)
+  }
+  
+  @objc func sideMenuPressed() {
+    let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
+    let vc = storyboard.instantiateViewController(identifier: "SideMenuViewController")
+    let sideMenuNav = SideMenuNavigationController(rootViewController: vc)
+    navigationController?.present(sideMenuNav, animated: true)
   }
 }
 
