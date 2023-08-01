@@ -10,6 +10,10 @@
 		00024A3B2A75B44D00B6A4B0 /* UpdatePasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00024A3A2A75B44D00B6A4B0 /* UpdatePasswordViewController.storyboard */; };
 		00024A3D2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00024A3C2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift */; };
 		003CE9762A776326008D32FA /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 003CE9752A776326008D32FA /* SideMenu */; };
+		003CE9B22A779393008D32FA /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */; };
+		003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */; };
+		003CE9B62A7793A6008D32FA /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */; };
+		003CE9B72A7793A6008D32FA /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */; };
 		006B4C7E2A753AE2001247C4 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C7D2A753AE2001247C4 /* UserViewController.swift */; };
 		006B4C812A755460001247C4 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 006B4C802A755460001247C4 /* FacebookCore */; };
 		006B4C832A755460001247C4 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 006B4C822A755460001247C4 /* FacebookLogin */; };
@@ -52,6 +56,10 @@
 /* Begin PBXFileReference section */
 		00024A3A2A75B44D00B6A4B0 /* UpdatePasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdatePasswordViewController.storyboard; sourceTree = "<group>"; };
 		00024A3C2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
+		003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		006B4C7D2A753AE2001247C4 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		006B4C842A7556A5001247C4 /* LazaProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LazaProject.entitlements; sourceTree = "<group>"; };
 		006B4C882A7562AB001247C4 /* TwitterConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterConstants.swift; sourceTree = "<group>"; };
@@ -106,6 +114,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		003CE9AF2A77937C008D32FA /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				003CE9B92A7793B1008D32FA /* Controller */,
+				003CE9B82A7793AB008D32FA /* Cell */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		003CE9B82A7793AB008D32FA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				007B0F8E2A7109630034E7A5 /* Cell */,
+				003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */,
+				003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		003CE9B92A7793B1008D32FA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */,
+				003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		007B0F492A70B2410034E7A5 = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +187,7 @@
 		007B0F6A2A70B2A30034E7A5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				007B0F8E2A7109630034E7A5 /* Cell */,
+				003CE9AF2A77937C008D32FA /* TableViewCell */,
 				007B0F602A70B2420034E7A5 /* LaunchScreen.storyboard */,
 				007B0F782A70BF560034E7A5 /* StartedViewController.storyboard */,
 				007B0F7E2A70CD350034E7A5 /* SignUpViewController.storyboard */,
@@ -310,11 +346,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				007B0F7F2A70CD350034E7A5 /* SignUpViewController.storyboard in Resources */,
+				003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */,
 				00024A3B2A75B44D00B6A4B0 /* UpdatePasswordViewController.storyboard in Resources */,
 				007B0F622A70B2420034E7A5 /* LaunchScreen.storyboard in Resources */,
 				007B0F792A70BF560034E7A5 /* StartedViewController.storyboard in Resources */,
 				007B0F8B2A70F8C40034E7A5 /* HomepageViewController.storyboard in Resources */,
 				00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */,
+				003CE9B72A7793A6008D32FA /* ProductTableViewCell.xib in Resources */,
 				007B0F5F2A70B2420034E7A5 /* Assets.xcassets in Resources */,
 				007B0F992A71171D0034E7A5 /* ProductCollectionViewCell.xib in Resources */,
 				007B0F5D2A70B2410034E7A5 /* Main.storyboard in Resources */,
@@ -341,6 +379,7 @@
 				007B0F7B2A70BF960034E7A5 /* StartedViewController.swift in Sources */,
 				00A74B482A72468200BB07B9 /* WishlistViewController.swift in Sources */,
 				007B0F8D2A70F8D50034E7A5 /* HomepageViewController.swift in Sources */,
+				003CE9B62A7793A6008D32FA /* ProductTableViewCell.swift in Sources */,
 				007B0F952A710E3C0034E7A5 /* ShopModel.swift in Sources */,
 				007B0F982A71171D0034E7A5 /* ProductCollectionViewCell.swift in Sources */,
 				00024A3D2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift in Sources */,
@@ -349,6 +388,7 @@
 				007B0F7D2A70CAD80034E7A5 /* ViewModel.swift in Sources */,
 				006B4C892A7562AB001247C4 /* TwitterConstants.swift in Sources */,
 				007B0F922A710A660034E7A5 /* CategoryCollectionViewCell.swift in Sources */,
+				003CE9B22A779393008D32FA /* CategoryTableViewCell.swift in Sources */,
 				00A74B442A72465100BB07B9 /* OrderViewController.swift in Sources */,
 				007B0F582A70B2410034E7A5 /* SceneDelegate.swift in Sources */,
 				007B0F892A70DF450034E7A5 /* NewPasswordViewController.swift in Sources */,
