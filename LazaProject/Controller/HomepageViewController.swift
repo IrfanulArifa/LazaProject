@@ -29,20 +29,18 @@ class HomepageViewController: UIViewController {
     categoryTableView.dataSource = self
     categoryTableView.delegate = self
     categoryTableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoryTableViewCell")
-    categoryTableView.register(UINib(nibName: "ProductTableViewCell", bundle: nil), forCellReuseIdentifier: "")
+    categoryTableView.register(UINib(nibName: "ProductTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductTableViewCell")
     
     
     // Closure that Reload Collection Data
     viewModel.reloadProduct = {
       DispatchQueue.main.async {
-        print("Product Reload")
         self.categoryTableView.reloadData()
       }
     }
     // Closure that Reload Collection Data
     viewModel.reloadCategory = {
       DispatchQueue.main.async {
-        print("Category Reload")
         self.categoryTableView.reloadData()
       }
     }
@@ -88,17 +86,14 @@ extension HomepageViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    print("Masuk Pak Eko")
     if indexPath.row < 1 {
       guard let cellA = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell") as? CategoryTableViewCell else { return UITableViewCell() }
       cellA.configure(viewModel.welcome)
-      print("Pak ekonya disini")
       return cellA
     } else {
       guard let cellB = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell") as? ProductTableViewCell else { return UITableViewCell() }
+      cellB.delegate = self
       cellB.configuring(viewModel.welcomeElement)
-      print(viewModel.welcomeElement.count)
-      print("Masukknya kesini")
       return cellB
     }
     //    if indexPath.section == 0 {
@@ -112,11 +107,24 @@ extension HomepageViewController: UITableViewDataSource {
 
 extension HomepageViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 150
+    if indexPath.row < 1 {
+      return 150
+    } else {
+      return UITableView.automaticDimension
+    }
   }
 }
 
-
+extension HomepageViewController: ProductTableViewCellDelegate {
+  func productDidSelectItemAt(didSelectItemAt indexPath: IndexPath) {
+    print("Selected at: \(indexPath.item)")
+    let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
+    guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+    vc.configure(data: viewModel.welcomeElement[indexPath.item])
+    navigationController?.pushViewController(vc, animated: true)
+//    print("Datanya Ada", dataProduct[indexPath.row])
+  }
+}
 
 //extension HomepageViewController: UICollectionViewDataSource {
 //  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

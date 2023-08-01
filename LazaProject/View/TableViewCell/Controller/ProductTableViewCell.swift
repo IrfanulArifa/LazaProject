@@ -8,10 +8,16 @@
 import UIKit
 import SDWebImage
 
+protocol ProductTableViewCellDelegate: AnyObject {
+  func productDidSelectItemAt(didSelectItemAt indexPath: IndexPath)
+}
+
 class ProductTableViewCell: UITableViewCell {
   
   private var dataProduct = WelcomeProduct()
   var viewModel = ViewModel()
+  
+  weak var delegate: ProductTableViewCellDelegate?
   
   @IBOutlet weak var productCollectionView: UICollectionView!
   override func awakeFromNib() {
@@ -53,14 +59,15 @@ extension ProductTableViewCell: UICollectionViewDataSource {
   
 }
 
-extension ProductTableViewCell: UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-    let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
-    guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-    vc.configure(data: viewModel.welcomeElement[indexPath.item])
-    vc.navigationController?.pushViewController(vc, animated: true)
-  }
-}
+//extension ProductTableViewCell: UICollectionViewDelegate {
+//  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//    let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
+//    guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+//    vc.configure(data: dataProduct[indexPath.row])
+//    print("Datanya Ada", dataProduct[indexPath.row])
+////    self.navigationController?.pushViewController(vc, animated: true)
+//  }
+//}
 
 extension ProductTableViewCell: UICollectionViewDelegateFlowLayout {
   public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -68,5 +75,8 @@ extension ProductTableViewCell: UICollectionViewDelegateFlowLayout {
   }
   public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
     return 20
+  }
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    delegate?.productDidSelectItemAt(didSelectItemAt: indexPath)
   }
 }

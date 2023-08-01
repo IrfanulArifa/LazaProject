@@ -18,4 +18,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
+  @IBAction func crashButton(_ sender: Any) {
+    print("Putut")
+  }
 }

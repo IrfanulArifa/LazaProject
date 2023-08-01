@@ -42,24 +42,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Love" translatesAutoresizingMaskIntoConstraints="NO" id="QXj-0z-UFw">
-                                <rect key="frame" x="128" y="25" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="fsi-eN-Mwf"/>
-                                    <constraint firstAttribute="width" constant="20" id="i9K-Bp-Xff"/>
-                                </constraints>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gen-DY-HIL">
+                                <rect key="frame" x="105" y="20" width="45" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Love" title=""/>
+                                <connections>
+                                    <action selector="crashButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="2MU-eO-L3j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Dda-QP-gIt" secondAttribute="trailing" id="3d6-or-ZQh"/>
+                            <constraint firstItem="gen-DY-HIL" firstAttribute="top" secondItem="lcx-q9-yUc" secondAttribute="top" constant="20" id="9R8-qs-X6E"/>
                             <constraint firstItem="dYZ-RX-g9n" firstAttribute="top" secondItem="Dda-QP-gIt" secondAttribute="bottom" constant="5" id="AUq-pO-DWm"/>
                             <constraint firstItem="Ot2-JJ-9LC" firstAttribute="leading" secondItem="lcx-q9-yUc" secondAttribute="leading" id="HVH-Kb-iFs"/>
                             <constraint firstItem="Ot2-JJ-9LC" firstAttribute="top" secondItem="lcx-q9-yUc" secondAttribute="top" id="XYj-j0-1aT"/>
                             <constraint firstAttribute="trailing" secondItem="dYZ-RX-g9n" secondAttribute="trailing" id="Ye1-1A-tcC"/>
-                            <constraint firstItem="QXj-0z-UFw" firstAttribute="top" secondItem="lcx-q9-yUc" secondAttribute="top" constant="25" id="dQG-0R-OUo"/>
                             <constraint firstAttribute="trailing" secondItem="Ot2-JJ-9LC" secondAttribute="trailing" id="fYs-vR-hLp"/>
                             <constraint firstItem="Dda-QP-gIt" firstAttribute="top" secondItem="Ot2-JJ-9LC" secondAttribute="bottom" constant="5" id="kG4-9M-wQ4"/>
-                            <constraint firstAttribute="trailing" secondItem="QXj-0z-UFw" secondAttribute="trailing" constant="12" id="v9D-ZU-Qwe"/>
+                            <constraint firstAttribute="trailing" secondItem="gen-DY-HIL" secondAttribute="trailing" constant="10" id="mEx-H7-i1M"/>
                             <constraint firstItem="dYZ-RX-g9n" firstAttribute="leading" secondItem="lcx-q9-yUc" secondAttribute="leading" id="zA2-Tf-TbD"/>
                             <constraint firstItem="Dda-QP-gIt" firstAttribute="leading" secondItem="lcx-q9-yUc" secondAttribute="leading" id="zqY-BP-YHN"/>
                         </constraints>
