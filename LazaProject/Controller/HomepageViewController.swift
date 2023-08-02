@@ -52,6 +52,7 @@ class HomepageViewController: UIViewController {
     
     // Setup Tab Bar item Function Calling
     setupTabBarItemImage()
+    
   }
   
   // Making a Function that Transform TabBar when Clicked from Logo into Text
@@ -67,11 +68,17 @@ class HomepageViewController: UIViewController {
     tabBarItem.selectedImage = UIImage(view: label)
   }
   
-  @objc func sideMenuPressed() {
+  @IBAction func MenuButtonClicked(_ sender: UIButton) {
     let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
-    let vc = storyboard.instantiateViewController(identifier: "SideMenuViewController")
-    let sideMenuNav = SideMenuNavigationController(rootViewController: vc)
-    navigationController?.present(sideMenuNav, animated: true)
+    let vc = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController")
+    let sideMenu = SideMenuNavigationController(rootViewController: vc)
+    
+    
+    sideMenu.presentationStyle = .menuSlideIn
+    sideMenu.blurEffectStyle = .prominent
+    sideMenu.leftSide = true
+    sideMenu.menuWidth = 330
+    present(sideMenu, animated: true)
   }
 }
 
@@ -96,12 +103,6 @@ extension HomepageViewController: UITableViewDataSource {
       cellB.configuring(viewModel.welcomeElement)
       return cellB
     }
-    //    if indexPath.section == 0 {
-    
-    //    }
-    //
-    
-    //      return UITableViewCell()
   }
 }
 
@@ -122,91 +123,5 @@ extension HomepageViewController: ProductTableViewCellDelegate {
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
     vc.configure(data: viewModel.welcomeElement[indexPath.item])
     navigationController?.pushViewController(vc, animated: true)
-//    print("Datanya Ada", dataProduct[indexPath.row])
   }
 }
-
-//extension HomepageViewController: UICollectionViewDataSource {
-//  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//
-//    // Choosing which one Collection will assign the Value
-////    if collectionView == self.categoryCollection {
-////      return viewModel.welcome.count // return Welcome data Count
-////    }
-////    return viewModel.welcomeElement.count // return Welcome Element Data Count
-//  }
-
-// MARK: Extension that Set the Item for Collection View
-//  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-// Choosing which one Collection will assign the Value
-//    if collectionView == self.categoryCollection {
-//      // dequeue Cell
-//      guard let cellA = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell() }
-//      // Call welcome Data
-//      let category = viewModel.welcome[indexPath.item]
-//      // Set the Cell View from Welcome Data
-//      cellA.categoryTxt.text = category.capitalized
-//      return cellA // Returning Cell Data into Collection
-//    } else {
-//      // dequeue Cell
-//      guard let cellB = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as? ProductCollectionViewCell else { return UICollectionViewCell() }
-//      // Call Welcome Element Data
-//      let product = viewModel.welcomeElement[indexPath.item]
-//      // Set the Cell View from Welcome Element Data
-//      cellB.productName.text = product.title
-//      let imageURL = product.image // Assign Data From API into new Constant
-//      cellB.productImage.sd_setImage(with: URL(string:imageURL)) // Convert variable into URL, download image with SDWebImage Package
-//      cellB.productPrice.text = String(product.price)
-//      return cellB // Returning Cell data into Collection
-//    }
-//  }
-//
-//
-//}
-
-// MARK: For Collection Delegate
-//extension HomepageViewController: UICollectionViewDelegate {
-////  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-////
-////    // Choosing which one Collection will assign the Value
-//////    if collectionView == self.productCollection {
-//////      let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
-//////      guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-//////      vc.configure(data: viewModel.welcomeElement[indexPath.item]) // Value Configuration from Collection to Detail View
-//////      navigationController?.pushViewController(vc, animated: true)
-//////    }
-////  }
-//}
-
-// MARK: Flowlayout Setting
-//extension HomepageViewController: UICollectionViewDelegateFlowLayout {
-////  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-////
-////    // Choosing which one Collection will assign the Value
-//////    if collectionView == categoryCollection {
-//////      return CGSize(width: 150, height: 50) // Set the Width and Height for Category
-//////    }
-//////    return CGSize(width: 165, height: 300) // Set the Width and Height for Product
-////  }
-//
-////  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-////
-////    // Choosing which one Collection will assign the Value
-//////    if collectionView == categoryCollection {
-//////      return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) // UIEdgeInset
-//////    }
-//////    return UIEdgeInsets(top: 0, left: 00, bottom: 0, right: 0) // UIEdgeInset
-////  }
-//
-////  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-////
-////    // Choosing which one Collection will assign the Value
-//////    if collectionView == categoryCollection {
-//////      return 10 // For Category
-//////    }
-//////    return 20 // For Product
-////  }
-//}
-
-

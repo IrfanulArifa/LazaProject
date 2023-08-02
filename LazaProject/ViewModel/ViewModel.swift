@@ -73,7 +73,6 @@ class ViewModel {
   func getCategoriesData() async {
     do {
       welcome = try await getCategories()
-      //      print(welcome)
       reloadCategory?() // Closure For Reload Table
     } catch {
       print("Error")

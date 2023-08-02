@@ -13,30 +13,14 @@ class DetailViewController: UIViewController {
   // MARK: Get Welcome Element Data
   var viewModel: WelcomeElement!
   
-  @IBOutlet weak var imageDetail: UIImageView!
-  @IBOutlet weak var textCategory: UILabel!
-  @IBOutlet weak var titleDetail: UILabel!
-  @IBOutlet weak var priceTxtDetail: UILabel!
-  @IBOutlet weak var descriptionTxtDetail: UILabel!
-  @IBOutlet weak var textRatingDetail: UILabel!
-  
-  @IBOutlet weak var Star1: UIImageView!
-  @IBOutlet weak var star2: UIImageView!
-  @IBOutlet weak var star3: UIImageView!
-  @IBOutlet weak var star4: UIImageView!
-  @IBOutlet weak var star5: UIImageView!
+  @IBOutlet weak var detailTableView: IntrinsicTableView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let image = URL(string: viewModel.image) // Convert ImageString into URL
-    imageDetail.sd_setImage(with: image) // Download image with SDWebImage Package
-    // Set data For View
-    textCategory.text = viewModel.category.rawValue.capitalized
-    titleDetail.text = viewModel.title
-    priceTxtDetail.text = "$"+String(viewModel.price)
-    descriptionTxtDetail.text = viewModel.description
-    textRatingDetail.text = " "+String(viewModel.rating.rate)
-    setRatingImage(viewModel.rating.rate)
+    detailTableView.delegate = self
+    detailTableView.dataSource = self
+    
+    detailTableView.register(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCell")
   }
   
   // MARK: Function that Configure Data from Collection into DetailView
@@ -49,68 +33,104 @@ class DetailViewController: UIViewController {
     self.navigationController?.popViewController(animated: true)
   }
   
+  
   // MARK: Function that Set Star Image Style from RatingValue in API
-  func setRatingImage(_ value: Double){
-    if value == 5 {
-      Star1.image = UIImage(systemName: "star.fill")
-      star2.image = UIImage(systemName: "star.fill")
-      star3.image = UIImage(systemName: "star.fill")
-      star4.image = UIImage(systemName: "star.fill")
-      star5.image = UIImage(systemName: "star.fill")
-      
-      Star1.tintColor = .systemYellow
-      star2.tintColor = .systemYellow
-      star3.tintColor = .systemYellow
-      star4.tintColor = .systemYellow
-      star5.tintColor = .systemYellow
-    } else if value >= 4 && value < 5 {
-      Star1.image = UIImage(systemName: "star.fill")
-      star2.image = UIImage(systemName: "star.fill")
-      star3.image = UIImage(systemName: "star.fill")
-      star4.image = UIImage(systemName: "star.fill")
-      star5.image = UIImage(systemName: "star")
-      
-      Star1.tintColor = .systemYellow
-      star2.tintColor = .systemYellow
-      star3.tintColor = .systemYellow
-      star4.tintColor = .systemYellow
-      star5.tintColor = .systemGray
-    } else if value >= 3 && value < 4 {
-      Star1.image = UIImage(systemName: "star.fill")
-      star2.image = UIImage(systemName: "star.fill")
-      star3.image = UIImage(systemName: "star.fill")
-      star4.image = UIImage(systemName: "star")
-      star5.image = UIImage(systemName: "star")
-      
-      Star1.tintColor = .systemYellow
-      star2.tintColor = .systemYellow
-      star3.tintColor = .systemYellow
-      star4.tintColor = .systemGray
-      star5.tintColor = .systemGray
-    } else if value >= 2 && value < 3 {
-      Star1.image = UIImage(systemName: "star.fill")
-      star2.image = UIImage(systemName: "star.fill")
-      star3.image = UIImage(systemName: "star")
-      star4.image = UIImage(systemName: "star")
-      star5.image = UIImage(systemName: "star")
-      
-      Star1.tintColor = .systemYellow
-      star2.tintColor = .systemYellow
-      star3.tintColor = .systemGray
-      star4.tintColor = .systemGray
-      star5.tintColor = .systemGray
-    } else if value >= 1 && value < 2 {
-      Star1.image = UIImage(systemName: "star.fill")
-      star2.image = UIImage(systemName: "star")
-      star3.image = UIImage(systemName: "star")
-      star4.image = UIImage(systemName: "star")
-      star5.image = UIImage(systemName: "star")
-      
-      Star1.tintColor = .systemYellow
-      star2.tintColor = .systemGray
-      star3.tintColor = .systemGray
-      star4.tintColor = .systemGray
-      star5.tintColor = .systemGray
+  override func viewDidAppear(_ animated: Bool) {
+    detailTableView.reloadData()
+  }
+  
+}
+
+extension DetailViewController : UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell") as? DetailTableViewCell else { return UITableViewCell() }
+    let imageURL = viewModel.image
+    cell.imageDetail.sd_setImage(with: URL(string: imageURL))
+    cell.priceDetailLabel.text = "$" + String(viewModel.price)
+    cell.reviewValueDetail.text = String(viewModel.rating.rate)
+    cell.categoryDetailLabel.text = viewModel.category.rawValue
+    cell.productNameDetailLabel.text = viewModel.title
+    cell.descriptionDetail.text = viewModel.description
+    
+    setRatingImage(viewModel.rating.rate)
+    
+    func setRatingImage(_ value: Double){
+      if value == 5 {
+        cell.star1.image = UIImage(systemName: "star.fill")
+        cell.star2.image = UIImage(systemName: "star.fill")
+        cell.star3.image = UIImage(systemName: "star.fill")
+        cell.star4.image = UIImage(systemName: "star.fill")
+        cell.star5.image = UIImage(systemName: "star.fill")
+        
+        cell.star1.tintColor = .systemYellow
+        cell.star2.tintColor = .systemYellow
+        cell.star3.tintColor = .systemYellow
+        cell.star4.tintColor = .systemYellow
+        cell.star5.tintColor = .systemYellow
+      } else if value >= 4 && value < 5 {
+        cell.star1.image = UIImage(systemName: "star.fill")
+        cell.star2.image = UIImage(systemName: "star.fill")
+        cell.star3.image = UIImage(systemName: "star.fill")
+        cell.star4.image = UIImage(systemName: "star.fill")
+        cell.star5.image = UIImage(systemName: "star")
+        
+        cell.star1.tintColor = .systemYellow
+        cell.star2.tintColor = .systemYellow
+        cell.star3.tintColor = .systemYellow
+        cell.star4.tintColor = .systemYellow
+        cell.star5.tintColor = .systemGray
+      } else if value >= 3 && value < 4 {
+        cell.star1.image = UIImage(systemName: "star.fill")
+        cell.star2.image = UIImage(systemName: "star.fill")
+        cell.star3.image = UIImage(systemName: "star.fill")
+        cell.star4.image = UIImage(systemName: "star")
+        cell.star5.image = UIImage(systemName: "star")
+        
+        cell.star1.tintColor = .systemYellow
+        cell.star2.tintColor = .systemYellow
+        cell.star3.tintColor = .systemYellow
+        cell.star4.tintColor = .systemGray
+        cell.star5.tintColor = .systemGray
+      } else if value >= 2 && value < 3 {
+        cell.star1.image = UIImage(systemName: "star.fill")
+        cell.star2.image = UIImage(systemName: "star.fill")
+        cell.star3.image = UIImage(systemName: "star")
+        cell.star4.image = UIImage(systemName: "star")
+        cell.star5.image = UIImage(systemName: "star")
+        
+        cell.star1.tintColor = .systemYellow
+        cell.star2.tintColor = .systemYellow
+        cell.star3.tintColor = .systemGray
+        cell.star4.tintColor = .systemGray
+        cell.star5.tintColor = .systemGray
+      } else if value >= 1 && value < 2 {
+        cell.star1.image = UIImage(systemName: "star.fill")
+        cell.star2.image = UIImage(systemName: "star")
+        cell.star3.image = UIImage(systemName: "star")
+        cell.star4.image = UIImage(systemName: "star")
+        cell.star5.image = UIImage(systemName: "star")
+        
+        cell.star1.tintColor = .systemYellow
+        cell.star2.tintColor = .systemGray
+        cell.star3.tintColor = .systemGray
+        cell.star4.tintColor = .systemGray
+        cell.star5.tintColor = .systemGray
+      }
     }
+    return cell
+  }
+  
+  
+  
+  
+}
+
+extension DetailViewController : UITableViewDelegate {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 1300
   }
 }

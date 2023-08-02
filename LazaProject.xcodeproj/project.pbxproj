@@ -11,6 +11,9 @@
 		00024A3D2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00024A3C2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift */; };
 		001859B52A78E6E7004EF0D5 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */; };
 		001859B72A78E737004EF0D5 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */; };
+		001859BB2A7A0478004EF0D5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */; };
+		001859BE2A7A0895004EF0D5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859BC2A7A0895004EF0D5 /* DetailTableViewCell.swift */; };
+		001859BF2A7A0895004EF0D5 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001859BD2A7A0895004EF0D5 /* DetailTableViewCell.xib */; };
 		003CE9762A776326008D32FA /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 003CE9752A776326008D32FA /* SideMenu */; };
 		003CE9B22A779393008D32FA /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */; };
 		003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */; };
@@ -60,6 +63,9 @@
 		00024A3C2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
+		001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		001859BC2A7A0895004EF0D5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		001859BD2A7A0895004EF0D5 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
@@ -121,10 +127,7 @@
 		003CE9AF2A77937C008D32FA /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				003CE9B92A7793B1008D32FA /* Controller */,
 				003CE9B82A7793AB008D32FA /* Cell */,
-				001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */,
-				001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -135,17 +138,9 @@
 				007B0F8E2A7109630034E7A5 /* Cell */,
 				003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */,
 				003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */,
+				001859BD2A7A0895004EF0D5 /* DetailTableViewCell.xib */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		003CE9B92A7793B1008D32FA /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */,
-				003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		007B0F492A70B2410034E7A5 = {
@@ -184,6 +179,8 @@
 		007B0F692A70B2970034E7A5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */,
+				001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */,
 				007B0F712A70B3030034E7A5 /* UIViewExt.swift */,
 				006B4C8A2A756A57001247C4 /* Regex.swift */,
 			);
@@ -257,6 +254,7 @@
 				00A74B472A72468200BB07B9 /* WishlistViewController.swift */,
 				006B4C7D2A753AE2001247C4 /* UserViewController.swift */,
 				00024A3C2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift */,
+				001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,6 +273,9 @@
 			children = (
 				007B0F962A71171D0034E7A5 /* ProductCollectionViewCell.swift */,
 				007B0F902A710A660034E7A5 /* CategoryCollectionViewCell.swift */,
+				003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */,
+				003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */,
+				001859BC2A7A0895004EF0D5 /* DetailTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -365,6 +366,7 @@
 				007B0F932A710A660034E7A5 /* CategoryCollectionViewCell.xib in Resources */,
 				007B0F832A70D5A30034E7A5 /* LoginViewController.storyboard in Resources */,
 				007B0F702A70B2F40034E7A5 /* Inter.ttf in Resources */,
+				001859BF2A7A0895004EF0D5 /* DetailTableViewCell.xib in Resources */,
 				007B0F872A70DF340034E7A5 /* NewPasswordViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				001859BE2A7A0895004EF0D5 /* DetailTableViewCell.swift in Sources */,
 				007B0F722A70B3030034E7A5 /* UIViewExt.swift in Sources */,
 				006B4C8D2A756ED8001247C4 /* UserModel.swift in Sources */,
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
@@ -392,6 +395,7 @@
 				00024A3D2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift in Sources */,
 				007B0F5A2A70B2410034E7A5 /* ViewController.swift in Sources */,
 				007B0F562A70B2410034E7A5 /* AppDelegate.swift in Sources */,
+				001859BB2A7A0478004EF0D5 /* SideMenuViewController.swift in Sources */,
 				007B0F7D2A70CAD80034E7A5 /* ViewModel.swift in Sources */,
 				001859B72A78E737004EF0D5 /* DynamicHeightCollectionView.swift in Sources */,
 				006B4C892A7562AB001247C4 /* TwitterConstants.swift in Sources */,
