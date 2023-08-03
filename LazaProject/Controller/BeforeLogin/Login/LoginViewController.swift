@@ -25,11 +25,8 @@ class LoginViewController: UIViewController {
     }
   }
   
-  @IBOutlet weak var validText: UILabel!{
-    didSet {
-      validText.isHidden = true
-    }
-  }
+  @IBOutlet weak var eyeButton: UIButton!
+  
   @IBOutlet weak var loginBtn: UIButton!{
     didSet {
       loginBtn.isEnabled = false
@@ -94,7 +91,7 @@ class LoginViewController: UIViewController {
     
     let isValidPasswordTxt = passwordTextField.validPassword(passwordTextField.text ?? "")
     
-    if isValidUsernameTxt == true {
+    if isValidUsernameTxt {
       validImage.isHidden = false
     }
     
@@ -102,7 +99,15 @@ class LoginViewController: UIViewController {
       loginBtn.isEnabled = true
       loginBtn.backgroundColor = UIColor(named: "PurpleButton")
       loginBackground.backgroundColor = UIColor(named: "PurpleButton")
-      validText.isHidden = false
+    }
+  }
+  @IBAction func eyeButtonClicked(_ sender: UIButton) {
+    if passwordTextField.isSecureTextEntry {
+      eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+      passwordTextField.isSecureTextEntry = false
+    } else if !passwordTextField.isSecureTextEntry{
+      eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
+      passwordTextField.isSecureTextEntry = true
     }
   }
 }
