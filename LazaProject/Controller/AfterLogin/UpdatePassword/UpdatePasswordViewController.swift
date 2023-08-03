@@ -102,7 +102,7 @@ class UpdatePasswordViewController: UIViewController {
   
   @IBAction func updateClicked(_ sender: Any) {
     if ( validEmailTxt && validNumberTxt && validPasswordTxt && validNumberTxt && validFirstNameTxt && validLastNameTxt ) {
-      viewModel.saveProfil(name: usernameTf.text!, email: emailTf.text!, firstname: firstNameTf.text!, lastname: lastNameTf.text!, phonenumber: phoneNumberTf.text!, password: passwordTf.text!)
+      viewModel.saveProfil(name: usernameTf.text!, email: emailTf.text!, password: passwordTf.text!)
       self.navigationController?.popViewController(animated: true)
     }
   }

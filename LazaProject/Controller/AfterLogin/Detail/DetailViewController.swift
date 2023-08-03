@@ -52,7 +52,7 @@ extension DetailViewController : UITableViewDataSource {
     cell.imageDetail.sd_setImage(with: URL(string: imageURL))
     cell.priceDetailLabel.text = "$" + String(viewModel.price)
     cell.reviewValueDetail.text = String(viewModel.rating.rate)
-    cell.categoryDetailLabel.text = viewModel.category.rawValue
+    cell.categoryDetailLabel.text = viewModel.category.rawValue.capitalized
     cell.productNameDetailLabel.text = viewModel.title
     cell.descriptionDetail.text = viewModel.description
     
@@ -131,6 +131,6 @@ extension DetailViewController : UITableViewDataSource {
 
 extension DetailViewController : UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 1300
+    return UITableView.automaticDimension
   }
 }

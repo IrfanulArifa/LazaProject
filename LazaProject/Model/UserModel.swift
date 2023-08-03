@@ -12,9 +12,6 @@ struct UserModel {
   static let stateLoginKey = "state"
   static let nameKey = "name"
   static let emailKey = "email"
-  static let firstnameKey = "firstname"
-  static let lastnameKey = "lastname"
-  static let phoneKey = "phonenumber"
   static let passwordKey = "password"
   
   // Encaptulation ??
@@ -31,21 +28,6 @@ struct UserModel {
   static var email: String {
     get { return UserDefaults.standard.string(forKey: emailKey) ?? "" }
     set { UserDefaults.standard.set(newValue, forKey: emailKey) }
-  }
-  
-  static var firstname: String {
-    get { return UserDefaults.standard.string(forKey: firstnameKey) ?? "" }
-    set { UserDefaults.standard.set(newValue, forKey: firstnameKey) }
-  }
-  
-  static var lastname: String {
-    get { return UserDefaults.standard.string(forKey: lastnameKey) ?? "" }
-    set { UserDefaults.standard.set(newValue, forKey: lastnameKey) }
-  }
-  
-  static var phonenumber: String {
-    get { return UserDefaults.standard.string(forKey: phoneKey) ?? "" }
-    set { UserDefaults.standard.set(newValue, forKey: phoneKey)}
   }
   
   static var password: String {

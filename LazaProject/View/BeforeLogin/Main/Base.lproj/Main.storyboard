@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mKf-b0-LNc">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="aqA-fT-qWF">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="UA7-GI-cVe" customClass="ViewController" customModule="LazaProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SCv-kP-cQI">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s Get Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9DA-xB-cIB">
+                                <rect key="frame" x="75" y="105" width="243" height="32.666666666666657"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIp-yz-PNg">
+                                <rect key="frame" x="0.0" y="777" width="393" height="75"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4A-WL-gXq">
+                                        <rect key="frame" x="10" y="15" width="373" height="50"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Create an Account"/>
+                                        <connections>
+                                            <action selector="createAccountClicked:" destination="UA7-GI-cVe" eventType="touchUpInside" id="8ls-VE-IdM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.45882352939999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="W4A-WL-gXq" secondAttribute="bottom" constant="10" id="Odq-8F-Z1E"/>
+                                    <constraint firstAttribute="trailing" secondItem="W4A-WL-gXq" secondAttribute="trailing" constant="10" id="TWj-sm-4FT"/>
+                                    <constraint firstItem="W4A-WL-gXq" firstAttribute="leading" secondItem="qIp-yz-PNg" secondAttribute="leading" constant="10" id="VjR-Ng-VH7"/>
+                                    <constraint firstAttribute="height" constant="75" id="b9f-br-UVP"/>
+                                    <constraint firstItem="W4A-WL-gXq" firstAttribute="top" secondItem="qIp-yz-PNg" secondAttribute="top" constant="15" id="eYE-ou-KcU"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="-19" translatesAutoresizingMaskIntoConstraints="NO" id="eRJ-gw-E5g">
+                                <rect key="frame" x="70" y="724" width="303" height="28"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Es-nL-mHc">
+                                        <rect key="frame" x="0.0" y="5" width="222" height="18"/>
+                                        <color key="tintColor" red="0.56078431370000004" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.56078431370000004" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGx-sb-nqS">
+                                        <rect key="frame" x="203" y="0.0" width="100" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="SEs-bL-jQt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="SignIn">
+                                            <color key="titleColor" red="0.058823529409999999" green="0.058823529409999999" blue="0.058823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signInButtonClicked:" destination="UA7-GI-cVe" eventType="touchUpInside" id="7Zj-dR-T4R"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxa-Sw-cys">
+                                <rect key="frame" x="20" y="322.66666666666669" width="353" height="50"/>
+                                <color key="backgroundColor" red="0.2901961207" green="0.40000003579999999" blue="0.6784313917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="waG-7I-7Nm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Facebook" image="Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="plain" image="Facebook" title="Facebook">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="facebookButtonClicked:" destination="UA7-GI-cVe" eventType="touchUpInside" id="HZZ-7Y-hoQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNK-XF-nXI">
+                                <rect key="frame" x="20" y="382.66666666666669" width="353" height="50"/>
+                                <color key="backgroundColor" red="0.30196079609999998" green="0.62352943419999995" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="32d-MG-gzD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Facebook" image="Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="plain" image="Twitter" title="Twitter">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="twitterButtonClicked:" destination="UA7-GI-cVe" eventType="touchUpInside" id="nry-Um-FOK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bb3-M9-2Qc">
+                                <rect key="frame" x="20" y="442.66666666666669" width="353" height="50"/>
+                                <color key="backgroundColor" red="0.84705877299999999" green="0.31764706970000001" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="W7o-7X-Zmq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Facebook" image="Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="plain" image="Google" title="Google">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oIS-Cw-Ic7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oIS-Cw-Ic7" firstAttribute="trailing" secondItem="Xxa-Sw-cys" secondAttribute="trailing" constant="20" id="8Lf-qR-wIz"/>
+                            <constraint firstItem="Xxa-Sw-cys" firstAttribute="top" secondItem="9DA-xB-cIB" secondAttribute="bottom" constant="185" id="8id-jZ-PI6"/>
+                            <constraint firstItem="Xxa-Sw-cys" firstAttribute="leading" secondItem="oIS-Cw-Ic7" secondAttribute="leading" constant="20" id="CsG-Tn-ATV"/>
+                            <constraint firstItem="qIp-yz-PNg" firstAttribute="bottom" secondItem="SCv-kP-cQI" secondAttribute="bottom" id="FdW-Ge-96r"/>
+                            <constraint firstItem="qNK-XF-nXI" firstAttribute="top" secondItem="Xxa-Sw-cys" secondAttribute="bottom" constant="10" id="IE2-Xr-2IT"/>
+                            <constraint firstItem="oIS-Cw-Ic7" firstAttribute="trailing" secondItem="bb3-M9-2Qc" secondAttribute="trailing" constant="20" id="ThE-4G-kH9"/>
+                            <constraint firstItem="qIp-yz-PNg" firstAttribute="top" secondItem="eRJ-gw-E5g" secondAttribute="bottom" constant="25" id="U4k-wH-eqb"/>
+                            <constraint firstItem="eRJ-gw-E5g" firstAttribute="leading" secondItem="oIS-Cw-Ic7" secondAttribute="leading" constant="70" id="aer-sD-Qnl"/>
+                            <constraint firstItem="oIS-Cw-Ic7" firstAttribute="trailing" secondItem="qNK-XF-nXI" secondAttribute="trailing" constant="20" id="fx4-I3-9Zo"/>
+                            <constraint firstItem="oIS-Cw-Ic7" firstAttribute="trailing" secondItem="qIp-yz-PNg" secondAttribute="trailing" id="jkY-ke-I16"/>
+                            <constraint firstItem="9DA-xB-cIB" firstAttribute="leading" secondItem="oIS-Cw-Ic7" secondAttribute="leading" constant="75" id="oAi-77-SDS"/>
+                            <constraint firstItem="bb3-M9-2Qc" firstAttribute="top" secondItem="qNK-XF-nXI" secondAttribute="bottom" constant="10" id="pcN-8u-foO"/>
+                            <constraint firstItem="oIS-Cw-Ic7" firstAttribute="trailing" secondItem="eRJ-gw-E5g" secondAttribute="trailing" constant="20" id="sSe-qU-fz3"/>
+                            <constraint firstItem="qNK-XF-nXI" firstAttribute="leading" secondItem="oIS-Cw-Ic7" secondAttribute="leading" constant="20" id="vB2-Uc-bI2"/>
+                            <constraint firstItem="qIp-yz-PNg" firstAttribute="leading" secondItem="oIS-Cw-Ic7" secondAttribute="leading" id="voz-kq-G3k"/>
+                            <constraint firstItem="bb3-M9-2Qc" firstAttribute="leading" secondItem="oIS-Cw-Ic7" secondAttribute="leading" constant="20" id="x4H-sP-A1L"/>
+                            <constraint firstItem="9DA-xB-cIB" firstAttribute="top" secondItem="SCv-kP-cQI" secondAttribute="top" constant="105" id="xeD-ox-biN"/>
+                            <constraint firstItem="oIS-Cw-Ic7" firstAttribute="trailing" secondItem="9DA-xB-cIB" secondAttribute="trailing" constant="75" id="yMb-fv-t2b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XHz-CI-qdx"/>
+                    <connections>
+                        <outlet property="startedTitleTxt" destination="9DA-xB-cIB" id="Fj3-Gu-2Kg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8V1-Kd-eQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2689.3129770992364" y="3.5211267605633805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QOb-bx-029">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="mKf-b0-LNc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tV0-8H-m5y">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UA7-GI-cVe" kind="relationship" relationship="rootViewController" id="qJL-sH-dZn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8s-l7-K0s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1762.5954198473282" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Facebook" width="22" height="22"/>
+        <image name="Google" width="22" height="22"/>
+        <image name="Twitter" width="23" height="22"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -17,7 +17,4 @@ class ProductCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-  @IBAction func crashButton(_ sender: Any) {
-  }
 }
