@@ -53,6 +53,14 @@
 		008EE8A12A7B5C56002C44B9 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008EE8A02A7B5C56002C44B9 /* AlertManager.swift */; };
 		008EE8A72A7B88B8002C44B9 /* SizeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008EE8A52A7B88B8002C44B9 /* SizeCollectionViewCell.swift */; };
 		008EE8A82A7B88B8002C44B9 /* SizeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8A62A7B88B8002C44B9 /* SizeCollectionViewCell.xib */; };
+		008EE8AE2A7B8ED2002C44B9 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008EE8AD2A7B8ED2002C44B9 /* ReviewViewController.swift */; };
+		008EE8B22A7B8FA8002C44B9 /* ReviewViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8B12A7B8FA8002C44B9 /* ReviewViewController.storyboard */; };
+		008EE8B62A7B95F0002C44B9 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008EE8B42A7B95F0002C44B9 /* ReviewTableViewCell.swift */; };
+		008EE8B72A7B95F0002C44B9 /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8B52A7B95F0002C44B9 /* ReviewTableViewCell.xib */; };
+		008EE8BD2A7BA854002C44B9 /* AddReviewViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8BC2A7BA854002C44B9 /* AddReviewViewController.storyboard */; };
+		008EE8BF2A7BA868002C44B9 /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008EE8BE2A7BA868002C44B9 /* AddReviewViewController.swift */; };
+		008EE8C22A7CAA1C002C44B9 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8C12A7CAA1C002C44B9 /* Poppins-Regular.ttf */; };
+		008EE8C42A7CAA24002C44B9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8C32A7CAA24002C44B9 /* Poppins-SemiBold.ttf */; };
 		00A74B402A72064300BB07B9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B3F2A72064300BB07B9 /* DetailViewController.swift */; };
 		00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A74B412A72065500BB07B9 /* DetailViewController.storyboard */; };
 		00A74B442A72465100BB07B9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B432A72465100BB07B9 /* OrderViewController.swift */; };
@@ -103,6 +111,14 @@
 		008EE8A02A7B5C56002C44B9 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		008EE8A52A7B88B8002C44B9 /* SizeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCollectionViewCell.swift; sourceTree = "<group>"; };
 		008EE8A62A7B88B8002C44B9 /* SizeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SizeCollectionViewCell.xib; sourceTree = "<group>"; };
+		008EE8AD2A7B8ED2002C44B9 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		008EE8B12A7B8FA8002C44B9 /* ReviewViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReviewViewController.storyboard; sourceTree = "<group>"; };
+		008EE8B42A7B95F0002C44B9 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		008EE8B52A7B95F0002C44B9 /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
+		008EE8BC2A7BA854002C44B9 /* AddReviewViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddReviewViewController.storyboard; sourceTree = "<group>"; };
+		008EE8BE2A7BA868002C44B9 /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
+		008EE8C12A7CAA1C002C44B9 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../../../Downloads/Poppins-2/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		008EE8C32A7CAA24002C44B9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "../../../../../../../Downloads/Poppins-2/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		00A74B3F2A72064300BB07B9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		00A74B412A72065500BB07B9 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		00A74B432A72465100BB07B9 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +257,8 @@
 			isa = PBXGroup;
 			children = (
 				007B0F6F2A70B2F40034E7A5 /* Inter.ttf */,
+				008EE8C12A7CAA1C002C44B9 /* Poppins-Regular.ttf */,
+				008EE8C32A7CAA24002C44B9 /* Poppins-SemiBold.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -263,14 +281,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		007B0F8F2A7109690034E7A5 /* TableViewCell */ = {
+		007B0F8F2A7109690034E7A5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */,
 				003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */,
-				008EE8982A7B4BBF002C44B9 /* CollectionViewCell */,
+				008EE8982A7B4BBF002C44B9 /* Cell */,
 			);
-			path = TableViewCell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		008EE8882A7B4920002C44B9 /* AfterLogin */ = {
@@ -296,13 +314,7 @@
 		008EE88A2A7B4986002C44B9 /* AfterLogin */ = {
 			isa = PBXGroup;
 			children = (
-				008EE89F2A7B4C4B002C44B9 /* UpdatePassword */,
-				008EE89E2A7B4C41002C44B9 /* User */,
-				008EE89D2A7B4C37002C44B9 /* Order */,
-				008EE89C2A7B4C26002C44B9 /* WishList */,
-				008EE8972A7B4B92002C44B9 /* Detail */,
-				008EE8962A7B4B7A002C44B9 /* SideMenu */,
-				008EE8952A7B4B56002C44B9 /* Home */,
+				008EE8AF2A7B8EE6002C44B9 /* Main */,
 			);
 			path = AfterLogin;
 			sourceTree = "<group>";
@@ -350,8 +362,9 @@
 		008EE8902A7B4AF5002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				007B0F8A2A70F8C40034E7A5 /* HomepageViewController.storyboard */,
-				00024A3A2A75B44D00B6A4B0 /* UpdatePasswordViewController.storyboard */,
+				008EE8AC2A7B8EA4002C44B9 /* Review */,
+				008EE8AB2A7B8E96002C44B9 /* Update */,
+				008EE8AA2A7B8E8A002C44B9 /* Home */,
 				008EE8A22A7B64AA002C44B9 /* Detail */,
 			);
 			path = Main;
@@ -393,7 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				007B0F8C2A70F8D50034E7A5 /* HomepageViewController.swift */,
-				007B0F8F2A7109690034E7A5 /* TableViewCell */,
+				007B0F8F2A7109690034E7A5 /* Cell */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -415,13 +428,13 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		008EE8982A7B4BBF002C44B9 /* CollectionViewCell */ = {
+		008EE8982A7B4BBF002C44B9 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				008EE89A2A7B4BF1002C44B9 /* ProductCollection */,
 				008EE8992A7B4BCD002C44B9 /* CategoryCollection */,
 			);
-			path = CollectionViewCell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		008EE8992A7B4BCD002C44B9 /* CategoryCollection */ = {
@@ -515,6 +528,89 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		008EE8AA2A7B8E8A002C44B9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				007B0F8A2A70F8C40034E7A5 /* HomepageViewController.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		008EE8AB2A7B8E96002C44B9 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				00024A3A2A75B44D00B6A4B0 /* UpdatePasswordViewController.storyboard */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
+		008EE8AC2A7B8EA4002C44B9 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				008EE8B12A7B8FA8002C44B9 /* ReviewViewController.storyboard */,
+				008EE8BB2A7BA83F002C44B9 /* AddReview */,
+				008EE8B32A7B95CC002C44B9 /* Cell */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		008EE8AF2A7B8EE6002C44B9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				008EE8B02A7B8F92002C44B9 /* Review */,
+				008EE8962A7B4B7A002C44B9 /* SideMenu */,
+				008EE8972A7B4B92002C44B9 /* Detail */,
+				008EE89C2A7B4C26002C44B9 /* WishList */,
+				008EE89E2A7B4C41002C44B9 /* User */,
+				008EE89D2A7B4C37002C44B9 /* Order */,
+				008EE89F2A7B4C4B002C44B9 /* UpdatePassword */,
+				008EE8952A7B4B56002C44B9 /* Home */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		008EE8B02A7B8F92002C44B9 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				008EE8AD2A7B8ED2002C44B9 /* ReviewViewController.swift */,
+				008EE8C02A7BA87C002C44B9 /* AddReview */,
+				008EE8B92A7B99C4002C44B9 /* Cell */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		008EE8B32A7B95CC002C44B9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				008EE8B52A7B95F0002C44B9 /* ReviewTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		008EE8B92A7B99C4002C44B9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				008EE8B42A7B95F0002C44B9 /* ReviewTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		008EE8BB2A7BA83F002C44B9 /* AddReview */ = {
+			isa = PBXGroup;
+			children = (
+				008EE8BC2A7BA854002C44B9 /* AddReviewViewController.storyboard */,
+			);
+			path = AddReview;
+			sourceTree = "<group>";
+		};
+		008EE8C02A7BA87C002C44B9 /* AddReview */ = {
+			isa = PBXGroup;
+			children = (
+				008EE8BE2A7BA868002C44B9 /* AddReviewViewController.swift */,
+			);
+			path = AddReview;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -596,13 +692,18 @@
 				003CE9B72A7793A6008D32FA /* ProductTableViewCell.xib in Resources */,
 				007B0F5F2A70B2420034E7A5 /* Assets.xcassets in Resources */,
 				007B0F992A71171D0034E7A5 /* ProductCollectionViewCell.xib in Resources */,
+				008EE8B72A7B95F0002C44B9 /* ReviewTableViewCell.xib in Resources */,
+				008EE8B22A7B8FA8002C44B9 /* ReviewViewController.storyboard in Resources */,
 				007B0F5D2A70B2410034E7A5 /* Main.storyboard in Resources */,
 				007B0F932A710A660034E7A5 /* CategoryCollectionViewCell.xib in Resources */,
+				008EE8BD2A7BA854002C44B9 /* AddReviewViewController.storyboard in Resources */,
 				007B0F832A70D5A30034E7A5 /* LoginViewController.storyboard in Resources */,
+				008EE8C42A7CAA24002C44B9 /* Poppins-SemiBold.ttf in Resources */,
 				007B0F702A70B2F40034E7A5 /* Inter.ttf in Resources */,
 				008EE8A82A7B88B8002C44B9 /* SizeCollectionViewCell.xib in Resources */,
 				001859BF2A7A0895004EF0D5 /* DetailTableViewCell.xib in Resources */,
 				007B0F872A70DF340034E7A5 /* NewPasswordViewController.storyboard in Resources */,
+				008EE8C22A7CAA1C002C44B9 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,10 +717,12 @@
 				001859BE2A7A0895004EF0D5 /* DetailTableViewCell.swift in Sources */,
 				007B0F722A70B3030034E7A5 /* UIViewExt.swift in Sources */,
 				006B4C8D2A756ED8001247C4 /* UserModel.swift in Sources */,
+				008EE8BF2A7BA868002C44B9 /* AddReviewViewController.swift in Sources */,
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
 				006B4C7E2A753AE2001247C4 /* UserViewController.swift in Sources */,
 				008EE8A72A7B88B8002C44B9 /* SizeCollectionViewCell.swift in Sources */,
 				007B0F852A70D5BD0034E7A5 /* LoginViewController.swift in Sources */,
+				008EE8B62A7B95F0002C44B9 /* ReviewTableViewCell.swift in Sources */,
 				007B0F812A70CD430034E7A5 /* SignUpViewController.swift in Sources */,
 				00A74B482A72468200BB07B9 /* WishlistViewController.swift in Sources */,
 				008EE8A12A7B5C56002C44B9 /* AlertManager.swift in Sources */,
@@ -641,6 +744,7 @@
 				007B0F582A70B2410034E7A5 /* SceneDelegate.swift in Sources */,
 				007B0F892A70DF450034E7A5 /* NewPasswordViewController.swift in Sources */,
 				00A74B402A72064300BB07B9 /* DetailViewController.swift in Sources */,
+				008EE8AE2A7B8ED2002C44B9 /* ReviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

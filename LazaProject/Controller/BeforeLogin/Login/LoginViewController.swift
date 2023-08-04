@@ -10,7 +10,6 @@ import UIKit
 class LoginViewController: UIViewController {
   
   let viewModel = ViewModel()
-  private let userModel = UserModel()
   
   @IBOutlet weak var usernameTxtField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!{
@@ -70,23 +69,22 @@ class LoginViewController: UIViewController {
     var isValidPasswordStat = false
     let username = usernameTxtField.text
     let password = passwordTextField.text
+    var passIndex = 0
     
     for uname in 0..<viewModel.userData.count{
       if username == viewModel.userData[uname].username {
         isValidUsernameTxt = true
+        passIndex = uname
         break
       } else {
         isValidUsernameTxt = false
       }
     }
     
-    for uname in 0..<viewModel.userData.count{
-      if password == viewModel.userData[uname].password {
-        isValidPasswordStat = true
-        break
-      } else {
-        isValidPasswordStat = false
-      }
+    if password == viewModel.userData[passIndex].password {
+      isValidPasswordStat = true
+    } else {
+      isValidPasswordStat = false
     }
     
     let isValidPasswordTxt = passwordTextField.validPassword(passwordTextField.text ?? "")
@@ -99,6 +97,10 @@ class LoginViewController: UIViewController {
       loginBtn.isEnabled = true
       loginBtn.backgroundColor = UIColor(named: "PurpleButton")
       loginBackground.backgroundColor = UIColor(named: "PurpleButton")
+    } else {
+      loginBtn.isEnabled = false
+      loginBtn.backgroundColor = UIColor(named: "invalidButton")
+      loginBackground.backgroundColor = UIColor(named: "invalidButton")
     }
   }
   @IBAction func eyeButtonClicked(_ sender: UIButton) {

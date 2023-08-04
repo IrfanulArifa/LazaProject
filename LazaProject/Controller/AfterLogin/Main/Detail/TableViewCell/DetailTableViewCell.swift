@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol ReviewTableViewCellDelegate: AnyObject {
+  func actionClicked()
+}
+
 class DetailTableViewCell: UITableViewCell {
+  
+  weak var delegate: ReviewTableViewCellDelegate?
   
   @IBOutlet weak var imageDetail: UIImageView!
   @IBOutlet weak var categoryDetailLabel: UILabel!
@@ -35,6 +41,10 @@ class DetailTableViewCell: UITableViewCell {
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
+  }
+  
+  @IBAction func viewAllButtonClicked(_ sender: UIButton) {
+    delegate?.actionClicked()
   }
 }
 

@@ -48,6 +48,7 @@ extension DetailViewController : UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell") as? DetailTableViewCell else { return UITableViewCell() }
+    cell.delegate = self
     let imageURL = viewModel.image
     cell.imageDetail.sd_setImage(with: URL(string: imageURL))
     cell.priceDetailLabel.text = "$" + String(viewModel.price)
@@ -123,14 +124,19 @@ extension DetailViewController : UITableViewDataSource {
     }
     return cell
   }
-  
-  
-  
-  
 }
 
 extension DetailViewController : UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return UITableView.automaticDimension
   }
+}
+
+extension DetailViewController: ReviewTableViewCellDelegate {
+  
+  func actionClicked() {
+    let storyboard = UIStoryboard(name: "ReviewViewController", bundle: nil).instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
+    self.navigationController?.pushViewController(storyboard, animated: true)
+  }
+  
 }

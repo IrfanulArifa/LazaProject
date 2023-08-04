@@ -44,11 +44,11 @@
                                     <constraint firstItem="W4A-WL-gXq" firstAttribute="top" secondItem="qIp-yz-PNg" secondAttribute="top" constant="15" id="eYE-ou-KcU"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="-19" translatesAutoresizingMaskIntoConstraints="NO" id="eRJ-gw-E5g">
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eRJ-gw-E5g">
                                 <rect key="frame" x="70" y="724" width="303" height="28"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Es-nL-mHc">
-                                        <rect key="frame" x="0.0" y="5" width="222" height="18"/>
+                                        <rect key="frame" x="0.0" y="5" width="203" height="18"/>
                                         <color key="tintColor" red="0.56078431370000004" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.56078431370000004" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -166,7 +166,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="XHz-CI-qdx"/>
                     <connections>
+                        <outlet property="alreadyTxt" destination="3Es-nL-mHc" id="r7i-vA-JOJ"/>
+                        <outlet property="createAccountButton" destination="W4A-WL-gXq" id="yKE-lm-xSI"/>
+                        <outlet property="facebookButton" destination="Xxa-Sw-cys" id="kFY-YW-iOR"/>
+                        <outlet property="googleButton" destination="bb3-M9-2Qc" id="Ota-lX-C4U"/>
+                        <outlet property="signInButton" destination="XGx-sb-nqS" id="hds-nF-x0q"/>
                         <outlet property="startedTitleTxt" destination="9DA-xB-cIB" id="Fj3-Gu-2Kg"/>
+                        <outlet property="twitterButton" destination="qNK-XF-nXI" id="h6L-IT-UwS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8V1-Kd-eQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
