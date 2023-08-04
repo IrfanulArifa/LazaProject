@@ -8,22 +8,26 @@
 import UIKit
 
 class AddReviewViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+  
+  @IBOutlet weak var sliderValue: UISlider!
+  @IBOutlet weak var ratingLabel: UILabel!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    ratingLabel.text = "0.0"
+  }
+  
+  @IBAction func sliderSliding(_ sender: UISlider) {
+    ratingLabel.text = String(format: "%.1f",sliderValue.value)
+  }
+  
+  @IBAction func backClicked(_ sender: UIButton) {
+    navigationController?.popViewController(animated: true)
+  }
+  
+  
+  @IBAction func submitReviewClicked(_ sender: UIButton) {
+    navigationController?.popViewController(animated: true)
+  }
 }

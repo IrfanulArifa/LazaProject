@@ -146,14 +146,19 @@ class SignUpViewController: UIViewController {
     validPasswordTxt = passwordTxtField.validPassword(passwordTxtField.text ?? "")
     validEmailTxt = emailAddressTxtField.validEmail(emailAddressTxtField.text ?? "")
     validConfirmTxt = confirmPasswordTxtField.validPassword(confirmPasswordTxtField.text ?? "")
-    userNameTxt = usernameTxtField.text != ""
+    let usernameNotNull = usernameTxtField.text ?? ""
+    userNameTxt = usernameNotNull.count > 4
     
     if validEmailTxt {
       validEmail.isHidden = false
-    }
-    if userNameTxt {
-      validUsername.isHidden = false
+    } else {
+      validEmail.isHidden = true
     }
     
+    if userNameTxt {
+      validUsername.isHidden = false
+    } else {
+      validUsername.isHidden = true
+    }
   }
 }

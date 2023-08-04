@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="2347.3282442748091" y="731.69014084507046"/>
         </scene>
-        <!--User View Controller-->
+        <!--Card View Controller-->
         <scene sceneID="Vah-UY-9yl">
             <objects>
-                <viewController storyboardIdentifier="UserViewController" id="syy-KN-bV8" customClass="UserViewController" customModule="LazaProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardViewController" id="syy-KN-bV8" customClass="CardViewController" customModule="LazaProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="neW-aM-Fpi">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -407,6 +407,9 @@
                                         <state key="normal" title="Account Information">
                                             <color key="titleColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="accountInformationClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="DFJ-sw-HRp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -427,6 +430,9 @@
                                         <state key="normal" title="Password">
                                             <color key="titleColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="passwordClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="WBv-Py-L2j"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -447,6 +453,9 @@
                                         <state key="normal" title="Order">
                                             <color key="titleColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="orderClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="a2q-fv-R1j"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -467,6 +476,9 @@
                                         <state key="normal" title="My Cards">
                                             <color key="titleColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="myCardsClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="Bxm-6B-mah"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -487,6 +499,9 @@
                                         <state key="normal" title="Wishlist">
                                             <color key="titleColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="wishlistClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="P20-RN-kTj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -507,11 +522,17 @@
                                         <state key="normal" title="Settings">
                                             <color key="titleColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="settingsClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="4Yb-t8-edc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wam-hX-GLd">
                                 <rect key="frame" x="324" y="285" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchClicked:" destination="7JF-TN-TKK" eventType="valueChanged" id="Xz9-1b-v48"/>
+                                </connections>
                             </switch>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="li1-aC-ERV">
                                 <rect key="frame" x="20" y="693" width="92" height="25"/>
@@ -530,6 +551,9 @@
                                         <state key="normal" title="Logout">
                                             <color key="titleColor" red="1" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="logoutClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="Aky-Ec-jBW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -564,6 +588,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6JR-ff-5tw"/>
+                    <connections>
+                        <outlet property="sideMenuPersonName" destination="mG0-az-nnA" id="0r2-g8-lit"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUD-vH-Mqe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

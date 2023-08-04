@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
+class CardViewController: UIViewController {
   
   @IBOutlet weak var usernameDefault: UILabel!
   @IBOutlet weak var emailDefault: UILabel!

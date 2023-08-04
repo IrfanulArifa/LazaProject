@@ -39,6 +39,10 @@ extension ReviewViewController: UITableViewDataSource {
     let storyboard = UIStoryboard(name: "AddReviewViewController", bundle: nil).instantiateViewController(withIdentifier: "AddReviewViewController") as! AddReviewViewController
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
+  
+  @IBAction func backButtonClicked(_ sender: UIButton) {
+    navigationController?.popViewController(animated: true)
+  }
 }
 
 extension ReviewViewController: UITableViewDelegate {

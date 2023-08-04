@@ -32,6 +32,9 @@
                                         <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Lh2-51-rmK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qo-Hi-JfG">
                                 <rect key="frame" x="152" y="60.000000000000007" width="89.333333333333314" height="20.333333333333336"/>
@@ -78,12 +81,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="uvV-TR-KgC">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="uvV-TR-KgC">
                                         <rect key="frame" x="28" y="0.0" width="297" height="21"/>
                                         <color key="tintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="YAg-8t-Oop"/>
                                         </constraints>
+                                        <color key="thumbTintColor" name="PurpleButton"/>
+                                        <connections>
+                                            <action selector="sliderSliding:" destination="Y6W-OH-hqX" eventType="valueChanged" id="TQw-sc-e9I"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYQ-al-rEW">
                                         <rect key="frame" x="333" y="0.0" width="20" height="20"/>
@@ -104,6 +111,9 @@
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Submit Review"/>
+                                        <connections>
+                                            <action selector="submitReviewClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="t4t-7R-pQv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="PurpleButton"/>
@@ -115,12 +125,19 @@
                                     <constraint firstAttribute="trailing" secondItem="6YF-Fg-rMq" secondAttribute="trailing" constant="10" id="PgH-Lo-eLa"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpB-sn-2cm">
+                                <rect key="frame" x="20" y="520.66666666666663" width="353" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="t2h-JM-fe3" firstAttribute="top" secondItem="Gx6-os-c2J" secondAttribute="bottom" constant="20" id="2WM-jG-xCY"/>
                             <constraint firstItem="t2h-JM-fe3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="2j0-Sq-UG3"/>
+                            <constraint firstItem="xpB-sn-2cm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="3rh-YG-c6e"/>
                             <constraint firstItem="3qo-Hi-JfG" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="60" id="4zX-Kv-mwu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Gx6-os-c2J" secondAttribute="trailing" constant="20" id="Een-0H-cbJ"/>
                             <constraint firstItem="sKp-Pb-i95" firstAttribute="top" secondItem="t2h-JM-fe3" secondAttribute="bottom" constant="20" id="Ej8-VY-wm5"/>
@@ -134,10 +151,16 @@
                             <constraint firstItem="vMA-c1-zyD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="bIF-yV-p27"/>
                             <constraint firstItem="vMA-c1-zyD" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="45" id="cn8-ka-ryo"/>
                             <constraint firstItem="OG1-mw-KZk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hVp-ru-54w"/>
+                            <constraint firstItem="xpB-sn-2cm" firstAttribute="top" secondItem="sKp-Pb-i95" secondAttribute="bottom" constant="20" id="mx5-pF-xEa"/>
                             <constraint firstItem="Gx6-os-c2J" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="pcV-k5-gcx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xpB-sn-2cm" secondAttribute="trailing" constant="20" id="r6u-wp-fyz"/>
                             <constraint firstItem="3qo-Hi-JfG" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="yXN-is-Q8N"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ratingLabel" destination="xpB-sn-2cm" id="MVA-34-ZpW"/>
+                        <outlet property="sliderValue" destination="uvV-TR-KgC" id="6KE-Qe-88L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

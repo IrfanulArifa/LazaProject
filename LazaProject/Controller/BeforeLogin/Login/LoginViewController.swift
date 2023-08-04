@@ -131,6 +131,8 @@ class LoginViewController: UIViewController {
     
     if isValidUsernameTxt {
       validImage.isHidden = false
+    } else {
+      validImage.isHidden = true
     }
     
     if isValidPasswordTxt && (isValidUsernameTxt && isValidPasswordStat) {

@@ -19,7 +19,7 @@
 		003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */; };
 		003CE9B62A7793A6008D32FA /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */; };
 		003CE9B72A7793A6008D32FA /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */; };
-		006B4C7E2A753AE2001247C4 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C7D2A753AE2001247C4 /* UserViewController.swift */; };
+		006B4C7E2A753AE2001247C4 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C7D2A753AE2001247C4 /* CardViewController.swift */; };
 		006B4C812A755460001247C4 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 006B4C802A755460001247C4 /* FacebookCore */; };
 		006B4C832A755460001247C4 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 006B4C822A755460001247C4 /* FacebookLogin */; };
 		006B4C872A756057001247C4 /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 006B4C862A756057001247C4 /* Swifter */; };
@@ -79,7 +79,7 @@
 		003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
-		006B4C7D2A753AE2001247C4 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		006B4C7D2A753AE2001247C4 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		006B4C842A7556A5001247C4 /* LazaProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LazaProject.entitlements; sourceTree = "<group>"; };
 		006B4C882A7562AB001247C4 /* TwitterConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterConstants.swift; sourceTree = "<group>"; };
 		006B4C8A2A756A57001247C4 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
@@ -478,12 +478,12 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
-		008EE89E2A7B4C41002C44B9 /* User */ = {
+		008EE89E2A7B4C41002C44B9 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				006B4C7D2A753AE2001247C4 /* UserViewController.swift */,
+				006B4C7D2A753AE2001247C4 /* CardViewController.swift */,
 			);
-			path = User;
+			path = Card;
 			sourceTree = "<group>";
 		};
 		008EE89F2A7B4C4B002C44B9 /* UpdatePassword */ = {
@@ -561,7 +561,7 @@
 				008EE8962A7B4B7A002C44B9 /* SideMenu */,
 				008EE8972A7B4B92002C44B9 /* Detail */,
 				008EE89C2A7B4C26002C44B9 /* WishList */,
-				008EE89E2A7B4C41002C44B9 /* User */,
+				008EE89E2A7B4C41002C44B9 /* Card */,
 				008EE89D2A7B4C37002C44B9 /* Order */,
 				008EE89F2A7B4C4B002C44B9 /* UpdatePassword */,
 				008EE8952A7B4B56002C44B9 /* Home */,
@@ -719,7 +719,7 @@
 				006B4C8D2A756ED8001247C4 /* UserModel.swift in Sources */,
 				008EE8BF2A7BA868002C44B9 /* AddReviewViewController.swift in Sources */,
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
-				006B4C7E2A753AE2001247C4 /* UserViewController.swift in Sources */,
+				006B4C7E2A753AE2001247C4 /* CardViewController.swift in Sources */,
 				008EE8A72A7B88B8002C44B9 /* SizeCollectionViewCell.swift in Sources */,
 				007B0F852A70D5BD0034E7A5 /* LoginViewController.swift in Sources */,
 				008EE8B62A7B95F0002C44B9 /* ReviewTableViewCell.swift in Sources */,
