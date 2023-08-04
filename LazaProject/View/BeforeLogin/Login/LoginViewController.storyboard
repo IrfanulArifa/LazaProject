@@ -117,16 +117,16 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJp-MY-UY5">
-                                <rect key="frame" x="225" y="509.33333333333331" width="160" height="34.333333333333314"/>
+                                <rect key="frame" x="262" y="509.33333333333326" width="123" height="30"/>
                                 <color key="tintColor" red="0.91764705882352937" green="0.2627450980392157" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Forgot Password?" titleAlignment="leading"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Forgot Password?"/>
                                 <connections>
                                     <action selector="forgotPasswordClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dP0-2a-tax"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ii-tv-bpX">
-                                <rect key="frame" x="20" y="585.66666666666663" width="353" height="31"/>
+                                <rect key="frame" x="20" y="581.33333333333337" width="353" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFC-zP-b7A">
                                         <rect key="frame" x="0.0" y="0.0" width="304" height="31"/>
@@ -198,6 +198,10 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="VOp-uv-Lrd" secondAttribute="trailing" id="Bs5-Xs-d0c"/>
+                                    <constraint firstItem="VOp-uv-Lrd" firstAttribute="leading" secondItem="PNS-1s-7M8" secondAttribute="leading" id="T5w-4D-bwq"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nL1-L3-buj">
                                 <rect key="frame" x="20" y="45" width="45" height="45"/>
@@ -245,12 +249,21 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="byConnecting" destination="VOp-uv-Lrd" id="V0Z-yd-H45"/>
                         <outlet property="eyeButton" destination="NT5-47-487" id="6vR-dj-HOy"/>
+                        <outlet property="forgotBtn" destination="NJp-MY-UY5" id="oLw-tl-h1W"/>
                         <outlet property="loginBackground" destination="6U2-IX-LkS" id="cXa-ev-7o5"/>
                         <outlet property="loginBtn" destination="0zf-ch-RZr" id="gUF-KV-Atb"/>
                         <outlet property="passwordTextField" destination="4Wv-BQ-vaW" id="7cm-YF-QIS"/>
+                        <outlet property="passwordTitle" destination="ddl-oi-fms" id="L3U-WJ-glq"/>
+                        <outlet property="rememberTxt" destination="VFC-zP-b7A" id="V8x-1b-7gH"/>
+                        <outlet property="subTitle" destination="iCP-fc-6Bf" id="VTi-jZ-xjS"/>
+                        <outlet property="termAndCondition" destination="oC2-Dw-wGD" id="gU5-Kt-5WQ"/>
+                        <outlet property="usernameTitle" destination="GvD-Ue-8hf" id="6Xd-eP-tGX"/>
                         <outlet property="usernameTxtField" destination="xuQ-ry-7Re" id="180-BH-ale"/>
                         <outlet property="validImage" destination="S1J-oO-93b" id="Wx7-7U-Kyr"/>
+                        <outlet property="welcomeTitle" destination="X3y-x3-PYO" id="RgC-LN-icc"/>
+                        <outlet property="withOur" destination="ayK-5w-4ZS" id="w3Y-cK-MGo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

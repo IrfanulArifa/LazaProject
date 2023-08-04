@@ -16,22 +16,52 @@ class SignUpViewController: UIViewController {
   var validConfirmTxt = false
   var userNameTxt = false
   
-  @IBOutlet weak var usernameTxtField: UITextField!
+  @IBOutlet weak var signUpTitle: UILabel!{
+    didSet { signUpTitle.font = UIFont(name: "Poppins-SemiBold", size: 28)}
+  }
+  
+  @IBOutlet weak var usernameTitle: UILabel!{
+    didSet { usernameTitle.font = UIFont(name: "Poppins-Regular", size: 13)}
+  }
+  
+  @IBOutlet weak var usernameTxtField: UITextField!{
+    didSet { usernameTxtField.font = UIFont(name: "Poppins-Regular", size: 13)}
+  }
+  
+  @IBOutlet weak var passwordTitle: UILabel!{
+    didSet { passwordTitle.font = UIFont(name: "Poppins-Regular", size: 13)}
+  }
   
   @IBOutlet weak var passwordTxtField: UITextField!{
     didSet {
       passwordTxtField.isSecureTextEntry = true
+      passwordTxtField.font = UIFont(name: "Poppins-Regular", size: 13)
     }
+  }
+  
+  
+  @IBOutlet weak var confirmPasswordTitle: UILabel!{
+    didSet { confirmPasswordTitle.font = UIFont(name: "Poppins-Regular", size: 13)}
   }
   
   @IBOutlet weak var confirmPasswordTxtField: UITextField!{
     didSet {
       confirmPasswordTxtField.isSecureTextEntry = true
+      confirmPasswordTxtField.font = UIFont(name: "Poppins-Regular", size: 13)
     }
   }
   
   
-  @IBOutlet weak var emailAddressTxtField: UITextField!
+  @IBOutlet weak var emailAddressTitle: UILabel!{
+    didSet { emailAddressTitle.font = UIFont(name: "Poppins-Regular", size: 13)}
+  }
+  
+  
+  @IBOutlet weak var emailAddressTxtField: UITextField!{
+    didSet {
+      emailAddressTxtField.font = UIFont(name: "Poppins-Regular", size: 13)
+    }
+  }
   
   @IBOutlet weak var validUsername: UIImageView!{
     didSet {
@@ -47,6 +77,15 @@ class SignUpViewController: UIViewController {
   
   @IBOutlet weak var passwordEyeButton: UIButton!
   @IBOutlet weak var confirmPasswordEyeButton: UIButton!
+  
+  @IBOutlet weak var rememberMe: UILabel!{
+    didSet { rememberMe.font = UIFont(name: "Poppins-Regular", size: 13)}
+  }
+  
+  @IBOutlet weak var signUpButton: UIButton!{
+    didSet { signUpButton.titleLabel!.font = UIFont(name: "Poppins-Regular", size: 15)}
+  }
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()

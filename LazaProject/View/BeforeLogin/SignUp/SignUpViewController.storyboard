@@ -272,10 +272,17 @@
                     </view>
                     <connections>
                         <outlet property="confirmPasswordEyeButton" destination="80D-lV-5nU" id="QNq-HC-nNc"/>
+                        <outlet property="confirmPasswordTitle" destination="g8W-ZF-dBi" id="3rN-XN-e0n"/>
                         <outlet property="confirmPasswordTxtField" destination="Tt5-ZE-5Hf" id="TlP-T5-jCd"/>
+                        <outlet property="emailAddressTitle" destination="CF2-o4-Joc" id="oU3-o6-ztg"/>
                         <outlet property="emailAddressTxtField" destination="E1t-pZ-myG" id="qzA-Cf-OIB"/>
                         <outlet property="passwordEyeButton" destination="ndx-py-rtv" id="jtB-TI-Rq7"/>
+                        <outlet property="passwordTitle" destination="Jw6-W5-QLM" id="ufK-Ow-SD3"/>
                         <outlet property="passwordTxtField" destination="vW3-8r-vAK" id="QJv-yA-R0A"/>
+                        <outlet property="rememberMe" destination="eWT-KL-GNE" id="Nwf-Da-Wqq"/>
+                        <outlet property="signUpButton" destination="6iS-li-W65" id="AgT-r9-SY0"/>
+                        <outlet property="signUpTitle" destination="uLW-Uo-Tvy" id="816-Ly-TLX"/>
+                        <outlet property="usernameTitle" destination="B0u-YW-W6n" id="vBz-ES-oMt"/>
                         <outlet property="usernameTxtField" destination="US3-Y6-gzK" id="3jB-Ia-nD8"/>
                         <outlet property="validEmail" destination="A7B-yj-4uq" id="sOW-nL-AXg"/>
                         <outlet property="validUsername" destination="2nZ-Dt-dS1" id="pGX-Uw-IX1"/>
