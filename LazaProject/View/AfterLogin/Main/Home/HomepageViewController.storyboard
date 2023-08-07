@@ -376,7 +376,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WqE-MS-GTK">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
-                                        <color key="tintColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" name="blackFont"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="MRy-uR-ROf"/>
                                             <constraint firstAttribute="width" constant="25" id="cep-I6-kJ8"/>
@@ -395,7 +395,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lru-Za-GxV">
                                         <rect key="frame" x="0.0" y="0.99999999999999822" width="25" height="23.666666666666664"/>
-                                        <color key="tintColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" name="blackFont"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="MpG-o8-m2m"/>
                                             <constraint firstAttribute="height" constant="25" id="e0j-Kn-pP9"/>
@@ -405,20 +405,21 @@
                                         <rect key="frame" x="35" y="0.0" width="139" height="25"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Account Information">
-                                            <color key="titleColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" name="blackFont"/>
                                         </state>
                                         <connections>
                                             <action selector="accountInformationClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="DFJ-sw-HRp"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="tintColor" name="blackFont"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Of5-P9-WOY">
                                 <rect key="frame" x="20" y="388" width="101" height="25"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dFm-pz-lnY">
                                         <rect key="frame" x="0.0" y="1" width="25" height="23"/>
-                                        <color key="tintColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" name="blackFont"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Ifm-iK-pul"/>
                                             <constraint firstAttribute="width" constant="25" id="dEt-fD-csG"/>
@@ -428,20 +429,21 @@
                                         <rect key="frame" x="35" y="0.0" width="66" height="25"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Password">
-                                            <color key="titleColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" name="blackFont"/>
                                         </state>
                                         <connections>
                                             <action selector="passwordClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="WBv-Py-L2j"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="tintColor" name="blackFont"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cAZ-ks-p2V">
                                 <rect key="frame" x="20" y="438" width="75" height="25"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bag" translatesAutoresizingMaskIntoConstraints="NO" id="0gU-8c-aOf">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
-                                        <color key="tintColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" name="blackFont"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="RcW-W3-FDS"/>
                                             <constraint firstAttribute="width" constant="25" id="sSI-SO-HLf"/>
@@ -451,20 +453,21 @@
                                         <rect key="frame" x="35" y="0.0" width="40" height="25"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Order">
-                                            <color key="titleColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" name="blackFont"/>
                                         </state>
                                         <connections>
                                             <action selector="orderClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="a2q-fv-R1j"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="tintColor" name="blackFont"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="w2I-Kx-TGW">
                                 <rect key="frame" x="20" y="488" width="101" height="25"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallet 1" translatesAutoresizingMaskIntoConstraints="NO" id="1i2-jN-5da">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
-                                        <color key="tintColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" name="blackFont"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="Dcb-ca-ziG"/>
                                             <constraint firstAttribute="height" constant="25" id="jHm-5v-KDz"/>
@@ -474,20 +477,21 @@
                                         <rect key="frame" x="35" y="0.0" width="66" height="25"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="My Cards">
-                                            <color key="titleColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" name="blackFont"/>
                                         </state>
                                         <connections>
                                             <action selector="myCardsClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="Bxm-6B-mah"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="tintColor" name="blackFont"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Msd-qb-Qw3">
                                 <rect key="frame" x="20" y="538" width="89" height="25"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heart" translatesAutoresizingMaskIntoConstraints="NO" id="BW6-WE-OOd">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
-                                        <color key="tintColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" name="blackFont"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="1Oj-TA-B3l"/>
                                             <constraint firstAttribute="width" constant="25" id="SRo-pO-jbq"/>
@@ -497,20 +501,21 @@
                                         <rect key="frame" x="35" y="0.0" width="54" height="25"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Wishlist">
-                                            <color key="titleColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" name="blackFont"/>
                                         </state>
                                         <connections>
                                             <action selector="wishlistClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="P20-RN-kTj"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="tintColor" name="blackFont"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qSm-xN-zBk">
                                 <rect key="frame" x="20" y="588" width="92" height="25"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Setting" translatesAutoresizingMaskIntoConstraints="NO" id="pfW-bl-ekO">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
-                                        <color key="tintColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" name="blackFont"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="SJW-Ga-ydb"/>
                                             <constraint firstAttribute="width" constant="25" id="WU4-4g-mYB"/>
@@ -520,13 +525,14 @@
                                         <rect key="frame" x="35" y="0.0" width="57" height="25"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Settings">
-                                            <color key="titleColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" name="blackFont"/>
                                         </state>
                                         <connections>
                                             <action selector="settingsClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="4Yb-t8-edc"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="tintColor" name="blackFont"/>
                             </stackView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wam-hX-GLd">
                                 <rect key="frame" x="324" y="285" width="51" height="31"/>
@@ -590,6 +596,7 @@
                     <navigationItem key="navigationItem" id="6JR-ff-5tw"/>
                     <connections>
                         <outlet property="sideMenuPersonName" destination="mG0-az-nnA" id="0r2-g8-lit"/>
+                        <outlet property="sunImage" destination="WqE-MS-GTK" id="Pff-jJ-fkb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUD-vH-Mqe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -744,6 +751,9 @@
         <image name="sun.max" catalog="system" width="128" height="125"/>
         <namedColor name="PurpleButton">
             <color red="0.59215686274509804" green="0.45882352941176469" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blackFont">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

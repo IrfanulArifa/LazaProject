@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
   
   // MARK: forgot Button when Clicked -> Go To NewPassword View
   @IBAction func forgotPasswordClicked(_ sender: Any) {
-    let storyboard = UIStoryboard(name: "NewPasswordViewController", bundle: nil).instantiateViewController(withIdentifier: "NewPasswordViewController") as! NewPasswordViewController
+    let storyboard = UIStoryboard(name: "ForgetPasswordViewController", bundle: nil).instantiateViewController(withIdentifier: "ForgetPasswordViewController") as! ForgetPasswordViewController
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
   

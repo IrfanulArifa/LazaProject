@@ -50,6 +50,10 @@
 		007B0F992A71171D0034E7A5 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007B0F972A71171D0034E7A5 /* ProductCollectionViewCell.xib */; };
 		007B0F9C2A7124E10034E7A5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 007B0F9B2A7124E10034E7A5 /* SDWebImage */; };
 		007B0F9E2A7124E10034E7A5 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 007B0F9D2A7124E10034E7A5 /* SDWebImageMapKit */; };
+		008CE6912A80973900454CED /* ForgetPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008CE6902A80973900454CED /* ForgetPasswordViewController.storyboard */; };
+		008CE6952A80976F00454CED /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008CE6942A80976F00454CED /* ForgetPasswordViewController.swift */; };
+		008CE6982A809A6A00454CED /* VerificationCodeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008CE6972A809A6A00454CED /* VerificationCodeViewController.storyboard */; };
+		008CE69B2A809AB400454CED /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008CE69A2A809AB400454CED /* VerificationCodeViewController.swift */; };
 		008EE8A12A7B5C56002C44B9 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008EE8A02A7B5C56002C44B9 /* AlertManager.swift */; };
 		008EE8A72A7B88B8002C44B9 /* SizeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008EE8A52A7B88B8002C44B9 /* SizeCollectionViewCell.swift */; };
 		008EE8A82A7B88B8002C44B9 /* SizeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8A62A7B88B8002C44B9 /* SizeCollectionViewCell.xib */; };
@@ -108,6 +112,10 @@
 		007B0F942A710E3C0034E7A5 /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
 		007B0F962A71171D0034E7A5 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		007B0F972A71171D0034E7A5 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		008CE6902A80973900454CED /* ForgetPasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgetPasswordViewController.storyboard; sourceTree = "<group>"; };
+		008CE6942A80976F00454CED /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		008CE6972A809A6A00454CED /* VerificationCodeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerificationCodeViewController.storyboard; sourceTree = "<group>"; };
+		008CE69A2A809AB400454CED /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
 		008EE8A02A7B5C56002C44B9 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		008EE8A52A7B88B8002C44B9 /* SizeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCollectionViewCell.swift; sourceTree = "<group>"; };
 		008EE8A62A7B88B8002C44B9 /* SizeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SizeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -163,6 +171,8 @@
 		00733AAD2A7B45B80001FBF6 /* BeforeLogin */ = {
 			isa = PBXGroup;
 			children = (
+				008CE6962A809A4B00454CED /* Verification */,
+				008CE6922A80973E00454CED /* ForgetPassword */,
 				008EE88F2A7B4AE4002C44B9 /* NewPassword */,
 				008EE88E2A7B4AD5002C44B9 /* SignUp */,
 				008EE88D2A7B4ACC002C44B9 /* Login */,
@@ -291,6 +301,38 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		008CE6922A80973E00454CED /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				008CE6902A80973900454CED /* ForgetPasswordViewController.storyboard */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		008CE6932A80975100454CED /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				008CE6942A80976F00454CED /* ForgetPasswordViewController.swift */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		008CE6962A809A4B00454CED /* Verification */ = {
+			isa = PBXGroup;
+			children = (
+				008CE6972A809A6A00454CED /* VerificationCodeViewController.storyboard */,
+			);
+			path = Verification;
+			sourceTree = "<group>";
+		};
+		008CE6992A809A9E00454CED /* Verification */ = {
+			isa = PBXGroup;
+			children = (
+				008CE69A2A809AB400454CED /* VerificationCodeViewController.swift */,
+			);
+			path = Verification;
+			sourceTree = "<group>";
+		};
 		008EE8882A7B4920002C44B9 /* AfterLogin */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +345,8 @@
 		008EE8892A7B4948002C44B9 /* BeforeLogin */ = {
 			isa = PBXGroup;
 			children = (
+				008CE6992A809A9E00454CED /* Verification */,
+				008CE6932A80975100454CED /* ForgetPassword */,
 				008EE8942A7B4B2D002C44B9 /* NewPassword */,
 				008EE8932A7B4B1F002C44B9 /* Login */,
 				008EE8922A7B4B15002C44B9 /* SignUp */,
@@ -701,6 +745,8 @@
 				008EE8C42A7CAA24002C44B9 /* Poppins-SemiBold.ttf in Resources */,
 				007B0F702A70B2F40034E7A5 /* Inter.ttf in Resources */,
 				008EE8A82A7B88B8002C44B9 /* SizeCollectionViewCell.xib in Resources */,
+				008CE6912A80973900454CED /* ForgetPasswordViewController.storyboard in Resources */,
+				008CE6982A809A6A00454CED /* VerificationCodeViewController.storyboard in Resources */,
 				001859BF2A7A0895004EF0D5 /* DetailTableViewCell.xib in Resources */,
 				007B0F872A70DF340034E7A5 /* NewPasswordViewController.storyboard in Resources */,
 				008EE8C22A7CAA1C002C44B9 /* Poppins-Regular.ttf in Resources */,
@@ -720,6 +766,7 @@
 				008EE8BF2A7BA868002C44B9 /* AddReviewViewController.swift in Sources */,
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
 				006B4C7E2A753AE2001247C4 /* CardViewController.swift in Sources */,
+				008CE69B2A809AB400454CED /* VerificationCodeViewController.swift in Sources */,
 				008EE8A72A7B88B8002C44B9 /* SizeCollectionViewCell.swift in Sources */,
 				007B0F852A70D5BD0034E7A5 /* LoginViewController.swift in Sources */,
 				008EE8B62A7B95F0002C44B9 /* ReviewTableViewCell.swift in Sources */,
@@ -728,6 +775,7 @@
 				008EE8A12A7B5C56002C44B9 /* AlertManager.swift in Sources */,
 				007B0F8D2A70F8D50034E7A5 /* HomepageViewController.swift in Sources */,
 				001859B52A78E6E7004EF0D5 /* IntrinsicTableView.swift in Sources */,
+				008CE6952A80976F00454CED /* ForgetPasswordViewController.swift in Sources */,
 				003CE9B62A7793A6008D32FA /* ProductTableViewCell.swift in Sources */,
 				007B0F952A710E3C0034E7A5 /* ShopModel.swift in Sources */,
 				007B0F982A71171D0034E7A5 /* ProductCollectionViewCell.swift in Sources */,
