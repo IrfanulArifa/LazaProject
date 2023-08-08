@@ -32,10 +32,85 @@
                     <view key="view" contentMode="scaleToFill" id="WG3-7B-WS5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Et3-lv-Ooh">
+                                <rect key="frame" x="20" y="79" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2HP-LO-qgU">
+                                <rect key="frame" x="0.0" y="100" width="393" height="619"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pd5-HF-ZcR">
+                                <rect key="frame" x="0.0" y="719" width="393" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total : $999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HL1-ez-Pux">
+                                        <rect key="frame" x="20" y="14.666666666666629" width="92" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYL-T6-7ry">
+                                        <rect key="frame" x="132" y="8" width="39" height="34"/>
+                                        <color key="tintColor" red="0.56078431370000004" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.up" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="small"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="chevronClicked:" destination="j0W-wj-yHa" eventType="touchUpInside" id="jb7-cl-9CR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUp-SY-JOn">
+                                        <rect key="frame" x="276" y="7.6666666666666288" width="97" height="35"/>
+                                        <color key="backgroundColor" name="PurpleButton"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Checkout"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GUp-SY-JOn" secondAttribute="trailing" constant="20" id="3Am-fG-Hnd"/>
+                                    <constraint firstItem="NYL-T6-7ry" firstAttribute="top" secondItem="pd5-HF-ZcR" secondAttribute="topMargin" id="Bpt-Cs-deP"/>
+                                    <constraint firstAttribute="height" constant="50" id="Nhv-7H-zfl"/>
+                                    <constraint firstItem="NYL-T6-7ry" firstAttribute="centerY" secondItem="GUp-SY-JOn" secondAttribute="centerY" id="PMI-6u-H3L"/>
+                                    <constraint firstItem="NYL-T6-7ry" firstAttribute="centerY" secondItem="HL1-ez-Pux" secondAttribute="centerY" id="dgJ-W8-V4K"/>
+                                    <constraint firstItem="GUp-SY-JOn" firstAttribute="centerY" secondItem="pd5-HF-ZcR" secondAttribute="centerY" id="rH2-Am-LX4"/>
+                                    <constraint firstItem="NYL-T6-7ry" firstAttribute="leading" secondItem="pd5-HF-ZcR" secondAttribute="leading" constant="132" id="rmZ-z2-frg"/>
+                                    <constraint firstItem="NYL-T6-7ry" firstAttribute="leading" secondItem="HL1-ez-Pux" secondAttribute="trailing" constant="20" id="zB7-vL-8DS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5X3-PC-H0X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2HP-LO-qgU" firstAttribute="top" secondItem="Et3-lv-Ooh" secondAttribute="bottom" id="4br-WI-3bu"/>
+                            <constraint firstItem="Et3-lv-Ooh" firstAttribute="top" secondItem="5X3-PC-H0X" secondAttribute="top" constant="20" id="9kI-Ko-pTZ"/>
+                            <constraint firstItem="Et3-lv-Ooh" firstAttribute="leading" secondItem="5X3-PC-H0X" secondAttribute="leading" constant="20" id="FlD-qS-bLp"/>
+                            <constraint firstItem="2HP-LO-qgU" firstAttribute="trailing" secondItem="5X3-PC-H0X" secondAttribute="trailing" id="Pl6-9T-l9p"/>
+                            <constraint firstItem="2HP-LO-qgU" firstAttribute="leading" secondItem="5X3-PC-H0X" secondAttribute="leading" id="W4k-GH-MfZ"/>
+                            <constraint firstItem="5X3-PC-H0X" firstAttribute="bottom" secondItem="pd5-HF-ZcR" secondAttribute="bottom" id="XoP-a3-K0H"/>
+                            <constraint firstItem="pd5-HF-ZcR" firstAttribute="top" secondItem="2HP-LO-qgU" secondAttribute="bottom" id="fIS-GM-95h"/>
+                            <constraint firstItem="5X3-PC-H0X" firstAttribute="trailing" secondItem="Et3-lv-Ooh" secondAttribute="trailing" constant="20" id="nSh-J8-MiK"/>
+                            <constraint firstItem="pd5-HF-ZcR" firstAttribute="trailing" secondItem="5X3-PC-H0X" secondAttribute="trailing" id="rfc-Nf-Zep"/>
+                            <constraint firstItem="pd5-HF-ZcR" firstAttribute="leading" secondItem="5X3-PC-H0X" secondAttribute="leading" id="zf8-Z8-wqh"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Cart1" id="vVN-hd-eoc"/>
+                    <connections>
+                        <outlet property="cardTableView" destination="2HP-LO-qgU" id="1LO-6D-76b"/>
+                        <outlet property="cartTitle" destination="Et3-lv-Ooh" id="3oL-cD-Hwa"/>
+                        <outlet property="checkoutButton" destination="GUp-SY-JOn" id="quq-1y-AMk"/>
+                        <outlet property="totalCart" destination="HL1-ez-Pux" id="wtp-VC-CBx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x81-yE-QhC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -744,6 +819,7 @@
         <image name="Wallet" width="21" height="20"/>
         <image name="Wallet 1" width="100" height="100"/>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="124"/>
+        <image name="chevron.up" catalog="system" width="128" height="70"/>
         <image name="eye" catalog="system" width="128" height="79"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="lock" catalog="system" width="125" height="128"/>

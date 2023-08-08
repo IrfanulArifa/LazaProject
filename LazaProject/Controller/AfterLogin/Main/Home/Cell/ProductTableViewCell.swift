@@ -30,8 +30,6 @@ class ProductTableViewCell: UITableViewCell {
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
-    
-    // Configure the view for the selected state
   }
   
   func configuring(_ array: WelcomeProduct){
@@ -55,19 +53,7 @@ extension ProductTableViewCell: UICollectionViewDataSource {
     cell.productPrice.text = "$" + String(dataCell.price)
     return cell
   }
-  
-  
 }
-
-//extension ProductTableViewCell: UICollectionViewDelegate {
-//  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//    let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
-//    guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-//    vc.configure(data: dataProduct[indexPath.row])
-//    print("Datanya Ada", dataProduct[indexPath.row])
-////    self.navigationController?.pushViewController(vc, animated: true)
-//  }
-//}
 
 extension ProductTableViewCell: UICollectionViewDelegateFlowLayout {
   public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
