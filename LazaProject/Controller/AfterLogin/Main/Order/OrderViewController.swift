@@ -93,13 +93,37 @@ extension OrderViewController: UITableViewDataSource {
 extension OrderViewController: MoveIntoDelegate {
   func moveIntoDeliveries() {
     guard let storyboard = UIStoryboard(name: "AddressViewController", bundle: nil).instantiateViewController(withIdentifier: "AddressViewController") as? AddressViewController else { return }
+    storyboard.delegate = self
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
   
   func moveIntoPayment() {
     guard let storyboard = UIStoryboard(name: "PaymentViewController", bundle: nil).instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController else { return }
+    storyboard.delegate = self
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
-  
-  
+}
+
+extension OrderViewController: backToCartDelegate{
+  func backToCart() {
+    let navVC = UINavigationController(rootViewController: bottomSheet)
+    let vc = bottomSheet as? BottomSheetViewController
+    vc?.delegate = self
+    if let sheet = navVC.sheetPresentationController {
+      sheet.detents = [.medium()]
+    }
+    self.present(navVC, animated: true)
+  }
+}
+
+extension OrderViewController: backToCartfromAddressDelegate{
+  func backToCartFromAddress() {
+    let navVC = UINavigationController(rootViewController: bottomSheet)
+    let vc = bottomSheet as? BottomSheetViewController
+    vc?.delegate = self
+    if let sheet = navVC.sheetPresentationController {
+      sheet.detents = [.medium()]
+    }
+    self.present(navVC, animated: true)
+  }
 }

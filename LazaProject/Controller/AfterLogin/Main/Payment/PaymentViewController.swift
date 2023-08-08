@@ -7,20 +7,96 @@
 
 import UIKit
 
+protocol backToCartDelegate: AnyObject {
+  func backToCart()
+}
+
 class PaymentViewController: UIViewController {
+  
+  weak var delegate: backToCartDelegate?
+  
+  @IBOutlet weak var paymentTxt: UILabel!{
+    didSet {
+      paymentTxt.font = UIFont(name: "Poppins-SemiBold", size: 17)
+    }
+  }
+  
+  @IBOutlet weak var creditCardCollection: UICollectionView!
+  
+  @IBOutlet weak var addNewCardBtn: UIButton!{
+    didSet {
+      addNewCardBtn.titleLabel!.font = UIFont(name: "Poppins-Regular", size: 15)
+    }
+  }
+  
+  @IBOutlet weak var cardOwnerTxt: UILabel!{
+    didSet {
+      cardOwnerTxt.font = UIFont(name: "Poppins-Regular", size: 15)
+    }
+  }
+  
+  @IBOutlet weak var cardOwnerTxtField: UITextField!
+  @IBOutlet weak var cardNumberTxt: UILabel!{
+    didSet {
+      cardNumberTxt.font = UIFont(name: "Poppins-Regular", size: 15)
+    }
+  }
+  
+  @IBOutlet weak var cardNumberTxtField: UITextField!{
+    didSet {
+      
+    }
+  }
+  
+  @IBOutlet weak var expTxt: UILabel!{
+    didSet {
+      expTxt.font = UIFont(name: "Poppins-Regular", size: 15)
+    }
+  }
+  
+  @IBOutlet weak var cvvTxt: UILabel!{
+    didSet {
+      cvvTxt.font = UIFont(name: "Poppins-Regular", size: 15)
+    }
+  }
+  
+  @IBOutlet weak var expTxtField: UITextField!{
+    didSet {
+      expTxtField.font = UIFont(name: "Poppins-Regular", size: 15)
+    }
+  }
+  @IBOutlet weak var cvvTxtField: UITextField!{
+    didSet {
+      cvvTxtField.font = UIFont(name: "Poppins-Regular", size: 15)
+    }
+  }
+  
+  @IBOutlet weak var saveCardInfo: UILabel!{
+    didSet {
+      saveCardInfo.font = UIFont(name: "Poppins-Regular", size: 14)
+    }
+  }
+  
+  @IBOutlet weak var saveCardBt: UIButton!{
+    didSet {
+      saveCardBt.titleLabel!.font = UIFont(name: "Poppins-Regular", size: 15)
+    }
+  }
+  
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
   }
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
   
+  @IBAction func backButtonPressed(_ sender: Any) {
+    self.navigationController?.popViewController(animated: true)
+    delegate?.backToCart()
+  }
+  
+  @IBAction func addNewCardClicked(_ sender: UIButton) {
+    let storyboard = UIStoryboard(name: "AddNewCardViewController", bundle: nil).instantiateViewController(withIdentifier: "AddNewCardViewController")
+    self.navigationController?.pushViewController(storyboard, animated: true)
+  }
 }

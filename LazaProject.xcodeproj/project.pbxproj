@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		00024A3B2A75B44D00B6A4B0 /* UpdatePasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00024A3A2A75B44D00B6A4B0 /* UpdatePasswordViewController.storyboard */; };
 		00024A3D2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00024A3C2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift */; };
+		0008FF762A822ABE0006BF26 /* AddNewCardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF752A822ABE0006BF26 /* AddNewCardViewController.storyboard */; };
+		0008FF792A822ADB0006BF26 /* AddNewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF782A822ADB0006BF26 /* AddNewCardViewController.swift */; };
+		0008FF7C2A823BA60006BF26 /* PaymentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */; };
+		0008FF7D2A823BA60006BF26 /* PaymentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */; };
 		001859B52A78E6E7004EF0D5 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */; };
 		001859B72A78E737004EF0D5 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */; };
 		001859BB2A7A0478004EF0D5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */; };
@@ -79,11 +83,16 @@
 		00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A74B412A72065500BB07B9 /* DetailViewController.storyboard */; };
 		00A74B442A72465100BB07B9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B432A72465100BB07B9 /* OrderViewController.swift */; };
 		00A74B482A72468200BB07B9 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B472A72468200BB07B9 /* WishlistViewController.swift */; };
+		28EC3AC8624170A182E3B9F1 /* Pods_LazaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D14F2BDA4B7B8930479D64F /* Pods_LazaProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00024A3A2A75B44D00B6A4B0 /* UpdatePasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdatePasswordViewController.storyboard; sourceTree = "<group>"; };
 		00024A3C2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
+		0008FF752A822ABE0006BF26 /* AddNewCardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewCardViewController.storyboard; sourceTree = "<group>"; };
+		0008FF782A822ADB0006BF26 /* AddNewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewController.swift; sourceTree = "<group>"; };
+		0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewCell.swift; sourceTree = "<group>"; };
+		0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCollectionViewCell.xib; sourceTree = "<group>"; };
 		001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +160,9 @@
 		00A74B412A72065500BB07B9 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		00A74B432A72465100BB07B9 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		00A74B472A72468200BB07B9 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		3D14F2BDA4B7B8930479D64F /* Pods_LazaProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazaProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45DF13E549F75DF86E2D602A /* Pods-LazaProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazaProject.debug.xcconfig"; path = "Target Support Files/Pods-LazaProject/Pods-LazaProject.debug.xcconfig"; sourceTree = "<group>"; };
+		A9331842E129E531B4941251 /* Pods-LazaProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazaProject.release.xcconfig"; path = "Target Support Files/Pods-LazaProject/Pods-LazaProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,12 +176,38 @@
 				007B0F9C2A7124E10034E7A5 /* SDWebImage in Frameworks */,
 				003CE9762A776326008D32FA /* SideMenu in Frameworks */,
 				006B4C872A756057001247C4 /* Swifter in Frameworks */,
+				28EC3AC8624170A182E3B9F1 /* Pods_LazaProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0008FF732A8229250006BF26 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */,
+				0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0008FF742A822AAB0006BF26 /* AddNewCard */ = {
+			isa = PBXGroup;
+			children = (
+				0008FF752A822ABE0006BF26 /* AddNewCardViewController.storyboard */,
+			);
+			path = AddNewCard;
+			sourceTree = "<group>";
+		};
+		0008FF772A822AC90006BF26 /* AddNewCard */ = {
+			isa = PBXGroup;
+			children = (
+				0008FF782A822ADB0006BF26 /* AddNewCardViewController.swift */,
+			);
+			path = AddNewCard;
+			sourceTree = "<group>";
+		};
 		003CE9AF2A77937C008D32FA /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +246,8 @@
 			children = (
 				007B0F542A70B2410034E7A5 /* LazaProject */,
 				007B0F532A70B2410034E7A5 /* Products */,
+				94364406878460913452CA44 /* Pods */,
+				A8C5CC57C9EEF3A42E809390 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -399,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				008CE6B02A80D82800454CED /* PaymentViewController.swift */,
+				0008FF732A8229250006BF26 /* Cell */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -475,6 +516,7 @@
 		008EE8902A7B4AF5002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0008FF742A822AAB0006BF26 /* AddNewCard */,
 				0090DFD62A81DDB000150D9D /* OrderConfirmed */,
 				008CE6AC2A80D80100454CED /* Payment */,
 				008CE6A62A80D70E00454CED /* Address */,
@@ -675,6 +717,7 @@
 		008EE8AF2A7B8EE6002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0008FF772A822AC90006BF26 /* AddNewCard */,
 				0090DFD72A81DE3200150D9D /* OrderConfirmed */,
 				008CE6AF2A80D81800454CED /* Payment */,
 				008CE6A92A80D72F00454CED /* Address */,
@@ -749,6 +792,23 @@
 			path = OrderConfirmed;
 			sourceTree = "<group>";
 		};
+		94364406878460913452CA44 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				45DF13E549F75DF86E2D602A /* Pods-LazaProject.debug.xcconfig */,
+				A9331842E129E531B4941251 /* Pods-LazaProject.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A8C5CC57C9EEF3A42E809390 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D14F2BDA4B7B8930479D64F /* Pods_LazaProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -756,9 +816,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 007B0F662A70B2420034E7A5 /* Build configuration list for PBXNativeTarget "LazaProject" */;
 			buildPhases = (
+				6BFEA9BF00B3766C16B1D926 /* [CP] Check Pods Manifest.lock */,
 				007B0F4E2A70B2410034E7A5 /* Sources */,
 				007B0F4F2A70B2410034E7A5 /* Frameworks */,
 				007B0F502A70B2410034E7A5 /* Resources */,
+				869E5915EFD6A8D0A4445580 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -822,6 +884,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0090DFD92A81DE4C00150D9D /* OrderConfirmedViewController.storyboard in Resources */,
+				0008FF7D2A823BA60006BF26 /* PaymentCollectionViewCell.xib in Resources */,
+				0008FF762A822ABE0006BF26 /* AddNewCardViewController.storyboard in Resources */,
 				007B0F7F2A70CD350034E7A5 /* SignUpViewController.storyboard in Resources */,
 				003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */,
 				008CE6A22A80C06600454CED /* BottomSheetViewController.storyboard in Resources */,
@@ -854,6 +918,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6BFEA9BF00B3766C16B1D926 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LazaProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		869E5915EFD6A8D0A4445580 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LazaProject/Pods-LazaProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LazaProject/Pods-LazaProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LazaProject/Pods-LazaProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		007B0F4E2A70B2410034E7A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -866,6 +972,7 @@
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
 				006B4C7E2A753AE2001247C4 /* CardViewController.swift in Sources */,
 				008CE69B2A809AB400454CED /* VerificationCodeViewController.swift in Sources */,
+				0008FF7C2A823BA60006BF26 /* PaymentCollectionViewCell.swift in Sources */,
 				008EE8A72A7B88B8002C44B9 /* SizeCollectionViewCell.swift in Sources */,
 				008CE6A52A80C0E000454CED /* BottomSheetViewController.swift in Sources */,
 				008CE6B12A80D82800454CED /* PaymentViewController.swift in Sources */,
@@ -894,6 +1001,7 @@
 				003CE9B22A779393008D32FA /* CategoryTableViewCell.swift in Sources */,
 				00A74B442A72465100BB07B9 /* OrderViewController.swift in Sources */,
 				007B0F582A70B2410034E7A5 /* SceneDelegate.swift in Sources */,
+				0008FF792A822ADB0006BF26 /* AddNewCardViewController.swift in Sources */,
 				007B0F892A70DF450034E7A5 /* NewPasswordViewController.swift in Sources */,
 				00A74B402A72064300BB07B9 /* DetailViewController.swift in Sources */,
 				008EE8AE2A7B8ED2002C44B9 /* ReviewViewController.swift in Sources */,
@@ -1038,6 +1146,7 @@
 		};
 		007B0F672A70B2420034E7A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45DF13E549F75DF86E2D602A /* Pods-LazaProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1067,6 +1176,7 @@
 		};
 		007B0F682A70B2420034E7A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9331842E129E531B4941251 /* Pods-LazaProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
