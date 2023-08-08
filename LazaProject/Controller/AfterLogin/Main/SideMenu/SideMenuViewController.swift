@@ -6,10 +6,18 @@
 //
 
 import UIKit
+import SideMenu
+
+//protocol blurEffectDelegate: AnyObject {
+//  func blurEffectActivated()
+//  func blurEffectDeactivated()
+//}
 
 class SideMenuViewController: UIViewController {
   
   @IBOutlet weak var sideMenuPersonName: UILabel!
+  
+//  weak var delegate: blurEffectDelegate?
   
   @IBOutlet weak var sunImage: UIImageView!
   override func viewDidLoad() {
@@ -19,13 +27,13 @@ class SideMenuViewController: UIViewController {
   }
   
   @IBAction func switchClicked(_ sender: UISwitch) {
-//    let appDelegate = UIApplication.shared.windows.first
-//    if sender.isOn {
-//      appDelegate?.overrideUserInterfaceStyle = .dark
-//      return
-//    } else {
-//      appDelegate?.overrideUserInterfaceStyle = .light
-//    }
+    let appDelegate = UIApplication.shared.windows.first
+    if sender.isOn {
+      appDelegate?.overrideUserInterfaceStyle = .dark
+      return
+    } else {
+      appDelegate?.overrideUserInterfaceStyle = .light
+    }
   }
   
   @IBAction func accountInformationClicked(_ sender: UIButton) {

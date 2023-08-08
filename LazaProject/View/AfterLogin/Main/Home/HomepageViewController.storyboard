@@ -752,6 +752,16 @@
                                 <rect key="frame" x="0.0" y="242" width="393" height="527"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bv1-eQ-r06">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jWh-PW-8PS">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zsm-gb-gAX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -760,10 +770,14 @@
                             <constraint firstItem="gym-0i-qXO" firstAttribute="top" secondItem="BMU-rP-Hjx" secondAttribute="top" constant="45" id="53i-1H-fJA"/>
                             <constraint firstItem="85T-Ym-Liq" firstAttribute="leading" secondItem="zsm-gb-gAX" secondAttribute="leading" constant="20" id="555-ev-BRn"/>
                             <constraint firstItem="njk-1Y-TA6" firstAttribute="leading" secondItem="zsm-gb-gAX" secondAttribute="leading" constant="20" id="CdI-7v-wsd"/>
+                            <constraint firstItem="Bv1-eQ-r06" firstAttribute="trailing" secondItem="BMU-rP-Hjx" secondAttribute="trailing" id="IPG-Y0-n1f"/>
+                            <constraint firstItem="Bv1-eQ-r06" firstAttribute="top" secondItem="BMU-rP-Hjx" secondAttribute="top" id="LRS-gd-fmY"/>
                             <constraint firstItem="Gyq-YZ-vnd" firstAttribute="leading" secondItem="zsm-gb-gAX" secondAttribute="leading" id="aJg-If-a97"/>
                             <constraint firstItem="gym-0i-qXO" firstAttribute="leading" secondItem="zsm-gb-gAX" secondAttribute="leading" constant="20" id="d5m-0i-BOp"/>
                             <constraint firstItem="zsm-gb-gAX" firstAttribute="trailing" secondItem="Gyq-YZ-vnd" secondAttribute="trailing" id="f3d-SS-D9I"/>
+                            <constraint firstAttribute="bottom" secondItem="Bv1-eQ-r06" secondAttribute="bottom" id="fXr-It-w7Y"/>
                             <constraint firstItem="85T-Ym-Liq" firstAttribute="top" secondItem="njk-1Y-TA6" secondAttribute="bottom" constant="20" id="fl1-gF-PWV"/>
+                            <constraint firstItem="Bv1-eQ-r06" firstAttribute="leading" secondItem="BMU-rP-Hjx" secondAttribute="leading" id="nui-Yq-Q7g"/>
                             <constraint firstItem="njk-1Y-TA6" firstAttribute="top" secondItem="zsm-gb-gAX" secondAttribute="top" constant="54" id="w3M-yH-7or"/>
                             <constraint firstAttribute="trailing" secondItem="85T-Ym-Liq" secondAttribute="trailing" constant="20" id="zKx-vd-7Sk"/>
                             <constraint firstItem="Gyq-YZ-vnd" firstAttribute="top" secondItem="85T-Ym-Liq" secondAttribute="bottom" id="zac-8d-k1r"/>
@@ -772,6 +786,7 @@
                     <tabBarItem key="tabBarItem" title="" image="Home" id="sba-Jp-YgA"/>
                     <navigationItem key="navigationItem" id="XzC-FS-hYU"/>
                     <connections>
+                        <outlet property="blurEffect" destination="Bv1-eQ-r06" id="MfH-xx-Mzh"/>
                         <outlet property="categoryTableView" destination="Gyq-YZ-vnd" id="Jid-Dc-fRv"/>
                         <outlet property="homeTableView" destination="Gyq-YZ-vnd" id="p5c-QB-NU5"/>
                         <outlet property="searchBarStyle" destination="Awv-36-ZSD" id="4JS-5t-PZ5"/>
@@ -779,7 +794,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDT-bl-YtO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="802" y="732"/>
+            <point key="canvasLocation" x="800.76335877862596" y="731.69014084507046"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="GCE-tR-LJ1">

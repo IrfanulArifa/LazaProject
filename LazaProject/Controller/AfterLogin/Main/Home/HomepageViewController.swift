@@ -10,12 +10,18 @@ import SDWebImage
 import SideMenu
 
 
-class HomepageViewController: UIViewController {
+class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   // MARK: Assign View Model
   let viewModel = ViewModel()
   
   @IBOutlet weak var homeTableView: UITableView!
+//  weak var delegate: blurEffectDelegate?
   
+  @IBOutlet weak var blurEffect: UIVisualEffectView!{
+    didSet {
+      blurEffect.isHidden = true
+    }
+  }
   @IBOutlet weak var searchBarStyle: UISearchBar!{
     didSet{ searchBarStyle.searchBarStyle = .minimal } // Change Bar Style to Minimal
   }
@@ -72,10 +78,8 @@ class HomepageViewController: UIViewController {
     let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController")
     let sideMenu = SideMenuNavigationController(rootViewController: vc)
-    
-    
+    sideMenu.delegate = self
     sideMenu.presentationStyle = .menuSlideIn
-    sideMenu.blurEffectStyle = .prominent
     sideMenu.leftSide = true
     sideMenu.menuWidth = 330
     present(sideMenu, animated: true)
@@ -123,5 +127,14 @@ extension HomepageViewController: ProductTableViewCellDelegate {
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
     vc.configure(data: viewModel.welcomeElement[indexPath.item])
     navigationController?.pushViewController(vc, animated: true)
+  }
+}
+
+extension HomepageViewController: SideMenuNavigationControllerDelegate {
+  func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
+    blurEffect.isHidden = false
+  }
+  func sideMenuDidDisappear(menu: SideMenuNavigationController, animated: Bool) {
+    blurEffect.isHidden = true
   }
 }
