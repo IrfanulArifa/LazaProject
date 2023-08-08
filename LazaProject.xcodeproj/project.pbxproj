@@ -73,6 +73,8 @@
 		008EE8BF2A7BA868002C44B9 /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008EE8BE2A7BA868002C44B9 /* AddReviewViewController.swift */; };
 		008EE8C22A7CAA1C002C44B9 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8C12A7CAA1C002C44B9 /* Poppins-Regular.ttf */; };
 		008EE8C42A7CAA24002C44B9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8C32A7CAA24002C44B9 /* Poppins-SemiBold.ttf */; };
+		0090DFD92A81DE4C00150D9D /* OrderConfirmedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0090DFD82A81DE4C00150D9D /* OrderConfirmedViewController.storyboard */; };
+		0090DFDB2A81DE5900150D9D /* OrderConfirmedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090DFDA2A81DE5900150D9D /* OrderConfirmedViewController.swift */; };
 		00A74B402A72064300BB07B9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B3F2A72064300BB07B9 /* DetailViewController.swift */; };
 		00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A74B412A72065500BB07B9 /* DetailViewController.storyboard */; };
 		00A74B442A72465100BB07B9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B432A72465100BB07B9 /* OrderViewController.swift */; };
@@ -143,6 +145,8 @@
 		008EE8BE2A7BA868002C44B9 /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
 		008EE8C12A7CAA1C002C44B9 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../../../Downloads/Poppins-2/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		008EE8C32A7CAA24002C44B9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "../../../../../../../Downloads/Poppins-2/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		0090DFD82A81DE4C00150D9D /* OrderConfirmedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderConfirmedViewController.storyboard; sourceTree = "<group>"; };
+		0090DFDA2A81DE5900150D9D /* OrderConfirmedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmedViewController.swift; sourceTree = "<group>"; };
 		00A74B3F2A72064300BB07B9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		00A74B412A72065500BB07B9 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		00A74B432A72465100BB07B9 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
@@ -671,6 +675,7 @@
 		008EE8AF2A7B8EE6002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0090DFD72A81DE3200150D9D /* OrderConfirmed */,
 				008CE6AF2A80D81800454CED /* Payment */,
 				008CE6A92A80D72F00454CED /* Address */,
 				008CE6A32A80C0C600454CED /* BottomSheet */,
@@ -731,6 +736,15 @@
 		0090DFD62A81DDB000150D9D /* OrderConfirmed */ = {
 			isa = PBXGroup;
 			children = (
+				0090DFD82A81DE4C00150D9D /* OrderConfirmedViewController.storyboard */,
+			);
+			path = OrderConfirmed;
+			sourceTree = "<group>";
+		};
+		0090DFD72A81DE3200150D9D /* OrderConfirmed */ = {
+			isa = PBXGroup;
+			children = (
+				0090DFDA2A81DE5900150D9D /* OrderConfirmedViewController.swift */,
 			);
 			path = OrderConfirmed;
 			sourceTree = "<group>";
@@ -807,6 +821,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0090DFD92A81DE4C00150D9D /* OrderConfirmedViewController.storyboard in Resources */,
 				007B0F7F2A70CD350034E7A5 /* SignUpViewController.storyboard in Resources */,
 				003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */,
 				008CE6A22A80C06600454CED /* BottomSheetViewController.storyboard in Resources */,
@@ -873,6 +888,7 @@
 				001859B72A78E737004EF0D5 /* DynamicHeightCollectionView.swift in Sources */,
 				008CE69E2A80ADC400454CED /* CartTableViewCell.swift in Sources */,
 				008CE6AB2A80D73B00454CED /* AddressViewController.swift in Sources */,
+				0090DFDB2A81DE5900150D9D /* OrderConfirmedViewController.swift in Sources */,
 				006B4C892A7562AB001247C4 /* TwitterConstants.swift in Sources */,
 				007B0F922A710A660034E7A5 /* CategoryCollectionViewCell.swift in Sources */,
 				003CE9B22A779393008D32FA /* CategoryTableViewCell.swift in Sources */,

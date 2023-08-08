@@ -67,6 +67,10 @@ class OrderViewController: UIViewController {
     }
     self.present(navVC, animated: true)
   }
+  @IBAction func checkoutClicked(_ sender: UIButton) {
+    let storyboard = UIStoryboard(name: "OrderConfirmedViewController", bundle: nil).instantiateViewController(withIdentifier: "OrderConfirmedViewController")
+    self.navigationController?.pushViewController(storyboard, animated: true)
+  }
 }
 
 extension OrderViewController: UITableViewDelegate {
