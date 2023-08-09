@@ -747,8 +747,8 @@
 		008EE8AA2A7B8E8A002C44B9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0008FF892A8372E90006BF26 /* CollectionCell */,
 				007B0F8A2A70F8C40034E7A5 /* HomepageViewController.storyboard */,
+				0008FF892A8372E90006BF26 /* CollectionCell */,
 				003CE9AF2A77937C008D32FA /* TableViewCell */,
 			);
 			path = Home;

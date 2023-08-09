@@ -142,9 +142,6 @@
                                         <state key="normal" title="Go To Payment">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="goToPayment:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KRK-La-oru"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.59215686270000001" green="0.45882352939999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -176,12 +173,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="choosePayment" destination="EG0-5v-iXL" id="xnD-eb-Mug"/>
-                        <outlet property="creditCard" destination="rzl-mP-4ps" id="QDK-u7-Mak"/>
-                        <outlet property="creditCheck" destination="TH3-wc-PuU" id="E6z-GV-9PK"/>
-                        <outlet property="goToPayment" destination="9Ua-js-YY3" id="aeW-o8-8kG"/>
-                        <outlet property="gopay" destination="YSq-Pw-VEA" id="bhZ-ZT-ahq"/>
-                        <outlet property="gopayCheck" destination="jE0-6B-Wal" id="ipx-GZ-eeM"/>
+                        <outlet property="choosePayment" destination="EG0-5v-iXL" id="n6i-WC-txs"/>
+                        <outlet property="creditCard" destination="rzl-mP-4ps" id="sEU-h2-oTe"/>
+                        <outlet property="creditCardView" destination="Qdh-pN-w4m" id="4H9-gQ-cE5"/>
+                        <outlet property="creditCheck" destination="TH3-wc-PuU" id="Ljj-Hh-Thl"/>
+                        <outlet property="goToPayment" destination="9Ua-js-YY3" id="zOH-QE-3mp"/>
+                        <outlet property="gopay" destination="YSq-Pw-VEA" id="qxW-Pr-2zg"/>
+                        <outlet property="gopayCheck" destination="jE0-6B-Wal" id="3xv-ne-hz2"/>
+                        <outlet property="gopayView" destination="zXK-Sj-unf" id="Dls-Aq-Zre"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

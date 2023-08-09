@@ -15,6 +15,14 @@ class ChoosePaymentViewController: UIViewController {
   
   var choosedPayment = ""
   weak var delegate: backToCartDelegate?
+  
+  @IBOutlet weak var gopayView: UIView!{
+    didSet { gopayView.backgroundColor = UIColor(named: "greyFont")}
+  }
+  
+  @IBOutlet weak var creditCardView: UIView!{
+    didSet { creditCardView.backgroundColor = UIColor(named: "greyFont")}
+  }
   @IBOutlet weak var choosePayment: UILabel!{
     didSet {
       choosePayment.font = UIFont(name: "Poppins-SemiBold", size: 17)
@@ -62,6 +70,8 @@ class ChoosePaymentViewController: UIViewController {
       choosedPayment = "Gopay"
       gopayCheck.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
       creditCheck.setImage(UIImage(systemName: "square"), for: .normal)
+      gopayView.backgroundColor = UIColor(named: "CreditValid")
+      creditCardView.backgroundColor = UIColor(named: "greyFont")
     } else if gopayCheck.currentImage == UIImage(systemName: "checkmark.square") {
       choosedPayment = ""
       gopayCheck.setImage(UIImage(systemName: "square"), for: .normal)
@@ -73,6 +83,8 @@ class ChoosePaymentViewController: UIViewController {
       choosedPayment = "CreditCard"
       creditCheck.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
       gopayCheck.setImage(UIImage(systemName: "square"), for: .normal)
+      creditCardView.backgroundColor = UIColor(named: "CreditValid")
+      gopayView.backgroundColor = UIColor(named: "greyFont")
     } else if creditCheck.currentImage == UIImage(systemName: "checkmark.square") {
       choosedPayment = ""
       creditCheck.setImage(UIImage(systemName: "square"), for: .normal)
