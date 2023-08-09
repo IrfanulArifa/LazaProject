@@ -13,6 +13,7 @@
 		0008FF792A822ADB0006BF26 /* AddNewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF782A822ADB0006BF26 /* AddNewCardViewController.swift */; };
 		0008FF7C2A823BA60006BF26 /* PaymentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */; };
 		0008FF7D2A823BA60006BF26 /* PaymentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */; };
+		0008FF7F2A8327AE0006BF26 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF7E2A8327AE0006BF26 /* UIViewExt.swift */; };
 		001859B52A78E6E7004EF0D5 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */; };
 		001859B72A78E737004EF0D5 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */; };
 		001859BB2A7A0478004EF0D5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */; };
@@ -37,7 +38,6 @@
 		007B0F5F2A70B2420034E7A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007B0F5E2A70B2420034E7A5 /* Assets.xcassets */; };
 		007B0F622A70B2420034E7A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B0F602A70B2420034E7A5 /* LaunchScreen.storyboard */; };
 		007B0F702A70B2F40034E7A5 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 007B0F6F2A70B2F40034E7A5 /* Inter.ttf */; };
-		007B0F722A70B3030034E7A5 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F712A70B3030034E7A5 /* UIViewExt.swift */; };
 		007B0F7D2A70CAD80034E7A5 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F7C2A70CAD80034E7A5 /* ViewModel.swift */; };
 		007B0F7F2A70CD350034E7A5 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007B0F7E2A70CD350034E7A5 /* SignUpViewController.storyboard */; };
 		007B0F812A70CD430034E7A5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F802A70CD430034E7A5 /* SignUpViewController.swift */; };
@@ -93,6 +93,7 @@
 		0008FF782A822ADB0006BF26 /* AddNewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewController.swift; sourceTree = "<group>"; };
 		0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewCell.swift; sourceTree = "<group>"; };
 		0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCollectionViewCell.xib; sourceTree = "<group>"; };
+		0008FF7E2A8327AE0006BF26 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +117,6 @@
 		007B0F612A70B2420034E7A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		007B0F632A70B2420034E7A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		007B0F6F2A70B2F40034E7A5 /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Inter.ttf; path = ../../../../../../../Downloads/Inter/Inter.ttf; sourceTree = "<group>"; };
-		007B0F712A70B3030034E7A5 /* UIViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExt.swift; path = ../../../Laza/Laza/Extension/UIViewExt.swift; sourceTree = "<group>"; };
 		007B0F7C2A70CAD80034E7A5 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		007B0F7E2A70CD350034E7A5 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
 		007B0F802A70CD430034E7A5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -281,9 +281,9 @@
 			children = (
 				001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */,
 				001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */,
-				007B0F712A70B3030034E7A5 /* UIViewExt.swift */,
 				006B4C8A2A756A57001247C4 /* Regex.swift */,
 				008EE8A02A7B5C56002C44B9 /* AlertManager.swift */,
+				0008FF7E2A8327AE0006BF26 /* UIViewExt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -966,7 +966,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				001859BE2A7A0895004EF0D5 /* DetailTableViewCell.swift in Sources */,
-				007B0F722A70B3030034E7A5 /* UIViewExt.swift in Sources */,
 				006B4C8D2A756ED8001247C4 /* UserModel.swift in Sources */,
 				008EE8BF2A7BA868002C44B9 /* AddReviewViewController.swift in Sources */,
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
@@ -978,6 +977,7 @@
 				008CE6B12A80D82800454CED /* PaymentViewController.swift in Sources */,
 				007B0F852A70D5BD0034E7A5 /* LoginViewController.swift in Sources */,
 				008EE8B62A7B95F0002C44B9 /* ReviewTableViewCell.swift in Sources */,
+				0008FF7F2A8327AE0006BF26 /* UIViewExt.swift in Sources */,
 				007B0F812A70CD430034E7A5 /* SignUpViewController.swift in Sources */,
 				00A74B482A72468200BB07B9 /* WishlistViewController.swift in Sources */,
 				008EE8A12A7B5C56002C44B9 /* AlertManager.swift in Sources */,

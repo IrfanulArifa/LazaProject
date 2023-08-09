@@ -1,0 +1,90 @@
+//
+//  ViewController.swift
+//  LazaProject
+//
+//  Created by Irfanul Arifa on 26/07/23.
+//
+
+import UIKit
+import FacebookLogin
+import Swifter
+
+class ViewController: UIViewController {
+  
+  //  var swifter: Swifter!
+  var accToken: Credential.OAuthAccessToken?
+  
+  // MARK: View Settings -> Change Font Type
+  @IBOutlet weak var startedTitleTxt: UILabel!{
+    didSet{ startedTitleTxt.font = UIFont(name: "Poppins-SemiBold", size: 28) }
+  }
+  @IBOutlet weak var facebookButton: UIButton!{
+    didSet { facebookButton.titleLabel!.font = UIFont(name: "Poppins-Regular", size: 17) }
+  }
+  
+  @IBOutlet weak var twitterButton: UIButton!{
+    didSet { twitterButton.titleLabel!.font = UIFont(name: "Poppins-Regular", size: 17)}
+  }
+  
+  @IBOutlet weak var googleButton: UIButton!{
+    didSet { googleButton.titleLabel!.font = UIFont(name: "Poppins-Regular", size: 17)}
+  }
+  @IBOutlet weak var alreadyTxt: UILabel!{
+    didSet { alreadyTxt.font = UIFont(name: "Poppins-Regular", size: 15)}
+  }
+  
+  @IBOutlet weak var signInButton: UIButton!{
+    didSet { signInButton.titleLabel!.font = UIFont(name: "Poppins-SemiBold", size: 15)}
+  }
+  
+  @IBOutlet weak var createAccountButton: UIButton!{
+    didSet { createAccountButton.titleLabel!.font = UIFont(name: "Poppins-Regular", size: 15)}
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    if UserDefaults.standard.bool(forKey: "state") {
+      let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+      self.navigationController?.pushViewController(storyboard, animated: true)
+    }
+  }
+  
+  @IBAction func facebookButtonClicked(_ sender: UIButton) {
+    let loginManager = LoginManager()
+    loginManager.logIn(permissions: ["public_profile", "email"], from: self, handler: { result, error in
+      if error != nil {
+        print("ERROR: Trying to get login results")
+      } else if result?.isCancelled != nil {
+        print("The token is \(result?.token?.tokenString ?? "")")
+        if result?.token?.tokenString != nil {
+          print("Logged in")
+          //                        self.getUserProfile(token: result?.token, userId: result?.token?.userID)
+        } else {
+          print("Cancelled")
+        }
+      }
+    })
+  }
+  
+  @IBAction func twitterButtonClicked(_ sender: UIButton) {
+    let swifter = Swifter(consumerKey: TwitterConstants.CONSUMER_KEY, consumerSecret: TwitterConstants.CONSUMER_SECRET_KEY)
+    swifter.authorize(withCallback: URL(string: TwitterConstants.CALLBACK_URL)!, presentingFrom: self, success: { accessToken, _ in
+      self.accToken = accessToken
+      //            self.getUserProfile()
+    }, failure: { error in
+      print("ERROR: Trying to authorize - \(error)")
+    })
+  }
+  
+  @IBAction func signInButtonClicked(_ sender: UIButton) {
+    let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+    self.navigationController?.pushViewController(storyboard, animated: true)
+  }
+  
+  @IBAction func createAccountClicked(_ sender: UIButton) {
+    let storyboard = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+    self.navigationController?.pushViewController(storyboard, animated: true)
+  }
+}
+
+// JUST COMMENT

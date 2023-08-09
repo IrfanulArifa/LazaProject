@@ -1,0 +1,49 @@
+PODS:
+  - CreditCardForm (0.2.0)
+  - Stripe (23.13.0):
+    - StripeApplePay (= 23.13.0)
+    - StripeCore (= 23.13.0)
+    - StripePayments (= 23.13.0)
+    - StripePaymentsUI (= 23.13.0)
+    - StripeUICore (= 23.13.0)
+  - StripeApplePay (23.13.0):
+    - StripeCore (= 23.13.0)
+  - StripeCore (23.13.0)
+  - StripePayments (23.13.0):
+    - StripeCore (= 23.13.0)
+    - StripePayments/Stripe3DS2 (= 23.13.0)
+  - StripePayments/Stripe3DS2 (23.13.0):
+    - StripeCore (= 23.13.0)
+  - StripePaymentsUI (23.13.0):
+    - StripeCore (= 23.13.0)
+    - StripePayments (= 23.13.0)
+    - StripeUICore (= 23.13.0)
+  - StripeUICore (23.13.0):
+    - StripeCore (= 23.13.0)
+
+DEPENDENCIES:
+  - CreditCardForm
+  - Stripe
+
+SPEC REPOS:
+  trunk:
+    - CreditCardForm
+    - Stripe
+    - StripeApplePay
+    - StripeCore
+    - StripePayments
+    - StripePaymentsUI
+    - StripeUICore
+
+SPEC CHECKSUMS:
+  CreditCardForm: bba4aad545236f97f2dc45ea3bed0cb57d5e0e99
+  Stripe: ee21be55cfcd4b4797486b1afaeb0d822d7ae8fd
+  StripeApplePay: 70a263e288bcf4e2011cf4027a2fc0813a6f8c09
+  StripeCore: 0f01d8c435d94b9e6bf937006a6144544e580c90
+  StripePayments: 47e26bb98818fbdc331cec8cb11a03c08f47305b
+  StripePaymentsUI: 58029c55b661c176c8d2e406393fff9eb46bb8ce
+  StripeUICore: 171fcf535c658ee1ebd7aaf08fa6a0eceb3fb3db
+
+PODFILE CHECKSUM: 7063321098c676380409f435f87cfee2f1149bf9
+
+COCOAPODS: 1.12.1
