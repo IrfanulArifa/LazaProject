@@ -7,13 +7,11 @@
 
 import UIKit
 
-protocol backToCartfromAddressDelegate: AnyObject{
-  func backToCartFromAddress()
-}
+
 
 class AddressViewController: UIViewController {
   
-  weak var delegate: backToCartfromAddressDelegate?
+  
   
   @IBOutlet weak var addressTitle: UILabel!{
     didSet {
@@ -92,9 +90,9 @@ class AddressViewController: UIViewController {
   
   @IBAction func backButtonPressed(_ sender: UIButton) {
     self.navigationController?.popViewController(animated: true)
-    delegate?.backToCartFromAddress()
   }
   
   @IBAction func saveAddressClicked(_ sender: UIButton) {
+    self.navigationController?.popViewController(animated: true)
   }
 }

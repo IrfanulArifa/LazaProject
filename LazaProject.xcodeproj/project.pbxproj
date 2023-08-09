@@ -18,6 +18,10 @@
 		0008FF882A8363DB0006BF26 /* ChoosePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF872A8363DB0006BF26 /* ChoosePaymentViewController.swift */; };
 		0008FF8C2A8373100006BF26 /* WalletCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF8A2A8373100006BF26 /* WalletCollectionViewCell.swift */; };
 		0008FF8D2A8373100006BF26 /* WalletCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF8B2A8373100006BF26 /* WalletCollectionViewCell.xib */; };
+		0008FF902A83855A0006BF26 /* AllAddressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF8F2A83855A0006BF26 /* AllAddressViewController.storyboard */; };
+		0008FF932A8387010006BF26 /* AllAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF922A8387010006BF26 /* AllAddressViewController.swift */; };
+		0008FF972A838CF30006BF26 /* AllAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF952A838CF30006BF26 /* AllAddressTableViewCell.swift */; };
+		0008FF982A838CF30006BF26 /* AllAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF962A838CF30006BF26 /* AllAddressTableViewCell.xib */; };
 		001859B52A78E6E7004EF0D5 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */; };
 		001859B72A78E737004EF0D5 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */; };
 		001859BB2A7A0478004EF0D5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */; };
@@ -102,6 +106,10 @@
 		0008FF872A8363DB0006BF26 /* ChoosePaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePaymentViewController.swift; sourceTree = "<group>"; };
 		0008FF8A2A8373100006BF26 /* WalletCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCollectionViewCell.swift; sourceTree = "<group>"; };
 		0008FF8B2A8373100006BF26 /* WalletCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletCollectionViewCell.xib; sourceTree = "<group>"; };
+		0008FF8F2A83855A0006BF26 /* AllAddressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllAddressViewController.storyboard; sourceTree = "<group>"; };
+		0008FF922A8387010006BF26 /* AllAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAddressViewController.swift; sourceTree = "<group>"; };
+		0008FF952A838CF30006BF26 /* AllAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAddressTableViewCell.swift; sourceTree = "<group>"; };
+		0008FF962A838CF30006BF26 /* AllAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllAddressTableViewCell.xib; sourceTree = "<group>"; };
 		001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -256,10 +264,43 @@
 		0008FF892A8372E90006BF26 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				0008FF8A2A8373100006BF26 /* WalletCollectionViewCell.swift */,
 				0008FF8B2A8373100006BF26 /* WalletCollectionViewCell.xib */,
 			);
 			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		0008FF8E2A8385450006BF26 /* AllAddress */ = {
+			isa = PBXGroup;
+			children = (
+				0008FF8F2A83855A0006BF26 /* AllAddressViewController.storyboard */,
+				0008FF942A838CD30006BF26 /* Cell */,
+			);
+			path = AllAddress;
+			sourceTree = "<group>";
+		};
+		0008FF912A8386E40006BF26 /* AllAddress */ = {
+			isa = PBXGroup;
+			children = (
+				0008FF922A8387010006BF26 /* AllAddressViewController.swift */,
+				0008FF992A838D270006BF26 /* Cell */,
+			);
+			path = AllAddress;
+			sourceTree = "<group>";
+		};
+		0008FF942A838CD30006BF26 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0008FF962A838CF30006BF26 /* AllAddressTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0008FF992A838D270006BF26 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0008FF952A838CF30006BF26 /* AllAddressTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		003CE9AF2A77937C008D32FA /* TableViewCell */ = {
@@ -409,6 +450,7 @@
 		007B0F8F2A7109690034E7A5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				0008FF8A2A8373100006BF26 /* WalletCollectionViewCell.swift */,
 				003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */,
 				003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */,
 				008CE69C2A80ADC400454CED /* CartTableViewCell.swift */,
@@ -571,6 +613,7 @@
 		008EE8902A7B4AF5002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0008FF8E2A8385450006BF26 /* AllAddress */,
 				0008FF822A8363550006BF26 /* OVO */,
 				0008FF812A83634D0006BF26 /* ChoosePayment */,
 				0008FF742A822AAB0006BF26 /* AddNewCard */,
@@ -775,6 +818,7 @@
 		008EE8AF2A7B8EE6002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0008FF912A8386E40006BF26 /* AllAddress */,
 				0008FF862A8363B80006BF26 /* OVO */,
 				0008FF852A8363B10006BF26 /* ChoosePayment */,
 				0008FF772A822AC90006BF26 /* AddNewCard */,
@@ -948,6 +992,7 @@
 				0008FF7D2A823BA60006BF26 /* PaymentCollectionViewCell.xib in Resources */,
 				0008FF762A822ABE0006BF26 /* AddNewCardViewController.storyboard in Resources */,
 				007B0F7F2A70CD350034E7A5 /* SignUpViewController.storyboard in Resources */,
+				0008FF902A83855A0006BF26 /* AllAddressViewController.storyboard in Resources */,
 				003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */,
 				008CE6A22A80C06600454CED /* BottomSheetViewController.storyboard in Resources */,
 				008CE6AE2A80D81200454CED /* PaymentViewController.storyboard in Resources */,
@@ -972,6 +1017,7 @@
 				008CE6912A80973900454CED /* ForgetPasswordViewController.storyboard in Resources */,
 				008CE6982A809A6A00454CED /* VerificationCodeViewController.storyboard in Resources */,
 				001859BF2A7A0895004EF0D5 /* DetailTableViewCell.xib in Resources */,
+				0008FF982A838CF30006BF26 /* AllAddressTableViewCell.xib in Resources */,
 				0008FF8D2A8373100006BF26 /* WalletCollectionViewCell.xib in Resources */,
 				007B0F872A70DF340034E7A5 /* NewPasswordViewController.storyboard in Resources */,
 				008EE8C22A7CAA1C002C44B9 /* Poppins-Regular.ttf in Resources */,
@@ -1041,6 +1087,7 @@
 				0008FF8C2A8373100006BF26 /* WalletCollectionViewCell.swift in Sources */,
 				007B0F852A70D5BD0034E7A5 /* LoginViewController.swift in Sources */,
 				008EE8B62A7B95F0002C44B9 /* ReviewTableViewCell.swift in Sources */,
+				0008FF972A838CF30006BF26 /* AllAddressTableViewCell.swift in Sources */,
 				0008FF7F2A8327AE0006BF26 /* UIViewExt.swift in Sources */,
 				007B0F812A70CD430034E7A5 /* SignUpViewController.swift in Sources */,
 				00A74B482A72468200BB07B9 /* WishlistViewController.swift in Sources */,
@@ -1050,6 +1097,7 @@
 				008CE6952A80976F00454CED /* ForgetPasswordViewController.swift in Sources */,
 				003CE9B62A7793A6008D32FA /* ProductTableViewCell.swift in Sources */,
 				007B0F952A710E3C0034E7A5 /* ShopModel.swift in Sources */,
+				0008FF932A8387010006BF26 /* AllAddressViewController.swift in Sources */,
 				007B0F982A71171D0034E7A5 /* ProductCollectionViewCell.swift in Sources */,
 				00024A3D2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift in Sources */,
 				007B0F5A2A70B2410034E7A5 /* ViewController.swift in Sources */,

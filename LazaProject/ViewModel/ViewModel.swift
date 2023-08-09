@@ -14,6 +14,7 @@ class ViewModel {
   var userData = UserData()
   var reloadCategory: (() -> Void)?
   var reloadProduct: (() -> Void)?
+  var reloadUser: (()->Void)?
   
   // MARK: Get Categories Data from API
   func getCategories() async throws -> Welcome {
@@ -93,6 +94,7 @@ class ViewModel {
   func getUserData() async {
     do {
       userData = try await getUser()
+      reloadUser?()
     } catch {
       print("Error")
     }

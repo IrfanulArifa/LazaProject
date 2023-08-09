@@ -17,15 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRy-Xk-3qa">
-                                <rect key="frame" x="20" y="45" width="45" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="YUc-qn-GQo"/>
-                                    <constraint firstAttribute="width" constant="45" id="YWn-mN-s5i"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="BackButton"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wishlist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhc-SG-5Sh">
                                 <rect key="frame" x="166.66666666666666" y="60" width="59.666666666666657" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -33,9 +24,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ejA-gg-GyQ">
-                                <rect key="frame" x="0.0" y="101" width="393" height="668"/>
+                                <rect key="frame" x="20" y="101" width="353" height="668"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ivf-QD-N9x">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ivf-QD-N9x">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -48,13 +39,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Dhc-SG-5Sh" firstAttribute="centerX" secondItem="jOX-Wf-cWT" secondAttribute="centerX" id="85w-Ve-6Z6"/>
-                            <constraint firstItem="RRy-Xk-3qa" firstAttribute="leading" secondItem="Py4-CW-OiQ" secondAttribute="leading" constant="20" id="9tz-dC-TBw"/>
                             <constraint firstItem="Dhc-SG-5Sh" firstAttribute="top" secondItem="jOX-Wf-cWT" secondAttribute="top" constant="60" id="HA8-uz-lnu"/>
                             <constraint firstItem="ejA-gg-GyQ" firstAttribute="top" secondItem="Dhc-SG-5Sh" secondAttribute="bottom" constant="20" id="Mub-VF-8wZ"/>
                             <constraint firstItem="Py4-CW-OiQ" firstAttribute="bottom" secondItem="ejA-gg-GyQ" secondAttribute="bottom" id="ZYh-Jo-40j"/>
-                            <constraint firstItem="RRy-Xk-3qa" firstAttribute="top" secondItem="jOX-Wf-cWT" secondAttribute="top" constant="45" id="cU9-RA-UI3"/>
-                            <constraint firstItem="Py4-CW-OiQ" firstAttribute="trailing" secondItem="ejA-gg-GyQ" secondAttribute="trailing" id="iX7-fd-qWz"/>
-                            <constraint firstItem="ejA-gg-GyQ" firstAttribute="leading" secondItem="Py4-CW-OiQ" secondAttribute="leading" id="qmY-03-0Ux"/>
+                            <constraint firstItem="Py4-CW-OiQ" firstAttribute="trailing" secondItem="ejA-gg-GyQ" secondAttribute="trailing" constant="20" id="iX7-fd-qWz"/>
+                            <constraint firstItem="ejA-gg-GyQ" firstAttribute="leading" secondItem="Py4-CW-OiQ" secondAttribute="leading" constant="20" id="qmY-03-0Ux"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Love" id="IoV-97-CpF"/>
@@ -681,7 +670,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BackButton" width="60" height="60"/>
         <image name="Bag" width="100" height="100"/>
         <image name="Cart1" width="21" height="22"/>
         <image name="Heart" width="100" height="100"/>

@@ -64,9 +64,18 @@ extension WishlistViewController: UICollectionViewDataSource{
     let image = URL(string: data.image)
     cell.productImage.sd_setImage(with: image)
     cell.productName.text = data.title
-    cell.productPrice.text = String(data.price)
+    cell.productPrice.text = "$"+String(data.price)
     return cell
   }
   
   
+}
+
+extension WishlistViewController: UICollectionViewDelegateFlowLayout {
+  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: 165, height: 300)
+  }
+  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return 20
+  }
 }

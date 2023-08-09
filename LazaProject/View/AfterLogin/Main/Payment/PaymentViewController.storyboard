@@ -53,7 +53,6 @@
                                 <color key="backgroundColor" red="0.59215686270000001" green="0.45882352939999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="VTj-kd-P4Z" secondAttribute="bottom" constant="15" id="DdU-Jz-MTS"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="HGR-mI-nku"/>
                                     <constraint firstAttribute="trailing" secondItem="VTj-kd-P4Z" secondAttribute="trailing" constant="10" id="Itp-hZ-QN2"/>
                                     <constraint firstAttribute="height" constant="75" id="LRq-Gh-HXZ"/>
                                     <constraint firstItem="VTj-kd-P4Z" firstAttribute="top" secondItem="ogL-dN-Rih" secondAttribute="top" constant="10" id="osp-7x-THU"/>
