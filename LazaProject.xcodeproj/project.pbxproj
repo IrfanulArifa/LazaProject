@@ -14,6 +14,10 @@
 		0008FF7C2A823BA60006BF26 /* PaymentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */; };
 		0008FF7D2A823BA60006BF26 /* PaymentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */; };
 		0008FF7F2A8327AE0006BF26 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF7E2A8327AE0006BF26 /* UIViewExt.swift */; };
+		0008FF842A8363670006BF26 /* ChoosePaymentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF832A8363670006BF26 /* ChoosePaymentViewController.storyboard */; };
+		0008FF882A8363DB0006BF26 /* ChoosePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF872A8363DB0006BF26 /* ChoosePaymentViewController.swift */; };
+		0008FF8C2A8373100006BF26 /* WalletCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF8A2A8373100006BF26 /* WalletCollectionViewCell.swift */; };
+		0008FF8D2A8373100006BF26 /* WalletCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF8B2A8373100006BF26 /* WalletCollectionViewCell.xib */; };
 		001859B52A78E6E7004EF0D5 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */; };
 		001859B72A78E737004EF0D5 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */; };
 		001859BB2A7A0478004EF0D5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */; };
@@ -94,6 +98,10 @@
 		0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewCell.swift; sourceTree = "<group>"; };
 		0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCollectionViewCell.xib; sourceTree = "<group>"; };
 		0008FF7E2A8327AE0006BF26 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		0008FF832A8363670006BF26 /* ChoosePaymentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChoosePaymentViewController.storyboard; sourceTree = "<group>"; };
+		0008FF872A8363DB0006BF26 /* ChoosePaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePaymentViewController.swift; sourceTree = "<group>"; };
+		0008FF8A2A8373100006BF26 /* WalletCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCollectionViewCell.swift; sourceTree = "<group>"; };
+		0008FF8B2A8373100006BF26 /* WalletCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletCollectionViewCell.xib; sourceTree = "<group>"; };
 		001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */,
-				0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -206,6 +213,53 @@
 				0008FF782A822ADB0006BF26 /* AddNewCardViewController.swift */,
 			);
 			path = AddNewCard;
+			sourceTree = "<group>";
+		};
+		0008FF802A8330620006BF26 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0008FF812A83634D0006BF26 /* ChoosePayment */ = {
+			isa = PBXGroup;
+			children = (
+				0008FF832A8363670006BF26 /* ChoosePaymentViewController.storyboard */,
+			);
+			path = ChoosePayment;
+			sourceTree = "<group>";
+		};
+		0008FF822A8363550006BF26 /* OVO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OVO;
+			sourceTree = "<group>";
+		};
+		0008FF852A8363B10006BF26 /* ChoosePayment */ = {
+			isa = PBXGroup;
+			children = (
+				0008FF872A8363DB0006BF26 /* ChoosePaymentViewController.swift */,
+			);
+			path = ChoosePayment;
+			sourceTree = "<group>";
+		};
+		0008FF862A8363B80006BF26 /* OVO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OVO;
+			sourceTree = "<group>";
+		};
+		0008FF892A8372E90006BF26 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				0008FF8A2A8373100006BF26 /* WalletCollectionViewCell.swift */,
+				0008FF8B2A8373100006BF26 /* WalletCollectionViewCell.xib */,
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 		003CE9AF2A77937C008D32FA /* TableViewCell */ = {
@@ -431,6 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				008CE6AD2A80D81200454CED /* PaymentViewController.storyboard */,
+				0008FF802A8330620006BF26 /* Cell */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -516,6 +571,8 @@
 		008EE8902A7B4AF5002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0008FF822A8363550006BF26 /* OVO */,
+				0008FF812A83634D0006BF26 /* ChoosePayment */,
 				0008FF742A822AAB0006BF26 /* AddNewCard */,
 				0090DFD62A81DDB000150D9D /* OrderConfirmed */,
 				008CE6AC2A80D80100454CED /* Payment */,
@@ -690,8 +747,9 @@
 		008EE8AA2A7B8E8A002C44B9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				003CE9AF2A77937C008D32FA /* TableViewCell */,
+				0008FF892A8372E90006BF26 /* CollectionCell */,
 				007B0F8A2A70F8C40034E7A5 /* HomepageViewController.storyboard */,
+				003CE9AF2A77937C008D32FA /* TableViewCell */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -717,6 +775,8 @@
 		008EE8AF2A7B8EE6002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0008FF862A8363B80006BF26 /* OVO */,
+				0008FF852A8363B10006BF26 /* ChoosePayment */,
 				0008FF772A822AC90006BF26 /* AddNewCard */,
 				0090DFD72A81DE3200150D9D /* OrderConfirmed */,
 				008CE6AF2A80D81800454CED /* Payment */,
@@ -883,6 +943,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0008FF842A8363670006BF26 /* ChoosePaymentViewController.storyboard in Resources */,
 				0090DFD92A81DE4C00150D9D /* OrderConfirmedViewController.storyboard in Resources */,
 				0008FF7D2A823BA60006BF26 /* PaymentCollectionViewCell.xib in Resources */,
 				0008FF762A822ABE0006BF26 /* AddNewCardViewController.storyboard in Resources */,
@@ -911,6 +972,7 @@
 				008CE6912A80973900454CED /* ForgetPasswordViewController.storyboard in Resources */,
 				008CE6982A809A6A00454CED /* VerificationCodeViewController.storyboard in Resources */,
 				001859BF2A7A0895004EF0D5 /* DetailTableViewCell.xib in Resources */,
+				0008FF8D2A8373100006BF26 /* WalletCollectionViewCell.xib in Resources */,
 				007B0F872A70DF340034E7A5 /* NewPasswordViewController.storyboard in Resources */,
 				008EE8C22A7CAA1C002C44B9 /* Poppins-Regular.ttf in Resources */,
 			);
@@ -966,6 +1028,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				001859BE2A7A0895004EF0D5 /* DetailTableViewCell.swift in Sources */,
+				0008FF882A8363DB0006BF26 /* ChoosePaymentViewController.swift in Sources */,
 				006B4C8D2A756ED8001247C4 /* UserModel.swift in Sources */,
 				008EE8BF2A7BA868002C44B9 /* AddReviewViewController.swift in Sources */,
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
@@ -975,6 +1038,7 @@
 				008EE8A72A7B88B8002C44B9 /* SizeCollectionViewCell.swift in Sources */,
 				008CE6A52A80C0E000454CED /* BottomSheetViewController.swift in Sources */,
 				008CE6B12A80D82800454CED /* PaymentViewController.swift in Sources */,
+				0008FF8C2A8373100006BF26 /* WalletCollectionViewCell.swift in Sources */,
 				007B0F852A70D5BD0034E7A5 /* LoginViewController.swift in Sources */,
 				008EE8B62A7B95F0002C44B9 /* ReviewTableViewCell.swift in Sources */,
 				0008FF7F2A8327AE0006BF26 /* UIViewExt.swift in Sources */,

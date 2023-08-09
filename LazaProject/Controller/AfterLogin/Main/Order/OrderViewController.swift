@@ -98,7 +98,7 @@ extension OrderViewController: MoveIntoDelegate {
   }
   
   func moveIntoPayment() {
-    guard let storyboard = UIStoryboard(name: "PaymentViewController", bundle: nil).instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController else { return }
+    guard let storyboard = UIStoryboard(name: "ChoosePaymentViewController", bundle: nil).instantiateViewController(withIdentifier: "ChoosePaymentViewController") as? ChoosePaymentViewController else { return }
     storyboard.delegate = self
     self.navigationController?.pushViewController(storyboard, animated: true)
   }

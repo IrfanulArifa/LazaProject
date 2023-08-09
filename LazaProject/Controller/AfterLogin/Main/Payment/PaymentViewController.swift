@@ -7,13 +7,10 @@
 
 import UIKit
 
-protocol backToCartDelegate: AnyObject {
-  func backToCart()
-}
+
 
 class PaymentViewController: UIViewController {
   
-  weak var delegate: backToCartDelegate?
   
   @IBOutlet weak var paymentTxt: UILabel!{
     didSet {
@@ -82,21 +79,49 @@ class PaymentViewController: UIViewController {
       saveCardBt.titleLabel!.font = UIFont(name: "Poppins-Regular", size: 15)
     }
   }
-  
-  
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    creditCardCollection.dataSource = self
+    creditCardCollection.delegate = self
+    
+    creditCardCollection.register(UINib(nibName: "PaymentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PaymentCollectionViewCell")
   }
   
   @IBAction func backButtonPressed(_ sender: Any) {
     self.navigationController?.popViewController(animated: true)
-    delegate?.backToCart()
+//    delegate?.backToCart()
   }
   
   @IBAction func addNewCardClicked(_ sender: UIButton) {
     let storyboard = UIStoryboard(name: "AddNewCardViewController", bundle: nil).instantiateViewController(withIdentifier: "AddNewCardViewController")
     self.navigationController?.pushViewController(storyboard, animated: true)
+  }
+  @IBAction func saveCardClicked(_ sender: Any) {
+    self.navigationController?.popViewController(animated: true)
+//    delegate?.backToCart()
+  }
+}
+
+extension PaymentViewController: UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return 2
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaymentCollectionViewCell", for: indexPath) as? PaymentCollectionViewCell else { return UICollectionViewCell() }
+    return cell
+  }
+  
+  
+}
+
+extension PaymentViewController: UICollectionViewDelegate {
+  
+}
+
+extension PaymentViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: 300, height: 180)
   }
 }

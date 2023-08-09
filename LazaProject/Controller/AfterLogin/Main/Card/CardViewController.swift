@@ -9,35 +9,17 @@ import UIKit
 
 class CardViewController: UIViewController {
   
-  @IBOutlet weak var usernameDefault: UILabel!
-  @IBOutlet weak var emailDefault: UILabel!
-  @IBOutlet weak var phoneNumberDefault: UILabel!
-  @IBOutlet weak var passwordDefault: UITextField!{
+  @IBOutlet weak var walletCollection: UICollectionView!{
     didSet {
-      passwordDefault.isSecureTextEntry = true
-      passwordDefault.isEnabled = false
+      walletCollection.dataSource = self
+      walletCollection.delegate = self
+      
+      walletCollection.register(UINib(nibName: "WalletCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "WalletCollectionViewCell")
     }
   }
   
-  @IBOutlet weak var eyedButton: UIButton!
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    UserModel.synchronize()
-    usernameDefault.text = UserDefaults.standard.string(forKey: "name")
-    passwordDefault.text = UserDefaults.standard.string(forKey: "password")
-    emailDefault.text = UserDefaults.standard.string(forKey: "email")
-    phoneNumberDefault.text = UserDefaults.standard.string(forKey: "phonenumber")
-    setupTabBarItemImage() // Calling Function
-    
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    UserModel.synchronize()
-    usernameDefault.text = UserDefaults.standard.string(forKey: "name")
-    passwordDefault.text = UserDefaults.standard.string(forKey: "password")
-    emailDefault.text = UserDefaults.standard.string(forKey: "email")
-    phoneNumberDefault.text = UserDefaults.standard.string(forKey: "phonenumber")
   }
   
   // MARK: Setup BarItem when Clicked Change into Text
@@ -53,27 +35,29 @@ class CardViewController: UIViewController {
     tabBarItem.standardAppearance?.selectionIndicatorTintColor = UIColor(named: "PurpleButton")
     tabBarItem.selectedImage = UIImage(view: label)
   }
+}
+
+extension CardViewController: UICollectionViewDelegate{
   
-  @IBAction func eyeClicked(_ sender: UIButton) {
-    if passwordDefault.isSecureTextEntry {
-      eyedButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-      passwordDefault.isSecureTextEntry = false
-    } else if !passwordDefault.isSecureTextEntry{
-      eyedButton.setImage(UIImage(systemName: "eye"), for: .normal)
-      passwordDefault.isSecureTextEntry = true
-    }
+}
+
+extension CardViewController: UICollectionViewDataSource{
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return 5
   }
   
-  @IBAction func logoutButton(_ sender: UIButton) {
-    if UserModel.deleteAll() {
-      UserModel.stateLogin = false
-      let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
-      self.navigationController?.pushViewController(storyboard, animated: true)
-    }
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WalletCollectionViewCell", for: indexPath) as? WalletCollectionViewCell else { return UICollectionViewCell() }
+    return cell
   }
   
-  @IBAction func editClicked(_ sender: Any) {
-    let storyboard = UIStoryboard(name: "UpdatePasswordViewController", bundle: nil).instantiateViewController(withIdentifier: "UpdatePasswordViewController") as! UpdatePasswordViewController
-    self.navigationController?.pushViewController(storyboard, animated: true)
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return 50
+  }
+}
+
+extension CardViewController: UICollectionViewDelegateFlowLayout{
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: 300, height: 180)
   }
 }
