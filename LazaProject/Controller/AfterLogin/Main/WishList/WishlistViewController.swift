@@ -50,7 +50,12 @@ class WishlistViewController: UIViewController {
 }
 
 extension WishlistViewController: UICollectionViewDelegate{
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
+    guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+    vc.configure(data: viewModel.welcomeElement[indexPath.item])
+    navigationController?.pushViewController(vc, animated: true)
+  }
 }
 
 extension WishlistViewController: UICollectionViewDataSource{

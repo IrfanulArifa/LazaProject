@@ -22,6 +22,8 @@
 		0008FF932A8387010006BF26 /* AllAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF922A8387010006BF26 /* AllAddressViewController.swift */; };
 		0008FF972A838CF30006BF26 /* AllAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF952A838CF30006BF26 /* AllAddressTableViewCell.swift */; };
 		0008FF982A838CF30006BF26 /* AllAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF962A838CF30006BF26 /* AllAddressTableViewCell.xib */; };
+		0008FF9C2A8394C50006BF26 /* SnackBar in Frameworks */ = {isa = PBXBuildFile; productRef = 0008FF9B2A8394C50006BF26 /* SnackBar */; };
+		0008FF9E2A8395470006BF26 /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF9D2A8395470006BF26 /* SnackBar.swift */; };
 		001859B52A78E6E7004EF0D5 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */; };
 		001859B72A78E737004EF0D5 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */; };
 		001859BB2A7A0478004EF0D5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */; };
@@ -110,6 +112,7 @@
 		0008FF922A8387010006BF26 /* AllAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAddressViewController.swift; sourceTree = "<group>"; };
 		0008FF952A838CF30006BF26 /* AllAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAddressTableViewCell.swift; sourceTree = "<group>"; };
 		0008FF962A838CF30006BF26 /* AllAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllAddressTableViewCell.xib; sourceTree = "<group>"; };
+		0008FF9D2A8395470006BF26 /* SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
 		001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +194,7 @@
 				006B4C812A755460001247C4 /* FacebookCore in Frameworks */,
 				007B0F9C2A7124E10034E7A5 /* SDWebImage in Frameworks */,
 				003CE9762A776326008D32FA /* SideMenu in Frameworks */,
+				0008FF9C2A8394C50006BF26 /* SnackBar in Frameworks */,
 				006B4C872A756057001247C4 /* Swifter in Frameworks */,
 				28EC3AC8624170A182E3B9F1 /* Pods_LazaProject.framework in Frameworks */,
 			);
@@ -379,6 +383,7 @@
 				006B4C8A2A756A57001247C4 /* Regex.swift */,
 				008EE8A02A7B5C56002C44B9 /* AlertManager.swift */,
 				0008FF7E2A8327AE0006BF26 /* UIViewExt.swift */,
+				0008FF9D2A8395470006BF26 /* SnackBar.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -938,6 +943,7 @@
 				006B4C822A755460001247C4 /* FacebookLogin */,
 				006B4C862A756057001247C4 /* Swifter */,
 				003CE9752A776326008D32FA /* SideMenu */,
+				0008FF9B2A8394C50006BF26 /* SnackBar */,
 			);
 			productName = LazaProject;
 			productReference = 007B0F522A70B2410034E7A5 /* LazaProject.app */;
@@ -972,6 +978,7 @@
 				006B4C7F2A755460001247C4 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				006B4C852A756056001247C4 /* XCRemoteSwiftPackageReference "Swifter" */,
 				003CE9742A776326008D32FA /* XCRemoteSwiftPackageReference "SideMenu" */,
+				0008FF9A2A8394C50006BF26 /* XCRemoteSwiftPackageReference "SnackBar" */,
 			);
 			productRefGroup = 007B0F532A70B2410034E7A5 /* Products */;
 			projectDirPath = "";
@@ -1080,6 +1087,7 @@
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
 				006B4C7E2A753AE2001247C4 /* CardViewController.swift in Sources */,
 				008CE69B2A809AB400454CED /* VerificationCodeViewController.swift in Sources */,
+				0008FF9E2A8395470006BF26 /* SnackBar.swift in Sources */,
 				0008FF7C2A823BA60006BF26 /* PaymentCollectionViewCell.swift in Sources */,
 				008EE8A72A7B88B8002C44B9 /* SizeCollectionViewCell.swift in Sources */,
 				008CE6A52A80C0E000454CED /* BottomSheetViewController.swift in Sources */,
@@ -1340,6 +1348,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0008FF9A2A8394C50006BF26 /* XCRemoteSwiftPackageReference "SnackBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ahmedAlmasri/SnackBar.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
 		003CE9742A776326008D32FA /* XCRemoteSwiftPackageReference "SideMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jonkykong/SideMenu";
@@ -1375,6 +1391,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0008FF9B2A8394C50006BF26 /* SnackBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0008FF9A2A8394C50006BF26 /* XCRemoteSwiftPackageReference "SnackBar" */;
+			productName = SnackBar;
+		};
 		003CE9752A776326008D32FA /* SideMenu */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 003CE9742A776326008D32FA /* XCRemoteSwiftPackageReference "SideMenu" */;

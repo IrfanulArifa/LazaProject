@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 import SideMenu
+import SnackBar
 
 
 class HomepageViewController: UIViewController, UINavigationControllerDelegate {
@@ -31,6 +32,8 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    AppSnackBar.make(in: self.view, message: "Login is Successful", duration: .lengthLong).show()
     
     categoryTableView.dataSource = self
     categoryTableView.delegate = self
@@ -122,7 +125,6 @@ extension HomepageViewController: UITableViewDelegate {
 
 extension HomepageViewController: ProductTableViewCellDelegate {
   func productDidSelectItemAt(didSelectItemAt indexPath: IndexPath) {
-    print("Selected at: \(indexPath.item)")
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
     vc.configure(data: viewModel.welcomeElement[indexPath.item])
