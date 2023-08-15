@@ -88,7 +88,8 @@ class LoginViewController: UIViewController {
   
   // MARK: Back Button when Clicked -> Back to Previous View
   @IBAction func backButtonClicked(_ sender: Any) {
-    self.navigationController?.popViewController(animated: true)
+    let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+    self.navigationController?.pushViewController(storyboard, animated: true)
   }
   
   // MARK: forgot Button when Clicked -> Go To NewPassword View

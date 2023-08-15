@@ -41,6 +41,7 @@
 		006B4C892A7562AB001247C4 /* TwitterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C882A7562AB001247C4 /* TwitterConstants.swift */; };
 		006B4C8B2A756A57001247C4 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C8A2A756A57001247C4 /* Regex.swift */; };
 		006B4C8D2A756ED8001247C4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C8C2A756ED8001247C4 /* UserModel.swift */; };
+		007904FA2A8B339700FEBFF0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007904F92A8B339700FEBFF0 /* SignUpViewModel.swift */; };
 		007B0F562A70B2410034E7A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F552A70B2410034E7A5 /* AppDelegate.swift */; };
 		007B0F582A70B2410034E7A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F572A70B2410034E7A5 /* SceneDelegate.swift */; };
 		007B0F5A2A70B2410034E7A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F592A70B2410034E7A5 /* ViewController.swift */; };
@@ -127,6 +128,7 @@
 		006B4C882A7562AB001247C4 /* TwitterConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterConstants.swift; sourceTree = "<group>"; };
 		006B4C8A2A756A57001247C4 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		006B4C8C2A756ED8001247C4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		007904F92A8B339700FEBFF0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		007B0F522A70B2410034E7A5 /* LazaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LazaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007B0F552A70B2410034E7A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		007B0F572A70B2410034E7A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -646,6 +648,7 @@
 			isa = PBXGroup;
 			children = (
 				007B0F802A70CD430034E7A5 /* SignUpViewController.swift */,
+				007904F92A8B339700FEBFF0 /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1116,6 +1119,7 @@
 				008CE69E2A80ADC400454CED /* CartTableViewCell.swift in Sources */,
 				008CE6AB2A80D73B00454CED /* AddressViewController.swift in Sources */,
 				0090DFDB2A81DE5900150D9D /* OrderConfirmedViewController.swift in Sources */,
+				007904FA2A8B339700FEBFF0 /* SignUpViewModel.swift in Sources */,
 				006B4C892A7562AB001247C4 /* TwitterConstants.swift in Sources */,
 				007B0F922A710A660034E7A5 /* CategoryCollectionViewCell.swift in Sources */,
 				003CE9B22A779393008D32FA /* CategoryTableViewCell.swift in Sources */,

@@ -14,7 +14,7 @@ protocol ProductTableViewCellDelegate: AnyObject {
 
 class ProductTableViewCell: UITableViewCell {
   
-  private var dataProduct = WelcomeProduct()
+  var dataProduct = [Datum]()
   var viewModel = ViewModel()
   
   weak var delegate: ProductTableViewCellDelegate?
@@ -32,7 +32,7 @@ class ProductTableViewCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
   }
   
-  func configuring(_ array: WelcomeProduct){
+  func configuring(_ array: [Datum]){
     dataProduct = array
     productCollectionView.reloadData()
   }
@@ -47,10 +47,11 @@ extension ProductTableViewCell: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let dataCell = dataProduct[indexPath.item]
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as? ProductCollectionViewCell else { return UICollectionViewCell() }
-    let image = dataCell.image
+    print("Data : ", dataCell)
+    let image = dataCell.imageURL
     cell.productImage.sd_setImage(with: URL(string:image))
-    cell.productName.text = dataCell.title
-    cell.productPrice.text = "$" + String(dataCell.price)
+    cell.productName.text = dataCell.name
+    cell.productPrice.text = "Rp. " + String(dataCell.price)
     return cell
   }
 }

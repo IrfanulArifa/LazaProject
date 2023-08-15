@@ -13,6 +13,8 @@ protocol ReviewTableViewCellDelegate: AnyObject {
 
 class DetailTableViewCell: UITableViewCell {
   
+  let viewModel = ViewModel()
+  
   weak var delegate: ReviewTableViewCellDelegate?
   
   @IBOutlet weak var imageDetail: UIImageView!
@@ -28,7 +30,7 @@ class DetailTableViewCell: UITableViewCell {
   @IBOutlet weak var star4: UIImageView!
   @IBOutlet weak var star5: UIImageView!
   
-  let dummy = ["S", "M", "L", "XL", "XXL", "XXXL", "XXXXL"]
+  
   
   @IBOutlet weak var sizeCollection: UICollectionView!
   override func awakeFromNib() {
@@ -37,6 +39,14 @@ class DetailTableViewCell: UITableViewCell {
     sizeCollection.dataSource = self
     sizeCollection.delegate = self
     sizeCollection.register(UINib(nibName: "SizeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SizeCollectionViewCell")
+    viewModel.loadSize()
+    
+    viewModel.reloadSize = {
+      DispatchQueue.main.async {
+        self.sizeCollection.reloadData()
+      }
+    }
+    
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
@@ -50,13 +60,13 @@ class DetailTableViewCell: UITableViewCell {
 
 extension DetailTableViewCell: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return dummy.count
+    return viewModel.size.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let data = dummy[indexPath.item]
+    let data = viewModel.size[indexPath.item]
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCollectionViewCell", for: indexPath) as? SizeCollectionViewCell else { return UICollectionViewCell() }
-    cell.sizeLabel.text = data
+    cell.sizeLabel.text = data.size.capitalized
     return cell
   }
   

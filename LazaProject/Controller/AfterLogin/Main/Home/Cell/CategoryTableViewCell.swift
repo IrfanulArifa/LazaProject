@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CategoryTableViewCell: UITableViewCell {
   @IBOutlet weak var categoryCollectionCell: UICollectionView!
-  var data: [String] = []
+  
+  var data = [Description]()
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -25,7 +27,7 @@ class CategoryTableViewCell: UITableViewCell {
     // Configure the view for the selected state
   }
   
-  func configure(_ arrayData: [String]){
+  func configure(_ arrayData: [Description]){
     data = arrayData
     categoryCollectionCell.reloadData()
   }
@@ -40,17 +42,28 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let dataCell = data[indexPath.item]
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell()}
-    cell.categoryTxt.text = dataCell.capitalized
+    cell.categoryTxt.text = dataCell.name.capitalized
+    let imageData = dataCell.logoURL
+    cell.imageBrand.sd_setImage(with: URL(string:imageData))
     return cell
   }
 }
 
 extension CategoryTableViewCell: UICollectionViewDelegate {
-  
 }
 
 extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout{
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 150, height: 50)
+//    for _ in 0...indexPath.item {
+//      let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+//      let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+//      let size:CGFloat = ((collectionView.frame.size.width - space) / 2.0) + 20
+//
+//    }
+    return CGSize(width: 200, height: 50)
+//    return CGSize(width: size, height: size)
+    
+    
   }
+  
 }

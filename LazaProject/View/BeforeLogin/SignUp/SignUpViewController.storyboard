@@ -73,9 +73,6 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="2nZ-Dt-dS1" secondAttribute="trailing" constant="20" id="DNY-5R-cFU"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
@@ -241,6 +238,18 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="LrJ-HD-cOZ">
+                                <rect key="frame" x="171.66666666666666" y="401" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="hbG-h6-2p4"/>
+                                    <constraint firstAttribute="height" constant="50" id="zNa-7X-BnG"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vrJ-cC-a3G">
+                                <rect key="frame" x="0.0" y="3" width="393" height="849"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -264,8 +273,10 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="h5m-Ho-anp" secondAttribute="trailing" constant="20" id="cmv-bn-HVA"/>
                             <constraint firstItem="uLW-Uo-Tvy" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="105" id="hFN-df-MiU"/>
                             <constraint firstItem="3w6-gI-iQa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="q1V-1u-8tY"/>
+                            <constraint firstItem="LrJ-HD-cOZ" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="sYd-dW-gff"/>
                             <constraint firstItem="7q9-hA-QJp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="t23-Le-QLI"/>
                             <constraint firstItem="X53-fG-dqC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ubY-RQ-Iu6"/>
+                            <constraint firstItem="LrJ-HD-cOZ" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="uwc-aX-WzH"/>
                             <constraint firstItem="3w6-gI-iQa" firstAttribute="top" secondItem="X53-fG-dqC" secondAttribute="bottom" constant="20" id="vT4-ei-2Lf"/>
                             <constraint firstItem="tUC-dt-BFt" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="45" id="x1U-pE-OFd"/>
                         </constraints>
@@ -274,8 +285,10 @@
                         <outlet property="confirmPasswordEyeButton" destination="80D-lV-5nU" id="QNq-HC-nNc"/>
                         <outlet property="confirmPasswordTitle" destination="g8W-ZF-dBi" id="3rN-XN-e0n"/>
                         <outlet property="confirmPasswordTxtField" destination="Tt5-ZE-5Hf" id="TlP-T5-jCd"/>
+                        <outlet property="disableView" destination="vrJ-cC-a3G" id="qZT-CS-8M4"/>
                         <outlet property="emailAddressTitle" destination="CF2-o4-Joc" id="oU3-o6-ztg"/>
                         <outlet property="emailAddressTxtField" destination="E1t-pZ-myG" id="qzA-Cf-OIB"/>
+                        <outlet property="indicatorLoading" destination="LrJ-HD-cOZ" id="bNW-te-qy8"/>
                         <outlet property="passwordEyeButton" destination="ndx-py-rtv" id="jtB-TI-Rq7"/>
                         <outlet property="passwordTitle" destination="Jw6-W5-QLM" id="ufK-Ow-SD3"/>
                         <outlet property="passwordTxtField" destination="vW3-8r-vAK" id="QJv-yA-R0A"/>
@@ -290,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="-2"/>
+            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

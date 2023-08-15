@@ -33,7 +33,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    AppSnackBar.make(in: self.view, message: "Login is Successful", duration: .lengthLong).show()
+    validSnackBar.make(in: self.view, message: "Login is Successful", duration: .lengthLong).show()
     
     categoryTableView.dataSource = self
     categoryTableView.delegate = self
@@ -57,11 +57,13 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     // Load Data From API
     viewModel.loadData()
     
-    
-    
     // Setup Tab Bar item Function Calling
     setupTabBarItemImage()
     
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    categoryTableView.reloadData()
   }
   
   // Making a Function that Transform TabBar when Clicked from Logo into Text
@@ -102,12 +104,12 @@ extension HomepageViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if indexPath.row < 1 {
       guard let cellA = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell") as? CategoryTableViewCell else { return UITableViewCell() }
-      cellA.configure(viewModel.welcome)
+      cellA.configure(viewModel.brand)
       return cellA
     } else {
       guard let cellB = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell") as? ProductTableViewCell else { return UITableViewCell() }
       cellB.delegate = self
-      cellB.configuring(viewModel.welcomeElement)
+      cellB.configuring(viewModel.product)
       return cellB
     }
   }
@@ -127,7 +129,7 @@ extension HomepageViewController: ProductTableViewCellDelegate {
   func productDidSelectItemAt(didSelectItemAt indexPath: IndexPath) {
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-    vc.configure(data: viewModel.welcomeElement[indexPath.item])
+    vc.configure(data: viewModel.product[indexPath.item])
     navigationController?.pushViewController(vc, animated: true)
   }
 }

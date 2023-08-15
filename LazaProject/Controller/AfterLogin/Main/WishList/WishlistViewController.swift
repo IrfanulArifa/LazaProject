@@ -32,6 +32,10 @@ class WishlistViewController: UIViewController {
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    wishlistCollection.reloadData()
+  }
+  
   // MARK: Setup BarItem when Clicked Change into Text
   private func setupTabBarItemImage() {
     let label = UILabel()
@@ -53,22 +57,22 @@ extension WishlistViewController: UICollectionViewDelegate{
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-    vc.configure(data: viewModel.welcomeElement[indexPath.item])
+    vc.configure(data: viewModel.product[indexPath.item])
     navigationController?.pushViewController(vc, animated: true)
   }
 }
 
 extension WishlistViewController: UICollectionViewDataSource{
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return viewModel.welcomeElement.count
+    return viewModel.product.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let data = viewModel.welcomeElement[indexPath.item]
+    let data = viewModel.product[indexPath.item]
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as? ProductCollectionViewCell else { return UICollectionViewCell() }
-    let image = URL(string: data.image)
+    let image = URL(string: data.imageURL)
     cell.productImage.sd_setImage(with: image)
-    cell.productName.text = data.title
+    cell.productName.text = data.name
     cell.productPrice.text = "$"+String(data.price)
     return cell
   }
