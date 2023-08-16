@@ -520,6 +520,7 @@
                     <connections>
                         <outlet property="sideMenuPersonName" destination="mG0-az-nnA" id="0r2-g8-lit"/>
                         <outlet property="sunImage" destination="WqE-MS-GTK" id="Pff-jJ-fkb"/>
+                        <outlet property="switchBtn" destination="Wam-hX-GLd" id="Sv6-yO-yE7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUD-vH-Mqe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -633,7 +634,7 @@
                     <connections>
                         <outlet property="blurEffect" destination="Bv1-eQ-r06" id="MfH-xx-Mzh"/>
                         <outlet property="categoryTableView" destination="Gyq-YZ-vnd" id="Jid-Dc-fRv"/>
-                        <outlet property="homeTableView" destination="Gyq-YZ-vnd" id="p5c-QB-NU5"/>
+                        <outlet property="helloLbl" destination="LLr-eo-HOY" id="n1y-lv-Uer"/>
                         <outlet property="searchBarStyle" destination="Awv-36-ZSD" id="4JS-5t-PZ5"/>
                     </connections>
                 </viewController>

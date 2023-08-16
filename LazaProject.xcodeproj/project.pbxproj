@@ -42,6 +42,9 @@
 		006B4C8B2A756A57001247C4 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C8A2A756A57001247C4 /* Regex.swift */; };
 		006B4C8D2A756ED8001247C4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C8C2A756ED8001247C4 /* UserModel.swift */; };
 		007904FA2A8B339700FEBFF0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007904F92A8B339700FEBFF0 /* SignUpViewModel.swift */; };
+		007904FC2A8B676300FEBFF0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007904FB2A8B676300FEBFF0 /* LoginViewModel.swift */; };
+		007904FF2A8C7D2800FEBFF0 /* DPOTPView in Frameworks */ = {isa = PBXBuildFile; productRef = 007904FE2A8C7D2800FEBFF0 /* DPOTPView */; };
+		007905012A8C9EA100FEBFF0 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007905002A8C9EA100FEBFF0 /* SessionManager.swift */; };
 		007B0F562A70B2410034E7A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F552A70B2410034E7A5 /* AppDelegate.swift */; };
 		007B0F582A70B2410034E7A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F572A70B2410034E7A5 /* SceneDelegate.swift */; };
 		007B0F5A2A70B2410034E7A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B0F592A70B2410034E7A5 /* ViewController.swift */; };
@@ -129,6 +132,8 @@
 		006B4C8A2A756A57001247C4 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		006B4C8C2A756ED8001247C4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		007904F92A8B339700FEBFF0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		007904FB2A8B676300FEBFF0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		007905002A8C9EA100FEBFF0 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		007B0F522A70B2410034E7A5 /* LazaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LazaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007B0F552A70B2410034E7A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		007B0F572A70B2410034E7A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +199,7 @@
 				006B4C832A755460001247C4 /* FacebookLogin in Frameworks */,
 				007B0F9E2A7124E10034E7A5 /* SDWebImageMapKit in Frameworks */,
 				006B4C812A755460001247C4 /* FacebookCore in Frameworks */,
+				007904FF2A8C7D2800FEBFF0 /* DPOTPView in Frameworks */,
 				007B0F9C2A7124E10034E7A5 /* SDWebImage in Frameworks */,
 				003CE9762A776326008D32FA /* SideMenu in Frameworks */,
 				0008FF9C2A8394C50006BF26 /* SnackBar in Frameworks */,
@@ -657,6 +663,7 @@
 			isa = PBXGroup;
 			children = (
 				007B0F842A70D5BD0034E7A5 /* LoginViewController.swift */,
+				007904FB2A8B676300FEBFF0 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -842,6 +849,7 @@
 				008EE89D2A7B4C37002C44B9 /* Order */,
 				008EE89F2A7B4C4B002C44B9 /* UpdatePassword */,
 				008EE8952A7B4B56002C44B9 /* Home */,
+				007905002A8C9EA100FEBFF0 /* SessionManager.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -947,6 +955,7 @@
 				006B4C862A756057001247C4 /* Swifter */,
 				003CE9752A776326008D32FA /* SideMenu */,
 				0008FF9B2A8394C50006BF26 /* SnackBar */,
+				007904FE2A8C7D2800FEBFF0 /* DPOTPView */,
 			);
 			productName = LazaProject;
 			productReference = 007B0F522A70B2410034E7A5 /* LazaProject.app */;
@@ -982,6 +991,7 @@
 				006B4C852A756056001247C4 /* XCRemoteSwiftPackageReference "Swifter" */,
 				003CE9742A776326008D32FA /* XCRemoteSwiftPackageReference "SideMenu" */,
 				0008FF9A2A8394C50006BF26 /* XCRemoteSwiftPackageReference "SnackBar" */,
+				007904FD2A8C7D2800FEBFF0 /* XCRemoteSwiftPackageReference "DPOTPView" */,
 			);
 			productRefGroup = 007B0F532A70B2410034E7A5 /* Products */;
 			projectDirPath = "";
@@ -1097,6 +1107,7 @@
 				008CE6B12A80D82800454CED /* PaymentViewController.swift in Sources */,
 				0008FF8C2A8373100006BF26 /* WalletCollectionViewCell.swift in Sources */,
 				007B0F852A70D5BD0034E7A5 /* LoginViewController.swift in Sources */,
+				007905012A8C9EA100FEBFF0 /* SessionManager.swift in Sources */,
 				008EE8B62A7B95F0002C44B9 /* ReviewTableViewCell.swift in Sources */,
 				0008FF972A838CF30006BF26 /* AllAddressTableViewCell.swift in Sources */,
 				0008FF7F2A8327AE0006BF26 /* UIViewExt.swift in Sources */,
@@ -1110,6 +1121,7 @@
 				007B0F952A710E3C0034E7A5 /* ShopModel.swift in Sources */,
 				0008FF932A8387010006BF26 /* AllAddressViewController.swift in Sources */,
 				007B0F982A71171D0034E7A5 /* ProductCollectionViewCell.swift in Sources */,
+				007904FC2A8B676300FEBFF0 /* LoginViewModel.swift in Sources */,
 				00024A3D2A75B50D00B6A4B0 /* UpdatePasswordViewController.swift in Sources */,
 				007B0F5A2A70B2410034E7A5 /* ViewController.swift in Sources */,
 				007B0F562A70B2410034E7A5 /* AppDelegate.swift in Sources */,
@@ -1384,6 +1396,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		007904FD2A8C7D2800FEBFF0 /* XCRemoteSwiftPackageReference "DPOTPView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Datt1994/DPOTPView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		007B0F9A2A7124E10034E7A5 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -1419,6 +1439,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 006B4C852A756056001247C4 /* XCRemoteSwiftPackageReference "Swifter" */;
 			productName = Swifter;
+		};
+		007904FE2A8C7D2800FEBFF0 /* DPOTPView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 007904FD2A8C7D2800FEBFF0 /* XCRemoteSwiftPackageReference "DPOTPView" */;
+			productName = DPOTPView;
 		};
 		007B0F9B2A7124E10034E7A5 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;

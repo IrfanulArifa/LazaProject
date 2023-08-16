@@ -218,11 +218,20 @@
                                     <action selector="backButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="UKm-zo-BVw"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndF-Mz-lZS">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-aw-OaV">
+                                <rect key="frame" x="178" y="407" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iCP-fc-6Bf" firstAttribute="top" secondItem="X3y-x3-PYO" secondAttribute="bottom" constant="5" id="4ID-z2-4sG"/>
+                            <constraint firstItem="ndF-Mz-lZS" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="4IG-hz-cNv"/>
                             <constraint firstItem="6U2-IX-LkS" firstAttribute="top" secondItem="PNS-1s-7M8" secondAttribute="bottom" constant="25" id="73w-Uu-FvO"/>
                             <constraint firstAttribute="trailing" secondItem="NJp-MY-UY5" secondAttribute="trailing" constant="8" id="C1L-wY-rR8"/>
                             <constraint firstItem="iCP-fc-6Bf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="GJn-i1-0in"/>
@@ -238,6 +247,8 @@
                             <constraint firstItem="X3y-x3-PYO" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="105" id="fkf-Lw-BoL"/>
                             <constraint firstItem="PNS-1s-7M8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="i1H-xT-XhS"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oqx-RQ-Ism" secondAttribute="trailing" constant="20" id="iLI-2j-KSK"/>
+                            <constraint firstAttribute="bottom" secondItem="ndF-Mz-lZS" secondAttribute="bottom" id="id4-CB-ps5"/>
+                            <constraint firstItem="ndF-Mz-lZS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="n5e-kN-m6S"/>
                             <constraint firstItem="oqx-RQ-Ism" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="p98-lw-naA"/>
                             <constraint firstItem="6U2-IX-LkS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="pRT-SR-dHT"/>
                             <constraint firstItem="7Ii-tv-bpX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="qOR-xI-aev"/>
@@ -246,13 +257,16 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iCP-fc-6Bf" secondAttribute="trailing" constant="20" id="t35-sf-AV8"/>
                             <constraint firstItem="amw-jr-HEI" firstAttribute="top" secondItem="iCP-fc-6Bf" secondAttribute="bottom" constant="150" id="vBS-wu-N40"/>
                             <constraint firstItem="oqx-RQ-Ism" firstAttribute="top" secondItem="amw-jr-HEI" secondAttribute="bottom" constant="20" id="vQ3-Fz-YaC"/>
+                            <constraint firstItem="ndF-Mz-lZS" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="xpx-Ts-vgY"/>
                             <constraint firstAttribute="bottom" secondItem="6U2-IX-LkS" secondAttribute="bottom" id="zTj-I8-Pli"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="byConnecting" destination="VOp-uv-Lrd" id="V0Z-yd-H45"/>
+                        <outlet property="disableView" destination="ndF-Mz-lZS" id="8yM-Rc-8eM"/>
                         <outlet property="eyeButton" destination="NT5-47-487" id="6vR-dj-HOy"/>
                         <outlet property="forgotBtn" destination="NJp-MY-UY5" id="oLw-tl-h1W"/>
+                        <outlet property="indicatorLoading" destination="4D3-aw-OaV" id="szg-HA-NgL"/>
                         <outlet property="loginBackground" destination="6U2-IX-LkS" id="cXa-ev-7o5"/>
                         <outlet property="loginBtn" destination="0zf-ch-RZr" id="gUF-KV-Atb"/>
                         <outlet property="passwordTextField" destination="4Wv-BQ-vaW" id="7cm-YF-QIS"/>

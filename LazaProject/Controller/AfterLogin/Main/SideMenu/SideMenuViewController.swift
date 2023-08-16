@@ -14,20 +14,33 @@ import SideMenu
 //}
 
 class SideMenuViewController: UIViewController {
+  var loginUser: DataClass?
+  let appDelegate = UIApplication.shared.windows.first
   
   @IBOutlet weak var sideMenuPersonName: UILabel!
   
-//  weak var delegate: blurEffectDelegate?
-  
   @IBOutlet weak var sunImage: UIImageView!
+  
+  @IBOutlet weak var switchBtn: UISwitch!{
+    didSet {
+      if appDelegate?.overrideUserInterfaceStyle == .dark {
+        switchBtn.isOn = true
+      } else if appDelegate?.overrideUserInterfaceStyle == .light {
+        switchBtn.isOn = false
+      }
+    }
+  }
+  
+  func profilConfigure(data: DataClass){
+    loginUser = data
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    sideMenuPersonName.text = UserDefaults.standard.string(forKey: "name")
+    sideMenuPersonName.text = UserDefaults.standard.string(forKey: "username")
   }
   
   @IBAction func switchClicked(_ sender: UISwitch) {
-    let appDelegate = UIApplication.shared.windows.first
     if sender.isOn {
       appDelegate?.overrideUserInterfaceStyle = .dark
       return

@@ -154,7 +154,7 @@ class SignUpViewController: UIViewController {
           self.disableView.isHidden = false
           self.indicatorLoading.stopAnimating()
           self.indicatorLoading.isHidden = true
-          let alert = UIAlertController(title: "Registration Failed", message: error, preferredStyle: .alert)
+          let alert = UIAlertController(title: "Registration Failed", message: error.capitalized, preferredStyle: .alert)
           let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
           alert.addAction(okAction)
           self.present(alert, animated: true, completion: nil)

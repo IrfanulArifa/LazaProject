@@ -14,9 +14,11 @@ import SnackBar
 class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   // MARK: Assign View Model
   let viewModel = ViewModel()
+  let loginModel = LoginViewModel()
   
-  @IBOutlet weak var homeTableView: UITableView!
-//  weak var delegate: blurEffectDelegate?
+  @IBOutlet weak var helloLbl: UILabel!{
+    didSet { helloLbl.font = UIFont(name: "Poppins-SemiBold", size: 28)}
+  }
   
   @IBOutlet weak var blurEffect: UIVisualEffectView!{
     didSet {
@@ -32,6 +34,10 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    let refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+    categoryTableView.refreshControl = refreshControl
     
     validSnackBar.make(in: self.view, message: "Login is Successful", duration: .lengthLong).show()
     
@@ -79,9 +85,16 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     tabBarItem.selectedImage = UIImage(view: label)
   }
   
+  @objc func refreshTableView(){
+    categoryTableView.refreshControl?.endRefreshing()
+    categoryTableView.reloadData()
+  }
+  
   @IBAction func MenuButtonClicked(_ sender: UIButton) {
     let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
-    let vc = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController")
+    let vc = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController") as! SideMenuViewController
+    let data = SessionManager.shared.userData
+//    vc.profilConfigure(data: data!)
     let sideMenu = SideMenuNavigationController(rootViewController: vc)
     sideMenu.delegate = self
     sideMenu.presentationStyle = .menuSlideIn

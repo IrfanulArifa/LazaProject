@@ -151,3 +151,25 @@ struct Success: Codable {
     case updatedAt = "updated_at"
   }
 }
+
+struct LoginFailed: Codable {
+  let status: String
+  let isError: Bool
+  let descriptionKey: String
+  
+  enum CodingKeys: String, CodingKey{
+    case status
+    case isError
+    case descriptionKey = "description"
+  }
+}
+
+struct LoginSuccess: Codable {
+  let status: String
+  let isError: Bool
+  let data: LoginValid
+}
+
+struct LoginValid: Codable {
+  let access_token: String
+}

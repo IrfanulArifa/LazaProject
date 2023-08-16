@@ -10,9 +10,10 @@ import Foundation
 struct UserModel {
   // MARK: Declare User Model
   static let stateLoginKey = "state"
-  static let nameKey = "name"
+  static let accessTokenKey = "access_token"
+  static let fullnameKey = "fullname"
+  static let usernameKey = "username"
   static let emailKey = "email"
-  static let passwordKey = "password"
   
   // Encaptulation ??
   static var stateLogin: Bool {
@@ -20,19 +21,24 @@ struct UserModel {
     set { UserDefaults.standard.set(newValue, forKey: stateLoginKey) }
   }
   
-  static var name: String {
-    get { return UserDefaults.standard.string(forKey: nameKey) ?? "" }
-    set { UserDefaults.standard.set(newValue, forKey: nameKey) }
+  static var access_token: String {
+    get { return UserDefaults.standard.string(forKey: accessTokenKey) ?? "" }
+    set { UserDefaults.standard.set(newValue, forKey: accessTokenKey) }
+  }
+  
+  static var fullname: String {
+    get { return UserDefaults.standard.string(forKey: fullnameKey) ?? "" }
+    set { UserDefaults.standard.set(newValue, forKey: fullnameKey) }
+  }
+  
+  static var username: String {
+    get { return UserDefaults.standard.string(forKey: usernameKey) ?? "" }
+    set { UserDefaults.standard.set(newValue, forKey: usernameKey) }
   }
   
   static var email: String {
-    get { return UserDefaults.standard.string(forKey: emailKey) ?? "" }
+    get { return UserDefaults.standard.string(forKey: emailKey) ?? ""}
     set { UserDefaults.standard.set(newValue, forKey: emailKey) }
-  }
-  
-  static var password: String {
-    get { return UserDefaults.standard.string(forKey: passwordKey) ?? "" }
-    set { UserDefaults.standard.set(newValue, forKey: passwordKey)}
   }
   
   // MARK: For Deleting All User
@@ -48,4 +54,27 @@ struct UserModel {
   static func synchronize() {
     UserDefaults.standard.synchronize()
   }
+}
+
+struct User: Codable {
+    let status: String
+    let isError: Bool
+    let data: DataClass
+}
+
+// MARK: - DataClass
+struct DataClass: Codable {
+    let id: Int
+    let fullName, username, email: String
+    let isVerified: Bool
+    let createdAt, updatedAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case fullName = "full_name"
+        case username, email
+        case isVerified = "is_verified"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
 }

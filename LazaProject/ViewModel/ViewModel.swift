@@ -131,10 +131,12 @@ class ViewModel {
     }
   }
   
-  func saveProfil(name: String, email: String, password: String) {
+  func saveProfil(fullname: String, username: String, email: String) {
     UserModel.stateLogin = true
-    UserModel.name = name
+    UserModel.fullname = fullname
+    UserModel.username = username
     UserModel.email = email
-    UserModel.password = password
+    
+    print("savePROFILE")
   }
 }

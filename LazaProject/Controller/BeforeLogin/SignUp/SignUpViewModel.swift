@@ -39,7 +39,7 @@ class SignUpViewModel {
     let session = URLSession.shared
     
     let task = session.dataTask(with: request) { data, response, error in
-      if let error = error {
+      if error != nil {
         completion(nil)
         return
       }
@@ -54,7 +54,6 @@ class SignUpViewModel {
         return
       }
       
-      print(httpResponse.statusCode)
       if httpResponse.statusCode != 201 {
         guard let failedModel = try? decoder.decode(ResponseSignUpFailed.self, from: data) else {
           onError("Register failed - Failed to decode")

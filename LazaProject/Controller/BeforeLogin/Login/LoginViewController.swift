@@ -10,6 +10,19 @@ import UIKit
 class LoginViewController: UIViewController {
   
   let viewModel = ViewModel()
+  let loginModel = LoginViewModel()
+  
+  @IBOutlet weak var disableView: UIView!{
+    didSet {
+      disableView.isHidden = true
+    }
+  }
+  
+  @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!{
+    didSet {
+      indicatorLoading.isHidden = true
+    }
+  }
   
   @IBOutlet weak var welcomeTitle: UILabel!{
     didSet { welcomeTitle.font = UIFont(name: "Poppins-SemiBold", size: 28)}
@@ -55,7 +68,7 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var byConnecting: UILabel!{
     didSet { byConnecting.font = UIFont(name: "Poppins-Regular", size: 12)}
   }
-                                        
+  
   @IBOutlet weak var withOur: UILabel!{
     didSet { withOur.font = UIFont(name: "Poppins-Regular", size: 12)}
   }
@@ -67,17 +80,11 @@ class LoginViewController: UIViewController {
   
   @IBOutlet weak var loginBtn: UIButton!{
     didSet {
-      loginBtn.isEnabled = false
-      loginBtn.backgroundColor = UIColor(named: "invalidButton")
       loginBtn.titleLabel!.font = UIFont(name: "Poppins-Regular", size: 15)
     }
   }
   
-  @IBOutlet weak var loginBackground: UIView!{
-    didSet {
-      loginBackground.backgroundColor = UIColor(named: "invalidButton")
-    }
-  }
+  @IBOutlet weak var loginBackground: UIView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -99,51 +106,56 @@ class LoginViewController: UIViewController {
   }
   
   // MARK: loginButton when Clicked -> Go To HomePage View
-  @IBAction func loginButtonClicked(_ sender: Any) {
-    let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-    self.navigationController?.pushViewController(storyboard, animated: true)
+  @IBAction func loginButtonClicked(_ sender: UIButton) {
+    self.indicatorLoading.isHidden = false
+    self.indicatorLoading.startAnimating()
+    loginModel.login(username: usernameTxtField.text!, password: passwordTextField.text!) { response in
+      DispatchQueue.main.async {
+        self.disableView.isHidden = false
+        self.indicatorLoading.stopAnimating()
+        self.indicatorLoading.isHidden = true
+        let alert = UIAlertController(title: "Login Success", message: "Redirecting...", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+          DispatchQueue.main.async {
+            guard let loginAccess = response?.access_token else { print("Login Access")
+              return }
+            self?.loginModel.jumpClick = {
+              DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                self?.navigationController?.pushViewController(vc, animated: true)
+              }
+            }
+            self!.loginModel.getProfileData(token: loginAccess)
+          }
+        }
+        alert.addAction(okAction)
+        self.present(alert,animated: true, completion: nil)
+      }
+    } onError: { error in
+      DispatchQueue.main.async {
+        self.disableView.isHidden = false
+        self.indicatorLoading.stopAnimating()
+        self.indicatorLoading.isHidden = true
+        let alert = UIAlertController(title: "Login Failed!", message: error.capitalized, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+      }
+    }
+    
+    
   }
   
   // MARK: Check Validation For Text Field
   @objc func checkValidation() {
-    var isValidUsernameTxt = false
-    var isValidPasswordStat = false
-    let username = usernameTxtField.text
-    let password = passwordTextField.text
-    var passIndex = 0
-    
-    for uname in 0..<viewModel.userData.count{
-      if username == viewModel.userData[uname].username {
-        isValidUsernameTxt = true
-        passIndex = uname
-        break
-      } else {
-        isValidUsernameTxt = false
-      }
-    }
-    
-    if password == viewModel.userData[passIndex].password {
-      isValidPasswordStat = true
-    } else {
-      isValidPasswordStat = false
-    }
-    
-    let isValidPasswordTxt = passwordTextField.validPassword(passwordTextField.text ?? "")
+    let username = usernameTxtField.text ?? ""
+    let isValidUsernameTxt = username.count > 6
     
     if isValidUsernameTxt {
       validImage.isHidden = false
     } else {
       validImage.isHidden = true
-    }
-    
-    if isValidPasswordTxt && (isValidUsernameTxt && isValidPasswordStat) {
-      loginBtn.isEnabled = true
-      loginBtn.backgroundColor = UIColor(named: "PurpleButton")
-      loginBackground.backgroundColor = UIColor(named: "PurpleButton")
-    } else {
-      loginBtn.isEnabled = false
-      loginBtn.backgroundColor = UIColor(named: "invalidButton")
-      loginBackground.backgroundColor = UIColor(named: "invalidButton")
     }
   }
   @IBAction func eyeButtonClicked(_ sender: UIButton) {
