@@ -261,7 +261,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYu-N9-mjS">
                                 <rect key="frame" x="70" y="727" width="253" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyX-q0-hef">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyX-q0-hef">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="yg6-rN-DmD"/>
@@ -336,8 +336,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmCode" destination="146-ld-SxU" id="DtT-Hn-9UE"/>
+                        <outlet property="otpField" destination="jiD-P6-r03" id="qmQ-T2-fY9"/>
                         <outlet property="resendButton" destination="F26-YT-Bp0" id="Mdm-fL-J6J"/>
                         <outlet property="timerLabel" destination="UyX-q0-hef" id="DYE-cm-OaL"/>
+                        <outlet property="verificationLbl" destination="hF0-mz-LJI" id="kTr-qR-eyM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eh3-7i-lvL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1070,7 +1073,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1v-gm-ozM">
-                                <rect key="frame" x="262" y="509.33333333333326" width="123" height="30"/>
+                                <rect key="frame" x="250" y="509.33333333333326" width="123" height="30"/>
                                 <color key="tintColor" red="0.91764705879999997" green="0.26274509800000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Forgot Password?"/>
@@ -1201,7 +1204,7 @@
                             <constraint firstItem="tO2-kX-eUf" firstAttribute="trailing" secondItem="W2q-94-GBN" secondAttribute="trailing" constant="20" id="Xm1-9i-TR9"/>
                             <constraint firstItem="8zJ-xp-t2D" firstAttribute="leading" secondItem="tO2-kX-eUf" secondAttribute="leading" constant="20" id="a5s-FU-mHb"/>
                             <constraint firstItem="tO2-kX-eUf" firstAttribute="trailing" secondItem="H5Y-Pi-FXY" secondAttribute="trailing" constant="20" id="aHu-uR-IRy"/>
-                            <constraint firstAttribute="trailing" secondItem="Z1v-gm-ozM" secondAttribute="trailing" constant="8" id="aIv-Q1-wws"/>
+                            <constraint firstAttribute="trailing" secondItem="Z1v-gm-ozM" secondAttribute="trailing" constant="20" id="aIv-Q1-wws"/>
                             <constraint firstItem="2ZQ-El-fGf" firstAttribute="top" secondItem="Ns0-xV-F6W" secondAttribute="top" constant="105" id="cQN-BK-h6O"/>
                             <constraint firstItem="W2q-94-GBN" firstAttribute="top" secondItem="8zJ-xp-t2D" secondAttribute="bottom" constant="150" id="dhp-YT-8Ji"/>
                             <constraint firstItem="W2q-94-GBN" firstAttribute="leading" secondItem="tO2-kX-eUf" secondAttribute="leading" constant="20" id="eOx-vs-tSK"/>
@@ -1246,15 +1249,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdh-8A-OY9">
-                                <rect key="frame" x="20" y="45" width="45" height="45"/>
+                                <rect key="frame" x="20" y="45" width="84" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="I7w-FF-mlc"/>
                                     <constraint firstAttribute="height" constant="45" id="cx6-QQ-Xfn"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="BackButton"/>
                                 <connections>
-                                    <action selector="backButtonClicked:" destination="dxG-dN-lwN" eventType="touchUpInside" id="dOf-Y9-XCE"/>
+                                    <action selector="backToLogin:" destination="dxG-dN-lwN" eventType="touchUpInside" id="coj-SA-x6a"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5U-Vh-NN5">
@@ -1318,10 +1320,9 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Confirm Mail"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Back to Login"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Send Verification"/>
                                         <connections>
-                                            <action selector="backToLogin:" destination="dxG-dN-lwN" eventType="touchUpInside" id="3LU-9b-NIK"/>
-                                            <action selector="confirmMailClicked:" destination="dxG-dN-lwN" eventType="touchUpInside" id="HIr-Sj-5Gf"/>
+                                            <action selector="resendVerify:" destination="dxG-dN-lwN" eventType="touchUpInside" id="nTp-Cv-uZx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1339,27 +1340,20 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaX-e0-1rM">
-                                <rect key="frame" x="70" y="727" width="253" height="30"/>
+                                <rect key="frame" x="70" y="736.66666666666663" width="253" height="20.333333333333371"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I0-Ta-NzH">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="3E6-E9-h8c"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="05:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I0-Ta-NzH">
+                                        <rect key="frame" x="0.0" y="0.0" width="70.333333333333329" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k32-96-jUV">
-                                        <rect key="frame" x="50" y="0.0" width="203" height="30"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="resend confirmation code.">
-                                            <color key="titleColor" red="0.56078431370000004" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="resendButtonClicked:" destination="Ypy-hA-xyx" eventType="touchUpInside" id="N26-5f-VF2"/>
-                                        </connections>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please check your email box" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmB-E4-Up3">
+                                        <rect key="frame" x="70.333333333333357" y="0.0" width="182.66666666666663" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.56078431370000004" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -1374,6 +1368,7 @@
                             <constraint firstItem="fic-Go-pGv" firstAttribute="trailing" secondItem="AGf-Tp-Xli" secondAttribute="trailing" constant="20" id="BM7-3w-sAi"/>
                             <constraint firstItem="RHr-cI-oCg" firstAttribute="trailing" secondItem="fic-Go-pGv" secondAttribute="trailing" id="Bjh-Hq-ZSV"/>
                             <constraint firstItem="RHr-cI-oCg" firstAttribute="top" secondItem="gaX-e0-1rM" secondAttribute="bottom" constant="20" id="CfA-uX-cBc"/>
+                            <constraint firstItem="fic-Go-pGv" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kdh-8A-OY9" secondAttribute="trailing" symbolic="YES" id="FWx-XL-bau"/>
                             <constraint firstItem="AGf-Tp-Xli" firstAttribute="leading" secondItem="fic-Go-pGv" secondAttribute="leading" constant="20" id="IkS-DN-rdL"/>
                             <constraint firstItem="e5U-Vh-NN5" firstAttribute="top" secondItem="sfL-GS-jQR" secondAttribute="top" constant="105" id="Lp0-bC-Ovg"/>
                             <constraint firstAttribute="trailing" secondItem="VfX-Pt-ImI" secondAttribute="trailing" constant="30" id="Tay-bO-9Ie"/>
@@ -1389,8 +1384,9 @@
                         <outlet property="backToLogin" destination="Psn-AP-X5L" id="tvs-l1-vZj"/>
                         <outlet property="emailLbl" destination="PaM-Wq-lES" id="nGw-kT-Tkc"/>
                         <outlet property="emailTxtField" destination="JCz-em-viQ" id="ks9-ht-RaH"/>
-                        <outlet property="resendBtn" destination="k32-96-jUV" id="wc3-tr-F8T"/>
+                        <outlet property="pleaseCheck" destination="dmB-E4-Up3" id="Lzx-92-19q"/>
                         <outlet property="timestampLbl" destination="5I0-Ta-NzH" id="HcQ-Lg-C1F"/>
+                        <outlet property="validImage" destination="XVi-VH-RNp" id="xHu-nR-cfp"/>
                         <outlet property="verifyLbl" destination="e5U-Vh-NN5" id="sx0-7r-d3b"/>
                     </connections>
                 </viewController>

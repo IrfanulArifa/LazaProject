@@ -6,13 +6,41 @@
 //
 
 import UIKit
+import DPOTPView
 
 class VerificationCodeViewController: UIViewController {
-  
-  @IBOutlet weak var timerLabel: UILabel!
-  @IBOutlet weak var resendButton: UIButton!
-  var timeRemaining = 20
+  // MARK: Parameter for timer
+  var timeRemaining = 300
   var timer : Timer!
+  
+  // MARK: Label
+  @IBOutlet weak var verificationLbl: UILabel!{
+    didSet {
+      verificationLbl.font = UIFont(name: "Poppins-SemiBold", size: 28)
+    }
+  }
+  
+  @IBOutlet weak var timerLabel: UILabel!{
+    didSet {
+      timerLabel.font = UIFont(name: "Poppins-SemiBold", size: 17)
+    }
+  }
+  
+  // MARK: Button
+  @IBOutlet weak var resendButton: UIButton!{
+    didSet {
+      resendButton.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 15)
+    }
+  }
+  @IBOutlet weak var confirmCode: UIButton!{
+    didSet {
+      confirmCode.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 15)
+    }
+  }
+  
+  // MARK: View
+  @IBOutlet weak var otpField: DPOTPView!
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,15 +56,25 @@ class VerificationCodeViewController: UIViewController {
   }
   
   @IBAction func confirmCode(_ sender: UIButton) {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPasswordViewController")
-    self.navigationController?.pushViewController(storyboard, animated: true)
+    let text = otpField.text
+    print(text ?? "")
+//    let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPasswordViewController")
+//    self.navigationController?.pushViewController(storyboard, animated: true)
   }
   
   @IBAction func resendButtonClicked(_ sender: Any) {
     timer.invalidate()
-    timeRemaining = 20
+    timeRemaining = 300
     setTimer()
-    timerLabel.text = "00:\(timeRemaining)"
+    
+    let minute = timeRemaining / 60
+    let sec = timeRemaining % 60
+    
+    if sec < 10 {
+      timerLabel.text = "0\(minute):0\(sec)"
+    } else {
+      timerLabel.text = "0\(minute):\(sec)"
+    }
   }
   
   @objc func countDown(){
@@ -44,8 +82,16 @@ class VerificationCodeViewController: UIViewController {
       timeRemaining -= 1
     } else {
       timer.invalidate()
-      timeRemaining = 20
+      timeRemaining = 300
     }
-    timerLabel.text = "00:\(timeRemaining)"
+    
+    let minute = timeRemaining / 60
+    let sec = timeRemaining % 60
+    
+    if sec < 10 {
+      timerLabel.text = "0\(minute):0\(sec)"
+    } else {
+      timerLabel.text = "0\(minute):\(sec)"
+    }
   }
 }

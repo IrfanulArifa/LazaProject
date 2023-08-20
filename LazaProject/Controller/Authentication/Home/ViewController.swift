@@ -29,6 +29,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var googleButton: UIButton!{
     didSet { googleButton.titleLabel!.font = UIFont(name: "Poppins-Regular", size: 17)}
   }
+  
   @IBOutlet weak var alreadyTxt: UILabel!{
     didSet { alreadyTxt.font = UIFont(name: "Poppins-Regular", size: 15)}
   }

@@ -25,7 +25,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Ze-q2-z0D"/>
-                        <color key="backgroundColor" name="PurpleButton"/>
+                        <color key="backgroundColor" name="LaunchscreenColor"/>
                         <constraints>
                             <constraint firstItem="dH4-aX-qrm" firstAttribute="centerY" secondItem="nd5-bg-hTT" secondAttribute="centerY" id="aaH-zJ-ibo"/>
                             <constraint firstItem="dH4-aX-qrm" firstAttribute="centerX" secondItem="nd5-bg-hTT" secondAttribute="centerX" id="xkQ-vD-3IR"/>
@@ -39,7 +39,7 @@
     </scenes>
     <resources>
         <image name="LazaLogo" width="78.666664123535156" height="48.333332061767578"/>
-        <namedColor name="PurpleButton">
+        <namedColor name="LaunchscreenColor">
             <color red="0.23921568627450981" green="0.57647058823529407" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>

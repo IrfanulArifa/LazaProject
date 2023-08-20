@@ -155,15 +155,25 @@ class LoginViewController: UIViewController {
     } onError: { error in
       DispatchQueue.main.async {
         self.hidingAnimation()
-        self.showAlert(title: "Login Failed!", message: error.capitalized)
+        if error == "Key: 'Login.Username' Error:Field validation for 'Username' failed on the 'required' tag\nKey: 'Login.Password' Error:Field validation for 'Password' failed on the 'required' tag" {
+          self.showAlert(title: "Login Failed", message: "Username and Password is Empty!")
+        } else if error == "Key: 'Login.Password' Error:Field validation for 'Password' failed on the 'required' tag" {
+          self.showAlert(title: "Login Failed", message: "Password is Empty")
+        } else if error == "username or password is invalid" {
+          self.showAlert(title: "Login Failed", message: error.capitalized)
+        } else if error == "Key: 'Login.Username' Error:Field validation for 'Username' failed on the 'required' tag" {
+          self.showAlert(title: "Login Failed", message: "Username is Empty")
+        } else {
+          self.showAlert(title: "Login Failed!", message: error.capitalized){
+            self.goToVerify()
+          }
+        }
       }
     }
-    
-    
   }
   
   // MARK: Check Validation For Text Field
-  @objc func checkValidation() {
+  @objc private func checkValidation() {
     let username = usernameTxtField.text ?? ""
     let isValidUsernameTxt = username.count > 6
     
