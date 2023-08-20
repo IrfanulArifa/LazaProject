@@ -45,6 +45,19 @@ class ViewModel {
     return result.description
   }
   
+  // MARK: Get User Data from API
+  func getUser() async throws -> UserData {
+    let component = URLComponents(string: "https://fakestoreapi.com/users")!
+    let request = URLRequest(url:component.url!)
+    let (data, responses) = try await URLSession.shared.data(for: request)
+    guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
+      fatalError("Error Can't Fetching Data")
+    }
+    let decoder = JSONDecoder()
+    let result = try decoder.decode(UserData.self, from: data)
+    return result
+  }
+  
   // MARK: Get All Size Data From API
   func getSize() async throws -> [Sizes] {
     let component = URLComponents(string: "https://lazaapp.shop/size")!
@@ -67,6 +80,13 @@ class ViewModel {
     }
   }
   
+  // MARK: Load User Data
+  func loadDataUser(){
+    Task {
+      await getUserData()
+    }
+  }
+  
   func loadSize(){
     Task {
       await getSizeData()
@@ -78,6 +98,16 @@ class ViewModel {
     do {
       product = try await getProduct()
       reloadProduct?() // Closure For Reload Table
+    } catch {
+      print("Error")
+    }
+  }
+  
+  // MARK: Get User Data from API Async -> XCode say Must Set Async
+  func getUserData() async {
+    do {
+      userData = try await getUser()
+      reloadUser?()
     } catch {
       print("Error")
     }

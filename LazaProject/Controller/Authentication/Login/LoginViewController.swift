@@ -135,38 +135,27 @@ class LoginViewController: UIViewController {
   
   // MARK: loginButton when Clicked -> Go To HomePage View
   @IBAction func loginButtonClicked(_ sender: UIButton) {
-    self.indicatorLoading.isHidden = false
-    self.indicatorLoading.startAnimating()
+    startingAnimation()
     loginModel.login(username: usernameTxtField.text!, password: passwordTextField.text!) { response in
       DispatchQueue.main.async {
-        self.disableView.isHidden = false
-        self.indicatorLoading.stopAnimating()
-        self.indicatorLoading.isHidden = true
-        let alert = UIAlertController(title: "Login Success", message: "Redirecting...", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+        self.hidingAnimation()
+        self.showAlert(title: "Login Success", message: "Redirecting...") {
           DispatchQueue.main.async {
             guard let loginAccess = response?.access_token else { print("Login Access")
               return }
-            self?.loginModel.jumpClick = {
+            self.loginModel.jumpClick = {
               DispatchQueue.main.async {
-                self!.goToHome()
+                self.goToHome()
               }
             }
-            self!.loginModel.getProfileData(token: loginAccess)
+            self.loginModel.getProfileData(token: loginAccess)
           }
         }
-        alert.addAction(okAction)
-        self.present(alert,animated: true, completion: nil)
       }
     } onError: { error in
       DispatchQueue.main.async {
-        self.disableView.isHidden = false
-        self.indicatorLoading.stopAnimating()
-        self.indicatorLoading.isHidden = true
-        let alert = UIAlertController(title: "Login Failed!", message: error.capitalized, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+        self.hidingAnimation()
+        self.showAlert(title: "Login Failed!", message: error.capitalized)
       }
     }
     
