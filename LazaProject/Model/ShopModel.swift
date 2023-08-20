@@ -173,3 +173,25 @@ struct LoginSuccess: Codable {
 struct LoginValid: Codable {
   let access_token: String
 }
+
+struct ResendEmailFailed: Codable {
+  let status: String
+  let isError: Bool
+  let descriptionKey: String
+  
+  enum CodingKeys: String, CodingKey {
+    case status
+    case isError
+    case descriptionKey = "description"
+  }
+}
+
+struct ResendEmailSucces: Codable {
+  let status: String
+  let isError: Bool
+  let data: Message
+}
+
+struct Message: Codable {
+  let message: String
+}
