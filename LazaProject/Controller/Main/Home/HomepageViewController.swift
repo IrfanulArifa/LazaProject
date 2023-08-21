@@ -35,19 +35,38 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    validSnackBar.make(in: self.view, message: "Login is Successful", duration: .lengthLong).show()
     
+    // Setup Register Collection
+    setup()
+    
+    reloadCollectionData()
+    
+    // Load Data From API
+    viewModel.loadData()
+    
+    // Setup Tab Bar item Function Calling
+    setupTabBarItemImage()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    categoryTableView.reloadData()
+  }
+  
+  private func refreshTable() {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
     categoryTableView.refreshControl = refreshControl
-    
-    validSnackBar.make(in: self.view, message: "Login is Successful", duration: .lengthLong).show()
-    
+  }
+  
+  private func setup() {
     categoryTableView.dataSource = self
     categoryTableView.delegate = self
     categoryTableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoryTableViewCell")
     categoryTableView.register(UINib(nibName: "ProductTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductTableViewCell")
-    
-    
+  }
+  
+  private func reloadCollectionData() {
     // Closure that Reload Collection Data
     viewModel.reloadProduct = {
       DispatchQueue.main.async {
@@ -60,21 +79,6 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
         self.categoryTableView.reloadData()
       }
     }
-    
-    // Load Data From API
-    viewModel.loadData()
-    
-    // Setup Tab Bar item Function Calling
-    setupTabBarItemImage()
-    
-    UserModel.synchronize()
-    let tokenData = UserDefaults.standard.string(forKey: "access_token")
-    
-    
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    categoryTableView.reloadData()
   }
   
   // Making a Function that Transform TabBar when Clicked from Logo into Text
@@ -98,7 +102,6 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   @IBAction func MenuButtonClicked(_ sender: UIButton) {
     let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController") as! SideMenuViewController
-    let data = SessionManager.shared.userData
     let sideMenu = SideMenuNavigationController(rootViewController: vc)
     sideMenu.delegate = self
     sideMenu.presentationStyle = .menuSlideIn
@@ -146,7 +149,8 @@ extension HomepageViewController: ProductTableViewCellDelegate {
   func productDidSelectItemAt(didSelectItemAt indexPath: IndexPath) {
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-    vc.configure(data: viewModel.product[indexPath.item])
+    vc.configure(data: viewModel.product[indexPath.item].id)
+    
     navigationController?.pushViewController(vc, animated: true)
   }
 }

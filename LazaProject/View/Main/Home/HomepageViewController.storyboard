@@ -211,7 +211,7 @@
                         <segue destination="l1B-eU-bxy" kind="relationship" relationship="viewControllers" id="0W9-ty-QCn"/>
                         <segue destination="9aB-2M-5rZ" kind="relationship" relationship="viewControllers" id="B0h-Py-dAb"/>
                         <segue destination="j0W-wj-yHa" kind="relationship" relationship="viewControllers" id="XrP-XO-kgq"/>
-                        <segue destination="syy-KN-bV8" kind="relationship" relationship="viewControllers" id="wSU-xV-r31"/>
+                        <segue destination="syy-KN-bV8" kind="relationship" relationship="viewControllers" id="4mV-Ty-t1x"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BDC-7y-nl2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -338,7 +338,7 @@
                                 <color key="tintColor" name="blackFont"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Of5-P9-WOY">
-                                <rect key="frame" x="20" y="388" width="101" height="25"/>
+                                <rect key="frame" x="20" y="388" width="79" height="25"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dFm-pz-lnY">
                                         <rect key="frame" x="0.0" y="1" width="25" height="23"/>
@@ -349,9 +349,9 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koC-XV-xfI">
-                                        <rect key="frame" x="35" y="0.0" width="66" height="25"/>
+                                        <rect key="frame" x="35" y="0.0" width="44" height="25"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Password">
+                                        <state key="normal" title="Profile">
                                             <color key="titleColor" name="blackFont"/>
                                         </state>
                                         <connections>
@@ -689,7 +689,7 @@
         <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
         <image name="sun.max" catalog="system" width="128" height="125"/>
         <namedColor name="PurpleButton">
-            <color red="0.59200000762939453" green="0.45899999141693115" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23921568627450981" green="0.57647058823529407" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="blackFont">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

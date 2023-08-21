@@ -137,11 +137,21 @@ class ViewModel {
     UserModel.fullname = fullname
     UserModel.username = username
     UserModel.email = email
-    
-    print("savePROFILE")
+  }
+  
+  func updateProfil(token: String, fullname: String, username: String, email: String, image: String){
+    UserModel.access_token = token
+    UserModel.fullname = fullname
+    UserModel.username = username
+    UserModel.email = email
+    UserModel.image = image
   }
   
   func checkExpiredToken() {
+    
+  }
+  
+  func sendDataToReview(){
     
   }
 }

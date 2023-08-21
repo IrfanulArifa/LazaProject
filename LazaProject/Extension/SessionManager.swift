@@ -10,9 +10,9 @@ import Foundation
 class SessionManager {
   static let shared = SessionManager()
   
-  private(set) var userData: DataClass?
+  private(set) var productId: Sizes?
   
-  func setCurrentUserData(data: DataClass) {
-    userData = data
+  func setCurrentProductId(data: Int) {
+//    productId = data
   }
 }

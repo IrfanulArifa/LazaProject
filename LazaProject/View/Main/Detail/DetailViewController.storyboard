@@ -100,12 +100,93 @@
             </objects>
             <point key="canvasLocation" x="-37.404580152671755" y="-53.521126760563384"/>
         </scene>
+        <!--Category View Controller-->
+        <scene sceneID="sLh-vI-wFK">
+            <objects>
+                <viewController storyboardIdentifier="CategoryViewController" id="WOT-rT-J3i" customClass="CategoryViewController" customModule="LazaProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3aY-D1-0fd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RqH-v2-Q3q">
+                                <rect key="frame" x="0.0" y="178" width="393" height="640"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wa4-oI-bJb">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKf-dh-2nt">
+                                <rect key="frame" x="20" y="45" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.96078431610000004" green="0.96470588450000005" blue="0.98039215800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Gki-6U-9GO"/>
+                                    <constraint firstAttribute="height" constant="50" id="UIN-uO-4uR"/>
+                                </constraints>
+                                <color key="tintColor" red="0.1137254902" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.left" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hHG-nq-M5v"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwm-LH-Uux">
+                                <rect key="frame" x="122.33333333333333" y="53.333333333333343" width="148.33333333333337" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" name="blackFont"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ckT-gl-F0f">
+                                <rect key="frame" x="0.0" y="107" width="393" height="711"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="alc-ys-Zqy">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lTK-nn-u9c"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Lwm-LH-Uux" firstAttribute="centerX" secondItem="3aY-D1-0fd" secondAttribute="centerX" id="0i4-HI-k2C"/>
+                            <constraint firstItem="IKf-dh-2nt" firstAttribute="leading" secondItem="lTK-nn-u9c" secondAttribute="leading" constant="20" id="LAv-Ge-f3v"/>
+                            <constraint firstItem="ckT-gl-F0f" firstAttribute="top" secondItem="Lwm-LH-Uux" secondAttribute="bottom" constant="20" id="QTW-5I-FM8"/>
+                            <constraint firstItem="lTK-nn-u9c" firstAttribute="bottom" secondItem="ckT-gl-F0f" secondAttribute="bottom" id="QgH-v5-KRE"/>
+                            <constraint firstItem="Lwm-LH-Uux" firstAttribute="centerY" secondItem="IKf-dh-2nt" secondAttribute="centerY" id="Vfa-BE-Bg4"/>
+                            <constraint firstItem="IKf-dh-2nt" firstAttribute="top" secondItem="3aY-D1-0fd" secondAttribute="top" constant="45" id="eSC-dQ-Rk6"/>
+                            <constraint firstItem="ckT-gl-F0f" firstAttribute="leading" secondItem="lTK-nn-u9c" secondAttribute="leading" id="ey1-2P-Wbx"/>
+                            <constraint firstItem="lTK-nn-u9c" firstAttribute="trailing" secondItem="ckT-gl-F0f" secondAttribute="trailing" id="vfn-5J-Ryx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="allCategory" destination="ckT-gl-F0f" id="WYY-Z7-kXP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9yG-tQ-MNj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="684.73282442748086" y="-54.225352112676056"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="95"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <namedColor name="PurpleButton">
             <color red="0.23921568627450981" green="0.57647058823529407" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blackFont">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

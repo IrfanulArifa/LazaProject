@@ -27,6 +27,13 @@ class CategoryTableViewCell: UITableViewCell {
     // Configure the view for the selected state
   }
   
+  @IBAction func viewAllClicked(_ sender: UIButton) {
+    let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
+    vc.AllCategoryConfigure(data: data)
+//    self.navigationContro
+  }
+  
   func configure(_ arrayData: [Description]){
     data = arrayData
     categoryCollectionCell.reloadData()

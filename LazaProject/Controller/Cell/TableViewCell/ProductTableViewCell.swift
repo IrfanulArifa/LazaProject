@@ -47,7 +47,6 @@ extension ProductTableViewCell: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let dataCell = dataProduct[indexPath.item]
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as? ProductCollectionViewCell else { return UICollectionViewCell() }
-    print("Data : ", dataCell)
     let image = dataCell.imageURL
     cell.productImage.sd_setImage(with: URL(string:image))
     cell.productName.text = dataCell.name

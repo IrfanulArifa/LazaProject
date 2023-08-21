@@ -11,7 +11,8 @@ import SDWebImage
 class DetailViewController: UIViewController {
   
   // MARK: Get Welcome Element Data
-  var dataDetail: Datum?
+  var dataDetail: Int?
+  let viewModel = DetailViewModel()
   
   @IBOutlet weak var detailTableView: IntrinsicTableView!
   
@@ -21,10 +22,18 @@ class DetailViewController: UIViewController {
     detailTableView.dataSource = self
     
     detailTableView.register(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCell")
+    
+    viewModel.loadDetail(dataDetail!)
+    
+    viewModel.reloadDetail = {
+      DispatchQueue.main.async {
+        self.detailTableView.reloadData()
+      }
+    }
   }
   
   // MARK: Function that Configure Data from Collection into DetailView
-  func configure(data: Datum) {
+  func configure(data: Int) {
     dataDetail = data
   }
   
@@ -49,13 +58,16 @@ extension DetailViewController : UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell") as? DetailTableViewCell else { return UITableViewCell() }
     cell.delegate = self
-    if let data = dataDetail {
+    if let data = viewModel.detailData?.data {
+      print("Datanya Ini")
       let imageURL = data.imageURL
       cell.imageDetail.sd_setImage(with: URL(string: imageURL))
       cell.priceDetailLabel.text = "Rp. " + String(data.price)
-  //    cell.reviewValueDetail.text = String(dataDetail.)
-  //    cell.categoryDetailLabel.text = viewModel.category.data
+      cell.descriptionDetail.text = data.description
       cell.productNameDetailLabel.text = data.name
+//      cell.configureData(data: data.id)
+//      cell.configureProductId(dataSize: data.id)
+//      cell.reloadData()
   //    cell.descriptionDetail.text = viewModel.description
       
   //    setRatingImage(viewModel.rating.rate)

@@ -39,6 +39,7 @@ class DetailTableViewCell: UITableViewCell {
     sizeCollection.dataSource = self
     sizeCollection.delegate = self
     sizeCollection.register(UINib(nibName: "SizeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SizeCollectionViewCell")
+    
     viewModel.loadSize()
     
     viewModel.reloadSize = {
@@ -46,7 +47,6 @@ class DetailTableViewCell: UITableViewCell {
         self.sizeCollection.reloadData()
       }
     }
-    
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {

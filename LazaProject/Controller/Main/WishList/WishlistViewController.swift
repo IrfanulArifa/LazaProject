@@ -57,7 +57,7 @@ extension WishlistViewController: UICollectionViewDelegate{
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-    vc.configure(data: viewModel.product[indexPath.item])
+    vc.configure(data: viewModel.product[indexPath.item].id)
     navigationController?.pushViewController(vc, animated: true)
   }
 }

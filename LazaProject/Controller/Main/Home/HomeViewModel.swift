@@ -12,10 +12,31 @@ class HomeViewModel {
   let loginModel = LoginViewModel()
   let viewModel = ViewModel()
   
-//  func refreshToken() -> Bool {
-//    UserModel.synchronize()
-//    let tokenData = UserDefaults.standard.string(forKey: "access_token")
-//    let username =
-//    return true
-//  }
+  func getProductByName(name: String) async throws -> [Datum] {
+    
+    var component = URLComponents(string: "https://lazaapp.shop/products?")!
+    
+    component.queryItems = [
+      URLQueryItem(name: "search", value: name)
+    ]
+    
+    let request = URLRequest(url: component.url!)
+    
+    let session = URLSession.shared
+    
+    let (data, responses) = try await session.data(for: request)
+    
+    guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
+      fatalError("Error Can't Fetching Data")
+    }
+    let decoder = JSONDecoder()
+    let result = try decoder.decode(Welcome.self, from: data)
+    return result.data
+  }
+  
+  func getProductData() async {
+    do {
+      
+    }
+  }
 }

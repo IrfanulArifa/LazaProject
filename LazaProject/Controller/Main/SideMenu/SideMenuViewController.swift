@@ -54,6 +54,13 @@ class SideMenuViewController: UIViewController {
   }
   
   @IBAction func passwordClicked(_ sender: UIButton) {
+    goToProfile()
+  }
+  
+  func goToProfile() {
+    let storyboard = UIStoryboard(name: "ProfileViewController", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+    present(storyboard, animated: true)
+//    self.view.window?.windowScene?.keyWindow?.rootViewController = storyboard
   }
   
   @IBAction func orderClicked(_ sender: UIButton) {

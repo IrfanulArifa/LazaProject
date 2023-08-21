@@ -14,6 +14,7 @@ struct UserModel {
   static let fullnameKey = "fullname"
   static let usernameKey = "username"
   static let emailKey = "email"
+  static let imageKey = "image"
   
   // Encaptulation ??
   static var stateLogin: Bool {
@@ -41,6 +42,11 @@ struct UserModel {
     set { UserDefaults.standard.set(newValue, forKey: emailKey) }
   }
   
+  static var image: String {
+    get { return UserDefaults.standard.string(forKey: imageKey) ?? ""}
+    set { UserDefaults.standard.set(newValue, forKey: imageKey)}
+  }
+  
   // MARK: For Deleting All User
   static func deleteAll() -> Bool {
     if let domain = Bundle.main.bundleIdentifier {
@@ -59,11 +65,11 @@ struct UserModel {
 struct User: Codable {
     let status: String
     let isError: Bool
-    let data: DataClass
+    let data: DataClassUser
 }
 
 // MARK: - DataClass
-struct DataClass: Codable {
+struct DataClassUser: Codable {
     let id: Int
     let fullName, username, email: String
     let isVerified: Bool

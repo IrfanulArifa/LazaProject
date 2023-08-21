@@ -28,6 +28,9 @@
                         <color key="tintColor" red="0.56078431370000004" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title="View All"/>
+                        <connections>
+                            <action selector="viewAllClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="59x-nu-S3v"/>
+                        </connections>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Gcq-Fs-rfv" customClass="DynamicHeightCollectionView" customModule="LazaProject" customModuleProvider="target">
                         <rect key="frame" x="20" y="61" width="300" height="50"/>
