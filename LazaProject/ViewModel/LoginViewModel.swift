@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import JWTDecode
 
 class LoginViewModel{
   
@@ -39,9 +40,6 @@ class LoginViewModel{
     
     let session = URLSession.shared
     let task = session.dataTask(with: request) { data, response, error in
-//      if let error = error {
-//        return
-//      }
       
       guard let httpResponse = response as? HTTPURLResponse else { return }
       
@@ -61,6 +59,7 @@ class LoginViewModel{
       do {
         let result = try decoder.decode(LoginSuccess.self, from: data)
         completion(result.data)
+        let jwt = try decode(jwt: result.data.access_token)
       } catch {
         print("Error decoding JSON response: \(error)")
       }
@@ -89,7 +88,7 @@ class LoginViewModel{
           let decoder = JSONDecoder()
           let result = try decoder.decode(User.self, from: data)
           self.jumpClick?()
-          ViewModel().saveProfil(fullname: result.data.fullName, username: result.data.username, email: result.data.email)
+          ViewModel().saveProfil(token:token ,fullname: result.data.fullName, username: result.data.username, email: result.data.email)
         } catch {
           print("Error decoding JSON response: \(error)")
         }

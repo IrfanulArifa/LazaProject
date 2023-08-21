@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 import SideMenu
 import SnackBar
+import JWTDecode
 
 
 class HomepageViewController: UIViewController, UINavigationControllerDelegate {
@@ -66,6 +67,10 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     // Setup Tab Bar item Function Calling
     setupTabBarItemImage()
     
+    UserModel.synchronize()
+    let tokenData = UserDefaults.standard.string(forKey: "access_token")
+    
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -94,7 +99,6 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController") as! SideMenuViewController
     let data = SessionManager.shared.userData
-//    vc.profilConfigure(data: data!)
     let sideMenu = SideMenuNavigationController(rootViewController: vc)
     sideMenu.delegate = self
     sideMenu.presentationStyle = .menuSlideIn

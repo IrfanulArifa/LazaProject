@@ -98,6 +98,8 @@
 		00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A74B412A72065500BB07B9 /* DetailViewController.storyboard */; };
 		00A74B442A72465100BB07B9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B432A72465100BB07B9 /* OrderViewController.swift */; };
 		00A74B482A72468200BB07B9 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B472A72468200BB07B9 /* WishlistViewController.swift */; };
+		00A8FDB62A92FD51006FB87D /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 00A8FDB52A92FD51006FB87D /* JWTDecode */; };
+		00A8FDB82A930487006FB87D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8FDB72A930487006FB87D /* HomeViewModel.swift */; };
 		28EC3AC8624170A182E3B9F1 /* Pods_LazaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D14F2BDA4B7B8930479D64F /* Pods_LazaProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -188,6 +190,7 @@
 		00A74B412A72065500BB07B9 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		00A74B432A72465100BB07B9 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		00A74B472A72468200BB07B9 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		00A8FDB72A930487006FB87D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3D14F2BDA4B7B8930479D64F /* Pods_LazaProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazaProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DF13E549F75DF86E2D602A /* Pods-LazaProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazaProject.debug.xcconfig"; path = "Target Support Files/Pods-LazaProject/Pods-LazaProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A9331842E129E531B4941251 /* Pods-LazaProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazaProject.release.xcconfig"; path = "Target Support Files/Pods-LazaProject/Pods-LazaProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +209,7 @@
 				003CE9762A776326008D32FA /* SideMenu in Frameworks */,
 				0008FF9C2A8394C50006BF26 /* SnackBar in Frameworks */,
 				006B4C872A756057001247C4 /* Swifter in Frameworks */,
+				00A8FDB62A92FD51006FB87D /* JWTDecode in Frameworks */,
 				28EC3AC8624170A182E3B9F1 /* Pods_LazaProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,7 +363,6 @@
 			isa = PBXGroup;
 			children = (
 				0063746F2A910980003EC0EF /* VerifyAccountViewController.swift */,
-				006374722A911655003EC0EF /* VerifyAccountViewModel.swift */,
 			);
 			path = Verify;
 			sourceTree = "<group>";
@@ -435,6 +438,12 @@
 		007B0F6B2A70B2AD0034E7A5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				007904F92A8B339700FEBFF0 /* SignUpViewModel.swift */,
+				007904FB2A8B676300FEBFF0 /* LoginViewModel.swift */,
+				003517312A926E74004D3CD1 /* NewPasswordViewModel.swift */,
+				0035172B2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift */,
+				006374722A911655003EC0EF /* VerifyAccountViewModel.swift */,
+				0035172F2A9204E1004D3CD1 /* VerificationCodeViewModel.swift */,
 				007B0F7C2A70CAD80034E7A5 /* ViewModel.swift */,
 			);
 			path = ViewModel;
@@ -484,7 +493,6 @@
 			isa = PBXGroup;
 			children = (
 				008CE6942A80976F00454CED /* ForgetPasswordViewController.swift */,
-				0035172B2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift */,
 			);
 			path = ForgetPassword;
 			sourceTree = "<group>";
@@ -493,7 +501,6 @@
 			isa = PBXGroup;
 			children = (
 				008CE69A2A809AB400454CED /* VerificationCodeViewController.swift */,
-				0035172F2A9204E1004D3CD1 /* VerificationCodeViewModel.swift */,
 			);
 			path = Verification;
 			sourceTree = "<group>";
@@ -583,7 +590,22 @@
 		008EE88A2A7B4986002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				008EE8AF2A7B8EE6002C44B9 /* Main */,
+				008EE8952A7B4B56002C44B9 /* Home */,
+				008EE89F2A7B4C4B002C44B9 /* UpdatePassword */,
+				008EE89D2A7B4C37002C44B9 /* Order */,
+				008EE89E2A7B4C41002C44B9 /* Card */,
+				008EE89C2A7B4C26002C44B9 /* WishList */,
+				008EE8972A7B4B92002C44B9 /* Detail */,
+				008EE8962A7B4B7A002C44B9 /* SideMenu */,
+				008EE8B02A7B8F92002C44B9 /* Review */,
+				008CE6A32A80C0C600454CED /* BottomSheet */,
+				008CE6A92A80D72F00454CED /* Address */,
+				008CE6AF2A80D81800454CED /* Payment */,
+				0090DFD72A81DE3200150D9D /* OrderConfirmed */,
+				0008FF772A822AC90006BF26 /* AddNewCard */,
+				0008FF852A8363B10006BF26 /* ChoosePayment */,
+				0008FF862A8363B80006BF26 /* OVO */,
+				0008FF912A8386E40006BF26 /* AllAddress */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -608,7 +630,6 @@
 			isa = PBXGroup;
 			children = (
 				007B0F802A70CD430034E7A5 /* SignUpViewController.swift */,
-				007904F92A8B339700FEBFF0 /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -617,7 +638,6 @@
 			isa = PBXGroup;
 			children = (
 				007B0F842A70D5BD0034E7A5 /* LoginViewController.swift */,
-				007904FB2A8B676300FEBFF0 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -626,7 +646,6 @@
 			isa = PBXGroup;
 			children = (
 				007B0F882A70DF450034E7A5 /* NewPasswordViewController.swift */,
-				003517312A926E74004D3CD1 /* NewPasswordViewModel.swift */,
 			);
 			path = NewPassword;
 			sourceTree = "<group>";
@@ -635,6 +654,7 @@
 			isa = PBXGroup;
 			children = (
 				007B0F8C2A70F8D50034E7A5 /* HomepageViewController.swift */,
+				00A8FDB72A930487006FB87D /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -738,29 +758,6 @@
 			path = Review;
 			sourceTree = "<group>";
 		};
-		008EE8AF2A7B8EE6002C44B9 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				0008FF912A8386E40006BF26 /* AllAddress */,
-				0008FF862A8363B80006BF26 /* OVO */,
-				0008FF852A8363B10006BF26 /* ChoosePayment */,
-				0008FF772A822AC90006BF26 /* AddNewCard */,
-				0090DFD72A81DE3200150D9D /* OrderConfirmed */,
-				008CE6AF2A80D81800454CED /* Payment */,
-				008CE6A92A80D72F00454CED /* Address */,
-				008CE6A32A80C0C600454CED /* BottomSheet */,
-				008EE8B02A7B8F92002C44B9 /* Review */,
-				008EE8962A7B4B7A002C44B9 /* SideMenu */,
-				008EE8972A7B4B92002C44B9 /* Detail */,
-				008EE89C2A7B4C26002C44B9 /* WishList */,
-				008EE89E2A7B4C41002C44B9 /* Card */,
-				008EE89D2A7B4C37002C44B9 /* Order */,
-				008EE89F2A7B4C4B002C44B9 /* UpdatePassword */,
-				008EE8952A7B4B56002C44B9 /* Home */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		008EE8B02A7B8F92002C44B9 /* Review */ = {
 			isa = PBXGroup;
 			children = (
@@ -847,6 +844,7 @@
 				003CE9752A776326008D32FA /* SideMenu */,
 				0008FF9B2A8394C50006BF26 /* SnackBar */,
 				007904FE2A8C7D2800FEBFF0 /* DPOTPView */,
+				00A8FDB52A92FD51006FB87D /* JWTDecode */,
 			);
 			productName = LazaProject;
 			productReference = 007B0F522A70B2410034E7A5 /* LazaProject.app */;
@@ -883,6 +881,7 @@
 				003CE9742A776326008D32FA /* XCRemoteSwiftPackageReference "SideMenu" */,
 				0008FF9A2A8394C50006BF26 /* XCRemoteSwiftPackageReference "SnackBar" */,
 				007904FD2A8C7D2800FEBFF0 /* XCRemoteSwiftPackageReference "DPOTPView" */,
+				00A8FDB42A92FD51006FB87D /* XCRemoteSwiftPackageReference "JWTDecode" */,
 			);
 			productRefGroup = 007B0F532A70B2410034E7A5 /* Products */;
 			projectDirPath = "";
@@ -1002,6 +1001,7 @@
 				007905012A8C9EA100FEBFF0 /* SessionManager.swift in Sources */,
 				008EE8B62A7B95F0002C44B9 /* ReviewTableViewCell.swift in Sources */,
 				0008FF972A838CF30006BF26 /* AllAddressTableViewCell.swift in Sources */,
+				00A8FDB82A930487006FB87D /* HomeViewModel.swift in Sources */,
 				0008FF7F2A8327AE0006BF26 /* UIViewExt.swift in Sources */,
 				007B0F812A70CD430034E7A5 /* SignUpViewController.swift in Sources */,
 				00A74B482A72468200BB07B9 /* WishlistViewController.swift in Sources */,
@@ -1304,6 +1304,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		00A8FDB42A92FD51006FB87D /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1346,6 +1354,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 007B0F9A2A7124E10034E7A5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		00A8FDB52A92FD51006FB87D /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00A8FDB42A92FD51006FB87D /* XCRemoteSwiftPackageReference "JWTDecode" */;
+			productName = JWTDecode;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

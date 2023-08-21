@@ -131,12 +131,17 @@ class ViewModel {
     }
   }
   
-  func saveProfil(fullname: String, username: String, email: String) {
+  func saveProfil(token: String, fullname: String, username: String, email: String) {
     UserModel.stateLogin = true
+    UserModel.access_token = token
     UserModel.fullname = fullname
     UserModel.username = username
     UserModel.email = email
     
     print("savePROFILE")
+  }
+  
+  func checkExpiredToken() {
+    
   }
 }

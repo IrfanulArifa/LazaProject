@@ -37,6 +37,7 @@ class SideMenuViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     sideMenuPersonName.text = UserDefaults.standard.string(forKey: "username")
   }
   

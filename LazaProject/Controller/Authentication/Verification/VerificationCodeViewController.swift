@@ -44,7 +44,9 @@ class VerificationCodeViewController: UIViewController {
   }
   
   // MARK: View
-  @IBOutlet weak var otpField: DPOTPView!
+  @IBOutlet weak var otpField: DPOTPView!{
+    didSet { otpField.cornerRadiusTextField = 10}
+  }
   
   func sendEmail(data: String){
     email = data
