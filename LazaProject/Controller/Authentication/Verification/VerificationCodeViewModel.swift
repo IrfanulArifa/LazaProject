@@ -1,25 +1,25 @@
 //
-//  VerifyViewModel.swift
+//  VerificationCodeViewModel.swift
 //  LazaProject
 //
-//  Created by Irfanul Arifa on 19/08/23.
+//  Created by Irfanul Arifa on 20/08/23.
 //
 
 import Foundation
 
-class VerifyAccountViewModel {
-  
-  func resendVerify(email: String,
-                    completion: @escaping ((ResendEmailSucces?) -> Void),
-                    onError: @escaping (String) -> Void) {
+class VerificationCodeViewModel {
+  func verificationToken(email: String,
+                         otp: String,
+                         completion: @escaping ((VerificationCodeSuccess?) -> Void),
+                         onError: @escaping (String) -> Void){
     let decoder = JSONDecoder()
-    
-    let url = URL(string: "https://lazaapp.shop/auth/confirm/resend")!
-    var request = URLRequest(url: url)
+    let url = URL(string: "https://lazaap.shop/auth/recover/code")!
+    var request = URLRequest(url:url)
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     let parameters: [String: Any] = [
-      "email": email
+      "email":email,
+      "code":otp
     ]
     
     do {
@@ -37,6 +37,7 @@ class VerifyAccountViewModel {
         completion(nil)
         return
       }
+      
       guard let httpResponse = response as? HTTPURLResponse else { return }
       
       guard let data = data else {
@@ -44,20 +45,19 @@ class VerifyAccountViewModel {
         return
       }
       
-      if httpResponse.statusCode != 200 {
-        guard let failedModel = try? decoder.decode(ResendEmailFailed.self, from: data) else {
-          onError("Register failed - Failed get Data")
+      if httpResponse.statusCode != 202 {
+        guard let failedModel = try? decoder.decode(VerificationCodeFailed.self, from: data) else {
+          onError("Verification Failed - Failed to Decode")
           return
         }
         onError(failedModel.descriptionKey)
         return
       }
-      
       do {
-        let result = try decoder.decode(ResendEmailSucces.self, from: data)
+        let result = try decoder.decode(VerificationCodeSuccess.self, from: data)
         completion(result)
       } catch {
-        print("Error decoding JSON response: \(error)")
+        print("Error Decoding JSON response: \(error)")
       }
     }
     task.resume()

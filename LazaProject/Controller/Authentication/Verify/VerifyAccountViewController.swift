@@ -55,6 +55,12 @@ class VerifyAccountViewController: UIViewController {
     didSet { validImage.isHidden = true }
   }
   
+  @IBOutlet weak var disableView: UIView!{
+    didSet { disableView.isHidden = true }
+  }
+  @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!{
+    didSet { indicatorLoading.isHidden = true }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -90,12 +96,15 @@ class VerifyAccountViewController: UIViewController {
   }
   
   func sendVerify() {
+    startingAnimation()
     verifyModel.resendVerify(email: emailTxtField.text! ) { response in
       DispatchQueue.main.async {
+        self.hidingAnimation()
         self.showAlert(title: "Verify Resend", message: "Please Check your Email box")
       }
     } onError: { error in
       DispatchQueue.main.async {
+        self.hidingAnimation()
         if error == "please enter a valid email address" {
           DispatchQueue.main.async {
             self.showAlert(title: "Invalid Email", message: error.capitalized)
@@ -113,6 +122,18 @@ class VerifyAccountViewController: UIViewController {
     }
   }
   
+  func startingAnimation() {
+    self.indicatorLoading.startAnimating()
+    self.indicatorLoading.isHidden = false
+    self.disableView.isHidden = false
+  }
+  
+  func hidingAnimation() {
+    self.indicatorLoading.stopAnimating()
+    self.indicatorLoading.isHidden = true
+    self.disableView.isHidden = true
+  }
+  
   @objc private func checkValidation(){
     let isValidEmail = emailTxtField.validEmail(emailTxtField.text ?? "")
     
@@ -125,7 +146,7 @@ class VerifyAccountViewController: UIViewController {
   
   func resetTimer() {
     timer.invalidate()
-    timeRemaining = 20
+    timeRemaining = 300
     setTimer()
     
     let minute = timeRemaining / 60

@@ -1,25 +1,24 @@
 //
-//  VerifyViewModel.swift
+//  ForgetPasswordViewModel.swift
 //  LazaProject
 //
-//  Created by Irfanul Arifa on 19/08/23.
+//  Created by Irfanul Arifa on 20/08/23.
 //
 
 import Foundation
 
-class VerifyAccountViewModel {
-  
-  func resendVerify(email: String,
-                    completion: @escaping ((ResendEmailSucces?) -> Void),
-                    onError: @escaping (String) -> Void) {
+class ForgetPasswordViewModel {
+  func forgotPassword(email: String,
+                      completion: @escaping ((ForgetPasswordSuccess?) -> Void),
+                      onError: @escaping (String) -> Void) {
     let decoder = JSONDecoder()
     
-    let url = URL(string: "https://lazaapp.shop/auth/confirm/resend")!
+    let url = URL(string: "https://lazaapp.shop/auth/forgotpassword")!
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     let parameters: [String: Any] = [
-      "email": email
+      "email" : email
     ]
     
     do {
@@ -38,23 +37,21 @@ class VerifyAccountViewModel {
         return
       }
       guard let httpResponse = response as? HTTPURLResponse else { return }
-      
       guard let data = data else {
         print("Tidak ada data yang diterima")
         return
       }
       
       if httpResponse.statusCode != 200 {
-        guard let failedModel = try? decoder.decode(ResendEmailFailed.self, from: data) else {
-          onError("Register failed - Failed get Data")
+        guard let failedModel = try? decoder.decode(ForgetPasswordFailed.self, from: data) else {
+          onError("Register failed - Failed to get Data")
           return
         }
         onError(failedModel.descriptionKey)
         return
       }
-      
       do {
-        let result = try decoder.decode(ResendEmailSucces.self, from: data)
+        let result = try decoder.decode(ForgetPasswordSuccess.self, from: data)
         completion(result)
       } catch {
         print("Error decoding JSON response: \(error)")

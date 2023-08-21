@@ -48,31 +48,6 @@ struct Description: Codable {
   }
 }
 
-class JSONNull: Codable, Hashable {
-  
-  public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-    return true
-  }
-  
-  public var hashValue: Int {
-    return 0
-  }
-  
-  public init() {}
-  
-  public required init(from decoder: Decoder) throws {
-    let container = try decoder.singleValueContainer()
-    if !container.decodeNil() {
-      throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-    }
-  }
-  
-  public func encode(to encoder: Encoder) throws {
-    var container = encoder.singleValueContainer()
-    try container.encodeNil()
-  }
-}
-
 typealias UserData = [UserElement] // MARK: User Model
 
 // MARK: All Data in User Model
@@ -120,78 +95,27 @@ struct Sizes: Codable {
   let size: String
 }
 
-struct ResponseSignUpFailed: Codable {
-  let status: String
-  let isError: Bool
-  let descriptionKey: String
+class JSONNull: Codable, Hashable {
   
-  enum CodingKeys: String, CodingKey{
-    case status
-    case isError
-    case descriptionKey = "description"
+  public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
+    return true
   }
-}
-
-struct ResponseSignUpSuccess: Codable {
-  let status: String
-  let isError : Bool
-  let data: Success
-}
-
-struct Success: Codable {
-  let id: Int
-  let fullName, username, email: String
-  let createdAt, updatedAt: String
   
-  enum CodingKeys: String, CodingKey {
-    case id
-    case fullName = "full_name"
-    case username, email
-    case createdAt = "created_at"
-    case updatedAt = "updated_at"
+  public var hashValue: Int {
+    return 0
   }
-}
-
-struct LoginFailed: Codable {
-  let status: String
-  let isError: Bool
-  let descriptionKey: String
   
-  enum CodingKeys: String, CodingKey{
-    case status
-    case isError
-    case descriptionKey = "description"
-  }
-}
-
-struct LoginSuccess: Codable {
-  let status: String
-  let isError: Bool
-  let data: LoginValid
-}
-
-struct LoginValid: Codable {
-  let access_token: String
-}
-
-struct ResendEmailFailed: Codable {
-  let status: String
-  let isError: Bool
-  let descriptionKey: String
+  public init() {}
   
-  enum CodingKeys: String, CodingKey {
-    case status
-    case isError
-    case descriptionKey = "description"
+  public required init(from decoder: Decoder) throws {
+    let container = try decoder.singleValueContainer()
+    if !container.decodeNil() {
+      throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+    }
   }
-}
-
-struct ResendEmailSucces: Codable {
-  let status: String
-  let isError: Bool
-  let data: Message
-}
-
-struct Message: Codable {
-  let message: String
+  
+  public func encode(to encoder: Encoder) throws {
+    var container = encoder.singleValueContainer()
+    try container.encodeNil()
+  }
 }

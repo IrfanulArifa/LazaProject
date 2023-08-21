@@ -153,7 +153,7 @@ class SignUpViewController: UIViewController {
               }
             }
           } else if error == "email is taken, try another" {
-            self.showAlert(title: "Email is Already Taken", message: "Redirect to Login..." ){
+            self.showAlert(title: "Email is Already Use", message: "Redirect to Login..." ){
               DispatchQueue.main.async {
                 self.goToLogin()
               }

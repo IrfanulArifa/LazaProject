@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnackBar
 
 class LoginViewController: UIViewController {
   
@@ -156,15 +157,17 @@ class LoginViewController: UIViewController {
       DispatchQueue.main.async {
         self.hidingAnimation()
         if error == "Key: 'Login.Username' Error:Field validation for 'Username' failed on the 'required' tag\nKey: 'Login.Password' Error:Field validation for 'Password' failed on the 'required' tag" {
-          self.showAlert(title: "Login Failed", message: "Username and Password is Empty!")
+          invalidSnackBar.make(in: self.view, message: "Username and Password is Empty!", duration: .lengthLong).show()
         } else if error == "Key: 'Login.Password' Error:Field validation for 'Password' failed on the 'required' tag" {
-          self.showAlert(title: "Login Failed", message: "Password is Empty")
+          invalidSnackBar.make(in: self.view, message: "Password is Empty", duration: .lengthLong).show()
         } else if error == "username or password is invalid" {
-          self.showAlert(title: "Login Failed", message: error.capitalized)
+          invalidSnackBar.make(in: self.view, message: "Username or Password is Invalid", duration: .lengthLong).show()
         } else if error == "Key: 'Login.Username' Error:Field validation for 'Username' failed on the 'required' tag" {
-          self.showAlert(title: "Login Failed", message: "Username is Empty")
+          invalidSnackBar.make(in: self.view, message: "Username is Empty", duration: .lengthLong).show()
+        } else if error == "Key: 'Login.Password' Error:Field validation for 'Password' failed on the 'min' tag" {
+          invalidSnackBar.make(in: self.view, message: "Invalid Password", duration: .lengthLong).show()
         } else {
-          self.showAlert(title: "Login Failed!", message: error.capitalized){
+          self.showAlert(title: "Account not Verified!", message: error.capitalized){
             self.goToVerify()
           }
         }

@@ -29,6 +29,10 @@
 		001859BB2A7A0478004EF0D5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */; };
 		001859BE2A7A0895004EF0D5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859BC2A7A0895004EF0D5 /* DetailTableViewCell.swift */; };
 		001859BF2A7A0895004EF0D5 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001859BD2A7A0895004EF0D5 /* DetailTableViewCell.xib */; };
+		0035172C2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0035172B2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift */; };
+		0035172E2A91FC5A004D3CD1 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0035172D2A91FC5A004D3CD1 /* AuthenticationModel.swift */; };
+		003517302A9204E1004D3CD1 /* VerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0035172F2A9204E1004D3CD1 /* VerificationCodeViewModel.swift */; };
+		003517322A926E74004D3CD1 /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003517312A926E74004D3CD1 /* NewPasswordViewModel.swift */; };
 		003CE9762A776326008D32FA /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 003CE9752A776326008D32FA /* SideMenu */; };
 		003CE9B22A779393008D32FA /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */; };
 		003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */; };
@@ -119,6 +123,10 @@
 		001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		001859BC2A7A0895004EF0D5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		001859BD2A7A0895004EF0D5 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
+		0035172B2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewModel.swift; sourceTree = "<group>"; };
+		0035172D2A91FC5A004D3CD1 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
+		0035172F2A9204E1004D3CD1 /* VerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewModel.swift; sourceTree = "<group>"; };
+		003517312A926E74004D3CD1 /* NewPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewModel.swift; sourceTree = "<group>"; };
 		003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
@@ -438,6 +446,7 @@
 				007B0F942A710E3C0034E7A5 /* ShopModel.swift */,
 				006B4C882A7562AB001247C4 /* TwitterConstants.swift */,
 				006B4C8C2A756ED8001247C4 /* UserModel.swift */,
+				0035172D2A91FC5A004D3CD1 /* AuthenticationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,6 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				008CE6942A80976F00454CED /* ForgetPasswordViewController.swift */,
+				0035172B2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift */,
 			);
 			path = ForgetPassword;
 			sourceTree = "<group>";
@@ -483,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				008CE69A2A809AB400454CED /* VerificationCodeViewController.swift */,
+				0035172F2A9204E1004D3CD1 /* VerificationCodeViewModel.swift */,
 			);
 			path = Verification;
 			sourceTree = "<group>";
@@ -615,6 +626,7 @@
 			isa = PBXGroup;
 			children = (
 				007B0F882A70DF450034E7A5 /* NewPasswordViewController.swift */,
+				003517312A926E74004D3CD1 /* NewPasswordViewModel.swift */,
 			);
 			path = NewPassword;
 			sourceTree = "<group>";
@@ -968,16 +980,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				001859BE2A7A0895004EF0D5 /* DetailTableViewCell.swift in Sources */,
+				0035172E2A91FC5A004D3CD1 /* AuthenticationModel.swift in Sources */,
 				0008FF882A8363DB0006BF26 /* ChoosePaymentViewController.swift in Sources */,
+				003517302A9204E1004D3CD1 /* VerificationCodeViewModel.swift in Sources */,
 				006B4C8D2A756ED8001247C4 /* UserModel.swift in Sources */,
 				008EE8BF2A7BA868002C44B9 /* AddReviewViewController.swift in Sources */,
 				006374702A910980003EC0EF /* VerifyAccountViewController.swift in Sources */,
 				006374732A911655003EC0EF /* VerifyAccountViewModel.swift in Sources */,
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
+				0035172C2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift in Sources */,
 				006B4C7E2A753AE2001247C4 /* CardViewController.swift in Sources */,
 				008CE69B2A809AB400454CED /* VerificationCodeViewController.swift in Sources */,
 				0008FF9E2A8395470006BF26 /* SnackBar.swift in Sources */,
 				0008FF7C2A823BA60006BF26 /* PaymentCollectionViewCell.swift in Sources */,
+				003517322A926E74004D3CD1 /* NewPasswordViewModel.swift in Sources */,
 				008EE8A72A7B88B8002C44B9 /* SizeCollectionViewCell.swift in Sources */,
 				008CE6A52A80C0E000454CED /* BottomSheetViewController.swift in Sources */,
 				008CE6B12A80D82800454CED /* PaymentViewController.swift in Sources */,
