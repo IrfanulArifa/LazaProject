@@ -46,12 +46,53 @@ struct Review: Codable {
     let id: Int
     let comment: String
     let rating: Double
-    let fullName, imageURL, createdAt: String
+    let fullName: String
+    let imageURL: String
+    let createdAt: String
 
     enum CodingKeys: String, CodingKey {
         case id, comment, rating
         case fullName = "full_name"
         case imageURL = "image_url"
         case createdAt = "created_at"
+    }
+}
+
+struct ReviewData: Codable {
+    let status: String
+    let isError: Bool
+    let data: Reviews
+}
+
+struct Reviews: Codable {
+    let ratingAvrg: Double
+    let total: Int
+    let reviews: [Review]
+
+    enum CodingKeys: String, CodingKey {
+        case ratingAvrg = "rating_avrg"
+        case total, reviews
+    }
+}
+
+struct ReviewSuccess: Codable {
+    let status: String
+    let isError: Bool
+    let data: ReviewDataSuccess
+}
+
+// MARK: - DataClass
+struct ReviewDataSuccess: Codable {
+    let id: Int
+    let comment: String
+    let rating: Double
+    let createdAt: String
+    let userID, productID: Int
+
+    enum CodingKeys: String, CodingKey {
+        case id, comment, rating
+        case createdAt = "created_at"
+        case userID = "user_id"
+        case productID = "product_id"
     }
 }

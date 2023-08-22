@@ -21,32 +21,33 @@ class DetailTableViewCell: UITableViewCell {
   @IBOutlet weak var categoryDetailLabel: UILabel!
   @IBOutlet weak var productNameDetailLabel: UILabel!
   @IBOutlet weak var priceDetailLabel: UILabel!
-  @IBOutlet weak var extraDetailCollection: UICollectionView!
-  @IBOutlet weak var reviewValueDetail: UILabel!
   @IBOutlet weak var descriptionDetail: UILabel!
-  @IBOutlet weak var star1: UIImageView!
-  @IBOutlet weak var star2: UIImageView!
-  @IBOutlet weak var star3: UIImageView!
-  @IBOutlet weak var star4: UIImageView!
-  @IBOutlet weak var star5: UIImageView!
-  
-  
-  
   @IBOutlet weak var sizeCollection: UICollectionView!
+  
+  private var productSize: [Sizes]? {
+    didSet {
+      sizeCollection.reloadData()
+    }
+  }
+  
   override func awakeFromNib() {
     super.awakeFromNib()
-    
+    print("Awake")
     sizeCollection.dataSource = self
     sizeCollection.delegate = self
     sizeCollection.register(UINib(nibName: "SizeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SizeCollectionViewCell")
     
-    viewModel.loadSize()
+//    viewModel.loadSize()
     
     viewModel.reloadSize = {
       DispatchQueue.main.async {
         self.sizeCollection.reloadData()
       }
     }
+  }
+  
+  func configureSize(sizes: [Sizes]) {
+    productSize = sizes
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
@@ -60,11 +61,12 @@ class DetailTableViewCell: UITableViewCell {
 
 extension DetailTableViewCell: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return viewModel.size.count
+//    return viewModel.size.count
+    return productSize?.count ?? 0
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let data = viewModel.size[indexPath.item]
+    guard let data = productSize?[indexPath.item] else { return UICollectionViewCell() }
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCollectionViewCell", for: indexPath) as? SizeCollectionViewCell else { return UICollectionViewCell() }
     cell.sizeLabel.text = data.size.capitalized
     return cell

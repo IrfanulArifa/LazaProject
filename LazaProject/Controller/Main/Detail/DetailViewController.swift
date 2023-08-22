@@ -22,6 +22,8 @@ class DetailViewController: UIViewController {
     detailTableView.dataSource = self
     
     detailTableView.register(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCell")
+    detailTableView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil),forCellReuseIdentifier: "ReviewTableViewCell")
+    
     
     viewModel.loadDetail(dataDetail!)
     
@@ -51,107 +53,63 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController : UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 2
+  }
+  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell") as? DetailTableViewCell else { return UITableViewCell() }
-    cell.delegate = self
-    if let data = viewModel.detailData?.data {
-      print("Datanya Ini")
-      let imageURL = data.imageURL
-      cell.imageDetail.sd_setImage(with: URL(string: imageURL))
-      cell.priceDetailLabel.text = "Rp. " + String(data.price)
-      cell.descriptionDetail.text = data.description
-      cell.productNameDetailLabel.text = data.name
-//      cell.configureData(data: data.id)
-//      cell.configureProductId(dataSize: data.id)
-//      cell.reloadData()
-  //    cell.descriptionDetail.text = viewModel.description
+    if indexPath.row < 1 {
+      guard let cellA = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell") as? DetailTableViewCell else { return UITableViewCell() }
+      cellA.delegate = self
       
-  //    setRatingImage(viewModel.rating.rate)
+      guard let data = viewModel.detailData?.data else { return UITableViewCell() }
+      let imageURL = data.imageURL
+      cellA.imageDetail.sd_setImage(with: URL(string: imageURL))
+      cellA.priceDetailLabel.text = "Rp. " + String(data.price)
+      cellA.descriptionDetail.text = data.description
+      cellA.productNameDetailLabel.text = data.name
+      cellA.configureSize(sizes: data.size)
+      return cellA
+      
+    } else {
+      
+      guard let cellB = tableView.dequeueReusableCell(withIdentifier: "ReviewTableViewCell") as? ReviewTableViewCell else { return UITableViewCell()}
+      guard let data = viewModel.detailData?.data else { return UITableViewCell() }
+      let dateData = DateTimeUtils().formatReview(date: data.reviews[indexPath.row-1].createdAt)
+      let dataCell = data.reviews[indexPath.row-1]
+      cellB.reviewDate.text = dateData
+      cellB.reviewDescription.text = dataCell.comment
+      cellB.reviewerName.text = dataCell.fullName
+      cellB.reviewerValue.text = String(dataCell.rating)
+      cellB.setRatingImage(dataCell.rating)
+      return cellB
     }
-    
-    
-    func setRatingImage(_ value: Double){
-      if value == 5 {
-        cell.star1.image = UIImage(systemName: "star.fill")
-        cell.star2.image = UIImage(systemName: "star.fill")
-        cell.star3.image = UIImage(systemName: "star.fill")
-        cell.star4.image = UIImage(systemName: "star.fill")
-        cell.star5.image = UIImage(systemName: "star.fill")
-        
-        cell.star1.tintColor = .systemYellow
-        cell.star2.tintColor = .systemYellow
-        cell.star3.tintColor = .systemYellow
-        cell.star4.tintColor = .systemYellow
-        cell.star5.tintColor = .systemYellow
-      } else if value >= 4 && value < 5 {
-        cell.star1.image = UIImage(systemName: "star.fill")
-        cell.star2.image = UIImage(systemName: "star.fill")
-        cell.star3.image = UIImage(systemName: "star.fill")
-        cell.star4.image = UIImage(systemName: "star.fill")
-        cell.star5.image = UIImage(systemName: "star")
-        
-        cell.star1.tintColor = .systemYellow
-        cell.star2.tintColor = .systemYellow
-        cell.star3.tintColor = .systemYellow
-        cell.star4.tintColor = .systemYellow
-        cell.star5.tintColor = .systemGray
-      } else if value >= 3 && value < 4 {
-        cell.star1.image = UIImage(systemName: "star.fill")
-        cell.star2.image = UIImage(systemName: "star.fill")
-        cell.star3.image = UIImage(systemName: "star.fill")
-        cell.star4.image = UIImage(systemName: "star")
-        cell.star5.image = UIImage(systemName: "star")
-        
-        cell.star1.tintColor = .systemYellow
-        cell.star2.tintColor = .systemYellow
-        cell.star3.tintColor = .systemYellow
-        cell.star4.tintColor = .systemGray
-        cell.star5.tintColor = .systemGray
-      } else if value >= 2 && value < 3 {
-        cell.star1.image = UIImage(systemName: "star.fill")
-        cell.star2.image = UIImage(systemName: "star.fill")
-        cell.star3.image = UIImage(systemName: "star")
-        cell.star4.image = UIImage(systemName: "star")
-        cell.star5.image = UIImage(systemName: "star")
-        
-        cell.star1.tintColor = .systemYellow
-        cell.star2.tintColor = .systemYellow
-        cell.star3.tintColor = .systemGray
-        cell.star4.tintColor = .systemGray
-        cell.star5.tintColor = .systemGray
-      } else if value >= 1 && value < 2 {
-        cell.star1.image = UIImage(systemName: "star.fill")
-        cell.star2.image = UIImage(systemName: "star")
-        cell.star3.image = UIImage(systemName: "star")
-        cell.star4.image = UIImage(systemName: "star")
-        cell.star5.image = UIImage(systemName: "star")
-        
-        cell.star1.tintColor = .systemYellow
-        cell.star2.tintColor = .systemGray
-        cell.star3.tintColor = .systemGray
-        cell.star4.tintColor = .systemGray
-        cell.star5.tintColor = .systemGray
-      }
-    }
-    return cell
   }
 }
 
 extension DetailViewController : UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return UITableView.automaticDimension
+    if indexPath.row < 1 {
+      return UITableView.automaticDimension
+    } else {
+      return UITableView.automaticDimension
+    }
   }
 }
 
 extension DetailViewController: ReviewTableViewCellDelegate {
   
   func actionClicked() {
-    let storyboard = UIStoryboard(name: "ReviewViewController", bundle: nil).instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
-    self.navigationController?.pushViewController(storyboard, animated: true)
+    let storyboard = UIStoryboard(name: "ReviewViewController", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
+    guard let data = viewModel.reviewData else { return }
+    guard let id = dataDetail else { return }
+    vc.getProductId(product: id)
+    vc.sendProductReviewId(data: data)
+    self.navigationController?.pushViewController(vc, animated: true)
   }
-  
 }

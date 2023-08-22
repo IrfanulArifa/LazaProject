@@ -40,6 +40,8 @@
 		003CE9B72A7793A6008D32FA /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */; };
 		004678402A935651005C0E07 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0046783F2A935651005C0E07 /* ProfileViewController.storyboard */; };
 		004678422A936387005C0E07 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678412A936387005C0E07 /* ProfileViewModel.swift */; };
+		004678462A945DF2005C0E07 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678452A945DF2005C0E07 /* DateUtils.swift */; };
+		0046784A2A94847D005C0E07 /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678492A94847D005C0E07 /* AddReviewViewModel.swift */; };
 		006374702A910980003EC0EF /* VerifyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0063746F2A910980003EC0EF /* VerifyAccountViewController.swift */; };
 		006374732A911655003EC0EF /* VerifyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006374722A911655003EC0EF /* VerifyAccountViewModel.swift */; };
 		006B4C7E2A753AE2001247C4 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C7D2A753AE2001247C4 /* CardViewController.swift */; };
@@ -143,6 +145,8 @@
 		003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		0046783F2A935651005C0E07 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		004678412A936387005C0E07 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		004678452A945DF2005C0E07 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		004678492A94847D005C0E07 /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
 		0063746F2A910980003EC0EF /* VerifyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountViewController.swift; sourceTree = "<group>"; };
 		006374722A911655003EC0EF /* VerifyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountViewModel.swift; sourceTree = "<group>"; };
 		006B4C7D2A753AE2001247C4 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
@@ -383,6 +387,7 @@
 				003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */,
 				008CE69C2A80ADC400454CED /* CartTableViewCell.swift */,
 				003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */,
+				008EE8B42A7B95F0002C44B9 /* ReviewTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -448,6 +453,7 @@
 				008EE8A02A7B5C56002C44B9 /* AlertManager.swift */,
 				0008FF7E2A8327AE0006BF26 /* UIViewExt.swift */,
 				0008FF9D2A8395470006BF26 /* SnackBar.swift */,
+				004678452A945DF2005C0E07 /* DateUtils.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -777,26 +783,10 @@
 			isa = PBXGroup;
 			children = (
 				008EE8AD2A7B8ED2002C44B9 /* ReviewViewController.swift */,
-				008EE8C02A7BA87C002C44B9 /* AddReview */,
-				008EE8B92A7B99C4002C44B9 /* Cell */,
+				008EE8BE2A7BA868002C44B9 /* AddReviewViewController.swift */,
+				004678492A94847D005C0E07 /* AddReviewViewModel.swift */,
 			);
 			path = Review;
-			sourceTree = "<group>";
-		};
-		008EE8B92A7B99C4002C44B9 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				008EE8B42A7B95F0002C44B9 /* ReviewTableViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		008EE8C02A7BA87C002C44B9 /* AddReview */ = {
-			isa = PBXGroup;
-			children = (
-				008EE8BE2A7BA868002C44B9 /* AddReviewViewController.swift */,
-			);
-			path = AddReview;
 			sourceTree = "<group>";
 		};
 		0090DFD62A81DDB000150D9D /* OrderConfirmed */ = {
@@ -1021,6 +1011,7 @@
 				00A8FDBC2A9318DB006FB87D /* DetailModel.swift in Sources */,
 				006374702A910980003EC0EF /* VerifyAccountViewController.swift in Sources */,
 				006374732A911655003EC0EF /* VerifyAccountViewModel.swift in Sources */,
+				004678462A945DF2005C0E07 /* DateUtils.swift in Sources */,
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
 				0035172C2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift in Sources */,
 				006B4C7E2A753AE2001247C4 /* CardViewController.swift in Sources */,
@@ -1033,6 +1024,7 @@
 				004678422A936387005C0E07 /* ProfileViewModel.swift in Sources */,
 				008CE6B12A80D82800454CED /* PaymentViewController.swift in Sources */,
 				0008FF8C2A8373100006BF26 /* WalletCollectionViewCell.swift in Sources */,
+				0046784A2A94847D005C0E07 /* AddReviewViewModel.swift in Sources */,
 				007B0F852A70D5BD0034E7A5 /* LoginViewController.swift in Sources */,
 				007905012A8C9EA100FEBFF0 /* SessionManager.swift in Sources */,
 				008EE8B62A7B95F0002C44B9 /* ReviewTableViewCell.swift in Sources */,

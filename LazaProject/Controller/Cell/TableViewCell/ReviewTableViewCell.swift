@@ -1,5 +1,5 @@
 //
-//  ReviewViewController.swift
+//  ReviewTableViewCell.swift
 //  LazaProject
 //
 //  Created by Irfanul Arifa on 03/08/23.
@@ -7,58 +7,32 @@
 
 import UIKit
 
-class ReviewViewController: UIViewController {
+class ReviewTableViewCell: UITableViewCell {
   
-  @IBOutlet weak var reviewTableView:UITableView!
+  @IBOutlet weak var reviewerName: UILabel!
+  @IBOutlet weak var reviewDate: UILabel!
+  @IBOutlet weak var reviewerImage: UIImageView!
+  @IBOutlet weak var reviewerValue: UILabel!
+  @IBOutlet weak var reviewDescription: UILabel!
   
-  var idReview: ReviewData?
-  var productId: Int?
-  let viewModel = DetailViewModel()
-  
-  @IBOutlet weak var ratingAverage: UILabel!
-  @IBOutlet weak var totalReview: UILabel!
   @IBOutlet weak var star1: UIImageView!
   @IBOutlet weak var star2: UIImageView!
   @IBOutlet weak var star3: UIImageView!
   @IBOutlet weak var star4: UIImageView!
   @IBOutlet weak var star5: UIImageView!
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+  }
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
     
-    reviewTableView.dataSource = self
-    reviewTableView.delegate = self
-    
-    reviewTableView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil), forCellReuseIdentifier:"ReviewTableViewCell")
-    ratingAverage.text = String(idReview!.data.ratingAvrg)
-    totalReview.text = String(idReview!.data.total) + " Reviews"
-    
-    setRatingImageInReview(idReview!.data.ratingAvrg)
-    
-    let refreshControl = UIRefreshControl()
-    refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
-    reviewTableView.refreshControl = refreshControl
+    // Configure the view for the selected state
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    reviewTableView.reloadData()
-  }
-  
-  @objc func refreshTableView(){
-    reviewTableView.refreshControl?.endRefreshing()
-    reviewTableView.reloadData()
-  }
-  
-  func sendProductReviewId(data: ReviewData){
-    idReview = data
-  }
-  
-  func getProductId(product: Int){
-    productId = product
-  }
-  
-  func setRatingImageInReview(_ value: Double){
+  func setRatingImage(_ value: Double){
     let imageFull = UIImage(systemName: "star.fill")
     let imageHalf = UIImage(systemName: "star.leadinghalf.filled")
     let imageEmpty = UIImage(systemName: "star")
@@ -196,44 +170,5 @@ class ReviewViewController: UIViewController {
       star4.tintColor = .systemGray
       star5.tintColor = .systemGray
     }
-  }
-  
-}
-
-extension ReviewViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return idReview!.data.total
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as? ReviewTableViewCell else { return UITableViewCell() }
-    let data = idReview?.data.reviews[indexPath.row]
-    if let newData = data {
-      let time = DateTimeUtils().formatReview(date: data!.createdAt)
-      cell.reviewDate.text = time
-      cell.reviewDescription.text = newData.comment
-      cell.reviewerName.text = newData.fullName
-      cell.reviewerValue.text = "\(newData.rating)"
-      cell.setRatingImage(newData.rating)
-    }
-    return cell
-  }
-  
-  @IBAction func addReviewClicked(_ sender: UIButton){
-    let storyboard = UIStoryboard(name: "AddReviewViewController", bundle: nil)
-    let vc = storyboard.instantiateViewController(withIdentifier: "AddReviewViewController") as! AddReviewViewController
-    guard let id = productId else { return }
-    vc.sendProductId(productId: id)
-    self.navigationController?.pushViewController(vc, animated: true)
-  }
-  
-  @IBAction func backButtonClicked(_ sender: UIButton) {
-    navigationController?.popViewController(animated: true)
-  }
-}
-
-extension ReviewViewController: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return UITableView.automaticDimension
   }
 }

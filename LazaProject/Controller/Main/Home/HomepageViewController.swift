@@ -47,16 +47,14 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     
     // Setup Tab Bar item Function Calling
     setupTabBarItemImage()
+    
+    let refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+    categoryTableView.refreshControl = refreshControl
   }
   
   override func viewWillAppear(_ animated: Bool) {
     categoryTableView.reloadData()
-  }
-  
-  private func refreshTable() {
-    let refreshControl = UIRefreshControl()
-    refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
-    categoryTableView.refreshControl = refreshControl
   }
   
   private func setup() {

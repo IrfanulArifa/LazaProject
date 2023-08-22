@@ -127,8 +127,8 @@
                                     <action selector="addReviewClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CYA-yh-52K"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qyC-16-Z4N">
-                                <rect key="frame" x="0.0" y="165" width="393" height="553"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qyC-16-Z4N">
+                                <rect key="frame" x="0.0" y="175" width="393" height="643"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -139,18 +139,25 @@
                             <constraint firstItem="dkH-YQ-8ry" firstAttribute="top" secondItem="h6n-JG-EGh" secondAttribute="bottom" constant="20" id="7Mk-GK-1NI"/>
                             <constraint firstItem="7dg-vt-nxk" firstAttribute="top" secondItem="h6n-JG-EGh" secondAttribute="bottom" constant="20" id="8Vw-Dx-Pev"/>
                             <constraint firstItem="qyC-16-Z4N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AQ1-5b-gRb"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="qyC-16-Z4N" secondAttribute="bottom" constant="100" id="P3p-Nx-FSY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="qyC-16-Z4N" secondAttribute="bottom" id="P3p-Nx-FSY"/>
                             <constraint firstItem="7dg-vt-nxk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="PYR-10-1H1"/>
                             <constraint firstItem="h6n-JG-EGh" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="45" id="QJx-Qc-G2P"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qyC-16-Z4N" secondAttribute="trailing" id="RAj-3p-AhA"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dkH-YQ-8ry" secondAttribute="trailing" constant="20" id="Yca-IJ-9pb"/>
                             <constraint firstItem="h6n-JG-EGh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="dcL-Nx-dGM"/>
                             <constraint firstItem="akr-lp-9E9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="det-Ah-tt4"/>
-                            <constraint firstItem="qyC-16-Z4N" firstAttribute="top" secondItem="dkH-YQ-8ry" secondAttribute="bottom" constant="20" id="trA-C1-y4z"/>
+                            <constraint firstItem="qyC-16-Z4N" firstAttribute="top" secondItem="dkH-YQ-8ry" secondAttribute="bottom" constant="30" id="trA-C1-y4z"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ratingAverage" destination="OZk-1V-abd" id="W61-Jn-NO1"/>
                         <outlet property="reviewTableView" destination="qyC-16-Z4N" id="S14-pz-2Zy"/>
+                        <outlet property="star1" destination="gfY-Qb-O7k" id="ak6-bj-mCR"/>
+                        <outlet property="star2" destination="3ef-x8-0ac" id="qhV-uQ-3Ze"/>
+                        <outlet property="star3" destination="5oy-cV-57x" id="Zk2-x4-tJ2"/>
+                        <outlet property="star4" destination="6rg-EN-sl1" id="aAh-Ak-6Zb"/>
+                        <outlet property="star5" destination="Z4v-UW-Hwa" id="Det-DW-agX"/>
+                        <outlet property="totalReview" destination="aZz-Gn-nre" id="yjf-P0-Fe6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -164,7 +171,7 @@
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="invalidButton">
-            <color red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.56099998950958252" green="0.56099998950958252" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
