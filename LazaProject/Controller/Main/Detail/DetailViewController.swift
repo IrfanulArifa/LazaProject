@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import SnackBar
 
 class DetailViewController: UIViewController {
   
@@ -15,9 +16,15 @@ class DetailViewController: UIViewController {
   let viewModel = DetailViewModel()
   
   @IBOutlet weak var detailTableView: IntrinsicTableView!
+  @IBOutlet weak var wishlistButton: UIButton!{
+    didSet {
+      wishlistButton.setImage(UIImage(systemName: "heart"), for: .normal)
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     detailTableView.delegate = self
     detailTableView.dataSource = self
     
@@ -26,11 +33,17 @@ class DetailViewController: UIViewController {
     
     
     viewModel.loadDetail(dataDetail!)
+    let token = UserDefaults.standard.string(forKey: "access_token")
+    viewModel.loadWishlist(dataDetail!, token: token!)
     
     viewModel.reloadDetail = {
       DispatchQueue.main.async {
         self.detailTableView.reloadData()
       }
+    }
+    
+    viewModel.reloadWishlist = {
+      self.checkWhistlist()
     }
   }
   
@@ -50,6 +63,55 @@ class DetailViewController: UIViewController {
     detailTableView.reloadData()
   }
   
+  func checkWhistlist() {
+    guard let range = viewModel.wishlistData?.data.total else { return }
+    
+    if range == 0 {
+      resetWishlistImage()
+    } else {
+      for i in 0..<range{
+        if viewModel.wishlistData?.data.products[i].id == dataDetail {
+          setWishlistImage()
+          break
+        } else {
+          resetWishlistImage()
+        }
+      }
+    }
+  }
+  
+  func setWishlistImage() {
+    DispatchQueue.main.async {
+      self.wishlistButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    }
+  }
+  
+  func resetWishlistImage() {
+    DispatchQueue.main.async {
+      self.wishlistButton.setImage(UIImage(systemName: "heart"), for: .normal)
+    }
+  }
+  
+  @IBAction func wishlistButton(_ sender: UIButton) {
+    let tokenAcc = UserDefaults.standard.string(forKey: "access_token")
+    viewModel.putWishlist(productId: String(dataDetail!), token: tokenAcc!) { response in
+      if response?.data == "successfully added wishlist" {
+        DispatchQueue.main.async {
+          validSnackBar.make(in: self.view, message: (response?.data.capitalized)!, duration: .lengthLong).show()
+          self.setWishlistImage()
+        }
+      } else if response?.data == "successfully delete wishlist" {
+        DispatchQueue.main.async {
+          invalidSnackBar.make(in: self.view, message: (response?.data.capitalized)!, duration: .lengthLong).show()
+          self.resetWishlistImage()
+        }
+      }
+    } onError: { error in
+      DispatchQueue.main.async {
+        invalidSnackBar.make(in: self.view, message: error.capitalized, duration: .lengthLong).show()
+      }
+    }
+  }
 }
 
 extension DetailViewController : UITableViewDataSource {
@@ -106,10 +168,10 @@ extension DetailViewController: ReviewTableViewCellDelegate {
   func actionClicked() {
     let storyboard = UIStoryboard(name: "ReviewViewController", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
-    guard let data = viewModel.reviewData else { return }
+//    guard let data = viewModel.reviewData else { return }
     guard let id = dataDetail else { return }
     vc.getProductId(product: id)
-    vc.sendProductReviewId(data: data)
+//    vc.sendProductReviewId(data: data)
     self.navigationController?.pushViewController(vc, animated: true)
   }
 }

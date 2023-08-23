@@ -41,7 +41,7 @@ class ProductTableViewCell: UITableViewCell {
 
 extension ProductTableViewCell: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return dataProduct.count
+    return 6
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

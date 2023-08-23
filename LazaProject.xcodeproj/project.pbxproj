@@ -98,6 +98,7 @@
 		008EE8C42A7CAA24002C44B9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8C32A7CAA24002C44B9 /* Poppins-SemiBold.ttf */; };
 		0090DFD92A81DE4C00150D9D /* OrderConfirmedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0090DFD82A81DE4C00150D9D /* OrderConfirmedViewController.storyboard */; };
 		0090DFDB2A81DE5900150D9D /* OrderConfirmedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090DFDA2A81DE5900150D9D /* OrderConfirmedViewController.swift */; };
+		009615422A94A5FC009200C7 /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009615412A94A5FC009200C7 /* WishlistViewModel.swift */; };
 		00A74B402A72064300BB07B9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B3F2A72064300BB07B9 /* DetailViewController.swift */; };
 		00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A74B412A72065500BB07B9 /* DetailViewController.storyboard */; };
 		00A74B442A72465100BB07B9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B432A72465100BB07B9 /* OrderViewController.swift */; };
@@ -200,6 +201,7 @@
 		008EE8C32A7CAA24002C44B9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "../../../../../../../Downloads/Poppins-2/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		0090DFD82A81DE4C00150D9D /* OrderConfirmedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderConfirmedViewController.storyboard; sourceTree = "<group>"; };
 		0090DFDA2A81DE5900150D9D /* OrderConfirmedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmedViewController.swift; sourceTree = "<group>"; };
+		009615412A94A5FC009200C7 /* WishlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
 		00A74B3F2A72064300BB07B9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		00A74B412A72065500BB07B9 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		00A74B432A72465100BB07B9 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 				006374722A911655003EC0EF /* VerifyAccountViewModel.swift */,
 				0035172F2A9204E1004D3CD1 /* VerificationCodeViewModel.swift */,
 				007B0F7C2A70CAD80034E7A5 /* ViewModel.swift */,
+				009615412A94A5FC009200C7 /* WishlistViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1023,6 +1026,7 @@
 				008CE6A52A80C0E000454CED /* BottomSheetViewController.swift in Sources */,
 				004678422A936387005C0E07 /* ProfileViewModel.swift in Sources */,
 				008CE6B12A80D82800454CED /* PaymentViewController.swift in Sources */,
+				009615422A94A5FC009200C7 /* WishlistViewModel.swift in Sources */,
 				0008FF8C2A8373100006BF26 /* WalletCollectionViewCell.swift in Sources */,
 				0046784A2A94847D005C0E07 /* AddReviewViewModel.swift in Sources */,
 				007B0F852A70D5BD0034E7A5 /* LoginViewController.swift in Sources */,

@@ -31,27 +31,34 @@ class ReviewViewController: UIViewController {
     reviewTableView.delegate = self
     
     reviewTableView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil), forCellReuseIdentifier:"ReviewTableViewCell")
-    ratingAverage.text = String(idReview!.data.ratingAvrg)
-    totalReview.text = String(idReview!.data.total) + " Reviews"
     
-    setRatingImageInReview(idReview!.data.ratingAvrg)
+    loadReview()
     
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
     reviewTableView.refreshControl = refreshControl
   }
   
+  func loadReview() {
+    viewModel.reloadReview = {
+      DispatchQueue.main.async { [weak self] in
+        guard let self = self else { return }
+        self.reviewTableView.reloadData()
+        self.ratingAverage.text = String((self.viewModel.reviewData?.data.ratingAvrg)!)
+        self.totalReview.text = String((self.viewModel.reviewData?.data.total)!) + " Reviews"
+        self.setRatingImageInReview((self.viewModel.reviewData?.data.ratingAvrg)!)
+      }
+    }
+    viewModel.loadReview(productId!)
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
-    reviewTableView.reloadData()
+    loadReview()
   }
   
   @objc func refreshTableView(){
     reviewTableView.refreshControl?.endRefreshing()
-    reviewTableView.reloadData()
-  }
-  
-  func sendProductReviewId(data: ReviewData){
-    idReview = data
+    loadReview()
   }
   
   func getProductId(product: Int){
@@ -202,12 +209,12 @@ class ReviewViewController: UIViewController {
 
 extension ReviewViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return idReview!.data.total
+    return viewModel.reviewData?.data.total ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as? ReviewTableViewCell else { return UITableViewCell() }
-    let data = idReview?.data.reviews[indexPath.row]
+    let data = viewModel.reviewData?.data.reviews[indexPath.row]
     if let newData = data {
       let time = DateTimeUtils().formatReview(date: data!.createdAt)
       cell.reviewDate.text = time

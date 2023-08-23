@@ -27,7 +27,7 @@ class AddReviewViewController: UIViewController {
   }
   
   @IBAction func sliderSliding(_ sender: UISlider) {
-    ratingLabel.text = String(format: "%.1f",sliderValue.value)
+    ratingLabel.text = String(format: "%.0f",sliderValue.value)
   }
   
   @IBAction func backClicked(_ sender: UIButton) {
@@ -40,12 +40,12 @@ class AddReviewViewController: UIViewController {
       return }
     guard let token = UserDefaults.standard.string(forKey: "access_token") else { print("Kesini")
       return }
-    let rating = String(format: "%.1f", sliderValue.value)
+    let rating = String(format: "%.0f", sliderValue.value)
     viewModel.addReview(productId: product, comment: reviewField.text!, rating: Double(rating)!, token: token) { response in
       
       DispatchQueue.main.async {
         self.showAlert(title: "Success", message: response!.status){
-          self.navigationController?.popViewController(animated: true)
+          self.goToReview()
         }
       }
     } onError: { error in
@@ -53,6 +53,13 @@ class AddReviewViewController: UIViewController {
         self.showAlert(title: "Error", message: error.capitalized)
       }
     }
+  }
+  
+  func goToReview() {
+    let storyboard = UIStoryboard(name: "ReviewViewController", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "ReviewViewController") as? ReviewViewController
+    vc!.getProductId(product: product!)
+    self.navigationController?.pushViewController(vc!, animated: true)
   }
   
   func logout(){

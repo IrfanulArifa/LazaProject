@@ -11,8 +11,11 @@ class DetailViewModel {
   
   var detailData: Detail?
   var reviewData: ReviewData?
+  var wishlistData: WishlistModel?
   var reloadDetail: (()->Void)?
   var reloadReview: (()->Void)?
+  var reloadWishlist: (()->Void)?
+  var reLogin: (()->Void)?
   
   func getDetailById(id: Int) async throws -> Detail {
     let component = URLComponents(string: "https://lazaapp.shop/products/\(id)")!
@@ -27,8 +30,25 @@ class DetailViewModel {
     return result
   }
   
+  func getWishlist(id: Int, token:String) async throws -> WishlistModel {
+    let component = URLComponents(string: "https://lazaapp.shop/wishlists")!
+    var request = URLRequest(url:component.url!)
+    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
+    let (data, responses) = try await URLSession.shared.data(for: request)
+    guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
+      fatalError("Error Can't Fetching Data")
+    }
+    let decoder = JSONDecoder()
+    let result = try decoder.decode(WishlistModel.self, from: data)
+    return result
+  }
+  
   func loadDetail(_ index: Int) {
     Task { await getDetailData(index) }
+  }
+  
+  func loadWishlist(_ index: Int, token: String){
+    Task { await checkWishlistData(index, token) }
   }
   
   func loadReview(_ index: Int) {
@@ -49,7 +69,7 @@ class DetailViewModel {
     let request = URLRequest(url:component.url!)
     let (data, responses) = try await URLSession.shared.data(for: request)
     guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
-      fatalError("Error Can't Fetching Data")
+      fatalError("Token is Invalid")
     }
     
     let decoder = JSONDecoder()
@@ -57,6 +77,15 @@ class DetailViewModel {
     return result
   }
 
+  func checkWishlistData(_ index: Int, _ token: String) async {
+    do {
+      wishlistData = try await getWishlist(id: index, token: token)
+      reloadWishlist?()
+    } catch {
+      print("Gamasuk ke Review \(error)")
+    }
+  }
+  
   func getReviewData(_ index: Int) async {
     do {
       reviewData = try await getReviewById(productId: index)
@@ -64,6 +93,51 @@ class DetailViewModel {
     } catch {
       print("Gamasuk ke Review \(error)")
     }
+  }
+  
+  func putWishlist(productId: String,
+                   token: String,
+                   completion: @escaping ((WishlistSuccess?)->Void),
+                   onError: @escaping (String)->Void) {
+    let decoder = JSONDecoder()
+    
+    let url = URL(string: "https://lazaapp.shop/wishlists?ProductId=\(productId)")!
+  
+    var request = URLRequest(url: url)
+    request.httpMethod = "PUT"
+    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
+    let session = URLSession.shared
+    
+    let task = session.dataTask(with: request) { data, response, error in
+      if error != nil {
+        completion(nil)
+        return
+      }
+      
+      guard let httpResponse = response as? HTTPURLResponse else {
+        return
+      }
+      
+      guard let data = data else {
+        print("Tidak ada data yang diterima")
+        return
+      }
+      if httpResponse.statusCode != 200 {
+        guard let failedModel = try? decoder.decode(ResponseSignUpFailed.self, from: data) else {
+          onError("Put Wishlist Failed - Failed to Decode")
+          return
+        }
+        onError(failedModel.descriptionKey)
+        return
+      }
+      do {
+        let result = try decoder.decode(WishlistSuccess.self, from: data)
+        completion(result)
+      } catch {
+        print("Error decoding JSON response: \(error)")
+      }
+    }
+    task.resume()
   }
 }
 

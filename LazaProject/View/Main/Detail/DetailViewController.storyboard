@@ -36,6 +36,9 @@
                                         <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="wishlistButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JLk-rj-Hlr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z28-V2-i0o">
                                 <rect key="frame" x="20" y="45" width="50" height="50"/>
@@ -94,6 +97,7 @@
                     </view>
                     <connections>
                         <outlet property="detailTableView" destination="m5o-16-8Ag" id="Nkj-9c-2Po"/>
+                        <outlet property="wishlistButton" destination="j4q-ji-wxi" id="3nK-Sb-rce"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

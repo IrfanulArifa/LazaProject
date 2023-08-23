@@ -16,6 +16,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   // MARK: Assign View Model
   let viewModel = ViewModel()
   let loginModel = LoginViewModel()
+  var isValidLogin = false
   
   @IBOutlet weak var helloLbl: UILabel!{
     didSet { helloLbl.font = UIFont(name: "Poppins-SemiBold", size: 28)}
@@ -35,15 +36,20 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    validSnackBar.make(in: self.view, message: "Login is Successful", duration: .lengthLong).show()
     
-    // Setup Register Collection
-    setup()
+    let token = UserDefaults.standard.string(forKey: "access_token")
+    isValidToken(token: token!)
     
-    reloadCollectionData()
-    
-    // Load Data From API
-    viewModel.loadData()
+    if isValidLogin {
+      validSnackBar.make(in: self.view, message: "Login is Successful", duration: .lengthLong).show()
+      // Setup Register Collection
+      setup()
+      
+      reloadCollectionData()
+      
+      // Load Data From API
+      viewModel.loadData()
+    }
     
     // Setup Tab Bar item Function Calling
     setupTabBarItemImage()
@@ -62,6 +68,28 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     categoryTableView.delegate = self
     categoryTableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoryTableViewCell")
     categoryTableView.register(UINib(nibName: "ProductTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductTableViewCell")
+  }
+  
+  private func isValidToken(token: String){
+    do {
+      let jwt = try decode(jwt: token)
+      if jwt.expired {
+        isValidLogin = false
+        showAlert(title: "Invalid Token", message: "Please Re-Login!"){
+          DispatchQueue.main.async {
+            if UserModel.deleteAll() {
+              UserModel.stateLogin = false
+              let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+              self.navigationController?.pushViewController(storyboard, animated: true)
+            }
+          }
+        }
+      } else {
+        isValidLogin = true
+      }
+    } catch {
+      print("An error occurred while decoding the JWT: \(error)")
+    }
   }
   
   private func reloadCollectionData() {

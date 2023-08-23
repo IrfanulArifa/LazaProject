@@ -31,7 +31,6 @@ class CategoryTableViewCell: UITableViewCell {
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
     vc.AllCategoryConfigure(data: data)
-//    self.navigationContro
   }
   
   func configure(_ arrayData: [Description]){
@@ -43,7 +42,8 @@ class CategoryTableViewCell: UITableViewCell {
 
 extension CategoryTableViewCell: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return data.count
+    let limitedData = Array(data.prefix(3))
+    return limitedData.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,16 +61,6 @@ extension CategoryTableViewCell: UICollectionViewDelegate {
 
 extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout{
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//    for _ in 0...indexPath.item {
-//      let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
-//      let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
-//      let size:CGFloat = ((collectionView.frame.size.width - space) / 2.0) + 20
-//
-//    }
     return CGSize(width: 200, height: 50)
-//    return CGSize(width: size, height: size)
-    
-    
   }
-  
 }
