@@ -9,7 +9,7 @@ import UIKit
 
 class WishlistViewController: UIViewController {
   
-  let viewModel = ViewModel()
+  let viewModel = DetailViewModel()
   
   @IBOutlet weak var wishlistCollection: UICollectionView!{
     didSet {
@@ -23,9 +23,14 @@ class WishlistViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupTabBarItemImage() // Calling Function
-    viewModel.loadData()
+    let token = UserDefaults.standard.string(forKey: "access_token")
+    reloadWishlist(token: token!)
+  }
+  
+  private func reloadWishlist(token: String){
+    viewModel.isInWishlist(token: token)
     
-    viewModel.reloadProduct = {
+    viewModel.reloadWishlist = {
       DispatchQueue.main.async {
         self.wishlistCollection.reloadData()
       }
@@ -33,7 +38,8 @@ class WishlistViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    wishlistCollection.reloadData()
+    let token = UserDefaults.standard.string(forKey: "access_token")
+    reloadWishlist(token: token!)
   }
   
   // MARK: Setup BarItem when Clicked Change into Text
@@ -57,23 +63,23 @@ extension WishlistViewController: UICollectionViewDelegate{
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-    vc.configure(data: viewModel.product[indexPath.item].id)
+    vc.configure(data: (viewModel.wishlistData?.data.products[indexPath.item].id)!)
     navigationController?.pushViewController(vc, animated: true)
   }
 }
 
 extension WishlistViewController: UICollectionViewDataSource{
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return viewModel.product.count
+    return viewModel.wishlistData?.data.total ?? 0
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let data = viewModel.product[indexPath.item]
+    let data = viewModel.wishlistData?.data.products[indexPath.item]
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as? ProductCollectionViewCell else { return UICollectionViewCell() }
-    let image = URL(string: data.imageURL)
+    let image = URL(string: data!.imageURL)
     cell.productImage.sd_setImage(with: image)
-    cell.productName.text = data.name
-    cell.productPrice.text = "$"+String(data.price)
+    cell.productName.text = data?.name
+    cell.productPrice.text = "$"+String(data!.price)
     return cell
   }
   

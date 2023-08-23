@@ -30,7 +30,7 @@ class DetailViewModel {
     return result
   }
   
-  func getWishlist(id: Int, token:String) async throws -> WishlistModel {
+  func getWishlist(token:String) async throws -> WishlistModel {
     let component = URLComponents(string: "https://lazaapp.shop/wishlists")!
     var request = URLRequest(url:component.url!)
     request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
@@ -47,8 +47,12 @@ class DetailViewModel {
     Task { await getDetailData(index) }
   }
   
-  func loadWishlist(_ index: Int, token: String){
-    Task { await checkWishlistData(index, token) }
+  func isInWishlist(token: String){
+    Task { await checkWishlistData(token) }
+  }
+  
+  func loadWhislist(token: String) {
+//    Task { await }
   }
   
   func loadReview(_ index: Int) {
@@ -77,9 +81,9 @@ class DetailViewModel {
     return result
   }
 
-  func checkWishlistData(_ index: Int, _ token: String) async {
+  func checkWishlistData(_ token: String) async {
     do {
-      wishlistData = try await getWishlist(id: index, token: token)
+      wishlistData = try await getWishlist(token: token)
       reloadWishlist?()
     } catch {
       print("Gamasuk ke Review \(error)")

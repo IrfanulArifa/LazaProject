@@ -34,7 +34,7 @@ class DetailViewController: UIViewController {
     
     viewModel.loadDetail(dataDetail!)
     let token = UserDefaults.standard.string(forKey: "access_token")
-    viewModel.loadWishlist(dataDetail!, token: token!)
+    viewModel.isInWishlist(token: token!)
     
     viewModel.reloadDetail = {
       DispatchQueue.main.async {
