@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import JWTDecode
 
 class LoginViewModel{
   
@@ -59,7 +58,6 @@ class LoginViewModel{
       do {
         let result = try decoder.decode(LoginSuccess.self, from: data)
         completion(result.data)
-        let jwt = try decode(jwt: result.data.access_token)
       } catch {
         print("Error decoding JSON response: \(error)")
       }

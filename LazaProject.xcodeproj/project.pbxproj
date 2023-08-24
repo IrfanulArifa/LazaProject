@@ -29,6 +29,10 @@
 		001859BB2A7A0478004EF0D5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */; };
 		001859BE2A7A0895004EF0D5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859BC2A7A0895004EF0D5 /* DetailTableViewCell.swift */; };
 		001859BF2A7A0895004EF0D5 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 001859BD2A7A0895004EF0D5 /* DetailTableViewCell.xib */; };
+		0021A1972A95E18400BDD4F9 /* NewProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0021A1962A95E18400BDD4F9 /* NewProfileViewController.storyboard */; };
+		0021A1992A95E1B400BDD4F9 /* NewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021A1982A95E1B400BDD4F9 /* NewProfileViewController.swift */; };
+		0021A19B2A95E85400BDD4F9 /* UpdateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021A19A2A95E85400BDD4F9 /* UpdateProfileViewModel.swift */; };
+		0021A19D2A95EFCD00BDD4F9 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021A19C2A95EFCD00BDD4F9 /* Media.swift */; };
 		0035172C2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0035172B2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift */; };
 		0035172E2A91FC5A004D3CD1 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0035172D2A91FC5A004D3CD1 /* AuthenticationModel.swift */; };
 		003517302A9204E1004D3CD1 /* VerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0035172F2A9204E1004D3CD1 /* VerificationCodeViewModel.swift */; };
@@ -38,7 +42,7 @@
 		003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */; };
 		003CE9B62A7793A6008D32FA /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */; };
 		003CE9B72A7793A6008D32FA /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */; };
-		004678402A935651005C0E07 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0046783F2A935651005C0E07 /* ProfileViewController.storyboard */; };
+		004678402A935651005C0E07 /* UpdateProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0046783F2A935651005C0E07 /* UpdateProfileViewController.storyboard */; };
 		004678422A936387005C0E07 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678412A936387005C0E07 /* ProfileViewModel.swift */; };
 		004678462A945DF2005C0E07 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678452A945DF2005C0E07 /* DateUtils.swift */; };
 		0046784A2A94847D005C0E07 /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678492A94847D005C0E07 /* AddReviewViewModel.swift */; };
@@ -75,6 +79,10 @@
 		007B0F992A71171D0034E7A5 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007B0F972A71171D0034E7A5 /* ProductCollectionViewCell.xib */; };
 		007B0F9C2A7124E10034E7A5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 007B0F9B2A7124E10034E7A5 /* SDWebImage */; };
 		007B0F9E2A7124E10034E7A5 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 007B0F9D2A7124E10034E7A5 /* SDWebImageMapKit */; };
+		0086FE3B2A96F37300E41A19 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0086FE3A2A96F37300E41A19 /* GoogleSignIn */; };
+		0086FE3D2A96F37300E41A19 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0086FE3C2A96F37300E41A19 /* GoogleSignInSwift */; };
+		0086FE402A96FE5700E41A19 /* AllProductViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0086FE3F2A96FE5700E41A19 /* AllProductViewController.storyboard */; };
+		0086FE422A96FEAF00E41A19 /* AllProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0086FE412A96FEAF00E41A19 /* AllProductViewController.swift */; };
 		008CE6952A80976F00454CED /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008CE6942A80976F00454CED /* ForgetPasswordViewController.swift */; };
 		008CE69B2A809AB400454CED /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008CE69A2A809AB400454CED /* VerificationCodeViewController.swift */; };
 		008CE69E2A80ADC400454CED /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008CE69C2A80ADC400454CED /* CartTableViewCell.swift */; };
@@ -92,7 +100,6 @@
 		008EE8B22A7B8FA8002C44B9 /* ReviewViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8B12A7B8FA8002C44B9 /* ReviewViewController.storyboard */; };
 		008EE8B62A7B95F0002C44B9 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008EE8B42A7B95F0002C44B9 /* ReviewTableViewCell.swift */; };
 		008EE8B72A7B95F0002C44B9 /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8B52A7B95F0002C44B9 /* ReviewTableViewCell.xib */; };
-		008EE8BD2A7BA854002C44B9 /* AddReviewViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8BC2A7BA854002C44B9 /* AddReviewViewController.storyboard */; };
 		008EE8BF2A7BA868002C44B9 /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008EE8BE2A7BA868002C44B9 /* AddReviewViewController.swift */; };
 		008EE8C22A7CAA1C002C44B9 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8C12A7CAA1C002C44B9 /* Poppins-Regular.ttf */; };
 		008EE8C42A7CAA24002C44B9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8C32A7CAA24002C44B9 /* Poppins-SemiBold.ttf */; };
@@ -136,6 +143,10 @@
 		001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		001859BC2A7A0895004EF0D5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		001859BD2A7A0895004EF0D5 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
+		0021A1962A95E18400BDD4F9 /* NewProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewProfileViewController.storyboard; sourceTree = "<group>"; };
+		0021A1982A95E1B400BDD4F9 /* NewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProfileViewController.swift; sourceTree = "<group>"; };
+		0021A19A2A95E85400BDD4F9 /* UpdateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModel.swift; sourceTree = "<group>"; };
+		0021A19C2A95EFCD00BDD4F9 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		0035172B2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewModel.swift; sourceTree = "<group>"; };
 		0035172D2A91FC5A004D3CD1 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 		0035172F2A9204E1004D3CD1 /* VerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewModel.swift; sourceTree = "<group>"; };
@@ -144,7 +155,7 @@
 		003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
-		0046783F2A935651005C0E07 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
+		0046783F2A935651005C0E07 /* UpdateProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateProfileViewController.storyboard; sourceTree = "<group>"; };
 		004678412A936387005C0E07 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		004678452A945DF2005C0E07 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		004678492A94847D005C0E07 /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
@@ -178,6 +189,8 @@
 		007B0F942A710E3C0034E7A5 /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
 		007B0F962A71171D0034E7A5 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		007B0F972A71171D0034E7A5 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		0086FE3F2A96FE5700E41A19 /* AllProductViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllProductViewController.storyboard; sourceTree = "<group>"; };
+		0086FE412A96FEAF00E41A19 /* AllProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductViewController.swift; sourceTree = "<group>"; };
 		008CE6942A80976F00454CED /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		008CE69A2A809AB400454CED /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
 		008CE69C2A80ADC400454CED /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
@@ -195,7 +208,6 @@
 		008EE8B12A7B8FA8002C44B9 /* ReviewViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReviewViewController.storyboard; sourceTree = "<group>"; };
 		008EE8B42A7B95F0002C44B9 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		008EE8B52A7B95F0002C44B9 /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
-		008EE8BC2A7BA854002C44B9 /* AddReviewViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddReviewViewController.storyboard; sourceTree = "<group>"; };
 		008EE8BE2A7BA868002C44B9 /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
 		008EE8C12A7CAA1C002C44B9 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../../../Downloads/Poppins-2/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		008EE8C32A7CAA24002C44B9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "../../../../../../../Downloads/Poppins-2/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -225,6 +237,8 @@
 			files = (
 				006B4C832A755460001247C4 /* FacebookLogin in Frameworks */,
 				007B0F9E2A7124E10034E7A5 /* SDWebImageMapKit in Frameworks */,
+				0086FE3B2A96F37300E41A19 /* GoogleSignIn in Frameworks */,
+				0086FE3D2A96F37300E41A19 /* GoogleSignInSwift in Frameworks */,
 				006B4C812A755460001247C4 /* FacebookCore in Frameworks */,
 				007904FF2A8C7D2800FEBFF0 /* DPOTPView in Frameworks */,
 				007B0F9C2A7124E10034E7A5 /* SDWebImage in Frameworks */,
@@ -321,7 +335,10 @@
 		0046783E2A935641005C0E07 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				0046783F2A935651005C0E07 /* ProfileViewController.storyboard */,
+				0046783F2A935651005C0E07 /* UpdateProfileViewController.storyboard */,
+				0021A1962A95E18400BDD4F9 /* NewProfileViewController.storyboard */,
+				0021A1982A95E1B400BDD4F9 /* NewProfileViewController.swift */,
+				0021A19A2A95E85400BDD4F9 /* UpdateProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -494,6 +511,7 @@
 				006B4C8C2A756ED8001247C4 /* UserModel.swift */,
 				0035172D2A91FC5A004D3CD1 /* AuthenticationModel.swift */,
 				00A8FDBB2A9318DB006FB87D /* DetailModel.swift */,
+				0021A19C2A95EFCD00BDD4F9 /* Media.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -525,6 +543,15 @@
 				008EE8892A7B4948002C44B9 /* Authentication */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		0086FE3E2A96FE4400E41A19 /* AllProduct */ = {
+			isa = PBXGroup;
+			children = (
+				0086FE3F2A96FE5700E41A19 /* AllProductViewController.storyboard */,
+				0086FE412A96FEAF00E41A19 /* AllProductViewController.swift */,
+			);
+			path = AllProduct;
 			sourceTree = "<group>";
 		};
 		008CE6932A80975100454CED /* ForgetPassword */ = {
@@ -595,6 +622,7 @@
 		008EE8882A7B4920002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0086FE3E2A96FE4400E41A19 /* AllProduct */,
 				0046783E2A935641005C0E07 /* Profile */,
 				008EE8A22A7B64AA002C44B9 /* Detail */,
 				008EE8AA2A7B8E8A002C44B9 /* Home */,
@@ -777,7 +805,6 @@
 			isa = PBXGroup;
 			children = (
 				008EE8B12A7B8FA8002C44B9 /* ReviewViewController.storyboard */,
-				008EE8BC2A7BA854002C44B9 /* AddReviewViewController.storyboard */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -870,6 +897,8 @@
 				0008FF9B2A8394C50006BF26 /* SnackBar */,
 				007904FE2A8C7D2800FEBFF0 /* DPOTPView */,
 				00A8FDB52A92FD51006FB87D /* JWTDecode */,
+				0086FE3A2A96F37300E41A19 /* GoogleSignIn */,
+				0086FE3C2A96F37300E41A19 /* GoogleSignInSwift */,
 			);
 			productName = LazaProject;
 			productReference = 007B0F522A70B2410034E7A5 /* LazaProject.app */;
@@ -907,6 +936,7 @@
 				0008FF9A2A8394C50006BF26 /* XCRemoteSwiftPackageReference "SnackBar" */,
 				007904FD2A8C7D2800FEBFF0 /* XCRemoteSwiftPackageReference "DPOTPView" */,
 				00A8FDB42A92FD51006FB87D /* XCRemoteSwiftPackageReference "JWTDecode" */,
+				0086FE392A96F37300E41A19 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 007B0F532A70B2410034E7A5 /* Products */;
 			projectDirPath = "";
@@ -928,23 +958,24 @@
 				0008FF762A822ABE0006BF26 /* AddNewCardViewController.storyboard in Resources */,
 				0008FF902A83855A0006BF26 /* AllAddressViewController.storyboard in Resources */,
 				003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */,
+				0021A1972A95E18400BDD4F9 /* NewProfileViewController.storyboard in Resources */,
 				008CE6A22A80C06600454CED /* BottomSheetViewController.storyboard in Resources */,
 				008CE6AE2A80D81200454CED /* PaymentViewController.storyboard in Resources */,
 				00024A3B2A75B44D00B6A4B0 /* UpdatePasswordViewController.storyboard in Resources */,
 				008CE69F2A80ADC400454CED /* CartTableViewCell.xib in Resources */,
+				0086FE402A96FE5700E41A19 /* AllProductViewController.storyboard in Resources */,
 				007B0F622A70B2420034E7A5 /* LaunchScreen.storyboard in Resources */,
 				007B0F8B2A70F8C40034E7A5 /* HomepageViewController.storyboard in Resources */,
 				00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */,
 				003CE9B72A7793A6008D32FA /* ProductTableViewCell.xib in Resources */,
 				007B0F5F2A70B2420034E7A5 /* Assets.xcassets in Resources */,
 				007B0F992A71171D0034E7A5 /* ProductCollectionViewCell.xib in Resources */,
-				004678402A935651005C0E07 /* ProfileViewController.storyboard in Resources */,
+				004678402A935651005C0E07 /* UpdateProfileViewController.storyboard in Resources */,
 				008EE8B72A7B95F0002C44B9 /* ReviewTableViewCell.xib in Resources */,
 				008CE6A82A80D72500454CED /* AddressViewController.storyboard in Resources */,
 				008EE8B22A7B8FA8002C44B9 /* ReviewViewController.storyboard in Resources */,
 				007B0F5D2A70B2410034E7A5 /* Main.storyboard in Resources */,
 				007B0F932A710A660034E7A5 /* CategoryCollectionViewCell.xib in Resources */,
-				008EE8BD2A7BA854002C44B9 /* AddReviewViewController.storyboard in Resources */,
 				008EE8C42A7CAA24002C44B9 /* Poppins-SemiBold.ttf in Resources */,
 				007B0F702A70B2F40034E7A5 /* Inter.ttf in Resources */,
 				008EE8A82A7B88B8002C44B9 /* SizeCollectionViewCell.xib in Resources */,
@@ -1011,7 +1042,9 @@
 				003517302A9204E1004D3CD1 /* VerificationCodeViewModel.swift in Sources */,
 				006B4C8D2A756ED8001247C4 /* UserModel.swift in Sources */,
 				008EE8BF2A7BA868002C44B9 /* AddReviewViewController.swift in Sources */,
+				0086FE422A96FEAF00E41A19 /* AllProductViewController.swift in Sources */,
 				00A8FDBC2A9318DB006FB87D /* DetailModel.swift in Sources */,
+				0021A19B2A95E85400BDD4F9 /* UpdateProfileViewModel.swift in Sources */,
 				006374702A910980003EC0EF /* VerifyAccountViewController.swift in Sources */,
 				006374732A911655003EC0EF /* VerifyAccountViewModel.swift in Sources */,
 				004678462A945DF2005C0E07 /* DateUtils.swift in Sources */,
@@ -1028,6 +1061,8 @@
 				008CE6B12A80D82800454CED /* PaymentViewController.swift in Sources */,
 				009615422A94A5FC009200C7 /* WishlistViewModel.swift in Sources */,
 				0008FF8C2A8373100006BF26 /* WalletCollectionViewCell.swift in Sources */,
+				0021A19D2A95EFCD00BDD4F9 /* Media.swift in Sources */,
+				0021A1992A95E1B400BDD4F9 /* NewProfileViewController.swift in Sources */,
 				0046784A2A94847D005C0E07 /* AddReviewViewModel.swift in Sources */,
 				007B0F852A70D5BD0034E7A5 /* LoginViewController.swift in Sources */,
 				007905012A8C9EA100FEBFF0 /* SessionManager.swift in Sources */,
@@ -1340,6 +1375,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		0086FE392A96F37300E41A19 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		00A8FDB42A92FD51006FB87D /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
@@ -1390,6 +1433,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 007B0F9A2A7124E10034E7A5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		0086FE3A2A96F37300E41A19 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0086FE392A96F37300E41A19 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		0086FE3C2A96F37300E41A19 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0086FE392A96F37300E41A19 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 		00A8FDB52A92FD51006FB87D /* JWTDecode */ = {
 			isa = XCSwiftPackageProductDependency;

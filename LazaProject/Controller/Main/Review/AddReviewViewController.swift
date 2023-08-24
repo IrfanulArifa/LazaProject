@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol modalViewPresentation: AnyObject{
+  func didUpdateData()
+}
+
 class AddReviewViewController: UIViewController {
   
   @IBOutlet weak var sliderValue: UISlider!
   @IBOutlet weak var ratingLabel: UILabel!
   @IBOutlet weak var reviewField: UITextView!
+  
+  var delegate: modalViewPresentation?
   
   let viewModel = AddReviewViewModel()
   var product: Int?
@@ -59,7 +65,8 @@ class AddReviewViewController: UIViewController {
     let storyboard = UIStoryboard(name: "ReviewViewController", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "ReviewViewController") as? ReviewViewController
     vc!.getProductId(product: product!)
-    self.navigationController?.pushViewController(vc!, animated: true)
+    delegate?.didUpdateData()
+    self.dismiss(animated: true)
   }
   
   func logout(){

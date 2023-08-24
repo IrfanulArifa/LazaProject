@@ -15,6 +15,7 @@ struct UserModel {
   static let usernameKey = "username"
   static let emailKey = "email"
   static let imageKey = "image"
+  static let newUserKey = "new_user"
   
   // Encaptulation ??
   static var stateLogin: Bool {
@@ -45,6 +46,11 @@ struct UserModel {
   static var image: String {
     get { return UserDefaults.standard.string(forKey: imageKey) ?? ""}
     set { UserDefaults.standard.set(newValue, forKey: imageKey)}
+  }
+  
+  static var new_user: Bool {
+    get { return UserDefaults.standard.bool(forKey: newUserKey)}
+    set { UserDefaults.standard.set(newValue, forKey: newUserKey)}
   }
   
   // MARK: For Deleting All User
@@ -84,3 +90,29 @@ struct DataClassUser: Codable {
         case updatedAt = "updated_at"
     }
 }
+
+struct UpdateUserSuccess: Codable {
+    let status: String
+    let isError: Bool
+    let data: UserSuccess
+}
+
+// MARK: - DataClass
+struct UserSuccess: Codable {
+    let id: Int
+    let fullName, username, email: String
+    let imageURL: String
+    let isVerified: Bool
+    let createdAt, updatedAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case fullName = "full_name"
+        case username, email
+        case imageURL = "image_url"
+        case isVerified = "is_verified"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
+}
+

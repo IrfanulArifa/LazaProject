@@ -8,11 +8,15 @@
 import UIKit
 import FacebookLogin
 import Swifter
+import GoogleSignInSwift
+import GoogleSignIn
 
 class ViewController: UIViewController {
   
   //  var swifter: Swifter!
   var accToken: Credential.OAuthAccessToken?
+  var googleSignIn = GIDSignIn.sharedInstance
+  
   
   // MARK: View Settings -> Change Font Type
   @IBOutlet weak var startedTitleTxt: UILabel!{
@@ -45,14 +49,18 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // State for user if login or not.
-    if UserDefaults.standard.bool(forKey: "state") {
+    if UserDefaults.standard.bool(forKey: "state"){
+      if UserDefaults.standard.bool(forKey: "new_user") {
+        
+      }
       goToHome()
     }
   }
   
   func goToHome() {
-    let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-    self.navigationController?.pushViewController(storyboard, animated: true)
+    let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+    self.navigationController?.pushViewController(vc, animated: true)
   }
   
   func goToSignUp () {
@@ -63,6 +71,17 @@ class ViewController: UIViewController {
   func goToLogin () {
     let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
     self.navigationController?.pushViewController(storyboard, animated: true)
+  }
+  
+  func handleSignInButton() {
+    GIDSignIn.sharedInstance.signIn(
+      withPresenting: self) { signInResult, error in
+        guard let result = signInResult else {
+          // Inspect error
+          return
+        }
+        print("Username: ",signInResult?.user.profile?.name)
+      }
   }
   
   @IBAction func facebookButtonClicked(_ sender: UIButton) {
@@ -90,6 +109,10 @@ class ViewController: UIViewController {
     }, failure: { error in
       print("ERROR: Trying to authorize - \(error)")
     })
+  }
+  
+  @IBAction func googleButtonClicked(_ sender: UIButton) {
+    handleSignInButton()
   }
   
   @IBAction func signInButtonClicked(_ sender: UIButton) {

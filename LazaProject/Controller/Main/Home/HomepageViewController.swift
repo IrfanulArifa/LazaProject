@@ -44,9 +44,9 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
       validSnackBar.make(in: self.view, message: "Login is Successful", duration: .lengthLong).show()
       // Setup Register Collection
       setup()
-      
+
       reloadCollectionData()
-      
+
       // Load Data From API
       viewModel.loadData()
     }
@@ -150,6 +150,7 @@ extension HomepageViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if indexPath.row < 1 {
       guard let cellA = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell") as? CategoryTableViewCell else { return UITableViewCell() }
+      cellA.delegate = self
       cellA.configure(viewModel.brand)
       return cellA
     } else {
@@ -172,12 +173,21 @@ extension HomepageViewController: UITableViewDelegate {
 }
 
 extension HomepageViewController: ProductTableViewCellDelegate {
+  func viewAllProduct() {
+    let storyboard = UIStoryboard(name: "AllProductViewController", bundle: nil)
+    guard let vc = storyboard.instantiateViewController(withIdentifier: "AllProductViewController") as? AllProductViewController else { return }
+    vc.configureData(data: viewModel.product)
+    vc.modalPresentationStyle = .fullScreen
+    self.present(vc, animated: true)
+  }
+  
   func productDidSelectItemAt(didSelectItemAt indexPath: IndexPath) {
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
     vc.configure(data: viewModel.product[indexPath.item].id)
+    vc.modalPresentationStyle = .fullScreen
     
-    navigationController?.pushViewController(vc, animated: true)
+    self.present(vc, animated: true)
   }
 }
 
@@ -188,4 +198,12 @@ extension HomepageViewController: SideMenuNavigationControllerDelegate {
   func sideMenuDidDisappear(menu: SideMenuNavigationController, animated: Bool) {
     blurEffect.isHidden = true
   }
+}
+
+extension HomepageViewController: moveIntoAllCategory{
+  func viewAllClicked() {
+    
+  }
+  
+  
 }

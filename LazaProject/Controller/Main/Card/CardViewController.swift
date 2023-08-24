@@ -9,17 +9,49 @@ import UIKit
 
 class CardViewController: UIViewController {
   
-  @IBOutlet weak var walletCollection: UICollectionView!{
+  // MARK: Label
+  @IBOutlet weak var myProfile: UILabel!{
+    didSet { myProfile.font = UIFont(name: "Poppins-SemiBold", size: 28)}
+  }
+  
+  @IBOutlet weak var nameTtl: UILabel!{
+    didSet { nameTtl.font = UIFont(name: "Poppins-Regular", size: 17)}
+  }
+  
+  @IBOutlet weak var nameLbl: UILabel!{
+    didSet { nameLbl.font = UIFont(name: "Poppins-Regular", size: 15)}
+  }
+  
+  @IBOutlet weak var usernameTtl: UILabel!{
+    didSet { usernameTtl.font = UIFont(name: "Poppins-Regular", size: 17)}
+  }
+  
+  @IBOutlet weak var usernameLbl: UILabel!{
     didSet {
-      walletCollection.dataSource = self
-      walletCollection.delegate = self
-      
-      walletCollection.register(UINib(nibName: "WalletCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "WalletCollectionViewCell")
+      usernameLbl.font = UIFont(name: "Poppins-Regular", size: 15)
     }
   }
   
+  @IBOutlet weak var emailTtl: UILabel!{
+    didSet { emailTtl.font = UIFont(name: "Poppins-Regular", size: 17)}
+  }
+  
+  @IBOutlet weak var emailLbl: UILabel!{
+    didSet { emailLbl.font = UIFont(name: "Poppins-Regular", size: 15)}
+  }
+  
+  // MARK: Image
+  @IBOutlet weak var profileImage: UIImageView!
+  
+  // MARK: Button
+  @IBOutlet weak var editProfile: UIButton!{
+    didSet { editProfile.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 15)}
+  }
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupTabBarItemImage()
   }
   
   // MARK: Setup BarItem when Clicked Change into Text
@@ -27,37 +59,23 @@ class CardViewController: UIViewController {
     let label = UILabel()
     label.numberOfLines = 1
     label.textAlignment = .center
-    label.text = "User"
+    label.text = "Profile"
     label.font = UIFont(name: "Inter-Medium", size: 11)
     label.textColor = UIColor(named: "PurpleButton")
     label.sizeToFit()
     
     tabBarItem.standardAppearance?.selectionIndicatorTintColor = UIColor(named: "PurpleButton")
-    tabBarItem.selectedImage = UIImage(view: label)
-  }
-}
-
-extension CardViewController: UICollectionViewDelegate{
-  
-}
-
-extension CardViewController: UICollectionViewDataSource{
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 5
+    navigationController?.tabBarItem.selectedImage = UIImage(view: label)
   }
   
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WalletCollectionViewCell", for: indexPath) as? WalletCollectionViewCell else { return UICollectionViewCell() }
-    return cell
+  @IBAction func editProfileClicked(_ sender: UIButton) {
+    goToEditProfile()
   }
   
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 50
-  }
-}
-
-extension CardViewController: UICollectionViewDelegateFlowLayout{
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 300, height: 180)
+  func goToEditProfile() {
+    let storyboard = UIStoryboard(name: "UpdateProfileViewController", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+    
+    storyboard.modalPresentationStyle = .fullScreen
+    self.present(storyboard, animated: true)
   }
 }

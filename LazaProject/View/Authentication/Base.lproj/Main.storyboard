@@ -140,6 +140,9 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="googleButtonClicked:" destination="UA7-GI-cVe" eventType="touchUpInside" id="9ST-gR-z69"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oIS-Cw-Ic7"/>

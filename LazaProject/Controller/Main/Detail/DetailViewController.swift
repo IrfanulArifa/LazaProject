@@ -54,7 +54,7 @@ class DetailViewController: UIViewController {
   
   // MARK: Back button when Clicked -> Back to Previous View
   @IBAction func backButtonClicked(_ sender: UIButton) {
-    self.navigationController?.popViewController(animated: true)
+    self.dismiss(animated: true)
   }
   
   
@@ -168,10 +168,9 @@ extension DetailViewController: ReviewTableViewCellDelegate {
   func actionClicked() {
     let storyboard = UIStoryboard(name: "ReviewViewController", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
-//    guard let data = viewModel.reviewData else { return }
     guard let id = dataDetail else { return }
     vc.getProductId(product: id)
-//    vc.sendProductReviewId(data: data)
-    self.navigationController?.pushViewController(vc, animated: true)
+    vc.modalPresentationStyle = .fullScreen
+    self.present(vc, animated: true)
   }
 }

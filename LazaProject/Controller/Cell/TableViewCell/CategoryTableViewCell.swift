@@ -8,10 +8,15 @@
 import UIKit
 import SDWebImage
 
+protocol moveIntoAllCategory: AnyObject {
+  func viewAllClicked()
+}
+
 class CategoryTableViewCell: UITableViewCell {
   @IBOutlet weak var categoryCollectionCell: UICollectionView!
   
   var data = [Description]()
+  var delegate : moveIntoAllCategory?
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -28,9 +33,7 @@ class CategoryTableViewCell: UITableViewCell {
   }
   
   @IBAction func viewAllClicked(_ sender: UIButton) {
-    let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
-    let vc = storyboard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
-    vc.AllCategoryConfigure(data: data)
+    delegate?.viewAllClicked()
   }
   
   func configure(_ arrayData: [Description]){

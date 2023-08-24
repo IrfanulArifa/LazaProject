@@ -227,20 +227,27 @@ extension ReviewViewController: UITableViewDataSource {
   }
   
   @IBAction func addReviewClicked(_ sender: UIButton){
-    let storyboard = UIStoryboard(name: "AddReviewViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "ReviewViewController", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "AddReviewViewController") as! AddReviewViewController
+    vc.delegate = self
     guard let id = productId else { return }
     vc.sendProductId(productId: id)
-    self.navigationController?.pushViewController(vc, animated: true)
+    self.present(vc, animated: true)
   }
   
   @IBAction func backButtonClicked(_ sender: UIButton) {
-    navigationController?.popViewController(animated: true)
+    self.dismiss(animated: true)
   }
 }
 
 extension ReviewViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return UITableView.automaticDimension
+  }
+}
+
+extension ReviewViewController: modalViewPresentation{
+  func didUpdateData() {
+    self.loadReview()
   }
 }

@@ -10,6 +10,7 @@ import SDWebImage
 
 protocol ProductTableViewCellDelegate: AnyObject {
   func productDidSelectItemAt(didSelectItemAt indexPath: IndexPath)
+  func viewAllProduct()
 }
 
 class ProductTableViewCell: UITableViewCell {
@@ -35,6 +36,10 @@ class ProductTableViewCell: UITableViewCell {
   func configuring(_ array: [Datum]){
     dataProduct = array
     productCollectionView.reloadData()
+  }
+  
+  @IBAction func viewAllProduct(_ sender: UIButton) {
+    delegate?.viewAllProduct()
   }
   
 }

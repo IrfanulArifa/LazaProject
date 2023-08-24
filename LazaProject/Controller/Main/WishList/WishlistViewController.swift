@@ -64,7 +64,8 @@ extension WishlistViewController: UICollectionViewDelegate{
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
     vc.configure(data: (viewModel.wishlistData?.data.products[indexPath.item].id)!)
-    navigationController?.pushViewController(vc, animated: true)
+    vc.modalPresentationStyle = .fullScreen
+    self.present(vc, animated: true)
   }
 }
 
@@ -79,7 +80,7 @@ extension WishlistViewController: UICollectionViewDataSource{
     let image = URL(string: data!.imageURL)
     cell.productImage.sd_setImage(with: image)
     cell.productName.text = data?.name
-    cell.productPrice.text = "$"+String(data!.price)
+    cell.productPrice.text = "Rp. "+String(data!.price)
     return cell
   }
   

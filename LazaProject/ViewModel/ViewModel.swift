@@ -133,6 +133,7 @@ class ViewModel {
   
   func saveProfil(token: String, fullname: String, username: String, email: String) {
     UserModel.stateLogin = true
+    UserModel.new_user = true
     UserModel.access_token = token
     UserModel.fullname = fullname
     UserModel.username = username
@@ -140,6 +141,8 @@ class ViewModel {
   }
   
   func updateProfil(token: String, fullname: String, username: String, email: String, image: String){
+    UserModel.stateLogin = true
+    UserModel.new_user = false
     UserModel.access_token = token
     UserModel.fullname = fullname
     UserModel.username = username
