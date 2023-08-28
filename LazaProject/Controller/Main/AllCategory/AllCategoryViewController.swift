@@ -46,7 +46,10 @@ class AllCategoryViewController: UIViewController {
   }
   
   @IBAction func sortButtonClicked(_ sender: UIButton) {
-    
+    sortData()
+  }
+  
+  func sortData(){
     if sortButton.currentImage == UIImage(systemName: ""){
       let newArray = categoryData.sorted { $0.name < $1.name }
       categoryData = newArray
@@ -68,6 +71,13 @@ class AllCategoryViewController: UIViewController {
 
 extension AllCategoryViewController: UICollectionViewDelegate {
   
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let storyboard = UIStoryboard(name: "SelectedBrandViewController", bundle: nil)
+    guard let vc = storyboard.instantiateViewController(identifier: "SelectedBrandViewController") as? SelectedBrandViewController else { return }
+    vc.configureBrand(name: categoryData[indexPath.item].name, imageLogo: categoryData[indexPath.item].logoURL)
+    vc.modalPresentationStyle = .fullScreen
+    self.present(vc, animated: true)
+  }
 }
 
 extension AllCategoryViewController: UICollectionViewDataSource {

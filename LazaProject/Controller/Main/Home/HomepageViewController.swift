@@ -202,7 +202,12 @@ extension HomepageViewController: SideMenuNavigationControllerDelegate {
 
 extension HomepageViewController: CategoryTableViewCellDelegate{
   func categoryDidSelectItemAt(didSelectItemAt indexPath: IndexPath) {
+    let storyboard = UIStoryboard(name: "SelectedBrandViewController", bundle: nil)
+    guard let vc = storyboard.instantiateViewController(withIdentifier: "SelectedBrandViewController") as? SelectedBrandViewController else { return }
+    vc.configureBrand(name: viewModel.brand[indexPath.item].name, imageLogo: viewModel.brand[indexPath.item].logoURL)
+    vc.modalPresentationStyle = .fullScreen
     
+    self.present(vc, animated: true)
   }
   
   func viewAllCategory() {

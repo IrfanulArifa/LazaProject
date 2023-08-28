@@ -9,6 +9,7 @@ import UIKit
 
 protocol ReviewTableViewCellDelegate: AnyObject {
   func actionClicked()
+  func sizeClicked(_ collectionView: UICollectionView, _ didSelectItemAt: IndexPath)
 }
 
 class DetailTableViewCell: UITableViewCell {
@@ -24,7 +25,7 @@ class DetailTableViewCell: UITableViewCell {
   @IBOutlet weak var descriptionDetail: UILabel!
   @IBOutlet weak var sizeCollection: UICollectionView!
   
-  private var productSize: [Sizes]? {
+  private(set) var productSize: [Sizes]? {
     didSet {
       sizeCollection.reloadData()
     }
@@ -36,8 +37,6 @@ class DetailTableViewCell: UITableViewCell {
     sizeCollection.dataSource = self
     sizeCollection.delegate = self
     sizeCollection.register(UINib(nibName: "SizeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SizeCollectionViewCell")
-    
-//    viewModel.loadSize()
     
     viewModel.reloadSize = {
       DispatchQueue.main.async {
@@ -61,7 +60,6 @@ class DetailTableViewCell: UITableViewCell {
 
 extension DetailTableViewCell: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    return viewModel.size.count
     return productSize?.count ?? 0
   }
   
@@ -69,6 +67,9 @@ extension DetailTableViewCell: UICollectionViewDataSource {
     guard let data = productSize?[indexPath.item] else { return UICollectionViewCell() }
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCollectionViewCell", for: indexPath) as? SizeCollectionViewCell else { return UICollectionViewCell() }
     cell.sizeLabel.text = data.size.capitalized
+    if let size = productSize?[indexPath.item] {
+      cell.configure(sizeId: size.id, sizeText: size.size)
+    }
     return cell
   }
   
@@ -76,7 +77,9 @@ extension DetailTableViewCell: UICollectionViewDataSource {
 }
 
 extension DetailTableViewCell: UICollectionViewDelegate {
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    delegate?.sizeClicked(collectionView, indexPath)
+  }
 }
 
 extension DetailTableViewCell: UICollectionViewDelegateFlowLayout {

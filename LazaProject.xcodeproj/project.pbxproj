@@ -46,6 +46,8 @@
 		004678422A936387005C0E07 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678412A936387005C0E07 /* ProfileViewModel.swift */; };
 		004678462A945DF2005C0E07 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678452A945DF2005C0E07 /* DateUtils.swift */; };
 		0046784A2A94847D005C0E07 /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678492A94847D005C0E07 /* AddReviewViewModel.swift */; };
+		0046F08D2A9C550F00FF339A /* SelectedBrandViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0046F08C2A9C550F00FF339A /* SelectedBrandViewController.storyboard */; };
+		0046F08F2A9C552500FF339A /* SelectedBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0046F08E2A9C552500FF339A /* SelectedBrandViewController.swift */; };
 		006374702A910980003EC0EF /* VerifyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0063746F2A910980003EC0EF /* VerifyAccountViewController.swift */; };
 		006374732A911655003EC0EF /* VerifyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006374722A911655003EC0EF /* VerifyAccountViewModel.swift */; };
 		006B4C7E2A753AE2001247C4 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C7D2A753AE2001247C4 /* CardViewController.swift */; };
@@ -160,6 +162,8 @@
 		004678412A936387005C0E07 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		004678452A945DF2005C0E07 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		004678492A94847D005C0E07 /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
+		0046F08C2A9C550F00FF339A /* SelectedBrandViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectedBrandViewController.storyboard; sourceTree = "<group>"; };
+		0046F08E2A9C552500FF339A /* SelectedBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBrandViewController.swift; sourceTree = "<group>"; };
 		0063746F2A910980003EC0EF /* VerifyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountViewController.swift; sourceTree = "<group>"; };
 		006374722A911655003EC0EF /* VerifyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountViewModel.swift; sourceTree = "<group>"; };
 		006B4C7D2A753AE2001247C4 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
@@ -343,6 +347,15 @@
 				0021A19A2A95E85400BDD4F9 /* UpdateProfileViewModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		0046F08B2A9C54F500FF339A /* SelectedBrand */ = {
+			isa = PBXGroup;
+			children = (
+				0046F08C2A9C550F00FF339A /* SelectedBrandViewController.storyboard */,
+				0046F08E2A9C552500FF339A /* SelectedBrandViewController.swift */,
+			);
+			path = SelectedBrand;
 			sourceTree = "<group>";
 		};
 		0063745E2A8F5F9F003EC0EF /* Cell */ = {
@@ -675,6 +688,7 @@
 		008EE88A2A7B4986002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0046F08B2A9C54F500FF339A /* SelectedBrand */,
 				0086FE432A9716DB00E41A19 /* AllProduct */,
 				00A8FDC42A934D92006FB87D /* Profile */,
 				00A8FDC12A9345D4006FB87D /* AllCategory */,
@@ -987,6 +1001,7 @@
 				007B0F622A70B2420034E7A5 /* LaunchScreen.storyboard in Resources */,
 				007B0F8B2A70F8C40034E7A5 /* HomepageViewController.storyboard in Resources */,
 				00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */,
+				0046F08D2A9C550F00FF339A /* SelectedBrandViewController.storyboard in Resources */,
 				003CE9B72A7793A6008D32FA /* ProductTableViewCell.xib in Resources */,
 				007B0F5F2A70B2420034E7A5 /* Assets.xcassets in Resources */,
 				007B0F992A71171D0034E7A5 /* ProductCollectionViewCell.xib in Resources */,
@@ -1058,6 +1073,7 @@
 			files = (
 				001859BE2A7A0895004EF0D5 /* DetailTableViewCell.swift in Sources */,
 				0035172E2A91FC5A004D3CD1 /* AuthenticationModel.swift in Sources */,
+				0046F08F2A9C552500FF339A /* SelectedBrandViewController.swift in Sources */,
 				0008FF882A8363DB0006BF26 /* ChoosePaymentViewController.swift in Sources */,
 				003517302A9204E1004D3CD1 /* VerificationCodeViewModel.swift in Sources */,
 				006B4C8D2A756ED8001247C4 /* UserModel.swift in Sources */,

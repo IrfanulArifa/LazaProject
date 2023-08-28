@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
   // MARK: Get Welcome Element Data
   var dataDetail: Int?
   let viewModel = DetailViewModel()
+  var sizeProduct: Int?
   
   @IBOutlet weak var detailTableView: IntrinsicTableView!
   @IBOutlet weak var wishlistButton: UIButton!{
@@ -164,6 +165,11 @@ extension DetailViewController : UITableViewDelegate {
 }
 
 extension DetailViewController: ReviewTableViewCellDelegate {
+  func sizeClicked(_ collectionView: UICollectionView, _ didSelectItemAt: IndexPath) {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCollectionViewCell", for: didSelectItemAt) as? SizeCollectionViewCell else { return }
+    sizeProduct = cell.sizeId
+  }
+  
   
   func actionClicked() {
     let storyboard = UIStoryboard(name: "ReviewViewController", bundle: nil)

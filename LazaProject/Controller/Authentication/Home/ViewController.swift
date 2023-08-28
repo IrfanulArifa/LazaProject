@@ -80,7 +80,6 @@ class ViewController: UIViewController {
           // Inspect error
           return
         }
-        print("Username: ",signInResult?.user.profile?.name)
       }
   }
   

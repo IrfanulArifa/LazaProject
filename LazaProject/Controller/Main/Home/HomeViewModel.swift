@@ -11,15 +11,13 @@ import JWTDecode
 class HomeViewModel {
   let loginModel = LoginViewModel()
   let viewModel = ViewModel()
+  var productByName = [Datum]()
+  var reloadTable: (()-> Void)?
   
   func getProductByName(name: String) async throws -> [Datum] {
     
-    var component = URLComponents(string: "https://lazaapp.shop/products?")!
-    
-    component.queryItems = [
-      URLQueryItem(name: "search", value: name)
-    ]
-    
+    var component = URLComponents(string: "https://lazaapp.shop/products/brand?name=\(name)")!
+
     let request = URLRequest(url: component.url!)
     
     let session = URLSession.shared
@@ -34,9 +32,16 @@ class HomeViewModel {
     return result.data
   }
   
-  func getProductData() async {
+  func loadData(_ name: String){
+    Task { await getProductData(name) }
+  }
+  
+  func getProductData(_ name: String) async {
     do {
-      
+      productByName = try await getProductByName(name: name)
+      reloadTable?()
+    } catch {
+      print("Gamasuk ke Data \(error)")
     }
   }
 }
