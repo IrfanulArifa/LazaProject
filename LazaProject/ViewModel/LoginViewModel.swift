@@ -13,6 +13,7 @@ class LoginViewModel{
   var AccessToken: LoginValid?
   var userData: DataClass?
   var jumpClick: (() -> Void)?
+  var invalidToken: (()-> Void)?
   
   func login(username: String,
              password: String,
@@ -91,6 +92,8 @@ class LoginViewModel{
           print("Error decoding JSON response: \(error)")
         }
   
+      } else if httpResponse.statusCode != 200 {
+        self.invalidToken?()
       }
     }
     task.resume()

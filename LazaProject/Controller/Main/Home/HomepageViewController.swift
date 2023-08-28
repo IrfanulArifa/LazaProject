@@ -200,10 +200,16 @@ extension HomepageViewController: SideMenuNavigationControllerDelegate {
   }
 }
 
-extension HomepageViewController: moveIntoAllCategory{
-  func viewAllClicked() {
+extension HomepageViewController: CategoryTableViewCellDelegate{
+  func categoryDidSelectItemAt(didSelectItemAt indexPath: IndexPath) {
     
   }
   
-  
+  func viewAllCategory() {
+    let storyboard = UIStoryboard(name: "AllCategoryViewController", bundle: nil)
+    guard let vc = storyboard.instantiateViewController(identifier: "AllCategoryViewController") as? AllCategoryViewController else { return }
+    vc.configureCategory(data: viewModel.brand)
+    vc.modalPresentationStyle = .fullScreen
+    self.present(vc, animated: true)
+  }
 }

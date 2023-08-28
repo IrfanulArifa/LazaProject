@@ -32,7 +32,7 @@ class AllProductViewController: UIViewController {
     productCollection.dataSource = self
     productCollection.delegate = self
     productCollection.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductCollectionViewCell")
-    itemsCount.text = String(newData.count) + "Items"
+    itemsCount.text = String(newData.count) + " Items"
   }
   
   @IBAction func backButtonClicked(_ sender: UIButton) {

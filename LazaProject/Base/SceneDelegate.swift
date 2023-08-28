@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //      let storyboard = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
 //      self.window?.rootViewController = UINavigationController(rootViewController: storyboard)
 //    }
+    Thread.sleep(forTimeInterval: 5)
   }
   
   func sceneDidDisconnect(_ scene: UIScene) {

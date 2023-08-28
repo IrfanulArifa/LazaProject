@@ -8,15 +8,16 @@
 import UIKit
 import SDWebImage
 
-protocol moveIntoAllCategory: AnyObject {
-  func viewAllClicked()
+protocol CategoryTableViewCellDelegate: AnyObject {
+  func categoryDidSelectItemAt(didSelectItemAt indexPath: IndexPath)
+  func viewAllCategory()
 }
 
 class CategoryTableViewCell: UITableViewCell {
   @IBOutlet weak var categoryCollectionCell: UICollectionView!
   
   var data = [Description]()
-  var delegate : moveIntoAllCategory?
+  var delegate : CategoryTableViewCellDelegate?
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -33,7 +34,7 @@ class CategoryTableViewCell: UITableViewCell {
   }
   
   @IBAction func viewAllClicked(_ sender: UIButton) {
-    delegate?.viewAllClicked()
+    delegate?.viewAllCategory()
   }
   
   func configure(_ arrayData: [Description]){
@@ -60,6 +61,9 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
 }
 
 extension CategoryTableViewCell: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    delegate?.categoryDidSelectItemAt(didSelectItemAt: indexPath)
+  }
 }
 
 extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout{

@@ -140,13 +140,18 @@ class LoginViewController: UIViewController {
     loginModel.login(username: usernameTxtField.text!, password: passwordTextField.text!) { response in
       DispatchQueue.main.async {
         self.hidingAnimation()
-        self.showAlert(title: "Login Success", message: "Redirecting...") {
+        self.showAlert(title: "Login", message: "Redirecting...") {
           DispatchQueue.main.async {
             guard let loginAccess = response?.access_token else { print("Login Access")
               return }
             self.loginModel.jumpClick = {
               DispatchQueue.main.async {
                 self.goToHome()
+              }
+            }
+            self.loginModel.invalidToken = {
+              DispatchQueue.main.async {
+                self.showAlert(title: "Login Failed", message: "Invalid Token")
               }
             }
             self.loginModel.getProfileData(token: loginAccess)
