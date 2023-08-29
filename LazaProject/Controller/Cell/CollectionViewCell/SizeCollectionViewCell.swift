@@ -10,6 +10,7 @@ import UIKit
 class SizeCollectionViewCell: UICollectionViewCell {
   
   @IBOutlet weak var sizeLabel: UILabel!
+  @IBOutlet weak var sizeBackground: UIView!
   
   private(set) var sizeId: Int?
   private(set) var sizeText: String?

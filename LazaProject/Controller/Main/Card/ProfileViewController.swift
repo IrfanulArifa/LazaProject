@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SDWebImage
 
-class CardViewController: UIViewController {
+class ProfileViewController: UIViewController {
   
   // MARK: Label
   @IBOutlet weak var myProfile: UILabel!{
@@ -16,10 +17,6 @@ class CardViewController: UIViewController {
   
   @IBOutlet weak var nameTtl: UILabel!{
     didSet { nameTtl.font = UIFont(name: "Poppins-Regular", size: 17)}
-  }
-  
-  @IBOutlet weak var nameLbl: UILabel!{
-    didSet { nameLbl.font = UIFont(name: "Poppins-Regular", size: 15)}
   }
   
   @IBOutlet weak var usernameTtl: UILabel!{
@@ -31,6 +28,7 @@ class CardViewController: UIViewController {
       usernameLbl.font = UIFont(name: "Poppins-Regular", size: 15)
     }
   }
+  @IBOutlet weak var nameLabel: UILabel!
   
   @IBOutlet weak var emailTtl: UILabel!{
     didSet { emailTtl.font = UIFont(name: "Poppins-Regular", size: 17)}
@@ -54,6 +52,16 @@ class CardViewController: UIViewController {
     setupTabBarItemImage()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    UserModel.synchronize()
+    let data = UserDefaults.standard
+    nameLabel.text = data.string(forKey: "fullname")
+    usernameLbl.text = data.string(forKey: "username")
+    emailLbl.text = data.string(forKey: "email")
+    let imageURL = URL(string: data.string(forKey: "image") ?? "")
+    profileImage.sd_setImage(with: imageURL)
+  }
+  
   // MARK: Setup BarItem when Clicked Change into Text
   private func setupTabBarItemImage() {
     let label = UILabel()
@@ -73,7 +81,7 @@ class CardViewController: UIViewController {
   }
   
   func goToEditProfile() {
-    let storyboard = UIStoryboard(name: "UpdateProfileViewController", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+    let storyboard = UIStoryboard(name: "UpdateProfileViewController", bundle: nil).instantiateViewController(withIdentifier: "UpdateProfileViewController") as! UpdateProfileViewController
     
     storyboard.modalPresentationStyle = .fullScreen
     self.present(storyboard, animated: true)

@@ -7,12 +7,14 @@
 
 import UIKit
 import SideMenu
+import SDWebImage
 
 class SideMenuViewController: UIViewController {
   var loginUser: DataClass?
   let appDelegate = UIApplication.shared.windows.first
   
   @IBOutlet weak var sideMenuPersonName: UILabel!
+  @IBOutlet weak var personPict: UIImageView!
   
   @IBOutlet weak var sunImage: UIImageView!
   
@@ -32,8 +34,17 @@ class SideMenuViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    sideMenuPersonName.text = UserDefaults.standard.string(forKey: "username")
+    let data = UserDefaults.standard
+    sideMenuPersonName.text = data.string(forKey: "fullname")
+    let imageURL = URL(string: data.string(forKey: "image") ?? "")
+    personPict.sd_setImage(with: imageURL)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    UserModel.synchronize()
+    sideMenuPersonName.text = UserDefaults.standard.string(forKey: "fullname")
+    let imageURL = URL(string: UserDefaults.standard.string(forKey: "image") ?? "")
+    personPict.sd_setImage(with: imageURL)
   }
   
   @IBAction func switchClicked(_ sender: UISwitch) {
@@ -53,10 +64,16 @@ class SideMenuViewController: UIViewController {
   }
   
   func goToProfile() {
-    let storyboard = UIStoryboard(name: "ProfileViewController", bundle: nil)
-    let vc = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-    present(vc, animated: true)
-//    self.view.window?.windowScene?.keyWindow?.rootViewController = storyboard
+    let wishlistVC = UIStoryboard(name: "HomepageViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "CardViewController") as! ProfileViewController
+    
+    let Homepage = UIStoryboard(name: "HomepageViewController", bundle: Bundle.main)
+    let vc: UITabBarController = Homepage.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+    vc.selectedIndex = 3
+    let navBar = vc.selectedViewController as? UINavigationController
+    
+    navBar?.pushViewController(wishlistVC, animated: true)
+    
+    self.view.window?.windowScene?.keyWindow?.rootViewController = vc
   }
   
   @IBAction func orderClicked(_ sender: UIButton) {
@@ -73,7 +90,7 @@ class SideMenuViewController: UIViewController {
   }
   
   @IBAction func myCardsClicked(_ sender: UIButton) {
-    let wishlistVC = UIStoryboard(name: "HomepageViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "CardViewController") as! CardViewController
+    let wishlistVC = UIStoryboard(name: "HomepageViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "CardViewController") as! ProfileViewController
     
     let Homepage = UIStoryboard(name: "HomepageViewController", bundle: Bundle.main)
     let vc: UITabBarController = Homepage.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController

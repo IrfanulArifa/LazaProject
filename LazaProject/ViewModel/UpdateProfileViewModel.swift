@@ -8,15 +8,16 @@
 import UIKit
 
 class UpdateProfileViewModel {
+  var backtoProfile: (()-> Void)?
   func updateProfile(image: UIImage,
                      token: String,
                      fullname: String,
                      username: String,
                      email: String,
-                     completion: @escaping ((UserSuccess?)-> Void),
+                     completion: @escaping ((UpdateUserSuccess?)-> Void),
                      onError: @escaping (String)-> Void) {
     let decoder = JSONDecoder()
-    let url = URL(string: "http://lazaapp.shop/user/update")!
+    let url = URL(string: "https://lazaapp.shop/user/update")!
     guard let mediaImage = Media(withImage: image, forKey: "image") else {
       print("Media Creation Failed")
       return }
@@ -44,7 +45,10 @@ class UpdateProfileViewModel {
         return
       }
       
-      guard let httpResponse = response as? HTTPURLResponse else { return }
+      guard let httpResponse = response as? HTTPURLResponse else {
+        onError("Invalid response")
+        return
+      }
       
       guard let data = data else {
         print("Tidak ada data yang diterima")
@@ -52,46 +56,52 @@ class UpdateProfileViewModel {
       }
       
       if httpResponse.statusCode != 200 {
-        guard let failedModel = try? decoder.decode(VerificationCodeFailed.self, from: data) else {
-          onError("Verification Failed - Failed to Decode")
-          return
-        }
         do {
-          let result = try decoder.decode(UserSuccess.self, from: data)
-          ViewModel().updateProfil(token: token, fullname: fullname, username: username, email: email, image: result.imageURL)
-          completion(result)
+          let failedModel = try decoder.decode(ResetPasswordFailed.self, from: data)
+          onError(failedModel.descriptionKey)
         } catch {
-          print("Error Decoding JSON response: \(error)")
+          onError("Failed to decode error response")
         }
+        return
+      }
+      
+      
+      do {
+        let result = try decoder.decode(UpdateUserSuccess.self, from: data)
+        ViewModel().updateProfil(token: token, fullname: fullname, username: username, email: email, image: result.data.imageURL)
+        self.backtoProfile?()
+        completion(result)
+      } catch {
+        print("Error Decoding JSON response: \(error)")
       }
     }
     task.resume()
   }
-  
-  func createDataBody(withParameters params: Parameters?, media: Media?, boundary: String) -> Data {
-    let lineBreak = "\r\n"
-    var body = Data()
-    if let parameters = params {
-      for (key, value) in parameters {
-        body.append("--\(boundary + lineBreak)")
-        body.append("Content-Disposition: form-data; name=\"\(key)\"\(lineBreak + lineBreak)")
-        body.append("\(value + lineBreak)")
-      }
-    }
-    if let media = media {
+}
+
+func createDataBody(withParameters params: Parameters?, media: Media?, boundary: String) -> Data {
+  let lineBreak = "\r\n"
+  var body = Data()
+  if let parameters = params {
+    for (key, value) in parameters {
       body.append("--\(boundary + lineBreak)")
-      body.append("Content-Disposition: form-data; name=\"\(media.key)\"; filename=\"\(media.filename)\"\(lineBreak)")
-      body.append("Content-Type: \(media.mimeType + lineBreak + lineBreak)")
-      body.append(media.data)
-      body.append(lineBreak)
+      body.append("Content-Disposition: form-data; name=\"\(key)\"\(lineBreak + lineBreak)")
+      body.append("\(value + lineBreak)")
     }
-    body.append("--\(boundary)--\(lineBreak)")
-    return body
   }
-  
-  func generateBoundary() -> String {
-    return "Boundary-\(NSUUID().uuidString)"
+  if let media = media {
+    body.append("--\(boundary + lineBreak)")
+    body.append("Content-Disposition: form-data; name=\"\(media.key)\"; filename=\"\(media.filename)\"\(lineBreak)")
+    body.append("Content-Type: \(media.mimeType + lineBreak + lineBreak)")
+    body.append(media.data)
+    body.append(lineBreak)
   }
+  body.append("--\(boundary)--\(lineBreak)")
+  return body
+}
+
+func generateBoundary() -> String {
+  return "Boundary-\(NSUUID().uuidString)"
 }
 
 

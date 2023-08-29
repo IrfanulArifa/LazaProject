@@ -149,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="2601" y="732"/>
         </scene>
-        <!--Card View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="Vah-UY-9yl">
             <objects>
-                <viewController storyboardIdentifier="CardViewController" id="syy-KN-bV8" customClass="CardViewController" customModule="LazaProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardViewController" id="syy-KN-bV8" customClass="ProfileViewController" customModule="LazaProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="neW-aM-Fpi">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -338,11 +338,11 @@
                     <tabBarItem key="tabBarItem" title="" image="Wallet" id="aPg-Vr-SMS"/>
                     <navigationItem key="navigationItem" id="Yjs-fT-ux6"/>
                     <connections>
-                        <outlet property="NameLbl" destination="TNv-87-8rl" id="Gba-vd-KDN"/>
                         <outlet property="editProfile" destination="Cwc-Uy-hmK" id="BQr-GZ-sv5"/>
                         <outlet property="emailLbl" destination="4CF-jV-q8K" id="6Hi-aY-mlb"/>
                         <outlet property="emailTtl" destination="Im9-e0-lbw" id="872-WH-9UD"/>
                         <outlet property="myProfile" destination="ItT-J2-A4r" id="Nwr-1g-a8s"/>
+                        <outlet property="nameLabel" destination="TNv-87-8rl" id="ujt-9b-ywQ"/>
                         <outlet property="nameTtl" destination="VqW-eg-180" id="Y6d-8o-rkG"/>
                         <outlet property="profileImage" destination="b5t-NZ-J2b" id="Jvd-yE-xGN"/>
                         <outlet property="usernameLbl" destination="wlL-rH-Fe7" id="TNs-IT-w2W"/>
@@ -494,32 +494,8 @@
                                 </subviews>
                                 <color key="tintColor" name="blackFont"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Of5-P9-WOY">
-                                <rect key="frame" x="20" y="388" width="79" height="25"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dFm-pz-lnY">
-                                        <rect key="frame" x="0.0" y="1" width="25" height="23"/>
-                                        <color key="tintColor" name="blackFont"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="Ifm-iK-pul"/>
-                                            <constraint firstAttribute="width" constant="25" id="dEt-fD-csG"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koC-XV-xfI">
-                                        <rect key="frame" x="35" y="0.0" width="44" height="25"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Profile">
-                                            <color key="titleColor" name="blackFont"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="passwordClicked:" destination="7JF-TN-TKK" eventType="touchUpInside" id="WBv-Py-L2j"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="tintColor" name="blackFont"/>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cAZ-ks-p2V">
-                                <rect key="frame" x="20" y="438" width="75" height="25"/>
+                                <rect key="frame" x="20" y="383" width="75" height="25"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bag" translatesAutoresizingMaskIntoConstraints="NO" id="0gU-8c-aOf">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -543,7 +519,7 @@
                                 <color key="tintColor" name="blackFont"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="w2I-Kx-TGW">
-                                <rect key="frame" x="20" y="488" width="101" height="25"/>
+                                <rect key="frame" x="20" y="428" width="104" height="25"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallet 1" translatesAutoresizingMaskIntoConstraints="NO" id="1i2-jN-5da">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -554,9 +530,9 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSJ-N2-Fow">
-                                        <rect key="frame" x="35" y="0.0" width="66" height="25"/>
+                                        <rect key="frame" x="35" y="0.0" width="69" height="25"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="My Cards">
+                                        <state key="normal" title="My Profile">
                                             <color key="titleColor" name="blackFont"/>
                                         </state>
                                         <connections>
@@ -567,7 +543,7 @@
                                 <color key="tintColor" name="blackFont"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Msd-qb-Qw3">
-                                <rect key="frame" x="20" y="538" width="89" height="25"/>
+                                <rect key="frame" x="20" y="473" width="89" height="25"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heart" translatesAutoresizingMaskIntoConstraints="NO" id="BW6-WE-OOd">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -591,7 +567,7 @@
                                 <color key="tintColor" name="blackFont"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qSm-xN-zBk">
-                                <rect key="frame" x="20" y="588" width="92" height="25"/>
+                                <rect key="frame" x="20" y="518" width="92" height="25"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Setting" translatesAutoresizingMaskIntoConstraints="NO" id="pfW-bl-ekO">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -647,34 +623,33 @@
                         <viewLayoutGuide key="safeArea" id="8hN-t2-e1j"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Msd-qb-Qw3" firstAttribute="top" secondItem="w2I-Kx-TGW" secondAttribute="bottom" constant="25" id="7Sf-og-wL4"/>
+                            <constraint firstItem="qSm-xN-zBk" firstAttribute="top" secondItem="Msd-qb-Qw3" secondAttribute="bottom" constant="20" id="0GQ-Hg-ITh"/>
+                            <constraint firstItem="w2I-Kx-TGW" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="4au-JL-Q2H"/>
                             <constraint firstItem="Hp1-7x-ga7" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="89f-pO-ObJ"/>
                             <constraint firstItem="BEx-j7-Fjy" firstAttribute="top" secondItem="Hp1-7x-ga7" secondAttribute="bottom" constant="40" id="AYu-SU-AS9"/>
-                            <constraint firstItem="w2I-Kx-TGW" firstAttribute="top" secondItem="cAZ-ks-p2V" secondAttribute="bottom" constant="25" id="H8e-p1-5UQ"/>
-                            <constraint firstItem="qSm-xN-zBk" firstAttribute="top" secondItem="Msd-qb-Qw3" secondAttribute="bottom" constant="25" id="J6b-Lw-gXQ"/>
                             <constraint firstAttribute="trailing" secondItem="bzo-Yk-Dud" secondAttribute="trailing" constant="20" id="Klu-TU-N6s"/>
                             <constraint firstItem="Wam-hX-GLd" firstAttribute="centerY" secondItem="BEx-j7-Fjy" secondAttribute="centerY" id="MgN-ru-o2b"/>
                             <constraint firstItem="yQX-1k-vXY" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="NFN-iA-qXg"/>
-                            <constraint firstItem="cAZ-ks-p2V" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="PHa-tR-Ry4"/>
                             <constraint firstItem="li1-aC-ERV" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="Par-if-PmK"/>
-                            <constraint firstItem="Of5-P9-WOY" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="T3d-sO-ijQ"/>
-                            <constraint firstItem="Of5-P9-WOY" firstAttribute="top" secondItem="yQX-1k-vXY" secondAttribute="bottom" constant="25" id="Y3s-hn-0ks"/>
+                            <constraint firstItem="qSm-xN-zBk" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="UrT-Qa-CtP"/>
                             <constraint firstItem="8hN-t2-e1j" firstAttribute="trailing" secondItem="Wam-hX-GLd" secondAttribute="trailing" constant="20" id="Yxr-oh-Qvx"/>
-                            <constraint firstItem="Msd-qb-Qw3" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="ayC-Ul-FUt"/>
+                            <constraint firstItem="Msd-qb-Qw3" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="Z6L-Bj-G50"/>
+                            <constraint firstItem="cAZ-ks-p2V" firstAttribute="top" secondItem="yQX-1k-vXY" secondAttribute="bottom" constant="20" id="Zlq-r0-H2U"/>
                             <constraint firstItem="8hN-t2-e1j" firstAttribute="bottom" secondItem="li1-aC-ERV" secondAttribute="bottom" constant="100" id="bM7-y3-43W"/>
-                            <constraint firstItem="qSm-xN-zBk" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="bZb-YC-Ue1"/>
-                            <constraint firstItem="cAZ-ks-p2V" firstAttribute="top" secondItem="Of5-P9-WOY" secondAttribute="bottom" constant="25" id="diy-JC-ZpJ"/>
+                            <constraint firstItem="Msd-qb-Qw3" firstAttribute="top" secondItem="w2I-Kx-TGW" secondAttribute="bottom" constant="20" id="c73-xM-r9b"/>
                             <constraint firstItem="bzo-Yk-Dud" firstAttribute="centerY" secondItem="Hp1-7x-ga7" secondAttribute="centerY" id="djm-eC-yeQ"/>
                             <constraint firstItem="BEx-j7-Fjy" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="e2L-Fj-d7M"/>
                             <constraint firstItem="7HQ-Ux-cJb" firstAttribute="centerY" secondItem="Hp1-7x-ga7" secondAttribute="centerY" id="nOx-8P-Ph3"/>
                             <constraint firstItem="Hp1-7x-ga7" firstAttribute="top" secondItem="8hN-t2-e1j" secondAttribute="top" constant="100" id="quM-44-04Y"/>
                             <constraint firstItem="yQX-1k-vXY" firstAttribute="top" secondItem="BEx-j7-Fjy" secondAttribute="bottom" constant="25" id="rjb-SF-hXu"/>
                             <constraint firstItem="7HQ-Ux-cJb" firstAttribute="leading" secondItem="Hp1-7x-ga7" secondAttribute="trailing" constant="15" id="t8n-6k-4sB"/>
-                            <constraint firstItem="w2I-Kx-TGW" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="x2r-E4-yas"/>
+                            <constraint firstItem="w2I-Kx-TGW" firstAttribute="top" secondItem="cAZ-ks-p2V" secondAttribute="bottom" constant="20" id="xP5-zs-JTa"/>
+                            <constraint firstItem="cAZ-ks-p2V" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="zX6-T4-GVp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6JR-ff-5tw"/>
                     <connections>
+                        <outlet property="personPict" destination="Hp1-7x-ga7" id="GpB-Oa-tsU"/>
                         <outlet property="sideMenuPersonName" destination="mG0-az-nnA" id="0r2-g8-lit"/>
                         <outlet property="sunImage" destination="WqE-MS-GTK" id="Pff-jJ-fkb"/>
                         <outlet property="switchBtn" destination="Wam-hX-GLd" id="Sv6-yO-yE7"/>
@@ -842,7 +817,6 @@
         <image name="checkmark.seal.fill" catalog="system" width="128" height="124"/>
         <image name="chevron.up" catalog="system" width="128" height="70"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
-        <image name="lock" catalog="system" width="125" height="128"/>
         <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
         <image name="sun.max" catalog="system" width="128" height="125"/>
         <namedColor name="PurpleButton">

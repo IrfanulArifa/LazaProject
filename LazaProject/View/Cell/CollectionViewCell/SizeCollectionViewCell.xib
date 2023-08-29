@@ -48,6 +48,7 @@
             </constraints>
             <size key="customSize" width="60" height="60"/>
             <connections>
+                <outlet property="sizeBackground" destination="3GV-dX-9cY" id="DZL-Yc-KXx"/>
                 <outlet property="sizeLabel" destination="DQc-Rs-kBg" id="zXA-yp-vdg"/>
             </connections>
             <point key="canvasLocation" x="59.541984732824424" y="23.239436619718312"/>

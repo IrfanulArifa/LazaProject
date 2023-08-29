@@ -166,8 +166,11 @@ extension DetailViewController : UITableViewDelegate {
 
 extension DetailViewController: ReviewTableViewCellDelegate {
   func sizeClicked(_ collectionView: UICollectionView, _ didSelectItemAt: IndexPath) {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCollectionViewCell", for: didSelectItemAt) as? SizeCollectionViewCell else { return }
-    sizeProduct = cell.sizeId
+//    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCollectionViewCell", for: didSelectItemAt) as? SizeCollectionViewCell else { return }
+    sizeProduct = viewModel.detailData?.data.size[didSelectItemAt.item].id
+    guard let cell = collectionView.cellForItem(at: didSelectItemAt) as? SizeCollectionViewCell else { return }
+    cell.sizeBackground.backgroundColor = UIColor(named: "PurpleButton")
+    print("Sizenya ini:", sizeProduct)
   }
   
   

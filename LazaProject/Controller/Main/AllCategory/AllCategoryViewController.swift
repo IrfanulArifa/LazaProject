@@ -55,16 +55,19 @@ class AllCategoryViewController: UIViewController {
       categoryData = newArray
       allCategoryCollection.reloadData()
       sortButton.setImage(UIImage(systemName: "text.line.first.and.arrowtriangle.forward"), for: .normal)
+      sortButton.setTitle("A-Z", for: .normal)
     } else if sortButton.currentImage == UIImage(systemName: "text.line.first.and.arrowtriangle.forward") {
       let newArray = categoryData.sorted { $0.name > $1.name }
       categoryData = newArray
       allCategoryCollection.reloadData()
       sortButton.setImage(UIImage(systemName: "text.line.last.and.arrowtriangle.forward"), for: .normal)
+      sortButton.setTitle("Z-A", for: .normal)
     } else if sortButton.currentImage == UIImage(systemName: "text.line.last.and.arrowtriangle.forward") {
       let newArray = categoryData.sorted { $0.name < $1.name }
       categoryData = newArray
       allCategoryCollection.reloadData()
       sortButton.setImage(UIImage(systemName: "text.line.first.and.arrowtriangle.forward"), for: .normal)
+      sortButton.setTitle("A-Z", for: .normal)
     }
   }
 }
@@ -90,7 +93,7 @@ extension AllCategoryViewController: UICollectionViewDataSource {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllCategoryCollectionViewCell", for: indexPath) as? AllCategoryCollectionViewCell else { return UICollectionViewCell() }
     let imageURL = URL(string: dataCell.logoURL)
     cell.imageBrand.sd_setImage(with: imageURL)
-    cell.labelBrand.text = dataCell.name
+    cell.labelBrand.text = dataCell.name.capitalized
     return cell
   }
 }

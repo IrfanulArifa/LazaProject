@@ -46,16 +46,19 @@ class AllProductViewController: UIViewController {
       newData = newArray
       productCollection.reloadData()
       sortButton.setImage(UIImage(systemName: "text.line.first.and.arrowtriangle.forward"), for: .normal)
+      sortButton.setTitle("A-Z", for: .normal)
     } else if sortButton.currentImage == UIImage(systemName: "text.line.first.and.arrowtriangle.forward") {
       let newArray = newData.sorted { $0.name > $1.name }
       newData = newArray
       productCollection.reloadData()
       sortButton.setImage(UIImage(systemName: "text.line.last.and.arrowtriangle.forward"), for: .normal)
+      sortButton.setTitle("Z-A", for: .normal)
     } else if sortButton.currentImage == UIImage(systemName: "text.line.last.and.arrowtriangle.forward") {
       let newArray = newData.sorted { $0.name < $1.name }
       newData = newArray
       productCollection.reloadData()
       sortButton.setImage(UIImage(systemName: "text.line.first.and.arrowtriangle.forward"), for: .normal)
+      sortButton.setTitle("A-Z", for: .normal)
     }
   }
   

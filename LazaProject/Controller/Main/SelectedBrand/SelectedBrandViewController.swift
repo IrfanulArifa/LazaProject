@@ -11,7 +11,7 @@ import SDWebImage
 class SelectedBrandViewController: UIViewController {
   
   @IBOutlet weak var brandName: UILabel!{
-    didSet { brandName.font = UIFont(name: "Poppins-SemiBold", size: 28)}
+    didSet { brandName.font = UIFont(name: "Poppins-SemiBold", size: 20)}
   }
   @IBOutlet weak var brandImage: UIImageView!
   @IBOutlet weak var sortingButton: UIButton!{
@@ -75,16 +75,19 @@ class SelectedBrandViewController: UIViewController {
       arrayProduct = newArray
       SelectedCollection.reloadData()
       sortingButton.setImage(UIImage(systemName: "text.line.first.and.arrowtriangle.forward"), for: .normal)
+      sortingButton.setTitle("A-Z", for: .normal)
     } else if sortingButton.currentImage == UIImage(systemName: "text.line.first.and.arrowtriangle.forward") {
       let newArray = arrayProduct.sorted { $0.name > $1.name }
       arrayProduct = newArray
       SelectedCollection.reloadData()
       sortingButton.setImage(UIImage(systemName: "text.line.last.and.arrowtriangle.forward"), for: .normal)
+      sortingButton.setTitle("Z-A", for: .normal)
     } else if sortingButton.currentImage == UIImage(systemName: "text.line.last.and.arrowtriangle.forward") {
       let newArray = arrayProduct.sorted { $0.name < $1.name }
       arrayProduct = newArray
       SelectedCollection.reloadData()
       sortingButton.setImage(UIImage(systemName: "text.line.first.and.arrowtriangle.forward"), for: .normal)
+      sortingButton.setTitle("A-Z", for: .normal)
     }
   }
   

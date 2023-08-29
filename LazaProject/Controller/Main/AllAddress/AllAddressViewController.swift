@@ -44,13 +44,14 @@ class AllAddressViewController: UIViewController {
     
   }
   @IBAction func backButtonClicked(_ sender: UIButton) {
-    self.navigationController?.popViewController(animated: true)
+    self.dismiss(animated: true)
     delegate?.backToCartFromAddress()
   }
   
   @IBAction func addNewAddressClicked(_ sender: UIButton) {
     let storyboard = UIStoryboard(name: "AddressViewController", bundle: nil).instantiateViewController(withIdentifier: "AddressViewController")
-    self.navigationController?.pushViewController(storyboard, animated: true)
+    storyboard.modalPresentationStyle = .fullScreen
+    self.present(storyboard, animated: true)
   }
   
 }
