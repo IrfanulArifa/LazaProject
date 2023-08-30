@@ -15,6 +15,7 @@ protocol MoveIntoDelegate: AnyObject {
 class BottomSheetViewController: UIViewController {
   
   weak var delegate : MoveIntoDelegate?
+  private let viewModel = AddressViewModel()
   
   @IBOutlet weak var deliveryAddress: UILabel!{
     didSet {
@@ -86,10 +87,28 @@ class BottomSheetViewController: UIViewController {
   }
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    loadData()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    loadData()
+  }
   
+  private func loadData() {
+    viewModel.reloadData = {
+      DispatchQueue.main.async {
+        let data = self.viewModel.allAddressData
+        for address in data {
+          if let isPrimary = address.isPrimary {
+            self.Alamat.text = address.country
+            self.subAlamat.text = address.city
+          }
+        }
+      }
+    }
+    
+    viewModel.getAllAddress()
+  }
   @IBAction func deliveryAddressClicked(_ sender: UIButton) {
     self.dismiss(animated: true)
     delegate?.moveIntoDeliveries()

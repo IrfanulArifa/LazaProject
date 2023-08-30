@@ -11,7 +11,7 @@ import UIKit
 
 class AddressViewController: UIViewController {
   
-  
+  private let viewModel = AddressViewModel()
   
   @IBOutlet weak var addressTitle: UILabel!{
     didSet {
@@ -83,6 +83,16 @@ class AddressViewController: UIViewController {
     }
   }
   
+  @IBOutlet weak var isPrimarySwitch: UISwitch!
+  
+  
+  func switchCheck() -> Bool {
+    if isPrimarySwitch.isOn {
+      return true
+    } else {
+      return false
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -93,6 +103,17 @@ class AddressViewController: UIViewController {
   }
   
   @IBAction func saveAddressClicked(_ sender: UIButton) {
-    self.dismiss(animated: true)
+    let isValid = switchCheck()
+    viewModel.addNewAddress(country: countryTxtField.text!, city: cityTxtField.text!, receiverName: nameTxtField.text!, number: phoneTxtField.text!, isPrimary: isValid) { response in
+      DispatchQueue.main.async {
+        self.showAlert(title: "Success", message: "Success to Add New Address") {
+          self.dismiss(animated: true)
+        }
+      }
+    } onError: { error in
+      DispatchQueue.main.async {
+        self.showAlert(title: "Failed", message: error.capitalized)
+      }
+    }
   }
 }

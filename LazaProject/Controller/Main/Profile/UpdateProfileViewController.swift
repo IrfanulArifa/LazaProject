@@ -47,9 +47,10 @@ class UpdateProfileViewController: ViewController, UIImagePickerControllerDelega
   override func viewDidLoad() {
     super.viewDidLoad()
     let data = UserDefaults.standard
-    fullName.text = data.string(forKey: "name")
+    fullName.text = data.string(forKey: "fullname")
     userName.text = data.string(forKey: "username")
     emailAddress.text = data.string(forKey: "email")
+    profileImage.sd_setImage(with: URL(string: data.string(forKey: "image") ?? ""))
     
     fullName.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     userName.addTarget(self, action: #selector(checkValidation), for: .editingChanged)

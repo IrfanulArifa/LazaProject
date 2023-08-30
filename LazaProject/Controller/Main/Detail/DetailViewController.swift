@@ -148,6 +148,7 @@ extension DetailViewController : UITableViewDataSource {
       cellB.reviewDescription.text = dataCell.comment
       cellB.reviewerName.text = dataCell.fullName
       cellB.reviewerValue.text = String(dataCell.rating)
+      cellB.reviewerImage.sd_setImage(with: URL(string: dataCell.imageURL))
       cellB.setRatingImage(dataCell.rating)
       return cellB
     }
@@ -166,11 +167,9 @@ extension DetailViewController : UITableViewDelegate {
 
 extension DetailViewController: ReviewTableViewCellDelegate {
   func sizeClicked(_ collectionView: UICollectionView, _ didSelectItemAt: IndexPath) {
-//    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCollectionViewCell", for: didSelectItemAt) as? SizeCollectionViewCell else { return }
     sizeProduct = viewModel.detailData?.data.size[didSelectItemAt.item].id
     guard let cell = collectionView.cellForItem(at: didSelectItemAt) as? SizeCollectionViewCell else { return }
     cell.sizeBackground.backgroundColor = UIColor(named: "PurpleButton")
-    print("Sizenya ini:", sizeProduct)
   }
   
   

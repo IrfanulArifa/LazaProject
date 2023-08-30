@@ -87,7 +87,7 @@ class LoginViewModel{
           let decoder = JSONDecoder()
           let result = try decoder.decode(User.self, from: data)
           self.jumpClick?()
-          ViewModel().saveProfil(token:token ,fullname: result.data.fullName, username: result.data.username, email: result.data.email)
+          ViewModel().updateProfil(token:token ,fullname: result.data.fullName, username: result.data.username, email: result.data.email, image: result.data.imageURL ?? "")
         } catch {
           print("Error decoding JSON response: \(error)")
         }

@@ -68,7 +68,7 @@ class UpdateProfileViewModel {
       
       do {
         let result = try decoder.decode(UpdateUserSuccess.self, from: data)
-        ViewModel().updateProfil(token: token, fullname: fullname, username: username, email: email, image: result.data.imageURL)
+        ViewModel().updateProfil(token: token, fullname: fullname, username: username, email: email, image: result.data.imageURL ?? "")
         self.backtoProfile?()
         completion(result)
       } catch {

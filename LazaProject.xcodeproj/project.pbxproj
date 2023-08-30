@@ -108,6 +108,7 @@
 		008EE8C42A7CAA24002C44B9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 008EE8C32A7CAA24002C44B9 /* Poppins-SemiBold.ttf */; };
 		0090DFD92A81DE4C00150D9D /* OrderConfirmedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0090DFD82A81DE4C00150D9D /* OrderConfirmedViewController.storyboard */; };
 		0090DFDB2A81DE5900150D9D /* OrderConfirmedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090DFDA2A81DE5900150D9D /* OrderConfirmedViewController.swift */; };
+		009320162A9D98C100B1E703 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009320152A9D98C100B1E703 /* AddressViewModel.swift */; };
 		009615422A94A5FC009200C7 /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009615412A94A5FC009200C7 /* WishlistViewModel.swift */; };
 		00A74B402A72064300BB07B9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B3F2A72064300BB07B9 /* DetailViewController.swift */; };
 		00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A74B412A72065500BB07B9 /* DetailViewController.storyboard */; };
@@ -216,6 +217,7 @@
 		008EE8C32A7CAA24002C44B9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "../../../../../../../Downloads/Poppins-2/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		0090DFD82A81DE4C00150D9D /* OrderConfirmedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderConfirmedViewController.storyboard; sourceTree = "<group>"; };
 		0090DFDA2A81DE5900150D9D /* OrderConfirmedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmedViewController.swift; sourceTree = "<group>"; };
+		009320152A9D98C100B1E703 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		009615412A94A5FC009200C7 /* WishlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
 		00A74B3F2A72064300BB07B9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		00A74B412A72065500BB07B9 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 		007B0F6B2A70B2AD0034E7A5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				004678492A94847D005C0E07 /* AddReviewViewModel.swift */,
 				00A8FDB72A930487006FB87D /* HomeViewModel.swift */,
 				00A8FDB92A930BA4006FB87D /* DetailViewModel.swift */,
 				007904F92A8B339700FEBFF0 /* SignUpViewModel.swift */,
@@ -621,6 +624,7 @@
 			isa = PBXGroup;
 			children = (
 				008CE6AA2A80D73B00454CED /* AddressViewController.swift */,
+				009320152A9D98C100B1E703 /* AddressViewModel.swift */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -839,7 +843,6 @@
 			children = (
 				008EE8AD2A7B8ED2002C44B9 /* ReviewViewController.swift */,
 				008EE8BE2A7BA868002C44B9 /* AddReviewViewController.swift */,
-				004678492A94847D005C0E07 /* AddReviewViewModel.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -1092,6 +1095,7 @@
 				007905012A8C9EA100FEBFF0 /* SessionManager.swift in Sources */,
 				008EE8B62A7B95F0002C44B9 /* ReviewTableViewCell.swift in Sources */,
 				0008FF972A838CF30006BF26 /* AllAddressTableViewCell.swift in Sources */,
+				009320162A9D98C100B1E703 /* AddressViewModel.swift in Sources */,
 				00A8FDBA2A930BA4006FB87D /* DetailViewModel.swift in Sources */,
 				00A8FDB82A930487006FB87D /* HomeViewModel.swift in Sources */,
 				0008FF7F2A8327AE0006BF26 /* UIViewExt.swift in Sources */,

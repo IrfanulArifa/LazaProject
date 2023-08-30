@@ -14,7 +14,7 @@ protocol backToCartfromAddressDelegate: AnyObject{
 class AllAddressViewController: UIViewController {
   
   weak var delegate: backToCartfromAddressDelegate?
-  let viewModel = ViewModel()
+  let viewModel = AddressViewModel()
   
   @IBOutlet weak var allAddress: UILabel!{
     didSet {
@@ -33,16 +33,23 @@ class AllAddressViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    viewModel.reloadUser = {
+    loadData()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    loadData()
+  }
+  
+  func loadData(){
+    viewModel.reloadData = { [weak self] in
       DispatchQueue.main.async {
-        self.addressTableView.reloadData()
+        self?.addressTableView.reloadData()
       }
     }
     
-    viewModel.loadDataUser()
-    
+    viewModel.getAllAddress()
   }
+  
   @IBAction func backButtonClicked(_ sender: UIButton) {
     self.dismiss(animated: true)
     delegate?.backToCartFromAddress()
@@ -58,25 +65,38 @@ class AllAddressViewController: UIViewController {
 
 extension AllAddressViewController: UITableViewDataSource{
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel.userData.count
+    return viewModel.allAddressData.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let data = viewModel.userData[indexPath.row]
+    let data = viewModel.allAddressData[indexPath.row]
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "AllAddressTableViewCell") as? AllAddressTableViewCell else { return UITableViewCell() }
-    cell.nameAddress.text = data.name.firstname.capitalized + " " + data.name.lastname.capitalized
-    cell.cityAddress.text = data.address.city.capitalized
-    cell.numberAddress.text = String(data.address.number)
-    cell.streetAddress.text = data.address.street.capitalized
-    cell.zipcode.text = data.address.zipcode
+    cell.nameAddress.text = data.receiverName
+    cell.cityAddress.text = data.city
+    cell.numberAddress.text = String(data.phoneNumber)
+    cell.streetAddress.text = data.country
+    for _ in viewModel.allAddressData {
+      if data.isPrimary != nil {
+        cell.isPrimary.isHidden = false
+      } else {
+        cell.isPrimary.isHidden = true
+      }
+    }
     return cell
   }
   
-  
+//  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//
+//  }
 }
 
 extension AllAddressViewController: UITableViewDelegate{
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return UITableView.automaticDimension
   }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+  }
 }
+

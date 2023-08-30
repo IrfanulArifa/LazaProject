@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ReviewViewController: UIViewController {
   
@@ -221,6 +222,7 @@ extension ReviewViewController: UITableViewDataSource {
       cell.reviewDescription.text = newData.comment
       cell.reviewerName.text = newData.fullName
       cell.reviewerValue.text = "\(newData.rating)"
+      cell.reviewerImage.sd_setImage(with: URL(string: newData.imageURL))
       cell.setRatingImage(newData.rating)
     }
     return cell

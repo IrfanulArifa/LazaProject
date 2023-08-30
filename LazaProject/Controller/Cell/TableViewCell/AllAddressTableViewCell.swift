@@ -14,8 +14,10 @@ class AllAddressTableViewCell: UITableViewCell {
   @IBOutlet weak var cityAddress: UILabel!
   @IBOutlet weak var streetAddress: UILabel!
   @IBOutlet weak var numberAddress: UILabel!
-  @IBOutlet weak var zipcode: UILabel!
-    override func awakeFromNib() {
+  @IBOutlet weak var isPrimary: UIImageView!{
+    didSet { isPrimary.isHidden = true }
+  }
+  override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }

@@ -39,7 +39,7 @@ struct Brand: Codable {
 struct Description: Codable {
   let id: Int
   let name, logoURL: String
-  let deletedAt: JSONNull?
+  let deletedAt: String?
   
   enum CodingKeys: String, CodingKey {
     case id, name
@@ -95,29 +95,118 @@ struct Sizes: Codable {
   let size: String
 }
 
-class JSONNull: Codable, Hashable {
+// MARK: Add New Data
+
+struct AddNewAddress: Codable {
+  let status: String
+  let isError: Bool
+  let data: NewAddressData
+}
+
+// MARK: - DataClass
+struct NewAddressData: Codable {
+  let id: Int
+  let country, city, receiverName, phoneNumber: String
+  let isPrimary: Bool
+  let userID: Int
+  let user: UserAddress
   
-  public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-    return true
-  }
-  
-  public var hashValue: Int {
-    return 0
-  }
-  
-  public init() {}
-  
-  public required init(from decoder: Decoder) throws {
-    let container = try decoder.singleValueContainer()
-    if !container.decodeNil() {
-      throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-    }
-  }
-  
-  public func encode(to encoder: Encoder) throws {
-    var container = encoder.singleValueContainer()
-    try container.encodeNil()
+  enum CodingKeys: String, CodingKey {
+    case id, country, city
+    case receiverName = "receiver_name"
+    case phoneNumber = "phone_number"
+    case isPrimary = "is_primary"
+    case userID = "user_id"
+    case user
   }
 }
 
+// MARK: - User
+struct UserAddress: Codable {
+  let createdAt, updatedAt: String
+  let deletedAt: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case createdAt = "created_at"
+    case updatedAt = "updated_at"
+    case deletedAt = "deleted_at"
+  }
+}
 
+struct AllAddress: Codable {
+  let status: String
+  let isError: Bool
+  let data: [AllAddressData]
+}
+
+// MARK: - Datum
+struct AllAddressData: Codable {
+  let id: Int
+  let country, city, receiverName, phoneNumber: String
+  let userID: Int
+  let user: UserAllAddress
+  let isPrimary: Bool?
+  
+  enum CodingKeys: String, CodingKey {
+    case id, country, city
+    case receiverName = "receiver_name"
+    case phoneNumber = "phone_number"
+    case userID = "user_id"
+    case user
+    case isPrimary = "is_primary"
+  }
+}
+
+// MARK: - User
+struct UserAllAddress: Codable {
+  let id: Int
+  let username: String
+  let email: String
+  let fullName: String
+  let createdAt, updatedAt: String
+  let deletedAt: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case id, username, email
+    case fullName = "full_name"
+    case createdAt = "created_at"
+    case updatedAt = "updated_at"
+    case deletedAt = "deleted_at"
+  }
+}
+
+struct UpdateUserAddress: Codable {
+  let status: String
+  let isError: Bool
+  let data: UpdateUserAddressData
+}
+
+// MARK: - DataClass
+struct UpdateUserAddressData: Codable {
+  let id: Int
+  let country, city, receiverName, phoneNumber: String
+  let isPrimary: Bool
+  let userID: Int
+  let user: UserAddress
+  
+  enum CodingKeys: String, CodingKey {
+    case id, country, city
+    case receiverName = "receiver_name"
+    case phoneNumber = "phone_number"
+    case isPrimary = "is_primary"
+    case userID = "user_id"
+    case user
+  }
+}
+
+struct DeleteSuccess: Codable {
+  let status: String
+  let isError: Bool
+  let data: String
+}
+
+struct DeleteFailed: Codable {
+  let status: String
+  let isError: Bool
+  let description: String
+}

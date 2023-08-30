@@ -78,6 +78,8 @@ struct User: Codable {
 struct DataClassUser: Codable {
     let id: Int
     let fullName, username, email: String
+    let imageURL: String?
+  
     let isVerified: Bool
     let createdAt, updatedAt: String
 
@@ -88,6 +90,7 @@ struct DataClassUser: Codable {
         case isVerified = "is_verified"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
+        case imageURL = "image_url"
     }
 }
 
@@ -101,7 +104,7 @@ struct UpdateUserSuccess: Codable {
 struct UserSuccess: Codable {
     let id: Int
     let fullName, username, email: String
-    let imageURL: String
+    let imageURL: String?
     let isVerified: Bool
     let createdAt, updatedAt: String
 

@@ -59,7 +59,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lJe-7q-0MY">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lJe-7q-0MY" userLabel="PhoneNumberStack">
                                 <rect key="frame" x="20" y="309" width="353" height="80.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4I1-9K-blV">
@@ -73,31 +73,6 @@
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="mZr-Ar-edh"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oEJ-Kh-K8u">
-                                <rect key="frame" x="20" y="404.33333333333331" width="353" height="80.333333333333314"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQV-1L-b7O">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Chhatak, Sunamgonj 12/8AB" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iEJ-cP-jtT">
-                                        <rect key="frame" x="0.0" y="30.333333333333371" width="353" height="50"/>
-                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="r4w-uF-Zdz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -170,7 +145,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PdP-zk-u6r">
-                                <rect key="frame" x="20" y="509.66666666666674" width="353" height="31"/>
+                                <rect key="frame" x="20" y="439.33333333333331" width="353" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save as primary address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Mw-um-ZZp">
                                         <rect key="frame" x="0.0" y="0.0" width="304" height="31"/>
@@ -212,7 +187,6 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oEJ-Kh-K8u" secondAttribute="trailing" constant="20" id="0ph-XQ-KXM"/>
                             <constraint firstItem="pYL-xR-i46" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="45" id="0zB-yz-er1"/>
                             <constraint firstItem="Omk-c1-Vlu" firstAttribute="top" secondItem="mFY-15-C1E" secondAttribute="bottom" constant="15" id="5UY-uA-clk"/>
                             <constraint firstItem="YCb-9E-aTR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="70r-eY-NRI"/>
@@ -220,31 +194,28 @@
                             <constraint firstItem="YCb-9E-aTR" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="CHl-1v-n6J"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Omk-c1-Vlu" secondAttribute="trailing" constant="20" id="EFI-cW-HGW"/>
                             <constraint firstItem="lJe-7q-0MY" firstAttribute="top" secondItem="Omk-c1-Vlu" secondAttribute="bottom" constant="15" id="Fzk-2Q-UXk"/>
-                            <constraint firstItem="oEJ-Kh-K8u" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="I6B-ZI-PFH"/>
                             <constraint firstItem="Omk-c1-Vlu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Qzt-Z8-oVz"/>
                             <constraint firstItem="mFY-15-C1E" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Rtv-sD-EKM"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lJe-7q-0MY" secondAttribute="trailing" constant="20" id="XBt-rV-gjZ"/>
                             <constraint firstAttribute="bottom" secondItem="YCb-9E-aTR" secondAttribute="bottom" id="YIi-18-lkw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PdP-zk-u6r" secondAttribute="trailing" constant="20" id="dNb-vU-Yg3"/>
-                            <constraint firstItem="PdP-zk-u6r" firstAttribute="top" secondItem="oEJ-Kh-K8u" secondAttribute="bottom" constant="25" id="fge-fw-JBZ"/>
                             <constraint firstItem="lJe-7q-0MY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="hLX-Rv-mD9"/>
                             <constraint firstItem="AAF-XR-GJK" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="kwP-bv-jcI"/>
                             <constraint firstItem="mFY-15-C1E" firstAttribute="top" secondItem="AAF-XR-GJK" secondAttribute="bottom" constant="38" id="lvo-Xl-ngN"/>
                             <constraint firstItem="AAF-XR-GJK" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="60" id="nnW-T0-NGL"/>
+                            <constraint firstItem="PdP-zk-u6r" firstAttribute="top" secondItem="lJe-7q-0MY" secondAttribute="bottom" constant="50" id="p9T-1j-sDa"/>
                             <constraint firstItem="PdP-zk-u6r" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="vao-gK-OX7"/>
                             <constraint firstItem="pYL-xR-i46" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="wUg-8q-U5c"/>
-                            <constraint firstItem="oEJ-Kh-K8u" firstAttribute="top" secondItem="lJe-7q-0MY" secondAttribute="bottom" constant="15" id="yJ5-pF-VP1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pak-UI-mvY"/>
                     <connections>
-                        <outlet property="addressTitle" destination="AAF-XR-GJK" id="bEg-qT-VwH"/>
-                        <outlet property="addressTxt" destination="QQV-1L-b7O" id="mgu-cj-Z0s"/>
-                        <outlet property="addressTxtField" destination="iEJ-cP-jtT" id="ZVo-lR-Or7"/>
+                        <outlet property="addressTitle" destination="AAF-XR-GJK" id="Hgp-qx-9V2"/>
                         <outlet property="cityTxt" destination="q64-dK-CTO" id="ecr-zh-ujT"/>
                         <outlet property="cityTxtField" destination="S28-5B-Z9K" id="0Vo-Aa-FI8"/>
                         <outlet property="countryTxt" destination="K8x-py-Bn4" id="YRN-um-oI4"/>
                         <outlet property="countryTxtField" destination="7GX-i9-WTp" id="0Zu-0b-G2Z"/>
+                        <outlet property="isPrimarySwitch" destination="Y3P-e3-w1F" id="DWK-6G-BD7"/>
                         <outlet property="nameTxt" destination="iv3-vr-XyB" id="1qu-2E-ap7"/>
                         <outlet property="nameTxtField" destination="DC3-Wp-CMZ" id="Tzg-g7-hhO"/>
                         <outlet property="phoneNumberTxt" destination="4I1-9K-blV" id="eIx-uJ-XYg"/>
