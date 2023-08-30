@@ -107,7 +107,7 @@ struct AddNewAddress: Codable {
 struct NewAddressData: Codable {
   let id: Int
   let country, city, receiverName, phoneNumber: String
-  let isPrimary: Bool
+  let isPrimary: Bool?
   let userID: Int
   let user: UserAddress
   
@@ -185,7 +185,7 @@ struct UpdateUserAddress: Codable {
 struct UpdateUserAddressData: Codable {
   let id: Int
   let country, city, receiverName, phoneNumber: String
-  let isPrimary: Bool
+  let isPrimary: Bool?
   let userID: Int
   let user: UserAddress
   

@@ -121,6 +121,19 @@ extension OrderViewController: backToCartDelegate{
 }
 
 extension OrderViewController: backToCartfromAddressDelegate{
+  func setAddressDelivery(data: AllAddressData) {
+    let navVC = UINavigationController(rootViewController: bottomSheet)
+    let vc = bottomSheet as? BottomSheetViewController
+    vc?.delegate = self
+    if let sheet = navVC.sheetPresentationController {
+      sheet.detents = [.medium()]
+    }
+    vc?.Alamat.text = data.country
+    vc?.subAlamat.text = data.city
+    self.present(navVC, animated: true)
+  }
+  
+  
   func backToCartFromAddress() {
     let navVC = UINavigationController(rootViewController: bottomSheet)
     let vc = bottomSheet as? BottomSheetViewController

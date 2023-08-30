@@ -91,7 +91,6 @@ class BottomSheetViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    loadData()
   }
   
   private func loadData() {

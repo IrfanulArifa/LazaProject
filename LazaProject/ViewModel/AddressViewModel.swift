@@ -110,6 +110,7 @@ class AddressViewModel {
       do {
         let result = try decoder.decode(AllAddress.self, from: data)
         self.allAddressData = result.data
+        self.allAddressData = self.allAddressData.reversed()
         self.reloadData?()
       } catch {
         print(error)
@@ -182,6 +183,7 @@ class AddressViewModel {
     
     let url = URL(string: "https://lazaapp.shop/address/\(idAddress)")!
     var request = URLRequest(url: url)
+    request.httpMethod = "DELETE"
     request.setValue("Bearer \(userToken!)", forHTTPHeaderField: "X-Auth-Token")
     
     let session = URLSession.shared
@@ -211,6 +213,8 @@ class AddressViewModel {
       }
       
       do {
+        let jsonSer = try JSONSerialization.jsonObject(with: data)
+        print(jsonSer)
         let result = try decoder.decode(DeleteSuccess.self, from: data)
         completion(result)
       } catch {

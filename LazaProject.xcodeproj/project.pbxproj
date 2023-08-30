@@ -109,6 +109,8 @@
 		0090DFD92A81DE4C00150D9D /* OrderConfirmedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0090DFD82A81DE4C00150D9D /* OrderConfirmedViewController.storyboard */; };
 		0090DFDB2A81DE5900150D9D /* OrderConfirmedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0090DFDA2A81DE5900150D9D /* OrderConfirmedViewController.swift */; };
 		009320162A9D98C100B1E703 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009320152A9D98C100B1E703 /* AddressViewModel.swift */; };
+		009486C52A9EFA5100FA7955 /* UpdateAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009486C42A9EFA5100FA7955 /* UpdateAddressViewController.swift */; };
+		009486C72A9F26F500FA7955 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009486C62A9F26F500FA7955 /* CartViewModel.swift */; };
 		009615422A94A5FC009200C7 /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009615412A94A5FC009200C7 /* WishlistViewModel.swift */; };
 		00A74B402A72064300BB07B9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B3F2A72064300BB07B9 /* DetailViewController.swift */; };
 		00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A74B412A72065500BB07B9 /* DetailViewController.storyboard */; };
@@ -218,6 +220,8 @@
 		0090DFD82A81DE4C00150D9D /* OrderConfirmedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderConfirmedViewController.storyboard; sourceTree = "<group>"; };
 		0090DFDA2A81DE5900150D9D /* OrderConfirmedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmedViewController.swift; sourceTree = "<group>"; };
 		009320152A9D98C100B1E703 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
+		009486C42A9EFA5100FA7955 /* UpdateAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAddressViewController.swift; sourceTree = "<group>"; };
+		009486C62A9F26F500FA7955 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		009615412A94A5FC009200C7 /* WishlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
 		00A74B3F2A72064300BB07B9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		00A74B412A72065500BB07B9 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
@@ -498,6 +502,7 @@
 		007B0F6B2A70B2AD0034E7A5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				009320152A9D98C100B1E703 /* AddressViewModel.swift */,
 				004678492A94847D005C0E07 /* AddReviewViewModel.swift */,
 				00A8FDB72A930487006FB87D /* HomeViewModel.swift */,
 				00A8FDB92A930BA4006FB87D /* DetailViewModel.swift */,
@@ -510,6 +515,7 @@
 				0021A19A2A95E85400BDD4F9 /* UpdateProfileViewModel.swift */,
 				007B0F7C2A70CAD80034E7A5 /* ViewModel.swift */,
 				009615412A94A5FC009200C7 /* WishlistViewModel.swift */,
+				009486C62A9F26F500FA7955 /* CartViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -624,7 +630,7 @@
 			isa = PBXGroup;
 			children = (
 				008CE6AA2A80D73B00454CED /* AddressViewController.swift */,
-				009320152A9D98C100B1E703 /* AddressViewModel.swift */,
+				009486C42A9EFA5100FA7955 /* UpdateAddressViewController.swift */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -1080,6 +1086,7 @@
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
 				0035172C2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift in Sources */,
 				006B4C7E2A753AE2001247C4 /* ProfileViewController.swift in Sources */,
+				009486C72A9F26F500FA7955 /* CartViewModel.swift in Sources */,
 				008CE69B2A809AB400454CED /* VerificationCodeViewController.swift in Sources */,
 				0008FF9E2A8395470006BF26 /* SnackBar.swift in Sources */,
 				0008FF7C2A823BA60006BF26 /* PaymentCollectionViewCell.swift in Sources */,
@@ -1118,6 +1125,7 @@
 				0086FE4B2A971BF400E41A19 /* AllCategoryCollectionViewCell.swift in Sources */,
 				001859BB2A7A0478004EF0D5 /* SideMenuViewController.swift in Sources */,
 				007B0F7D2A70CAD80034E7A5 /* ViewModel.swift in Sources */,
+				009486C52A9EFA5100FA7955 /* UpdateAddressViewController.swift in Sources */,
 				001859B72A78E737004EF0D5 /* DynamicHeightCollectionView.swift in Sources */,
 				008CE69E2A80ADC400454CED /* CartTableViewCell.swift in Sources */,
 				008CE6AB2A80D73B00454CED /* AddressViewController.swift in Sources */,

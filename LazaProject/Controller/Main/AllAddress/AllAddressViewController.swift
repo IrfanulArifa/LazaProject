@@ -7,8 +7,9 @@
 
 import UIKit
 
-protocol backToCartfromAddressDelegate: AnyObject{
+protocol backToCartfromAddressDelegate: AnyObject {
   func backToCartFromAddress()
+  func setAddressDelivery(data: AllAddressData)
 }
 
 class AllAddressViewController: UIViewController {
@@ -50,6 +51,10 @@ class AllAddressViewController: UIViewController {
     viewModel.getAllAddress()
   }
   
+  func goToEditAddress() {
+    
+  }
+  
   @IBAction func backButtonClicked(_ sender: UIButton) {
     self.dismiss(animated: true)
     delegate?.backToCartFromAddress()
@@ -85,9 +90,43 @@ extension AllAddressViewController: UITableViewDataSource{
     return cell
   }
   
-//  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//
-//  }
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    
+    let data = viewModel.allAddressData[indexPath.row]
+    
+    let deleteData = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, completionHandler) in
+      DispatchQueue.main.async {
+        self?.viewModel.deleteAddress(idAddress: data.id, completion: { response in
+          DispatchQueue.main.async {
+            self?.viewModel.allAddressData.removeAll {$0.id == data.id }
+            self?.addressTableView.deleteRows(at: [indexPath], with: .left)
+            self?.showAlert(title: "Success", message: (response?.data.capitalized)!)
+          }
+        }, onError: { error in
+          DispatchQueue.main.async {
+            self?.showAlert(title: "Failed", message: "Data Gagal Dihapus!")
+          }
+        })
+      }
+      completionHandler(true)
+    }
+    deleteData.backgroundColor = .systemRed
+    
+    let updateData = UIContextualAction(style: .normal, title: "Edit") { [weak self] (action, view, completionHandler)  in
+      DispatchQueue.main.async {
+        let storyboard = UIStoryboard(name: "AddressViewController", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "UpdateAddressViewController") as? UpdateAddressViewController else { return }
+        vc.configure(data: data)
+        vc.modalPresentationStyle = .fullScreen
+        self?.present(vc, animated: true)
+      }
+      completionHandler(true)
+    }
+    updateData.backgroundColor = .systemBlue
+    
+    let configuration = UISwipeActionsConfiguration(actions: [deleteData, updateData])
+    return configuration
+  }
 }
 
 extension AllAddressViewController: UITableViewDelegate{
@@ -96,7 +135,8 @@ extension AllAddressViewController: UITableViewDelegate{
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+    let data = viewModel.allAddressData[indexPath.row]
+    dismiss(animated: true)
+    delegate?.setAddressDelivery(data: data)
   }
 }
-
