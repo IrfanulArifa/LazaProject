@@ -76,7 +76,7 @@ class ViewController: UIViewController {
   func handleSignInButton() {
     GIDSignIn.sharedInstance.signIn(
       withPresenting: self) { signInResult, error in
-        guard let result = signInResult else {
+        guard signInResult != nil else {
           // Inspect error
           return
         }

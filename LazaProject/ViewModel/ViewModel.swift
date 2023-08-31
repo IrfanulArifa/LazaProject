@@ -59,16 +59,53 @@ class ViewModel {
   }
   
   // MARK: Get All Size Data From API
-  func getSize() async throws -> [Sizes] {
-    let component = URLComponents(string: "https://lazaapp.shop/size")!
-    let request = URLRequest(url:component.url!)
-    let (data, responses) = try await URLSession.shared.data(for: request)
-    guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
-      fatalError("Error Can't Fetching Data")
-    }
+//  func getSize() async throws -> [Sizes] {
+//    let component = URLComponents(string: "https://lazaapp.shop/size")!
+//    let request = URLRequest(url:component.url!)
+//    let (data, responses) = try await URLSession.shared.data(for: request)
+//    guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
+//      fatalError("Error Can't Fetching Data")
+//    }
+//    let decoder = JSONDecoder()
+//    let result = try decoder.decode(Size.self, from: data)
+//    return result.data
+//  }
+  
+  // MARK: Get All Size Data From API
+  func getAllSize(completion: @escaping (Size) -> Void){
     let decoder = JSONDecoder()
-    let result = try decoder.decode(Size.self, from: data)
-    return result.data
+    let url = URL(string: "https://lazaapp.shop/size")!
+    let request = URLRequest(url: url)
+    
+    let session = URLSession.shared
+    
+    let task = session.dataTask(with: request) { data, response, error in
+      if error != nil {
+        print("Error : ",error as Any)
+        return
+      }
+      
+      guard let httpResponse = response as? HTTPURLResponse else {
+        return
+      }
+      
+      guard let data = data else {
+        print("Tidak ada data yang diterima")
+        return
+      }
+      
+      if httpResponse.statusCode != 200 {
+        print("Error", httpResponse.statusCode)
+      }
+      
+      do {
+        let result = try decoder.decode(Size.self, from: data)
+        completion(result)
+      } catch {
+        print("Gagal melakukan Decode JSON : ", error)
+      }
+    }
+    task.resume()
   }
   
   // MARK: Load All Data that Get From API
@@ -87,11 +124,11 @@ class ViewModel {
     }
   }
   
-  func loadSize(){
-    Task {
-      await getSizeData()
-    }
-  }
+//  func loadSize(){
+//    Task {
+//      await getSizeData()
+//    }
+//  }
   
   // MARK: Get Product Data from API Async -> XCode say Must Set Async
   func getProductData() async {
@@ -122,14 +159,14 @@ class ViewModel {
     }
   }
   
-  func getSizeData() async {
-    do {
-      size = try await getSize()
-      reloadSize?()
-    } catch {
-      print("Error")
-    }
-  }
+//  func getSizeData() async {
+//    do {
+//      size = try await getSize()
+//      reloadSize?()
+//    } catch {
+//      print("Error")
+//    }
+//  }
   
   func saveProfil(token: String, fullname: String, username: String, email: String) {
     UserModel.stateLogin = true
@@ -148,13 +185,5 @@ class ViewModel {
     UserModel.username = username
     UserModel.email = email
     UserModel.image = image
-  }
-  
-  func checkExpiredToken() {
-    
-  }
-  
-  func sendDataToReview(){
-    
   }
 }

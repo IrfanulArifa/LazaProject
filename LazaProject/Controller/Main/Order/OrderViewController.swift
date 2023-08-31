@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class OrderViewController: UIViewController {
   
@@ -29,6 +30,9 @@ class OrderViewController: UIViewController {
     }
   }
   
+  let viewModel = CartViewModel()
+  var indexData: Int?
+  
   lazy var bottomSheet = UIStoryboard(name: "BottomSheetViewController", bundle: nil).instantiateViewController(withIdentifier: "BottomSheetViewController")
   
   override func viewDidLoad() {
@@ -37,12 +41,19 @@ class OrderViewController: UIViewController {
     
     cardTableView.delegate = self
     cardTableView.dataSource = self
-    
     cardTableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
+    
+    viewModel.reloadData = {
+      DispatchQueue.main.async {
+        self.cardTableView.reloadData()
+      }
+    }
+    
+    viewModel.getAllCart()
   }
   
-  override func viewDidAppear(_ animated: Bool) {
-    
+  override func viewWillAppear(_ animated: Bool) {
+    cardTableView.reloadData()
   }
   
   // MARK: Setup BarItem when Clicked Change into Text
@@ -81,11 +92,19 @@ extension OrderViewController: UITableViewDelegate {
 
 extension OrderViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 10
+    return viewModel.cartData?.products?.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let data = viewModel.cartData?.products![indexPath.row]
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell") as? CartTableViewCell else { return UITableViewCell() }
+    cell.cartLabel.text = data?.productName
+    cell.cartPrice.text = "Rp. \(String(describing: data!.price))"
+    cell.valueTxt.text = "\(String(describing: data!.quantity))"
+    cell.productImage.sd_setImage(with: URL(string: data!.imageURL))
+    cell.configure(productID: data!.id, sizeID: data!.size, index: indexPath)
+    indexData = indexPath.row
+    cell.delegate = self
     return cell
   }
 }
@@ -133,7 +152,6 @@ extension OrderViewController: backToCartfromAddressDelegate{
     self.present(navVC, animated: true)
   }
   
-  
   func backToCartFromAddress() {
     let navVC = UINavigationController(rootViewController: bottomSheet)
     let vc = bottomSheet as? BottomSheetViewController
@@ -142,5 +160,17 @@ extension OrderViewController: backToCartfromAddressDelegate{
       sheet.detents = [.medium()]
     }
     self.present(navVC, animated: true)
+  }
+}
+
+extension OrderViewController: deleteCart {
+  func deleteCart(index: IndexPath, id: Int) {
+    
+    DispatchQueue.main.async {
+      self.viewModel.cartData?.products?.removeAll(where: { cart in
+        cart.id == id
+      })
+      self.cardTableView.deleteRows(at: [index], with: .left)
+    }
   }
 }

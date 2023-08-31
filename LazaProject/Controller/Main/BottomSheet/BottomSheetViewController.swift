@@ -98,7 +98,7 @@ class BottomSheetViewController: UIViewController {
       DispatchQueue.main.async {
         let data = self.viewModel.allAddressData
         for address in data {
-          if let isPrimary = address.isPrimary {
+          if address.isPrimary != nil {
             self.Alamat.text = address.country
             self.subAlamat.text = address.city
           }

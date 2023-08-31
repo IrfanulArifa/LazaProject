@@ -33,7 +33,6 @@ class DetailTableViewCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    print("Awake")
     sizeCollection.dataSource = self
     sizeCollection.delegate = self
     sizeCollection.register(UINib(nibName: "SizeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SizeCollectionViewCell")

@@ -44,4 +44,6 @@ class HomeViewModel {
       print("Gamasuk ke Data \(error)")
     }
   }
+  
+  
 }

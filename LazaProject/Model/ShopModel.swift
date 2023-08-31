@@ -210,3 +210,93 @@ struct DeleteFailed: Codable {
   let isError: Bool
   let description: String
 }
+
+struct CartSuccess: Codable {
+    let status: String
+    let isError: Bool
+    let data: DataCart
+}
+
+struct DataCart: Codable {
+    var products: [Cart]?
+    let orderInfo: OrderInfo
+
+    enum CodingKeys: String, CodingKey {
+        case products
+        case orderInfo = "order_info"
+    }
+}
+
+// MARK: - OrderInfo
+struct OrderInfo: Codable {
+    let subTotal, shippingCost, total: Int
+
+    enum CodingKeys: String, CodingKey {
+        case subTotal = "sub_total"
+        case shippingCost = "shipping_cost"
+        case total
+    }
+}
+
+// MARK: - Product
+struct Cart: Codable {
+    let id: Int
+    let productName: String
+    let imageURL: String
+    let price: Int
+    let brandName: String
+    let quantity: Int
+    let size: String
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case productName = "product_name"
+        case imageURL = "image_url"
+        case price
+        case brandName = "brand_name"
+        case quantity, size
+    }
+}
+
+struct ReduceCart: Codable {
+    let status: String
+    let isError: Bool
+    let data: ReduceCartData
+}
+
+// MARK: - DataClass
+struct ReduceCartData: Codable {
+    let userID, productID, sizeID, quantity: Int
+    let createdAt, updatedAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case userID = "user_id"
+        case productID = "product_id"
+        case sizeID = "size_id"
+        case quantity
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
+}
+
+
+struct insertCart: Codable {
+    let status: String
+    let isError: Bool
+    let data: insertCartData
+}
+
+// MARK: - DataClass
+struct insertCartData: Codable {
+    let userID, productID, sizeID, quantity: Int
+    let createdAt, updatedAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case userID = "user_id"
+        case productID = "product_id"
+        case sizeID = "size_id"
+        case quantity
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
+}
