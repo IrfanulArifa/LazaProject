@@ -96,7 +96,8 @@ class ChoosePaymentViewController: UIViewController {
       
     } else if choosedPayment == "CreditCard" {
       let storyboard = UIStoryboard(name: "PaymentViewController", bundle: nil).instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
-      self.navigationController?.pushViewController(storyboard, animated: true)
+      storyboard.modalPresentationStyle = .fullScreen
+      self.present(storyboard, animated: true)
     }
   }
 }

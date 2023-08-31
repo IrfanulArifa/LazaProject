@@ -89,17 +89,16 @@ class PaymentViewController: UIViewController {
   }
   
   @IBAction func backButtonPressed(_ sender: Any) {
-    self.navigationController?.popViewController(animated: true)
-//    delegate?.backToCart()
+    self.dismiss(animated: true)
   }
   
   @IBAction func addNewCardClicked(_ sender: UIButton) {
     let storyboard = UIStoryboard(name: "AddNewCardViewController", bundle: nil).instantiateViewController(withIdentifier: "AddNewCardViewController")
-    self.navigationController?.pushViewController(storyboard, animated: true)
+    storyboard.modalPresentationStyle = .fullScreen
+    self.present(storyboard, animated: true)
   }
   @IBAction func saveCardClicked(_ sender: Any) {
-    self.navigationController?.popViewController(animated: true)
-//    delegate?.backToCart()
+    self.dismiss(animated: true)
   }
 }
 
@@ -112,8 +111,6 @@ extension PaymentViewController: UICollectionViewDataSource {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaymentCollectionViewCell", for: indexPath) as? PaymentCollectionViewCell else { return UICollectionViewCell() }
     return cell
   }
-  
-  
 }
 
 extension PaymentViewController: UICollectionViewDelegate {

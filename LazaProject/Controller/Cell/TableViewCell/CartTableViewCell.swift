@@ -8,8 +8,9 @@
 import UIKit
 
 protocol deleteCart{
-  func deleteCart(index: IndexPath, id: Int)
+  func deleteCart(index: IndexPath, id: Int, size: String)
   func reloadData()
+  func updateTotal()
 }
 
 class CartTableViewCell: UITableViewCell {
@@ -48,7 +49,6 @@ class CartTableViewCell: UITableViewCell {
     productId = productID
     sizeId = sizeID
     indexData = index
-    print("productId = ", productID, "SizeId = ", sizeID)
   }
   
   override func awakeFromNib() {
@@ -69,8 +69,8 @@ class CartTableViewCell: UITableViewCell {
         }
       }
       self.viewModel.deleteCart(token: self.userToken!, productID: self.productId!, sizeID: self.sizesData!)
-      self.delegate?.reloadData()
-      self.delegate?.deleteCart(index: self.indexData!, id: self.productId!)
+//      self.delegate?.updateTotal()
+      self.delegate?.deleteCart(index: self.indexData!, id: self.productId!, size: self.sizeId!)
     }
   }
   
@@ -110,8 +110,10 @@ class CartTableViewCell: UITableViewCell {
             self.delegate?.reloadData()
           }
         } else {
-          self.delegate?.reloadData()
-          delegate?.deleteCart(index: indexData!, id: productId!)
+          DispatchQueue.main.async { [self] in
+            delegate?.deleteCart(index: indexData!, id: productId!, size: sizeId!)
+            self.delegate?.reloadData()
+          }
         }
       } onError: { error in
         DispatchQueue.main.async {

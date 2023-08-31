@@ -11,6 +11,7 @@ class CartViewModel {
   var cartData: DataCart?
   var reloadData: (() -> Void)?
   var deleteData: (() -> Void)?
+  var orderData: [Cart] = []
   
   func getAllCart(token: String){
     let decoder = JSONDecoder()
@@ -35,11 +36,9 @@ class CartViewModel {
       }
       
       do {
-        
-        let dataResult = try JSONSerialization.jsonObject(with: data)
-        print("Hasilnya ini: ", dataResult)
         let result = try decoder.decode(CartSuccess.self, from: data)
         self.cartData = result.data
+//        self.orderData = result.data.products!
         self.reloadData?()
       } catch {
         print("Error Decode Data, \(error)")

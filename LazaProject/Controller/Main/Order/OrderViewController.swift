@@ -30,25 +30,53 @@ class OrderViewController: UIViewController {
     }
   }
   
+  @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!{
+    didSet {
+      indicatorLoading.isHidden = false
+      indicatorLoading.startAnimating()
+    }
+  }
+  
+  @IBOutlet weak var dataKosong: UILabel!{
+    didSet {
+      dataKosong.font = UIFont(name: "Poppins-Regular", size: 20)
+      dataKosong.isHidden = true
+    }
+  }
+  
   let viewModel = CartViewModel()
   var indexData: Int?
-  let userToken = UserDefaults.standard.string(forKey: "access_token")
+  
   
   lazy var bottomSheet = UIStoryboard(name: "BottomSheetViewController", bundle: nil).instantiateViewController(withIdentifier: "BottomSheetViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupTabBarItemImage() // Calling Function
+    let userToken = UserDefaults.standard.string(forKey: "access_token")
     
-    cardTableView.delegate = self
-    cardTableView.dataSource = self
-    cardTableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
-    
-    loadData(token: userToken!)
+    DispatchQueue.main.async {
+      self.stopAnimation()
+      self.setupTabBarItemImage() // Calling Function
+      
+      self.cardTableView.delegate = self
+      self.cardTableView.dataSource = self
+      self.cardTableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
+      
+      self.loadData(token: userToken!)
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    loadData(token: userToken!)
+    let userToken = UserDefaults.standard.string(forKey: "access_token")
+    DispatchQueue.main.async
+    { [self] in
+      loadData(token: userToken!)
+    }
+  }
+  
+  func stopAnimation(){
+    indicatorLoading.stopAnimating()
+    indicatorLoading.isHidden = true
   }
   
   func loadData(token: String){
@@ -56,6 +84,25 @@ class OrderViewController: UIViewController {
       DispatchQueue.main.async {
         self.cardTableView.reloadData()
         self.totalCart.text = "Total: \(String(describing: self.viewModel.cartData!.orderInfo.total))"
+        if self.viewModel.cartData?.orderInfo.total == 0 {
+          self.dataKosong.isHidden = false
+        } else {
+          self.dataKosong.isHidden = true
+        }
+      }
+    }
+    viewModel.getAllCart(token: token)
+  }
+  
+  func reloadHarga(token: String){
+    viewModel.reloadData = {
+      DispatchQueue.main.async {
+        self.totalCart.text = "Total: \(String(describing: self.viewModel.cartData!.orderInfo.total))"
+        if self.viewModel.cartData?.orderInfo.total == 0 {
+          self.dataKosong.isHidden = false
+        } else {
+          self.dataKosong.isHidden = true
+        }
       }
     }
     viewModel.getAllCart(token: token)
@@ -97,11 +144,12 @@ extension OrderViewController: UITableViewDelegate {
 
 extension OrderViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    print("Product count: \(viewModel.cartData?.products?.count ?? -1)")
     return viewModel.cartData?.products?.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let data = viewModel.cartData?.products![indexPath.row]
+    let data = viewModel.cartData?.products?[indexPath.row]
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell") as? CartTableViewCell else { return UITableViewCell() }
     cell.cartLabel.text = "\(String(describing: data!.productName)) (\(String(describing: data!.size)))"
     cell.cartPrice.text = "Rp. \(String(describing: data!.price))"
@@ -169,17 +217,28 @@ extension OrderViewController: backToCartfromAddressDelegate{
 }
 
 extension OrderViewController: deleteCart {
-  func reloadData() {
-    loadData(token: userToken!)
+  func updateTotal() {
+    
   }
   
-  func deleteCart(index: IndexPath, id: Int) {
+  func reloadData() {
+    let token = UserDefaults.standard.string(forKey: "access_token")
+    reloadHarga(token: token!)
+  }
+  
+  func deleteCart(index: IndexPath, id: Int, size: String) {
     
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-      self.viewModel.cartData?.products?.removeAll(where: { cart in
-        cart.id == id
-      })
+    self.viewModel.cartData?.products!.removeAll(where: { cart in
+      
+      cart.id == id && cart.size == size
+    })
+    DispatchQueue.main.async {
+      print("Delete row: \(index.row)")
       self.cardTableView.deleteRows(at: [index], with: .left)
+      self.totalCart.text = "Total: \(String(describing: self.viewModel.cartData!.orderInfo.total))"
+    }
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+      self.cardTableView.reloadData()
     }
   }
 }
