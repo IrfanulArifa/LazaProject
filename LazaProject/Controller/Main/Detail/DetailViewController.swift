@@ -15,6 +15,8 @@ class DetailViewController: UIViewController {
   var dataDetail: Int?
   let viewModel = DetailViewModel()
   var sizeProduct: Int?
+  let cartModel = CartViewModel()
+  let token = UserDefaults.standard.string(forKey: "access_token")
   
   @IBOutlet weak var detailTableView: IntrinsicTableView!
   @IBOutlet weak var wishlistButton: UIButton!{
@@ -34,7 +36,6 @@ class DetailViewController: UIViewController {
     
     
     viewModel.loadDetail(dataDetail!)
-    let token = UserDefaults.standard.string(forKey: "access_token")
     viewModel.isInWishlist(token: token!)
     
     viewModel.reloadDetail = {
@@ -113,6 +114,21 @@ class DetailViewController: UIViewController {
       }
     }
   }
+  
+  @IBAction func addToCard(_ sender: UIButton) {
+    let productID = viewModel.detailData?.data.id
+    cartModel.insertCartData(token: token!, productID: productID!, sizeID: sizeProduct!) { response in
+      DispatchQueue.main.async {
+        validSnackBar.make(in: self.view, message: "Produk Berhasil Ditambahkan", duration: .lengthLong).show()
+      }
+    } onError: { error in
+      DispatchQueue.main.async {
+        invalidSnackBar.make(in: self.view, message: error.capitalized, duration: .lengthLong).show()
+      }
+    }
+
+  }
+  
 }
 
 extension DetailViewController : UITableViewDataSource {
@@ -166,6 +182,12 @@ extension DetailViewController : UITableViewDelegate {
 }
 
 extension DetailViewController: ReviewTableViewCellDelegate {
+  func sizeUnclicked(_ collectionView: UICollectionView, _ didDeselectItemAt: IndexPath) {
+    sizeProduct = viewModel.detailData?.data.size[didDeselectItemAt.item].id
+    guard let cell = collectionView.cellForItem(at: didDeselectItemAt) as? SizeCollectionViewCell else { return }
+    cell.sizeBackground.backgroundColor = UIColor(named: "sizeColor")
+  }
+  
   func sizeClicked(_ collectionView: UICollectionView, _ didSelectItemAt: IndexPath) {
     sizeProduct = viewModel.detailData?.data.size[didSelectItemAt.item].id
     guard let cell = collectionView.cellForItem(at: didSelectItemAt) as? SizeCollectionViewCell else { return }

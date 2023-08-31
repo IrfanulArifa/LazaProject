@@ -8,18 +8,16 @@
 import Foundation
 
 class CartViewModel {
-  
-  let userToken = UserDefaults.standard.string(forKey: "access_token")
   var cartData: DataCart?
   var reloadData: (() -> Void)?
   var deleteData: (() -> Void)?
   
-  func getAllCart(){
+  func getAllCart(token: String){
     let decoder = JSONDecoder()
     let url = URL(string: "https://lazaapp.shop/carts")!
     var request = URLRequest(url: url)
     
-    request.setValue("Bearer \(userToken!)", forHTTPHeaderField: "X-Auth-Token")
+    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
     
     let session = URLSession.shared
     
@@ -50,12 +48,12 @@ class CartViewModel {
     task.resume()
   }
   
-  func reduceCart(productID: Int, sizeID: Int, completion: @escaping (ReduceCartData?) -> Void, onError: @escaping(String) -> Void ){
+  func reduceCart(token: String, productID: Int, sizeID: Int, completion: @escaping (ReduceCartData?) -> Void, onError: @escaping(String) -> Void ){
     let decoder = JSONDecoder()
     let url = URL(string: "https://lazaapp.shop/carts?ProductId=\(productID)&SizeId=\(sizeID)")!
     var request = URLRequest(url: url)
     
-    request.setValue("Bearer \(userToken!)", forHTTPHeaderField: "X-Auth-Token")
+    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
     request.httpMethod = "PUT"
     
     let session = URLSession.shared
@@ -93,11 +91,11 @@ class CartViewModel {
     task.resume()
   }
   
-  func deleteCart(productID: Int, sizeID: Int){
+  func deleteCart(token: String, productID: Int, sizeID: Int){
     let url = URL(string: "https://lazaapp.shop/carts?ProductId=\(productID)&SizeId=\(sizeID)")!
     var request = URLRequest(url: url)
     
-    request.setValue("Bearer \(userToken!)", forHTTPHeaderField: "X-Auth-Token")
+    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
     request.httpMethod = "DELETE"
     
     let session = URLSession.shared
@@ -124,11 +122,12 @@ class CartViewModel {
     task.resume()
   }
   
-  func insertCart(productID: Int, sizeID: Int, completion: @escaping (insertCartData?) -> Void, onError: @escaping (String) -> Void){
+  func insertCartData(token: String, productID: Int, sizeID: Int, completion: @escaping (insertCartData?) -> Void, onError: @escaping(String) -> Void){
+    let decoder = JSONDecoder()
     let url = URL(string: "https://lazaapp.shop/carts?ProductId=\(productID)&SizeId=\(sizeID)")!
     var request = URLRequest(url: url)
     
-    request.setValue("Bearer \(userToken!)", forHTTPHeaderField: "X-Auth-Token")
+    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
     request.httpMethod = "POST"
     
     let session = URLSession.shared
@@ -143,13 +142,25 @@ class CartViewModel {
         return
       }
       
-      guard data != nil else {
+      guard let data = data else {
         print("Data Kosong")
         return
       }
       
-      if httpResponse.statusCode != 200 {
-        print("Error Status Code: \(httpResponse.statusCode)")
+      if httpResponse.statusCode != 201 {
+        guard let failedModel = try? decoder.decode(ResponseSignUpFailed.self, from: data) else {
+          onError("Failed to Decode")
+          return
+        }
+        onError(failedModel.descriptionKey)
+        return
+      }
+      
+      do {
+        let result = try decoder.decode(insertCart.self, from: data)
+        completion(result.data)
+      } catch {
+        print(error)
       }
     }
     task.resume()

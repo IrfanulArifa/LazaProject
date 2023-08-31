@@ -32,6 +32,7 @@ class OrderViewController: UIViewController {
   
   let viewModel = CartViewModel()
   var indexData: Int?
+  let userToken = UserDefaults.standard.string(forKey: "access_token")
   
   lazy var bottomSheet = UIStoryboard(name: "BottomSheetViewController", bundle: nil).instantiateViewController(withIdentifier: "BottomSheetViewController")
   
@@ -43,17 +44,21 @@ class OrderViewController: UIViewController {
     cardTableView.dataSource = self
     cardTableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
     
-    viewModel.reloadData = {
-      DispatchQueue.main.async {
-        self.cardTableView.reloadData()
-      }
-    }
-    
-    viewModel.getAllCart()
+    loadData(token: userToken!)
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    cardTableView.reloadData()
+    loadData(token: userToken!)
+  }
+  
+  func loadData(token: String){
+    viewModel.reloadData = {
+      DispatchQueue.main.async {
+        self.cardTableView.reloadData()
+        self.totalCart.text = "Total: \(String(describing: self.viewModel.cartData!.orderInfo.total))"
+      }
+    }
+    viewModel.getAllCart(token: token)
   }
   
   // MARK: Setup BarItem when Clicked Change into Text
@@ -98,7 +103,7 @@ extension OrderViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let data = viewModel.cartData?.products![indexPath.row]
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell") as? CartTableViewCell else { return UITableViewCell() }
-    cell.cartLabel.text = data?.productName
+    cell.cartLabel.text = "\(String(describing: data!.productName)) (\(String(describing: data!.size)))"
     cell.cartPrice.text = "Rp. \(String(describing: data!.price))"
     cell.valueTxt.text = "\(String(describing: data!.quantity))"
     cell.productImage.sd_setImage(with: URL(string: data!.imageURL))
@@ -164,9 +169,13 @@ extension OrderViewController: backToCartfromAddressDelegate{
 }
 
 extension OrderViewController: deleteCart {
+  func reloadData() {
+    loadData(token: userToken!)
+  }
+  
   func deleteCart(index: IndexPath, id: Int) {
     
-    DispatchQueue.main.async {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
       self.viewModel.cartData?.products?.removeAll(where: { cart in
         cart.id == id
       })

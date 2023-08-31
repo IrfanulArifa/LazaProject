@@ -10,6 +10,7 @@ import UIKit
 protocol ReviewTableViewCellDelegate: AnyObject {
   func actionClicked()
   func sizeClicked(_ collectionView: UICollectionView, _ didSelectItemAt: IndexPath)
+  func sizeUnclicked(_ collectionView: UICollectionView, _ didDeselectItemAt: IndexPath)
 }
 
 class DetailTableViewCell: UITableViewCell {
@@ -78,6 +79,9 @@ extension DetailTableViewCell: UICollectionViewDataSource {
 extension DetailTableViewCell: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     delegate?.sizeClicked(collectionView, indexPath)
+  }
+  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    delegate?.sizeUnclicked(collectionView, indexPath)
   }
 }
 

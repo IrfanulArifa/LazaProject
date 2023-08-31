@@ -76,14 +76,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pd5-HF-ZcR">
                                 <rect key="frame" x="0.0" y="719" width="393" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total : $999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HL1-ez-Pux">
-                                        <rect key="frame" x="20" y="14.666666666666629" width="92" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total : $999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HL1-ez-Pux">
+                                        <rect key="frame" x="20.000000000000007" y="14.666666666666629" width="91.666666666666686" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYL-T6-7ry">
-                                        <rect key="frame" x="132" y="8" width="39" height="34"/>
+                                        <rect key="frame" x="131.66666666666666" y="8" width="39" height="34"/>
                                         <color key="tintColor" red="0.56078431370000004" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="chevron.up" catalog="system">
@@ -111,14 +111,14 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="HL1-ez-Pux" firstAttribute="leading" secondItem="pd5-HF-ZcR" secondAttribute="leading" constant="20" id="28G-JU-bbK"/>
                                     <constraint firstAttribute="trailing" secondItem="GUp-SY-JOn" secondAttribute="trailing" constant="20" id="3Am-fG-Hnd"/>
                                     <constraint firstItem="NYL-T6-7ry" firstAttribute="top" secondItem="pd5-HF-ZcR" secondAttribute="topMargin" id="Bpt-Cs-deP"/>
                                     <constraint firstAttribute="height" constant="50" id="Nhv-7H-zfl"/>
                                     <constraint firstItem="NYL-T6-7ry" firstAttribute="centerY" secondItem="GUp-SY-JOn" secondAttribute="centerY" id="PMI-6u-H3L"/>
+                                    <constraint firstItem="NYL-T6-7ry" firstAttribute="leading" secondItem="HL1-ez-Pux" secondAttribute="trailing" constant="20" id="bHx-1t-4N7"/>
                                     <constraint firstItem="NYL-T6-7ry" firstAttribute="centerY" secondItem="HL1-ez-Pux" secondAttribute="centerY" id="dgJ-W8-V4K"/>
                                     <constraint firstItem="GUp-SY-JOn" firstAttribute="centerY" secondItem="pd5-HF-ZcR" secondAttribute="centerY" id="rH2-Am-LX4"/>
-                                    <constraint firstItem="NYL-T6-7ry" firstAttribute="leading" secondItem="pd5-HF-ZcR" secondAttribute="leading" constant="132" id="rmZ-z2-frg"/>
-                                    <constraint firstItem="NYL-T6-7ry" firstAttribute="leading" secondItem="HL1-ez-Pux" secondAttribute="trailing" constant="20" id="zB7-vL-8DS"/>
                                 </constraints>
                             </view>
                         </subviews>
