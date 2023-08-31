@@ -68,7 +68,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w72-C3-vlg">
-                                <rect key="frame" x="20" y="175.66666666666669" width="353" height="622.33333333333326"/>
+                                <rect key="frame" x="0.0" y="175.66666666666669" width="393" height="622.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jeh-uN-g5C">
                                     <size key="itemSize" width="128" height="128"/>
@@ -87,13 +87,13 @@
                             <constraint firstItem="zUq-BD-ICL" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="55" id="4YL-PN-NCc"/>
                             <constraint firstItem="w72-C3-vlg" firstAttribute="top" secondItem="rrQ-2m-luw" secondAttribute="bottom" constant="20" id="4w5-Ut-ytd"/>
                             <constraint firstItem="P3P-jY-bwn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="7to-Dg-Clo"/>
-                            <constraint firstItem="w72-C3-vlg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="GDM-LL-YQn"/>
+                            <constraint firstItem="w72-C3-vlg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="GDM-LL-YQn"/>
                             <constraint firstItem="zUq-BD-ICL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="LUD-aq-mAf"/>
                             <constraint firstItem="rrQ-2m-luw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="S4s-Iy-NYv"/>
                             <constraint firstItem="rrQ-2m-luw" firstAttribute="top" secondItem="P3P-jY-bwn" secondAttribute="bottom" constant="25" id="c6r-GG-2Vt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="w72-C3-vlg" secondAttribute="bottom" constant="20" id="e1s-6b-tWg"/>
                             <constraint firstItem="RCt-x4-veP" firstAttribute="centerY" secondItem="rrQ-2m-luw" secondAttribute="centerY" id="nJf-k8-om4"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="w72-C3-vlg" secondAttribute="trailing" constant="20" id="qhF-PA-mKh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="w72-C3-vlg" secondAttribute="trailing" id="qhF-PA-mKh"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RCt-x4-veP" secondAttribute="trailing" constant="20" id="zjz-XR-0b3"/>
                         </constraints>
                     </view>
