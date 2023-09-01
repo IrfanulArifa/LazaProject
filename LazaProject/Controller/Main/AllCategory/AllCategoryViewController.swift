@@ -33,6 +33,8 @@ class AllCategoryViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.tabBarController?.tabBar.isHidden = true
+    
     allCategoryCollection.dataSource = self
     allCategoryCollection.delegate = self
     allCategoryCollection.register(UINib(nibName: "AllCategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AllCategoryCollectionViewCell")
@@ -42,7 +44,7 @@ class AllCategoryViewController: UIViewController {
   
   
   @IBAction func backButtonClicked(_ sender: UIButton) {
-    self.dismiss(animated: true)
+    self.navigationController?.popViewController(animated: true)
   }
   
   @IBAction func sortButtonClicked(_ sender: UIButton) {
@@ -75,11 +77,10 @@ class AllCategoryViewController: UIViewController {
 extension AllCategoryViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let storyboard = UIStoryboard(name: "SelectedBrandViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "AllCategoryViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(identifier: "SelectedBrandViewController") as? SelectedBrandViewController else { return }
     vc.configureBrand(name: categoryData[indexPath.item].name, imageLogo: categoryData[indexPath.item].logoURL)
-    vc.modalPresentationStyle = .fullScreen
-    self.present(vc, animated: true)
+    self.navigationController?.pushViewController(vc, animated: true)
   }
 }
 

@@ -67,23 +67,18 @@ class ProfileViewController: UIViewController {
     let label = UILabel()
     label.numberOfLines = 1
     label.textAlignment = .center
-    label.text = "Profile"
+    label.text = "Home"
     label.font = UIFont(name: "Inter-Medium", size: 11)
-    label.textColor = UIColor(named: "PurpleButton")
     label.sizeToFit()
     
     tabBarItem.standardAppearance?.selectionIndicatorTintColor = UIColor(named: "PurpleButton")
-    navigationController?.tabBarItem.selectedImage = UIImage(view: label)
+    tabBarItem.selectedImage = UIImage(view: label)
   }
   
   @IBAction func editProfileClicked(_ sender: UIButton) {
-    goToEditProfile()
-  }
-  
-  func goToEditProfile() {
-    let storyboard = UIStoryboard(name: "UpdateProfileViewController", bundle: nil).instantiateViewController(withIdentifier: "UpdateProfileViewController") as! UpdateProfileViewController
-    
-    storyboard.modalPresentationStyle = .fullScreen
-    self.present(storyboard, animated: true)
+    let storyboard = UIStoryboard(name: "UpdateProfileViewController", bundle: nil)
+    guard let vc = storyboard.instantiateViewController(withIdentifier: "UpdateProfileViewController") as? UpdateProfileViewController else { return }
+    vc.modalPresentationStyle = .fullScreen
+    self.present(vc, animated: true)
   }
 }

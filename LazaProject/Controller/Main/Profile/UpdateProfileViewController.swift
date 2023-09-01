@@ -51,6 +51,7 @@ class UpdateProfileViewController: ViewController, UIImagePickerControllerDelega
     userName.text = data.string(forKey: "username")
     emailAddress.text = data.string(forKey: "email")
     profileImage.sd_setImage(with: URL(string: data.string(forKey: "image") ?? ""))
+    self.tabBarController?.tabBar.isHidden = true
     
     fullName.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     userName.addTarget(self, action: #selector(checkValidation), for: .editingChanged)

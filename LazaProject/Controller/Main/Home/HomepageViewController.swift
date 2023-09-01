@@ -10,6 +10,7 @@ import SDWebImage
 import SideMenu
 import SnackBar
 import JWTDecode
+import SkeletonView
 
 
 class HomepageViewController: UIViewController, UINavigationControllerDelegate {
@@ -18,8 +19,22 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   let loginModel = LoginViewModel()
   var isValidLogin = false
   
+  @IBOutlet var homeView: UIView!
+  
   @IBOutlet weak var helloLbl: UILabel!{
-    didSet { helloLbl.font = UIFont(name: "Poppins-SemiBold", size: 28)}
+    didSet {
+      helloLbl.font = UIFont(name: "Poppins-SemiBold", size: 28)
+//      helloLbl.isSkeletonable = true
+      helloLbl.showAnimatedGradientSkeleton()
+    }
+  }
+  
+  @IBOutlet weak var welcomeTxt: UILabel!{
+    didSet {
+      welcomeTxt.font = UIFont(name: "Poppins-Regular", size: 20)
+//      welcomeTxt.isSkeletonable = true
+      welcomeTxt.showAnimatedGradientSkeleton()
+    }
   }
   
   @IBOutlet weak var blurEffect: UIVisualEffectView!{
@@ -28,7 +43,9 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     }
   }
   @IBOutlet weak var searchBarStyle: UISearchBar!{
-    didSet{ searchBarStyle.searchBarStyle = .minimal } // Change Bar Style to Minimal
+    didSet{ searchBarStyle.searchBarStyle = .minimal
+      searchBarStyle.showAnimatedGradientSkeleton()
+    } // Change Bar Style to Minimal
   }
   
   // MARK: Connecting Collection into View
@@ -36,12 +53,14 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.tabBarController?.tabBar.isHidden = false
     
     let token = UserDefaults.standard.string(forKey: "access_token")
     isValidToken(token: token!)
     
     if isValidLogin {
       validSnackBar.make(in: self.view, message: "Login is Successful", duration: .lengthLong).show()
+      homeView.showAnimatedGradientSkeleton()
       // Setup Register Collection
       setup()
 
@@ -60,6 +79,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    self.tabBarController?.tabBar.isHidden = false
     categoryTableView.reloadData()
   }
   
@@ -77,11 +97,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
         isValidLogin = false
         showAlert(title: "Invalid Token", message: "Please Re-Login!"){
           DispatchQueue.main.async {
-            if UserModel.deleteAll() {
-              UserModel.stateLogin = false
-              let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
-              self.navigationController?.pushViewController(storyboard, animated: true)
-            }
+            self.logout()
           }
         }
       } else {
@@ -89,6 +105,18 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
       }
     } catch {
       print("An error occurred while decoding the JWT: \(error)")
+    }
+  }
+  
+  private func logout() {
+    if UserModel.deleteAll() {
+      UserModel.stateLogin = false
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let vc = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+      let nav = UINavigationController(rootViewController: vc)
+      nav.setNavigationBarHidden(true, animated: false)
+      nav.hidesBottomBarWhenPushed = true
+      self.view.window?.windowScene?.keyWindow?.rootViewController = nav
     }
   }
   
@@ -129,6 +157,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController") as! SideMenuViewController
     let sideMenu = SideMenuNavigationController(rootViewController: vc)
+    vc.delegate = self
     sideMenu.delegate = self
     sideMenu.presentationStyle = .menuSlideIn
     sideMenu.leftSide = true
@@ -177,17 +206,14 @@ extension HomepageViewController: ProductTableViewCellDelegate {
     let storyboard = UIStoryboard(name: "AllProductViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "AllProductViewController") as? AllProductViewController else { return }
     vc.configureData(data: viewModel.product)
-    vc.modalPresentationStyle = .fullScreen
-    self.present(vc, animated: true)
+    self.navigationController?.pushViewController(vc, animated: true)
   }
   
   func productDidSelectItemAt(didSelectItemAt indexPath: IndexPath) {
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
     vc.configure(data: viewModel.product[indexPath.item].id)
-    vc.modalPresentationStyle = .fullScreen
-    
-    self.present(vc, animated: true)
+    self.navigationController?.pushViewController(vc, animated: true)
   }
 }
 
@@ -202,19 +228,30 @@ extension HomepageViewController: SideMenuNavigationControllerDelegate {
 
 extension HomepageViewController: CategoryTableViewCellDelegate{
   func categoryDidSelectItemAt(didSelectItemAt indexPath: IndexPath) {
-    let storyboard = UIStoryboard(name: "SelectedBrandViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "AllCategoryViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "SelectedBrandViewController") as? SelectedBrandViewController else { return }
     vc.configureBrand(name: viewModel.brand[indexPath.item].name, imageLogo: viewModel.brand[indexPath.item].logoURL)
-    vc.modalPresentationStyle = .fullScreen
-    
-    self.present(vc, animated: true)
+    self.navigationController?.pushViewController(vc, animated: true)
   }
   
   func viewAllCategory() {
     let storyboard = UIStoryboard(name: "AllCategoryViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(identifier: "AllCategoryViewController") as? AllCategoryViewController else { return }
     vc.configureCategory(data: viewModel.brand)
-    vc.modalPresentationStyle = .fullScreen
-    self.present(vc, animated: true)
+    self.navigationController?.pushViewController(vc, animated: true)
+  }
+}
+
+extension HomepageViewController: goToTabBarDelegate {
+  func goToWishlist() {
+    self.tabBarController?.selectedIndex = 1
+  }
+  
+  func goToCart() {
+    self.tabBarController?.selectedIndex = 2
+  }
+  
+  func goToProfile() {
+    self.tabBarController?.selectedIndex = 3
   }
 }

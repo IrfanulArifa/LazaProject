@@ -238,7 +238,7 @@ extension ReviewViewController: UITableViewDataSource {
   }
   
   @IBAction func backButtonClicked(_ sender: UIButton) {
-    self.dismiss(animated: true)
+    self.navigationController?.popViewController(animated: true)
   }
 }
 

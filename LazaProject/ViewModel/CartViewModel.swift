@@ -38,7 +38,6 @@ class CartViewModel {
       do {
         let result = try decoder.decode(CartSuccess.self, from: data)
         self.cartData = result.data
-//        self.orderData = result.data.products!
         self.reloadData?()
       } catch {
         print("Error Decode Data, \(error)")

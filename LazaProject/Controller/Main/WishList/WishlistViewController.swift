@@ -23,6 +23,7 @@ class WishlistViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupTabBarItemImage() // Calling Function
+    self.tabBarController?.tabBar.isHidden = false
     let token = UserDefaults.standard.string(forKey: "access_token")
     reloadWishlist(token: token!)
   }
@@ -38,6 +39,7 @@ class WishlistViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    self.tabBarController?.tabBar.isHidden = false
     let token = UserDefaults.standard.string(forKey: "access_token")
     reloadWishlist(token: token!)
   }
@@ -64,8 +66,7 @@ extension WishlistViewController: UICollectionViewDelegate{
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
     vc.configure(data: (viewModel.wishlistData?.data.products[indexPath.item].id)!)
-    vc.modalPresentationStyle = .fullScreen
-    self.present(vc, animated: true)
+    self.navigationController?.pushViewController(vc, animated: true)
   }
 }
 

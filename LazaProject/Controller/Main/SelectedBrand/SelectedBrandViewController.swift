@@ -10,20 +10,19 @@ import SDWebImage
 
 class SelectedBrandViewController: UIViewController {
   
-  @IBOutlet weak var brandName: UILabel!{
-    didSet { brandName.font = UIFont(name: "Poppins-SemiBold", size: 20)}
-  }
   @IBOutlet weak var brandImage: UIImageView!
   @IBOutlet weak var sortingButton: UIButton!{
     didSet {
       sortingButton.setImage(UIImage(systemName: ""), for: .normal)
     }
   }
+  
   @IBOutlet weak var totalItems: UILabel!{
     didSet {
       totalItems.font = UIFont(name: "Poppins-Regular", size: 17)
     }
   }
+  
   @IBOutlet weak var SelectedCollection: UICollectionView!
   
   var productBrand: String?
@@ -38,6 +37,7 @@ class SelectedBrandViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.tabBarController?.tabBar.isHidden = true
     
     SelectedCollection.dataSource = self
     SelectedCollection.delegate = self
@@ -48,7 +48,6 @@ class SelectedBrandViewController: UIViewController {
         self.SelectedCollection.reloadData()
         self.arrayProduct = self.viewModel.productByName
         self.totalItems.text = String(self.arrayProduct.count) + " Items"
-        self.brandName.text = self.productBrand?.capitalized
         if self.productLogo == "" {
           self.brandImage.removeFromSuperview()
         } else {
@@ -62,7 +61,7 @@ class SelectedBrandViewController: UIViewController {
   }
   
   @IBAction func backButtonClicked(_ sender: UIButton) {
-    self.dismiss(animated: true)
+    self.navigationController?.popViewController(animated: true)
   }
   
   @IBAction func sortingButton(_ sender: UIButton) {
@@ -98,9 +97,7 @@ extension SelectedBrandViewController: UICollectionViewDelegate{
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
     vc.configure(data: viewModel.productByName[indexPath.item].id)
-    vc.modalPresentationStyle = .fullScreen
-    
-    self.present(vc, animated: true)
+    self.navigationController?.pushViewController(vc, animated: true)
   }
 }
 
@@ -124,6 +121,10 @@ extension SelectedBrandViewController: UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return CGSize(width: 165, height: 300)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
   }
 }
 

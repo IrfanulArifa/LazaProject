@@ -29,6 +29,8 @@ class AllProductViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.tabBarController?.tabBar.isHidden = true
+    
     productCollection.dataSource = self
     productCollection.delegate = self
     productCollection.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductCollectionViewCell")
@@ -36,7 +38,7 @@ class AllProductViewController: UIViewController {
   }
   
   @IBAction func backButtonClicked(_ sender: UIButton) {
-    self.dismiss(animated: true)
+    self.navigationController?.popViewController(animated: true)
   }
   
   @IBAction func sortButtonClicked(_ sender: UIButton) {
@@ -69,9 +71,7 @@ extension AllProductViewController: UICollectionViewDelegate {
     let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
     vc.configure(data: newData[indexPath.item].id)
-    vc.modalPresentationStyle = .fullScreen
-    
-    self.present(vc, animated: true)
+    self.navigationController?.pushViewController(vc, animated: true)
   }
 }
 

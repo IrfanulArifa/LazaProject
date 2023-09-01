@@ -40,10 +40,8 @@
 		003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */; };
 		003CE9B62A7793A6008D32FA /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */; };
 		003CE9B72A7793A6008D32FA /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */; };
-		004678402A935651005C0E07 /* UpdateProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0046783F2A935651005C0E07 /* UpdateProfileViewController.storyboard */; };
 		004678462A945DF2005C0E07 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678452A945DF2005C0E07 /* DateUtils.swift */; };
 		0046784A2A94847D005C0E07 /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678492A94847D005C0E07 /* AddReviewViewModel.swift */; };
-		0046F08D2A9C550F00FF339A /* SelectedBrandViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0046F08C2A9C550F00FF339A /* SelectedBrandViewController.storyboard */; };
 		0046F08F2A9C552500FF339A /* SelectedBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0046F08E2A9C552500FF339A /* SelectedBrandViewController.swift */; };
 		006374702A910980003EC0EF /* VerifyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0063746F2A910980003EC0EF /* VerifyAccountViewController.swift */; };
 		006374732A911655003EC0EF /* VerifyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006374722A911655003EC0EF /* VerifyAccountViewModel.swift */; };
@@ -111,6 +109,8 @@
 		009320162A9D98C100B1E703 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009320152A9D98C100B1E703 /* AddressViewModel.swift */; };
 		009486C52A9EFA5100FA7955 /* UpdateAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009486C42A9EFA5100FA7955 /* UpdateAddressViewController.swift */; };
 		009486C72A9F26F500FA7955 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009486C62A9F26F500FA7955 /* CartViewModel.swift */; };
+		009486CA2AA19C9D00FA7955 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 009486C92AA19C9D00FA7955 /* SkeletonView */; };
+		009486CE2AA1CC0100FA7955 /* UpdateProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009486CD2AA1CC0100FA7955 /* UpdateProfileViewController.storyboard */; };
 		009615422A94A5FC009200C7 /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009615412A94A5FC009200C7 /* WishlistViewModel.swift */; };
 		00A74B402A72064300BB07B9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A74B3F2A72064300BB07B9 /* DetailViewController.swift */; };
 		00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A74B412A72065500BB07B9 /* DetailViewController.storyboard */; };
@@ -156,10 +156,8 @@
 		003CE9B12A779393008D32FA /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
-		0046783F2A935651005C0E07 /* UpdateProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateProfileViewController.storyboard; sourceTree = "<group>"; };
 		004678452A945DF2005C0E07 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		004678492A94847D005C0E07 /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
-		0046F08C2A9C550F00FF339A /* SelectedBrandViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectedBrandViewController.storyboard; sourceTree = "<group>"; };
 		0046F08E2A9C552500FF339A /* SelectedBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBrandViewController.swift; sourceTree = "<group>"; };
 		0063746F2A910980003EC0EF /* VerifyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountViewController.swift; sourceTree = "<group>"; };
 		006374722A911655003EC0EF /* VerifyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountViewModel.swift; sourceTree = "<group>"; };
@@ -222,6 +220,7 @@
 		009320152A9D98C100B1E703 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		009486C42A9EFA5100FA7955 /* UpdateAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAddressViewController.swift; sourceTree = "<group>"; };
 		009486C62A9F26F500FA7955 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		009486CD2AA1CC0100FA7955 /* UpdateProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateProfileViewController.storyboard; sourceTree = "<group>"; };
 		009615412A94A5FC009200C7 /* WishlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
 		00A74B3F2A72064300BB07B9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		00A74B412A72065500BB07B9 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
@@ -248,6 +247,7 @@
 				006B4C812A755460001247C4 /* FacebookCore in Frameworks */,
 				007904FF2A8C7D2800FEBFF0 /* DPOTPView in Frameworks */,
 				007B0F9C2A7124E10034E7A5 /* SDWebImage in Frameworks */,
+				009486CA2AA19C9D00FA7955 /* SkeletonView in Frameworks */,
 				003CE9762A776326008D32FA /* SideMenu in Frameworks */,
 				0008FF9C2A8394C50006BF26 /* SnackBar in Frameworks */,
 				006B4C872A756057001247C4 /* Swifter in Frameworks */,
@@ -329,18 +329,10 @@
 			path = AllAddress;
 			sourceTree = "<group>";
 		};
-		000DC8142A9C85D500A8B725 /* SelectedBrand */ = {
-			isa = PBXGroup;
-			children = (
-				0046F08C2A9C550F00FF339A /* SelectedBrandViewController.storyboard */,
-			);
-			path = SelectedBrand;
-			sourceTree = "<group>";
-		};
 		0046783E2A935641005C0E07 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				0046783F2A935651005C0E07 /* UpdateProfileViewController.storyboard */,
+				009486CD2AA1CC0100FA7955 /* UpdateProfileViewController.storyboard */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -655,7 +647,6 @@
 		008EE8882A7B4920002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				000DC8142A9C85D500A8B725 /* SelectedBrand */,
 				0086FE442A9718DE00E41A19 /* AllCategory */,
 				0086FE3E2A96FE4400E41A19 /* AllProduct */,
 				0046783E2A935641005C0E07 /* Profile */,
@@ -932,6 +923,7 @@
 				00A8FDB52A92FD51006FB87D /* JWTDecode */,
 				0086FE3A2A96F37300E41A19 /* GoogleSignIn */,
 				0086FE3C2A96F37300E41A19 /* GoogleSignInSwift */,
+				009486C92AA19C9D00FA7955 /* SkeletonView */,
 			);
 			productName = LazaProject;
 			productReference = 007B0F522A70B2410034E7A5 /* LazaProject.app */;
@@ -970,6 +962,7 @@
 				007904FD2A8C7D2800FEBFF0 /* XCRemoteSwiftPackageReference "DPOTPView" */,
 				00A8FDB42A92FD51006FB87D /* XCRemoteSwiftPackageReference "JWTDecode" */,
 				0086FE392A96F37300E41A19 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				009486C82AA19C9D00FA7955 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 007B0F532A70B2410034E7A5 /* Products */;
 			projectDirPath = "";
@@ -1000,11 +993,10 @@
 				007B0F622A70B2420034E7A5 /* LaunchScreen.storyboard in Resources */,
 				007B0F8B2A70F8C40034E7A5 /* HomepageViewController.storyboard in Resources */,
 				00A74B422A72065500BB07B9 /* DetailViewController.storyboard in Resources */,
-				0046F08D2A9C550F00FF339A /* SelectedBrandViewController.storyboard in Resources */,
 				003CE9B72A7793A6008D32FA /* ProductTableViewCell.xib in Resources */,
+				009486CE2AA1CC0100FA7955 /* UpdateProfileViewController.storyboard in Resources */,
 				007B0F5F2A70B2420034E7A5 /* Assets.xcassets in Resources */,
 				007B0F992A71171D0034E7A5 /* ProductCollectionViewCell.xib in Resources */,
-				004678402A935651005C0E07 /* UpdateProfileViewController.storyboard in Resources */,
 				008EE8B72A7B95F0002C44B9 /* ReviewTableViewCell.xib in Resources */,
 				008CE6A82A80D72500454CED /* AddressViewController.storyboard in Resources */,
 				008EE8B22A7B8FA8002C44B9 /* ReviewViewController.storyboard in Resources */,
@@ -1419,6 +1411,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		009486C82AA19C9D00FA7955 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		00A8FDB42A92FD51006FB87D /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
@@ -1479,6 +1479,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0086FE392A96F37300E41A19 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		009486C92AA19C9D00FA7955 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 009486C82AA19C9D00FA7955 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		00A8FDB52A92FD51006FB87D /* JWTDecode */ = {
 			isa = XCSwiftPackageProductDependency;

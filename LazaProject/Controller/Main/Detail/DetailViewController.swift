@@ -28,6 +28,8 @@ class DetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.tabBarController?.tabBar.isHidden = true
+    
     detailTableView.delegate = self
     detailTableView.dataSource = self
     
@@ -56,7 +58,7 @@ class DetailViewController: UIViewController {
   
   // MARK: Back button when Clicked -> Back to Previous View
   @IBAction func backButtonClicked(_ sender: UIButton) {
-    self.dismiss(animated: true)
+    self.navigationController?.popViewController(animated: true)
   }
   
   
@@ -200,7 +202,6 @@ extension DetailViewController: ReviewTableViewCellDelegate {
     let vc = storyboard.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
     guard let id = dataDetail else { return }
     vc.getProductId(product: id)
-    vc.modalPresentationStyle = .fullScreen
-    self.present(vc, animated: true)
+    self.navigationController?.pushViewController(vc, animated: true)
   }
 }

@@ -108,6 +108,105 @@
             </objects>
             <point key="canvasLocation" x="52" y="-2"/>
         </scene>
+        <!--Selected Brand View Controller-->
+        <scene sceneID="YWt-I7-tg5">
+            <objects>
+                <viewController storyboardIdentifier="SelectedBrandViewController" id="Gz0-bG-BtS" customClass="SelectedBrandViewController" customModule="LazaProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="snw-0c-TVL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nl-qI-5J6">
+                                <rect key="frame" x="20" y="45" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="dcb-gZ-USP"/>
+                                    <constraint firstAttribute="width" constant="45" id="t3A-Va-oAN"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="BackButton"/>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="Gz0-bG-BtS" eventType="touchUpInside" id="yKq-If-M9m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYq-g7-e1W">
+                                <rect key="frame" x="317" y="113.33333333333333" width="56" height="34.333333333333329"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" name="blackFont"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sort"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sortingButton:" destination="Gz0-bG-BtS" eventType="touchUpInside" id="mI4-6S-gQD"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XJg-Ud-2L0">
+                                <rect key="frame" x="0.0" y="170.66666666666669" width="393" height="681.33333333333326"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eQc-Qc-2J7">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zQA-pj-Wzy">
+                                <rect key="frame" x="166.66666666666666" y="50" width="60" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="RX4-Y1-Rl9"/>
+                                    <constraint firstAttribute="width" constant="60" id="TLf-85-SKZ"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rdG-Q0-NEr">
+                                <rect key="frame" x="20" y="110.00000000000001" width="132.66666666666666" height="40.666666666666671"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="365 Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdP-Lp-cNB">
+                                        <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available in Stock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLe-pb-fQ6">
+                                        <rect key="frame" x="0.0" y="20.333333333333343" width="132.66666666666666" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.56078431370000004" green="0.58431372550000005" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TAo-qS-2ly"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1nl-qI-5J6" firstAttribute="leading" secondItem="TAo-qS-2ly" secondAttribute="leading" constant="20" id="43e-XO-NTp"/>
+                            <constraint firstItem="XJg-Ud-2L0" firstAttribute="leading" secondItem="TAo-qS-2ly" secondAttribute="leading" id="5iW-x6-r7T"/>
+                            <constraint firstItem="XJg-Ud-2L0" firstAttribute="top" secondItem="rdG-Q0-NEr" secondAttribute="bottom" constant="20" id="Jgu-ke-lMD"/>
+                            <constraint firstItem="zQA-pj-Wzy" firstAttribute="centerX" secondItem="snw-0c-TVL" secondAttribute="centerX" id="MOH-b4-cmo"/>
+                            <constraint firstAttribute="bottom" secondItem="XJg-Ud-2L0" secondAttribute="bottom" id="Qfe-xD-3iG"/>
+                            <constraint firstItem="rdG-Q0-NEr" firstAttribute="top" secondItem="1nl-qI-5J6" secondAttribute="bottom" constant="20" id="Xjy-eK-nSd"/>
+                            <constraint firstItem="1nl-qI-5J6" firstAttribute="top" secondItem="snw-0c-TVL" secondAttribute="top" constant="45" id="eqb-ap-uGg"/>
+                            <constraint firstItem="XJg-Ud-2L0" firstAttribute="trailing" secondItem="TAo-qS-2ly" secondAttribute="trailing" id="gAa-7V-FQE"/>
+                            <constraint firstItem="rdG-Q0-NEr" firstAttribute="leading" secondItem="TAo-qS-2ly" secondAttribute="leading" constant="20" id="i4s-xP-na1"/>
+                            <constraint firstItem="TAo-qS-2ly" firstAttribute="trailing" secondItem="qYq-g7-e1W" secondAttribute="trailing" constant="20" id="lcy-MH-Ivn"/>
+                            <constraint firstItem="zQA-pj-Wzy" firstAttribute="top" secondItem="snw-0c-TVL" secondAttribute="top" constant="50" id="sDD-tN-FJx"/>
+                            <constraint firstItem="qYq-g7-e1W" firstAttribute="centerY" secondItem="rdG-Q0-NEr" secondAttribute="centerY" id="wXd-Eq-wVQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="SelectedCollection" destination="XJg-Ud-2L0" id="JBX-2s-vZa"/>
+                        <outlet property="brandImage" destination="zQA-pj-Wzy" id="8DY-yA-mOh"/>
+                        <outlet property="sortingButton" destination="qYq-g7-e1W" id="TR6-3N-hug"/>
+                        <outlet property="totalItems" destination="TdP-Lp-cNB" id="Ozt-GE-pRH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S0K-Ne-veQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="-2"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BackButton" width="60" height="60"/>
