@@ -47,20 +47,29 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dC5-fZ-IAc">
-                                        <rect key="frame" x="20" y="265.66666666666663" width="260" height="34.333333333333314"/>
-                                        <color key="tintColor" name="blackFont"/>
+                                        <rect key="frame" x="125" y="265" width="50" height="30"/>
+                                        <color key="backgroundColor" name="PurpleButton"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Kj3-bP-JxU"/>
+                                            <constraint firstAttribute="width" constant="50" id="M9a-f0-Xy5"/>
+                                        </constraints>
+                                        <color key="tintColor" name="whiteFont"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="camera" catalog="system" title=""/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="cameraClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="GTs-0g-APZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" name="PurpleButton"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="dC5-fZ-IAc" secondAttribute="bottom" id="E17-od-9fy"/>
-                                    <constraint firstAttribute="trailing" secondItem="dC5-fZ-IAc" secondAttribute="trailing" constant="20" id="Uvy-zI-9sB"/>
-                                    <constraint firstItem="dC5-fZ-IAc" firstAttribute="leading" secondItem="TFM-68-sRi" secondAttribute="leading" constant="20" id="W4u-Yt-Hei"/>
+                                    <constraint firstItem="dC5-fZ-IAc" firstAttribute="centerX" secondItem="TFM-68-sRi" secondAttribute="centerX" id="9aJ-mJ-jHg"/>
+                                    <constraint firstAttribute="bottom" secondItem="dC5-fZ-IAc" secondAttribute="bottom" constant="5" id="E17-od-9fy"/>
                                     <constraint firstAttribute="height" constant="300" id="WDd-T3-FhH"/>
                                     <constraint firstAttribute="bottom" secondItem="73V-PM-656" secondAttribute="bottom" constant="10" id="Y7v-Cn-6bI"/>
                                     <constraint firstItem="73V-PM-656" firstAttribute="top" secondItem="TFM-68-sRi" secondAttribute="top" constant="10" id="w7U-mj-Fag"/>
@@ -219,7 +228,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="svG-ae-SxJ" secondAttribute="trailing" constant="20" id="4CV-l0-zwo"/>
                             <constraint firstItem="nGN-dL-ljB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="925-bn-7Wm"/>
@@ -271,20 +280,17 @@
         <image name="BackButton" width="60" height="60"/>
         <image name="camera" catalog="system" width="128" height="93"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
+        <namedColor name="BackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PurpleButton">
             <color red="0.23921568627450981" green="0.57647058823529407" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="blackFont">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="whiteFont">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

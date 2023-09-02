@@ -112,6 +112,11 @@ class LoginViewController: UIViewController {
     self.view.window?.windowScene?.keyWindow?.rootViewController = vc
   }
   
+  func goToSignUp() {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+    self.navigationController?.pushViewController(storyboard, animated: true)
+  }
+  
   func startingAnimation() {
     self.indicatorLoading.startAnimating()
     self.indicatorLoading.isHidden = false
@@ -122,11 +127,6 @@ class LoginViewController: UIViewController {
     self.indicatorLoading.stopAnimating()
     self.indicatorLoading.isHidden = true
     self.disableView.isHidden = true
-  }
-  
-  // MARK: Back Button when Clicked -> Back to Previous View
-  @IBAction func backButtonClicked(_ sender: Any) {
-    backToMain()
   }
   
   // MARK: forgot Button when Clicked -> Go To NewPassword View
@@ -200,5 +200,9 @@ class LoginViewController: UIViewController {
       eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
       passwordTextField.isSecureTextEntry = true
     }
+  }
+  
+  @IBAction func signUpButtonClicked(_ sender: UIButton) {
+    goToSignUp()
   }
 }

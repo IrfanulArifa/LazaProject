@@ -131,7 +131,7 @@ class NewPasswordViewController: UIViewController {
   
   func goToLogin() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-    self.navigationController?.pushViewController(storyboard, animated: true)
+    self.navigationController?.popToRootViewController(animated: true)
   }
   
   @IBAction func passwordEyeClicked(_ sender: UIButton) {

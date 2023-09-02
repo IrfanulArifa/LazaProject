@@ -31,6 +31,9 @@
                 <constraint firstItem="0zl-ac-4iC" firstAttribute="top" secondItem="pr6-Jx-kAN" secondAttribute="top" id="qe3-5s-p7W"/>
             </constraints>
             <size key="customSize" width="248" height="187"/>
+            <connections>
+                <outlet property="paymentCardView" destination="0zl-ac-4iC" id="zrr-Sn-yC7"/>
+            </connections>
             <point key="canvasLocation" x="377" y="79"/>
         </collectionViewCell>
     </objects>

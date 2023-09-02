@@ -234,6 +234,7 @@ extension ReviewViewController: UITableViewDataSource {
     vc.delegate = self
     guard let id = productId else { return }
     vc.sendProductId(productId: id)
+    vc.modalPresentationStyle = .fullScreen
     self.present(vc, animated: true)
   }
   

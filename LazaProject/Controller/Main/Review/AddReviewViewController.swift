@@ -37,7 +37,7 @@ class AddReviewViewController: UIViewController {
   }
   
   @IBAction func backClicked(_ sender: UIButton) {
-    navigationController?.popViewController(animated: true)
+    self.dismiss(animated: true)
   }
   
   

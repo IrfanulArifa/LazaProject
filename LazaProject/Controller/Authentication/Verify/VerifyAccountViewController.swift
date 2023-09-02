@@ -64,7 +64,7 @@ class VerifyAccountViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    navigationController?.setNavigationBarHidden(true, animated: true)
     setTimer()
     emailTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
   }

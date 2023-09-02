@@ -57,6 +57,7 @@ class ForgetPasswordViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.setNavigationBarHidden(true, animated: true)
     emailAdressTxtField.addTarget(self, action: #selector(emailValidation), for: .editingChanged)
   }
   

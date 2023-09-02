@@ -64,13 +64,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Et3-lv-Ooh">
-                                <rect key="frame" x="20" y="79" width="353" height="21"/>
+                                <rect key="frame" x="20" y="60" width="353" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2HP-LO-qgU">
-                                <rect key="frame" x="0.0" y="100" width="393" height="619"/>
+                                <rect key="frame" x="0.0" y="81" width="393" height="638"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pd5-HF-ZcR">
@@ -137,7 +137,7 @@
                             <constraint firstItem="ZhE-8x-B9O" firstAttribute="centerY" secondItem="WG3-7B-WS5" secondAttribute="centerY" id="0WL-cQ-Jxj"/>
                             <constraint firstItem="8sW-Lq-rTZ" firstAttribute="centerY" secondItem="WG3-7B-WS5" secondAttribute="centerY" id="2s5-As-DqG"/>
                             <constraint firstItem="2HP-LO-qgU" firstAttribute="top" secondItem="Et3-lv-Ooh" secondAttribute="bottom" id="4br-WI-3bu"/>
-                            <constraint firstItem="Et3-lv-Ooh" firstAttribute="top" secondItem="5X3-PC-H0X" secondAttribute="top" constant="20" id="9kI-Ko-pTZ"/>
+                            <constraint firstItem="Et3-lv-Ooh" firstAttribute="top" secondItem="WG3-7B-WS5" secondAttribute="top" constant="60" id="9kI-Ko-pTZ"/>
                             <constraint firstItem="Et3-lv-Ooh" firstAttribute="leading" secondItem="5X3-PC-H0X" secondAttribute="leading" constant="20" id="FlD-qS-bLp"/>
                             <constraint firstItem="2HP-LO-qgU" firstAttribute="trailing" secondItem="5X3-PC-H0X" secondAttribute="trailing" id="Pl6-9T-l9p"/>
                             <constraint firstItem="8sW-Lq-rTZ" firstAttribute="centerX" secondItem="WG3-7B-WS5" secondAttribute="centerX" id="Ucd-wJ-wDX"/>
@@ -174,7 +174,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItT-J2-A4r">
                                 <rect key="frame" x="20" y="60" width="353" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
