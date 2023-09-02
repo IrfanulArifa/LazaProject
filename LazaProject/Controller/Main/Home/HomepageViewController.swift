@@ -112,7 +112,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     if UserModel.deleteAll() {
       UserModel.stateLogin = false
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let vc = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+      let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
       let nav = UINavigationController(rootViewController: vc)
       nav.setNavigationBarHidden(true, animated: false)
       nav.hidesBottomBarWhenPushed = true

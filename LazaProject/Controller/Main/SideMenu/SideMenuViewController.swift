@@ -17,7 +17,7 @@ protocol goToTabBarDelegate: AnyObject {
 
 class SideMenuViewController: UIViewController {
   var loginUser: DataClass?
-  let appDelegate = UIApplication.shared.windows.first
+//  let appDelegate = UIApplication.shared.windows.first
   weak var delegate: goToTabBarDelegate?
   
   @IBOutlet weak var sideMenuPersonName: UILabel!
@@ -27,10 +27,16 @@ class SideMenuViewController: UIViewController {
   
   @IBOutlet weak var switchBtn: UISwitch!{
     didSet {
-      if appDelegate?.overrideUserInterfaceStyle == .dark {
-        switchBtn.isOn = true
-      } else if appDelegate?.overrideUserInterfaceStyle == .light {
-        switchBtn.isOn = false
+      if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+        let appDelegate = windowScene.windows.first
+        if appDelegate?.overrideUserInterfaceStyle == .dark {
+          switchBtn.isOn = true
+        }
+      } else if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+        let appDelegate = windowScene.windows.first
+        if appDelegate?.overrideUserInterfaceStyle == .light {
+          switchBtn.isOn = false
+        }
       }
     }
   }
@@ -56,10 +62,15 @@ class SideMenuViewController: UIViewController {
   
   @IBAction func switchClicked(_ sender: UISwitch) {
     if sender.isOn {
-      appDelegate?.overrideUserInterfaceStyle = .dark
-      return
+      if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+        let appDelegate = windowScene.windows.first
+        appDelegate?.overrideUserInterfaceStyle = .dark
+      }
     } else {
-      appDelegate?.overrideUserInterfaceStyle = .light
+      if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+        let appDelegate = windowScene.windows.first
+        appDelegate?.overrideUserInterfaceStyle = .light
+      }
     }
   }
   
