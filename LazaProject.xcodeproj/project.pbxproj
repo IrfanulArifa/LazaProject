@@ -421,7 +421,6 @@
 		00733AAD2A7B45B80001FBF6 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				007B0F5B2A70B2410034E7A5 /* Main.storyboard */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -490,16 +489,11 @@
 		007B0F6B2A70B2AD0034E7A5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				007B0F592A70B2410034E7A5 /* ViewController.swift */,
 				009320152A9D98C100B1E703 /* AddressViewModel.swift */,
 				004678492A94847D005C0E07 /* AddReviewViewModel.swift */,
 				00A8FDB72A930487006FB87D /* HomeViewModel.swift */,
 				00A8FDB92A930BA4006FB87D /* DetailViewModel.swift */,
-				007904F92A8B339700FEBFF0 /* SignUpViewModel.swift */,
-				007904FB2A8B676300FEBFF0 /* LoginViewModel.swift */,
-				003517312A926E74004D3CD1 /* NewPasswordViewModel.swift */,
-				0035172B2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift */,
-				006374722A911655003EC0EF /* VerifyAccountViewModel.swift */,
-				0035172F2A9204E1004D3CD1 /* VerificationCodeViewModel.swift */,
 				0021A19A2A95E85400BDD4F9 /* UpdateProfileViewModel.swift */,
 				007B0F7C2A70CAD80034E7A5 /* ViewModel.swift */,
 				009615412A94A5FC009200C7 /* WishlistViewModel.swift */,
@@ -650,14 +644,10 @@
 		008EE8892A7B4948002C44B9 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				0063746F2A910980003EC0EF /* VerifyAccountViewController.swift */,
-				008CE69A2A809AB400454CED /* VerificationCodeViewController.swift */,
-				008CE6942A80976F00454CED /* ForgetPasswordViewController.swift */,
-				007B0F882A70DF450034E7A5 /* NewPasswordViewController.swift */,
-				007B0F842A70D5BD0034E7A5 /* LoginViewController.swift */,
-				007B0F802A70CD430034E7A5 /* SignUpViewController.swift */,
-				007B0F592A70B2410034E7A5 /* ViewController.swift */,
-				00EB8D502AA31EF400D9ADDC /* SetProfileViewController.swift */,
+				007B0F5B2A70B2410034E7A5 /* Main.storyboard */,
+				00EB8D542AA4E99700D9ADDC /* Login */,
+				00EB8D552AA4EAA900D9ADDC /* Register */,
+				00EB8D562AA4EAE000D9ADDC /* ForgotPassword */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -824,6 +814,88 @@
 				00A8FDC52A934DA2006FB87D /* UpdateProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		00EB8D542AA4E99700D9ADDC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				007904FB2A8B676300FEBFF0 /* LoginViewModel.swift */,
+				00EB8D572AA4EC4F00D9ADDC /* Login */,
+				00EB8D582AA4EC5C00D9ADDC /* SetupProfile */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		00EB8D552AA4EAA900D9ADDC /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				007B0F802A70CD430034E7A5 /* SignUpViewController.swift */,
+				007904F92A8B339700FEBFF0 /* SignUpViewModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		00EB8D562AA4EAE000D9ADDC /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				00EB8D592AA4ECD300D9ADDC /* ForgotPassword */,
+				00EB8D5A2AA4ECF000D9ADDC /* VerifyAccount */,
+				00EB8D5B2AA4ED0D00D9ADDC /* VerificationCode */,
+				00EB8D5C2AA4ED1C00D9ADDC /* NewPassword */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		00EB8D572AA4EC4F00D9ADDC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				007B0F842A70D5BD0034E7A5 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		00EB8D582AA4EC5C00D9ADDC /* SetupProfile */ = {
+			isa = PBXGroup;
+			children = (
+				00EB8D502AA31EF400D9ADDC /* SetProfileViewController.swift */,
+			);
+			path = SetupProfile;
+			sourceTree = "<group>";
+		};
+		00EB8D592AA4ECD300D9ADDC /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				0035172B2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift */,
+				008CE6942A80976F00454CED /* ForgetPasswordViewController.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		00EB8D5A2AA4ECF000D9ADDC /* VerifyAccount */ = {
+			isa = PBXGroup;
+			children = (
+				006374722A911655003EC0EF /* VerifyAccountViewModel.swift */,
+				0063746F2A910980003EC0EF /* VerifyAccountViewController.swift */,
+			);
+			path = VerifyAccount;
+			sourceTree = "<group>";
+		};
+		00EB8D5B2AA4ED0D00D9ADDC /* VerificationCode */ = {
+			isa = PBXGroup;
+			children = (
+				0035172F2A9204E1004D3CD1 /* VerificationCodeViewModel.swift */,
+				008CE69A2A809AB400454CED /* VerificationCodeViewController.swift */,
+			);
+			path = VerificationCode;
+			sourceTree = "<group>";
+		};
+		00EB8D5C2AA4ED1C00D9ADDC /* NewPassword */ = {
+			isa = PBXGroup;
+			children = (
+				007B0F882A70DF450034E7A5 /* NewPasswordViewController.swift */,
+				003517312A926E74004D3CD1 /* NewPasswordViewModel.swift */,
+			);
+			path = NewPassword;
 			sourceTree = "<group>";
 		};
 		94364406878460913452CA44 /* Pods */ = {
