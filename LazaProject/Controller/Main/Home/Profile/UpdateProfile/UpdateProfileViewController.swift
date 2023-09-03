@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class UpdateProfileViewController: ViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class UpdateProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
   let imagePicker = UIImagePickerController()
   let viewModel = UpdateProfileViewModel()
   
@@ -126,14 +126,14 @@ class UpdateProfileViewController: ViewController, UIImagePickerControllerDelega
     startingAnimation()
     let token = UserDefaults.standard.string(forKey: "access_token")
     viewModel.updateProfile(image: profileImage.image!, token: token!, fullname: fullName.text!, username: userName.text!, email: emailAddress.text!) { response in
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         self.hidingAnimation()
         self.showAlert(title: "Success", message: "Update Image Success \n Return to Profile Page"){
           self.dismiss(animated: true)
         }
       }
     } onError: { error in
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         self.hidingAnimation()
         self.showAlert(title: "Failed", message: error.capitalized)
       }

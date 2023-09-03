@@ -95,16 +95,17 @@ extension AllAddressViewController: UITableViewDataSource{
     let data = viewModel.allAddressData[indexPath.row]
     
     let deleteData = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, completionHandler) in
-      DispatchQueue.main.async {
-        self?.viewModel.deleteAddress(idAddress: data.id, completion: { response in
+      DispatchQueue.main.async { [weak self] in
+        guard let self = self else { return }
+        self.viewModel.deleteAddress(idAddress: data.id, completion: { response in
           DispatchQueue.main.async {
-            self?.viewModel.allAddressData.removeAll {$0.id == data.id }
-            self?.addressTableView.deleteRows(at: [indexPath], with: .left)
-            self?.showAlert(title: "Success", message: (response?.data.capitalized)!)
+            self.viewModel.allAddressData.removeAll {$0.id == data.id }
+            self.addressTableView.deleteRows(at: [indexPath], with: .left)
+            self.showAlert(title: "Success", message: (response?.data.capitalized)!)
           }
         }, onError: { error in
           DispatchQueue.main.async {
-            self?.showAlert(title: "Failed", message: "Data Gagal Dihapus!")
+            self.showAlert(title: "Failed", message: "Data Gagal Dihapus!")
           }
         })
       }
@@ -113,7 +114,7 @@ extension AllAddressViewController: UITableViewDataSource{
     deleteData.backgroundColor = .systemRed
     
     let updateData = UIContextualAction(style: .normal, title: "Edit") { [weak self] (action, view, completionHandler)  in
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         let storyboard = UIStoryboard(name: "AddressViewController", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "UpdateAddressViewController") as? UpdateAddressViewController else { return }
         vc.configure(data: data)

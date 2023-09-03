@@ -89,20 +89,21 @@ class VerificationCodeViewController: UIViewController {
     guard let email = email else { return }
     verificationViewModel.verificationToken(email: email, otp: otpField.text!) { response in
       if response != nil {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
           self.hidingAnimation()
           self.showAlert(title: "OTP Valid", message: "Redirecting") {
             self.goToNewPassword()
           }
         }
       } else {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
           self.hidingAnimation()
           invalidSnackBar.make(in: self.view, message: "OTP Salah", duration: .lengthLong).show()
         }
       }
     } onError: { error in
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         self.hidingAnimation()
         if error == "Key: 'VerificationCode.Email' Error:Field validation for 'Email' failed on the 'required' tag" {
           invalidSnackBar.make(in: self.view, message: "Email Kosong", duration: .lengthLong).show()

@@ -48,14 +48,13 @@ class AddReviewViewController: UIViewController {
       return }
     let rating = String(format: "%.0f", sliderValue.value)
     viewModel.addReview(productId: product, comment: reviewField.text!, rating: Double(rating)!, token: token) { response in
-      
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         self.showAlert(title: "Success", message: response!.status){
           self.goToReview()
         }
       }
     } onError: { error in
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         self.showAlert(title: "Error", message: error.capitalized)
       }
     }
@@ -72,7 +71,7 @@ class AddReviewViewController: UIViewController {
   func logout(){
     if UserModel.deleteAll() {
       UserModel.stateLogin = false
-      let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+      let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
       self.navigationController?.pushViewController(storyboard, animated: true)
     }
   }

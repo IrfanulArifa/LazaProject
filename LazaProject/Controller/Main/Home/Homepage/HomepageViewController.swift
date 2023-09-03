@@ -123,13 +123,13 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   private func reloadCollectionData() {
     // Closure that Reload Collection Data
     viewModel.reloadProduct = {
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         self.categoryTableView.reloadData()
       }
     }
     // Closure that Reload Collection Data
     viewModel.reloadCategory = {
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         self.categoryTableView.reloadData()
       }
     }

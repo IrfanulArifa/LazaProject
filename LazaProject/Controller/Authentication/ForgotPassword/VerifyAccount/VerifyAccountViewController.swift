@@ -98,7 +98,7 @@ class VerifyAccountViewController: UIViewController {
   func sendVerify() {
     startingAnimation()
     verifyModel.resendVerify(email: emailTxtField.text! ) { response in
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         self.hidingAnimation()
         self.showAlert(title: "Verify Resend", message: "Please Check your Email box")
       }

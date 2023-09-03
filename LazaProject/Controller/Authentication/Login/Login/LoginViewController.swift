@@ -91,11 +91,6 @@ class LoginViewController: UIViewController {
     usernameTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
   }
   
-  private func backToMain() {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
-    self.navigationController?.pushViewController(storyboard, animated: true)
-  }
-  
   private func goToVerify() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "VerifyAccountViewController") as! VerifyAccountViewController
@@ -144,7 +139,8 @@ class LoginViewController: UIViewController {
   @IBAction func loginButtonClicked(_ sender: UIButton) {
     startingAnimation()
     loginModel.login(username: usernameTxtField.text!, password: passwordTextField.text!) { response in
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [weak self] in
+        guard let self = self else { return }
         self.hidingAnimation()
         self.showAlert(title: "Login", message: "Redirecting...") {
           DispatchQueue.main.async {
@@ -172,7 +168,7 @@ class LoginViewController: UIViewController {
         }
       }
     } onError: { error in
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         self.hidingAnimation()
         if error == "Key: 'Login.Username' Error:Field validation for 'Username' failed on the 'required' tag\nKey: 'Login.Password' Error:Field validation for 'Password' failed on the 'required' tag" {
           invalidSnackBar.make(in: self.view, message: "Username and Password is Empty!", duration: .lengthLong).show()

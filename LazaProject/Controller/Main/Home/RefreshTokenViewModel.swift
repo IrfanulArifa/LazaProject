@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class RefreshTokenViewModel {
+  func refreshToken(token: String) {
+    
+  }
+}

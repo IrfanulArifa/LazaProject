@@ -226,12 +226,12 @@ extension OrderViewController: deleteCart {
     self.viewModel.cartData?.products!.removeAll(where: { cart in
       cart.id == id && cart.size == size
     })
-    DispatchQueue.main.async {
-      print("Delete row: \(index.row)")
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else { return }
       self.cardTableView.deleteRows(at: [index], with: .left)
       self.totalCart.text = "Total: \(String(describing: self.viewModel.cartData!.orderInfo.total))"
     }
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [unowned self] in
       self.cardTableView.reloadData()
     }
   }

@@ -100,18 +100,18 @@ class DetailViewController: UIViewController {
     let tokenAcc = UserDefaults.standard.string(forKey: "access_token")
     viewModel.putWishlist(productId: String(dataDetail!), token: tokenAcc!) { response in
       if response?.data == "successfully added wishlist" {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
           validSnackBar.make(in: self.view, message: (response?.data.capitalized)!, duration: .lengthLong).show()
           self.setWishlistImage()
         }
       } else if response?.data == "successfully delete wishlist" {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
           invalidSnackBar.make(in: self.view, message: (response?.data.capitalized)!, duration: .lengthLong).show()
           self.resetWishlistImage()
         }
       }
     } onError: { error in
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         invalidSnackBar.make(in: self.view, message: error.capitalized, duration: .lengthLong).show()
       }
     }

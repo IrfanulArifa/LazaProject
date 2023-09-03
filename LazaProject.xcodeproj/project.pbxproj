@@ -547,8 +547,8 @@
 		00EB8D652AA4F22B00D9ADDC /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				00A74B412A72065500BB07B9 /* DetailViewController.storyboard */,
 				00A8FDB92A930BA4006FB87D /* DetailViewModel.swift */,
+				00A74B412A72065500BB07B9 /* DetailViewController.storyboard */,
 				00A74B3F2A72064300BB07B9 /* DetailViewController.swift */,
 				00EB8D692AA4F39100D9ADDC /* DetailTableViewCell */,
 				00EB8D6B2AA4F42F00D9ADDC /* AllReview */,
@@ -577,9 +577,6 @@
 		00EB8D682AA4F35900D9ADDC /* Product */ = {
 			isa = PBXGroup;
 			children = (
-				003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */,
-				003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */,
-				007B0F972A71171D0034E7A5 /* ProductCollectionViewCell.xib */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -658,6 +655,8 @@
 		00EB8D702AA4F72F00D9ADDC /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				003CE9B52A7793A6008D32FA /* ProductTableViewCell.xib */,
+				003CE9B42A7793A6008D32FA /* ProductTableViewCell.swift */,
 				00EB8D712AA4F74E00D9ADDC /* AllProduct */,
 				00EB8D652AA4F22B00D9ADDC /* Detail */,
 			);
@@ -669,6 +668,7 @@
 			children = (
 				0086FE3F2A96FE5700E41A19 /* AllProductViewController.storyboard */,
 				0086FE412A96FEAF00E41A19 /* AllProductViewController.swift */,
+				007B0F972A71171D0034E7A5 /* ProductCollectionViewCell.xib */,
 				007B0F962A71171D0034E7A5 /* ProductCollectionViewCell.swift */,
 			);
 			path = AllProduct;

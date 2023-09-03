@@ -100,11 +100,11 @@ class SetProfileViewController: UIViewController, UIImagePickerControllerDelegat
     let email = UserDefaults.standard.string(forKey: "email")
     if fullnameTxtField.text != "" {
       viewModel.updateProfile(image: profileImage.image!, token: token!, fullname: fullnameTxtField.text!, username: username!, email: email!) { response in
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
           self.goToHome()
         }
       } onError: { error in
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
           self.showAlert(title: "Failed", message: error.capitalized)
         }
       }

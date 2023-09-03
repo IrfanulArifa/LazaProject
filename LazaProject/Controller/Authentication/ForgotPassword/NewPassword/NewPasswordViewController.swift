@@ -117,7 +117,8 @@ class NewPasswordViewController: UIViewController {
   @IBAction func resetPasswordClicked(_ sender: UIButton) {
     startingAnimation()
     viewModel.resetPassword(email: emailData!, otpData: otp!, new_password: passwordTxtField.text!, re_password: confirmPasswordTxtField.text!) { response in
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [weak self] in
+        guard let self = self else { return }
         guard let response = response?.data.message.capitalized else { return }
         self.hidingAnimation()
         self.showAlert(title: "Reset Password Success", message: response + "\n Redirecting to Login Page..."){
@@ -126,7 +127,9 @@ class NewPasswordViewController: UIViewController {
       }
     } onError: { error in
       self.hidingAnimation()
-      self.showAlert(title: "Reset Password Failed", message: error.capitalized)
+      DispatchQueue.main.async { [unowned self] in
+        self.showAlert(title: "Reset Password Failed", message: error.capitalized)
+      }
     }
   }
   

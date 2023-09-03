@@ -101,7 +101,8 @@ class BottomSheetViewController: UIViewController {
   
   private func loadDataAddress() {
     viewModel.reloadData = {
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
+        guard let self = self else { return }
         let data = self.viewModel.allAddressData
         for address in data {
           if address.isPrimary != nil {
@@ -116,7 +117,7 @@ class BottomSheetViewController: UIViewController {
   
   private func loadDataCart(token: String) {
     priceModel.reloadData = {
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         let data = self.priceModel.cartData?.orderInfo
         self.subtotalPrice.text = "Rp. \(data!.subTotal)"
         self.shippingCostPrice.text = "Rp. \(data!.shippingCost)"

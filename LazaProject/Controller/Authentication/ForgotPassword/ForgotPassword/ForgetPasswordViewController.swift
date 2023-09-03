@@ -91,14 +91,14 @@ class ForgetPasswordViewController: UIViewController {
   func confirmMail() {
     startingAnimation()
     forgetViewModel.forgotPassword(email: emailAdressTxtField.text!) { response in
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         self.hidingAnimation()
         self.showAlert(title: "Success", message: "Please Check your Email Box \n Redirect to...") {
           self.goToOTP()
         }
       }
     } onError: { error in
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         self.hidingAnimation()
         if error == "Key: 'Email.Email' Error:Field validation for 'Email' failed on the 'required' tag" {
           invalidSnackBar.make(in: self.view, message: "Email is Empty!", duration: .lengthLong).show()

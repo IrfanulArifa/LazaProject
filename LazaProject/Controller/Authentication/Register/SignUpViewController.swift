@@ -139,23 +139,23 @@ class SignUpViewController: UIViewController {
         DispatchQueue.main.async {
           self.hidingAnimation()
           self.showAlert(title: "Registration Success", message: "Please Check your Email box") {
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [unowned self] in
               self.goToLogin()
             }
           }
         }
       } onError: { error in
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
           self.hidingAnimation()
           if error == "username is taken, try another" {
             self.showAlert(title: "Username is Already Use", message: "Redirect to Login...") {
-              DispatchQueue.main.async {
+              DispatchQueue.main.async { [unowned self] in
                 self.goToLogin()
               }
             }
           } else if error == "email is taken, try another" {
             self.showAlert(title: "Email is Already Use", message: "Redirect to Login..." ){
-              DispatchQueue.main.async {
+              DispatchQueue.main.async { [unowned self] in
                 self.goToLogin()
               }
             }
