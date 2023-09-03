@@ -41,4 +41,13 @@ extension UIViewController {
     })
     present(alert, animated: true, completion: nil)
   }
+  
+  func showValidation(title: String, message: String, yes: (()-> Void)? = nil) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
+      yes?()
+    })
+    alert.addAction(UIAlertAction(title: "No", style: .destructive))
+    present(alert, animated: true, completion: nil)
+  }
 }

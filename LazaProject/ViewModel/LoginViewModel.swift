@@ -67,7 +67,7 @@ class LoginViewModel{
     task.resume()
   }
   
-  func getProfileData(token: String) {
+  func getProfileData(token: String, refreshToken: String) {
     let component = URLComponents(string: "https://lazaapp.shop/user/profile")!
     var request = URLRequest(url: component.url!)
     request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
@@ -89,10 +89,10 @@ class LoginViewModel{
           let result = try decoder.decode(User.self, from: data)
           if let imageData = result.data.imageURL {
             self.jumpClick?()
-            ViewModel().updateProfil(token:token ,fullname: result.data.fullName, username: result.data.username, email: result.data.email, image: result.data.imageURL ?? "")
+            ViewModel().saveProfil(token:token, refreshToken: refreshToken ,fullname: result.data.fullName, username: result.data.username, email: result.data.email, image: result.data.imageURL ?? "")
           } else {
             self.jumpToSetProfile?()
-            ViewModel().updateProfil(token:token ,fullname: result.data.fullName, username: result.data.username, email: result.data.email, image: result.data.imageURL ?? "")
+            ViewModel().saveProfil(token:token, refreshToken: refreshToken ,fullname: result.data.fullName, username: result.data.username, email: result.data.email, image: result.data.imageURL ?? "")
           }
         } catch {
           print("Error decoding JSON response: \(error)")

@@ -95,7 +95,9 @@ class SideMenuViewController: UIViewController {
   }
   
   @IBAction func logoutClicked(_ sender: UIButton) {
-    logout()
+    showValidation(title: "Logout", message: "Are you Sure ?") {
+      self.logout()
+    }
   }
   
   private func logout() {

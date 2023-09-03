@@ -11,6 +11,7 @@ struct UserModel {
   // MARK: Declare User Model
   static let stateLoginKey = "state"
   static let accessTokenKey = "access_token"
+  static let refreshTokenKey = "refresh_token"
   static let fullnameKey = "fullname"
   static let usernameKey = "username"
   static let emailKey = "email"
@@ -51,6 +52,11 @@ struct UserModel {
   static var new_user: Bool {
     get { return UserDefaults.standard.bool(forKey: newUserKey)}
     set { UserDefaults.standard.set(newValue, forKey: newUserKey)}
+  }
+  
+  static var refresh_token: String {
+    get { return UserDefaults.standard.string(forKey: refreshTokenKey) ?? ""}
+    set { UserDefaults.standard.set(newValue, forKey: refreshTokenKey)}
   }
   
   // MARK: For Deleting All User

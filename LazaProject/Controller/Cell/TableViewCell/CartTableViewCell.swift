@@ -9,7 +9,6 @@ import UIKit
 
 protocol deleteCart{
   func deleteCart(index: IndexPath, id: Int, size: String)
-  func reloadData()
   func updateTotal()
 }
 
@@ -69,7 +68,7 @@ class CartTableViewCell: UITableViewCell {
         }
       }
       self.viewModel.deleteCart(token: self.userToken!, productID: self.productId!, sizeID: self.sizesData!)
-//      self.delegate?.updateTotal()
+      self.delegate?.updateTotal()
       self.delegate?.deleteCart(index: self.indexData!, id: self.productId!, size: self.sizeId!)
     }
   }
@@ -86,7 +85,7 @@ class CartTableViewCell: UITableViewCell {
       self.viewModel.insertCartData(token: self.userToken!, productID: self.productId!, sizeID: self.sizesData!) { [self] response in
         DispatchQueue.main.async {
           self.valueTxt.text = String(response!.quantity)
-          self.delegate?.reloadData()
+          self.delegate?.updateTotal()
         }
       } onError: { error in
         print("Error: \(error)")
@@ -107,12 +106,12 @@ class CartTableViewCell: UITableViewCell {
         if response != nil {
           DispatchQueue.main.async {
             self.valueTxt.text = String(response!.quantity)
-            self.delegate?.reloadData()
+            self.delegate?.updateTotal()
           }
         } else {
           DispatchQueue.main.async { [self] in
             delegate?.deleteCart(index: indexData!, id: productId!, size: sizeId!)
-            self.delegate?.reloadData()
+            self.delegate?.updateTotal()
           }
         }
       } onError: { error in

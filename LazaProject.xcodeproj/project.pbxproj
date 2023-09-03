@@ -122,6 +122,7 @@
 		00A8FDBC2A9318DB006FB87D /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8FDBB2A9318DB006FB87D /* DetailModel.swift */; };
 		00A8FDC62A934DA2006FB87D /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8FDC52A934DA2006FB87D /* UpdateProfileViewController.swift */; };
 		00EB8D512AA31EF400D9ADDC /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EB8D502AA31EF400D9ADDC /* SetProfileViewController.swift */; };
+		00EB8D532AA40A1C00D9ADDC /* RefreshTokenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EB8D522AA40A1C00D9ADDC /* RefreshTokenViewModel.swift */; };
 		28EC3AC8624170A182E3B9F1 /* Pods_LazaProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D14F2BDA4B7B8930479D64F /* Pods_LazaProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -232,6 +233,7 @@
 		00A8FDBB2A9318DB006FB87D /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		00A8FDC52A934DA2006FB87D /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		00EB8D502AA31EF400D9ADDC /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
+		00EB8D522AA40A1C00D9ADDC /* RefreshTokenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenViewModel.swift; sourceTree = "<group>"; };
 		3D14F2BDA4B7B8930479D64F /* Pods_LazaProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LazaProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DF13E549F75DF86E2D602A /* Pods-LazaProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazaProject.debug.xcconfig"; path = "Target Support Files/Pods-LazaProject/Pods-LazaProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A9331842E129E531B4941251 /* Pods-LazaProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LazaProject.release.xcconfig"; path = "Target Support Files/Pods-LazaProject/Pods-LazaProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 				007B0F7C2A70CAD80034E7A5 /* ViewModel.swift */,
 				009615412A94A5FC009200C7 /* WishlistViewModel.swift */,
 				009486C62A9F26F500FA7955 /* CartViewModel.swift */,
+				00EB8D522AA40A1C00D9ADDC /* RefreshTokenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1067,6 +1070,7 @@
 				007B0F7D2A70CAD80034E7A5 /* ViewModel.swift in Sources */,
 				009486C52A9EFA5100FA7955 /* UpdateAddressViewController.swift in Sources */,
 				001859B72A78E737004EF0D5 /* DynamicHeightCollectionView.swift in Sources */,
+				00EB8D532AA40A1C00D9ADDC /* RefreshTokenViewModel.swift in Sources */,
 				008CE69E2A80ADC400454CED /* CartTableViewCell.swift in Sources */,
 				008CE6AB2A80D73B00454CED /* AddressViewController.swift in Sources */,
 				0090DFDB2A81DE5900150D9D /* OrderConfirmedViewController.swift in Sources */,

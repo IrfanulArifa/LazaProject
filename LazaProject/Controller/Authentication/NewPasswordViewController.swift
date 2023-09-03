@@ -131,7 +131,6 @@ class NewPasswordViewController: UIViewController {
   }
   
   func goToLogin() {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
     self.navigationController?.popToRootViewController(animated: true)
   }
   

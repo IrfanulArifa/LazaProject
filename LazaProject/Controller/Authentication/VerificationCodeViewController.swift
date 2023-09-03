@@ -88,10 +88,17 @@ class VerificationCodeViewController: UIViewController {
     startingAnimation()
     guard let email = email else { return }
     verificationViewModel.verificationToken(email: email, otp: otpField.text!) { response in
-      DispatchQueue.main.async {
-        self.hidingAnimation()
-        self.showAlert(title: "OTP Valid", message: "Redirecting") {
-          self.goToNewPassword()
+      if response != nil {
+        DispatchQueue.main.async {
+          self.hidingAnimation()
+          self.showAlert(title: "OTP Valid", message: "Redirecting") {
+            self.goToNewPassword()
+          }
+        }
+      } else {
+        DispatchQueue.main.async {
+          self.hidingAnimation()
+          invalidSnackBar.make(in: self.view, message: "OTP Salah", duration: .lengthLong).show()
         }
       }
     } onError: { error in
@@ -103,6 +110,8 @@ class VerificationCodeViewController: UIViewController {
           self.showAlert(title: "Invalid OTP", message: "Please Enter valid OTP")
         } else if error == "expired verify email, please resend mail verify again!" {
           self.showAlert(title: "OTP expired", message: error.capitalized)
+        } else {
+          self.showAlert(title: "Error", message: error.capitalized)
         }
       }
     }

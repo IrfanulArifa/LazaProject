@@ -16,16 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard (scene is UIWindowScene) else { return }
     
     if UserDefaults.standard.bool(forKey: "state") {
-      if UserDefaults.standard.string(forKey: "image") == "" {
-//        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let storyboard = mainStoryboard.instantiateViewController(withIdentifier: "SetProfileViewController") as! SetProfileViewController
-//        let nav = UINavigationController(rootViewController: storyboard)
-//        self.window?.rootViewController = nav
-      } else {
-        let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-        self.window?.rootViewController = vc
-      }
+      let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
+      let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+      self.window?.rootViewController = vc
     } else {
       let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
       let storyboard = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
