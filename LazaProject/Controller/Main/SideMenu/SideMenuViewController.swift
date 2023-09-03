@@ -47,17 +47,22 @@ class SideMenuViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let data = UserDefaults.standard
-    sideMenuPersonName.text = data.string(forKey: "fullname")
-    let imageURL = URL(string: data.string(forKey: "image") ?? "")
-    personPict.sd_setImage(with: imageURL)
+    setImageProfile()
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    UserModel.synchronize()
-    sideMenuPersonName.text = UserDefaults.standard.string(forKey: "fullname")
-    let imageURL = URL(string: UserDefaults.standard.string(forKey: "image") ?? "")
-    personPict.sd_setImage(with: imageURL)
+    setImageProfile()
+  }
+  
+  func setImageProfile() {
+    let data = UserDefaults.standard
+    sideMenuPersonName.text = data.string(forKey: "fullname")
+    if data.string(forKey: "image") != "Dummy" {
+      let imageURL = URL(string: data.string(forKey: "image") ?? "")
+      personPict.sd_setImage(with: imageURL)
+    } else {
+      personPict.image = UIImage(systemName: "person.fill")
+    }
   }
   
   @IBAction func switchClicked(_ sender: UISwitch) {

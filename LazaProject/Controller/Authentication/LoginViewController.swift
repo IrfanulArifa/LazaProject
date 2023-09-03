@@ -86,34 +86,40 @@ class LoginViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // MARK: Reactive TextField
+    navigationController?.setNavigationBarHidden(true, animated: true)
     passwordTextField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     usernameTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
   }
   
-  func backToMain() {
+  private func backToMain() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
   
-  func goToVerify() {
+  private func goToVerify() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "VerifyAccountViewController") as! VerifyAccountViewController
     self.navigationController?.pushViewController(vc, animated: true)
   }
   
-  func goToForget() {
+  private func goToForget() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgetPasswordViewController") as! ForgetPasswordViewController
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
   
-  func goToHome() {
+  private func goToHome() {
     let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
     self.view.window?.windowScene?.keyWindow?.rootViewController = vc
   }
   
-  func goToSignUp() {
+  private func goToSignUp() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+    self.navigationController?.pushViewController(storyboard, animated: true)
+  }
+  
+  private func goToSetProfile() {
+    guard let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetProfileViewController") as? SetProfileViewController else { return }
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
   
@@ -147,6 +153,11 @@ class LoginViewController: UIViewController {
             self.loginModel.jumpClick = {
               DispatchQueue.main.async {
                 self.goToHome()
+              }
+            }
+            self.loginModel.jumpToSetProfile = {
+              DispatchQueue.main.async {
+                self.goToSetProfile()
               }
             }
             self.loginModel.invalidToken = {

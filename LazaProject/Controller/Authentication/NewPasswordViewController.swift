@@ -73,6 +73,7 @@ class NewPasswordViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.setNavigationBarHidden(true, animated: true)
     passwordTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     confirmPasswordTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     

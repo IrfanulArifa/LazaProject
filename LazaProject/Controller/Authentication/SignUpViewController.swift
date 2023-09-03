@@ -99,6 +99,7 @@ class SignUpViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.setNavigationBarHidden(true, animated: true)
     passwordTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     emailAddressTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     usernameTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)

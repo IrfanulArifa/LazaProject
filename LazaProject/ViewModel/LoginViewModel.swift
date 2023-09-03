@@ -14,6 +14,7 @@ class LoginViewModel{
   var userData: DataClass?
   var jumpClick: (() -> Void)?
   var invalidToken: (()-> Void)?
+  var jumpToSetProfile: (()-> Void)?
   
   func login(username: String,
              password: String,
@@ -86,8 +87,13 @@ class LoginViewModel{
         do {
           let decoder = JSONDecoder()
           let result = try decoder.decode(User.self, from: data)
-          self.jumpClick?()
-          ViewModel().updateProfil(token:token ,fullname: result.data.fullName, username: result.data.username, email: result.data.email, image: result.data.imageURL ?? "")
+          if let imageData = result.data.imageURL {
+            self.jumpClick?()
+            ViewModel().updateProfil(token:token ,fullname: result.data.fullName, username: result.data.username, email: result.data.email, image: result.data.imageURL ?? "")
+          } else {
+            self.jumpToSetProfile?()
+            ViewModel().updateProfil(token:token ,fullname: result.data.fullName, username: result.data.username, email: result.data.email, image: result.data.imageURL ?? "")
+          }
         } catch {
           print("Error decoding JSON response: \(error)")
         }
