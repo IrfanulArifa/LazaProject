@@ -47,7 +47,7 @@ class ReviewViewController: UIViewController {
         self.reviewTableView.reloadData()
         self.ratingAverage.text = String((self.viewModel.reviewData?.data.ratingAvrg)!)
         self.totalReview.text = String((self.viewModel.reviewData?.data.total)!) + " Reviews"
-        self.setRatingImageInReview((self.viewModel.reviewData?.data.ratingAvrg)!)
+        self.setRatingImage((self.viewModel.reviewData?.data.ratingAvrg)!)
       }
     }
     viewModel.loadReview(productId!)
@@ -66,10 +66,11 @@ class ReviewViewController: UIViewController {
     productId = product
   }
   
-  func setRatingImageInReview(_ value: Double){
+  func setRatingImage(_ value: Double){
     let imageFull = UIImage(systemName: "star.fill")
     let imageHalf = UIImage(systemName: "star.leadinghalf.filled")
     let imageEmpty = UIImage(systemName: "star")
+    let colorFill = UIColor(named: "starColor")
     
     if value == 5 {
       star1.image = imageFull
@@ -78,11 +79,11 @@ class ReviewViewController: UIViewController {
       star4.image = imageFull
       star5.image = imageFull
       
-      star1.tintColor = .systemYellow
-      star2.tintColor = .systemYellow
-      star3.tintColor = .systemYellow
-      star4.tintColor = .systemYellow
-      star5.tintColor = .systemYellow
+      star1.tintColor = colorFill
+      star2.tintColor = colorFill
+      star3.tintColor = colorFill
+      star4.tintColor = colorFill
+      star5.tintColor = colorFill
     } else if value == 4 {
       star1.image = imageFull
       star2.image = imageFull
@@ -90,11 +91,11 @@ class ReviewViewController: UIViewController {
       star4.image = imageFull
       star5.image = imageEmpty
       
-      star1.tintColor = .systemYellow
-      star2.tintColor = .systemYellow
-      star3.tintColor = .systemYellow
-      star4.tintColor = .systemYellow
-      star5.tintColor = .systemGray
+      star1.tintColor = colorFill
+      star2.tintColor = colorFill
+      star3.tintColor = colorFill
+      star4.tintColor = colorFill
+      star5.tintColor = colorFill
     } else if value == 3 {
       star1.image = imageFull
       star2.image = imageFull
@@ -102,9 +103,9 @@ class ReviewViewController: UIViewController {
       star4.image = imageEmpty
       star5.image = imageEmpty
       
-      star1.tintColor = .systemYellow
-      star2.tintColor = .systemYellow
-      star3.tintColor = .systemYellow
+      star1.tintColor = colorFill
+      star2.tintColor = colorFill
+      star3.tintColor = colorFill
       star4.tintColor = .systemGray
       star5.tintColor = .systemGray
     } else if value == 2 {
@@ -114,8 +115,8 @@ class ReviewViewController: UIViewController {
       star4.image = imageEmpty
       star5.image = imageEmpty
       
-      star1.tintColor = .systemYellow
-      star2.tintColor = .systemYellow
+      star1.tintColor = colorFill
+      star2.tintColor = colorFill
       star3.tintColor = .systemGray
       star4.tintColor = .systemGray
       star5.tintColor = .systemGray
@@ -126,7 +127,7 @@ class ReviewViewController: UIViewController {
       star4.image = imageEmpty
       star5.image = imageEmpty
       
-      star1.tintColor = .systemYellow
+      star1.tintColor = colorFill
       star2.tintColor = .systemGray
       star3.tintColor = .systemGray
       star4.tintColor = .systemGray
@@ -150,11 +151,11 @@ class ReviewViewController: UIViewController {
       star4.image = imageFull
       star5.image = imageHalf
       
-      star1.tintColor = .systemYellow
-      star2.tintColor = .systemYellow
-      star3.tintColor = .systemYellow
-      star4.tintColor = .systemYellow
-      star5.tintColor = .systemYellow
+      star1.tintColor = colorFill
+      star2.tintColor = colorFill
+      star3.tintColor = colorFill
+      star4.tintColor = colorFill
+      star5.tintColor = colorFill
     } else if value > 3 && value < 4 {
       star1.image = imageFull
       star2.image = imageFull
@@ -162,10 +163,10 @@ class ReviewViewController: UIViewController {
       star4.image = imageHalf
       star5.image = imageEmpty
       
-      star1.tintColor = .systemYellow
-      star2.tintColor = .systemYellow
-      star3.tintColor = .systemYellow
-      star4.tintColor = .systemYellow
+      star1.tintColor = colorFill
+      star2.tintColor = colorFill
+      star3.tintColor = colorFill
+      star4.tintColor = colorFill
       star5.tintColor = .systemGray
     } else if value > 2 && value < 3 {
       star1.image = imageFull
@@ -174,9 +175,9 @@ class ReviewViewController: UIViewController {
       star4.image = imageEmpty
       star5.image = imageEmpty
       
-      star1.tintColor = .systemYellow
-      star2.tintColor = .systemYellow
-      star3.tintColor = .systemYellow
+      star1.tintColor = colorFill
+      star2.tintColor = colorFill
+      star3.tintColor = colorFill
       star4.tintColor = .systemGray
       star5.tintColor = .systemGray
     } else if value > 1 && value < 2 {
@@ -186,8 +187,8 @@ class ReviewViewController: UIViewController {
       star4.image = imageEmpty
       star5.image = imageEmpty
       
-      star1.tintColor = .systemYellow
-      star2.tintColor = .systemYellow
+      star1.tintColor = colorFill
+      star2.tintColor = colorFill
       star3.tintColor = .systemGray
       star4.tintColor = .systemGray
       star5.tintColor = .systemGray
@@ -198,7 +199,7 @@ class ReviewViewController: UIViewController {
       star4.image = imageEmpty
       star5.image = imageEmpty
       
-      star1.tintColor = .systemYellow
+      star1.tintColor = colorFill
       star2.tintColor = .systemGray
       star3.tintColor = .systemGray
       star4.tintColor = .systemGray

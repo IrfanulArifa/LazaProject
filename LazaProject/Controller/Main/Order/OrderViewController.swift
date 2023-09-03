@@ -80,13 +80,13 @@ class OrderViewController: UIViewController {
   
   func loadData(token: String){
     viewModel.reloadData = {
-      DispatchQueue.main.async { [weak self] in
-        self?.cardTableView.reloadData()
-        self?.totalCart.text = "Total: \(String(describing: self?.viewModel.cartData!.orderInfo.total))"
-        if self?.viewModel.cartData?.orderInfo.total == 0 {
-          self?.dataKosong.isHidden = false
+      DispatchQueue.main.async {
+        self.cardTableView.reloadData()
+        self.totalCart.text = "Total: \(String(describing: self.viewModel.cartData!.orderInfo.total))"
+        if self.viewModel.cartData?.orderInfo.total == 0 {
+          self.dataKosong.isHidden = false
         } else {
-          self?.dataKosong.isHidden = true
+          self.dataKosong.isHidden = true
         }
       }
     }
@@ -95,12 +95,12 @@ class OrderViewController: UIViewController {
   
   func reloadHarga(token: String){
     viewModel.reloadData = {
-      DispatchQueue.main.async { [weak self] in
-        self?.totalCart.text = "Total: \(String(describing: self?.viewModel.cartData!.orderInfo.total))"
-        if self?.viewModel.cartData?.orderInfo.total == 0 {
-          self?.dataKosong.isHidden = false
+      DispatchQueue.main.async {
+        self.totalCart.text = "Total: \(String(describing: self.viewModel.cartData!.orderInfo.total))"
+        if self.viewModel.cartData?.orderInfo.total == 0 {
+          self.dataKosong.isHidden = false
         } else {
-          self?.dataKosong.isHidden = true
+          self.dataKosong.isHidden = true
         }
       }
     }

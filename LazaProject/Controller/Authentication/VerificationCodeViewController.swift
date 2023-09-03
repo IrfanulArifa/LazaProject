@@ -105,11 +105,11 @@ class VerificationCodeViewController: UIViewController {
       DispatchQueue.main.async {
         self.hidingAnimation()
         if error == "Key: 'VerificationCode.Email' Error:Field validation for 'Email' failed on the 'required' tag" {
-          self.showAlert(title: "Invalid Email", message: "Email is Empty")
+          invalidSnackBar.make(in: self.view, message: "Email Kosong", duration: .lengthLong).show()
         } else if error == "Key: 'VerificationCode.Code' Error:Field validation for 'Code' failed on the 'min' tag" {
-          self.showAlert(title: "Invalid OTP", message: "Please Enter valid OTP")
+          invalidSnackBar.make(in: self.view, message: "OTP Tidak Valid", duration: .lengthLong).show()
         } else if error == "expired verify email, please resend mail verify again!" {
-          self.showAlert(title: "OTP expired", message: error.capitalized)
+          invalidSnackBar.make(in: self.view, message: "OTP Expired", duration: .lengthLong).show()
         } else {
           self.showAlert(title: "Error", message: error.capitalized)
         }

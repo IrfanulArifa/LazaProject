@@ -17,7 +17,6 @@ protocol goToTabBarDelegate: AnyObject {
 
 class SideMenuViewController: UIViewController {
   var loginUser: DataClass?
-//  let appDelegate = UIApplication.shared.windows.first
   weak var delegate: goToTabBarDelegate?
   
   @IBOutlet weak var sideMenuPersonName: UILabel!
@@ -25,21 +24,7 @@ class SideMenuViewController: UIViewController {
   
   @IBOutlet weak var sunImage: UIImageView!
   
-  @IBOutlet weak var switchBtn: UISwitch!{
-    didSet {
-      if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-        let appDelegate = windowScene.windows.first
-        if appDelegate?.overrideUserInterfaceStyle == .dark {
-          switchBtn.isOn = true
-        }
-      } else if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-        let appDelegate = windowScene.windows.first
-        if appDelegate?.overrideUserInterfaceStyle == .light {
-          switchBtn.isOn = false
-        }
-      }
-    }
-  }
+  @IBOutlet weak var switchBtn: UISwitch!
   
   func profilConfigure(data: DataClass){
     loginUser = data
@@ -48,10 +33,21 @@ class SideMenuViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setImageProfile()
+    checkDarkMode()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     setImageProfile()
+    checkDarkMode()
+  }
+  
+  func checkDarkMode() {
+    let currentTraitCollection = self.traitCollection
+    if currentTraitCollection.userInterfaceStyle == .dark {
+      switchBtn.isOn = true
+    } else {
+      switchBtn.isOn = false
+    }
   }
   
   func setImageProfile() {

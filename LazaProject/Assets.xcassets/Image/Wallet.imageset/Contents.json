@@ -1,17 +1,28 @@
 {
   "images" : [
     {
-      "filename" : "Wallet.svg",
-      "idiom" : "universal",
-      "scale" : "1x"
+      "filename" : "Wallet.png",
+      "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
-      "scale" : "2x"
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "filename" : "Wallet 1.png",
+      "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "WalletDark.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -8,13 +8,15 @@
 import Foundation
 
 class VerificationCodeViewModel {
+  
   func verificationToken(email: String,
                          otp: String,
                          completion: @escaping ((VerificationCodeSuccess?) -> Void),
                          onError: @escaping (String) -> Void){
     let decoder = JSONDecoder()
-    let url = URL(string: "https://lazaap.shop/auth/recover/code")!
+    let url = URL(string: "https://lazaapp.shop/auth/recover/code")!
     var request = URLRequest(url:url)
+    
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     let parameters: [String: Any] = [
@@ -53,6 +55,7 @@ class VerificationCodeViewModel {
         onError(failedModel.descriptionKey)
         return
       }
+      
       do {
         let result = try decoder.decode(VerificationCodeSuccess.self, from: data)
         completion(result)

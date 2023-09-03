@@ -110,7 +110,7 @@ class NewPasswordViewController: UIViewController {
   
   // MARK: Back Button Clicked -> Back to Previous View
   @IBAction func backButtonClicked(_ sender: UIButton) {
-    self.navigationController?.popViewController(animated: true)
+    self.navigationController?.popToRootViewController(animated: true)
   }
   
   // MARK: Reset Password Clicked -> Go To Welcome View
