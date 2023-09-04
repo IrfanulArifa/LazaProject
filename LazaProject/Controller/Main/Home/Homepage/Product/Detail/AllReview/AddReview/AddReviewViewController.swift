@@ -20,6 +20,7 @@ class AddReviewViewController: UIViewController {
   var delegate: modalViewPresentation?
   
   let viewModel = AddReviewViewModel()
+  let refreshModel = RefreshTokenViewModel()
   var product: Int?
   
   func sendProductId(productId: Int){
@@ -28,8 +29,8 @@ class AddReviewViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     ratingLabel.text = "0.0"
+    refreshModel.refreshToken()
   }
   
   @IBAction func sliderSliding(_ sender: UISlider) {
@@ -37,6 +38,7 @@ class AddReviewViewController: UIViewController {
   }
   
   @IBAction func backClicked(_ sender: UIButton) {
+    refreshModel.refreshToken()
     self.dismiss(animated: true)
   }
   

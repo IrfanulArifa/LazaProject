@@ -10,6 +10,7 @@ import UIKit
 class WishlistViewController: UIViewController {
   
   let viewModel = DetailViewModel()
+  let refreshModel = RefreshTokenViewModel()
   
   @IBOutlet weak var wishlistCollection: UICollectionView!{
     didSet {
@@ -25,7 +26,10 @@ class WishlistViewController: UIViewController {
     setupTabBarItemImage() // Calling Function
     self.tabBarController?.tabBar.isHidden = false
     let token = UserDefaults.standard.string(forKey: "access_token")
-    reloadWishlist(token: token!)
+    refreshModel.refreshToken()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+      self?.reloadWishlist(token: token!)
+    }
   }
   
   private func reloadWishlist(token: String){
@@ -41,7 +45,10 @@ class WishlistViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     self.tabBarController?.tabBar.isHidden = false
     let token = UserDefaults.standard.string(forKey: "access_token")
-    reloadWishlist(token: token!)
+    refreshModel.refreshToken()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+      self?.reloadWishlist(token: token!)
+    }
   }
   
   // MARK: Setup BarItem when Clicked Change into Text

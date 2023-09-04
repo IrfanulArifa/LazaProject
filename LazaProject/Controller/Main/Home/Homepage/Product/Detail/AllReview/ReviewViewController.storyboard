@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -129,11 +128,11 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qyC-16-Z4N">
                                 <rect key="frame" x="0.0" y="175" width="393" height="677"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="akr-lp-9E9" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="60" id="4ce-hg-Dxs"/>
                             <constraint firstItem="dkH-YQ-8ry" firstAttribute="top" secondItem="h6n-JG-EGh" secondAttribute="bottom" constant="20" id="7Mk-GK-1NI"/>
@@ -290,7 +289,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qbp-iy-nPT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Qbp-iy-nPT" firstAttribute="trailing" secondItem="HZn-Qd-2Te" secondAttribute="trailing" constant="20" id="38H-VS-q3v"/>
                             <constraint firstItem="bbI-ST-Ija" firstAttribute="top" secondItem="HZn-Qd-2Te" secondAttribute="bottom" constant="20" id="4hh-fe-bBQ"/>
@@ -331,6 +330,9 @@
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <namedColor name="BackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PurpleButton">
             <color red="0.23921568627450981" green="0.57647058823529407" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -343,8 +345,5 @@
         <namedColor name="starColor">
             <color red="1" green="0.59607843137254901" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

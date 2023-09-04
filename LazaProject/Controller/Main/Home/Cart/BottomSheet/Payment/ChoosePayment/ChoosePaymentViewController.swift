@@ -7,21 +7,18 @@
 
 import UIKit
 
-protocol backToCartDelegate: AnyObject {
-  func backToCart()
-}
+
 
 class ChoosePaymentViewController: UIViewController {
   
   var choosedPayment = ""
-  weak var delegate: backToCartDelegate?
   
   @IBOutlet weak var gopayView: UIView!{
-    didSet { gopayView.backgroundColor = UIColor(named: "greyFont")}
+    didSet { gopayView.backgroundColor = UIColor(named: "sizeColor")}
   }
   
   @IBOutlet weak var creditCardView: UIView!{
-    didSet { creditCardView.backgroundColor = UIColor(named: "greyFont")}
+    didSet { creditCardView.backgroundColor = UIColor(named: "sizeColor")}
   }
   @IBOutlet weak var choosePayment: UILabel!{
     didSet {
@@ -30,13 +27,13 @@ class ChoosePaymentViewController: UIViewController {
   }
   @IBOutlet weak var gopayCheck: UIButton!{
     didSet {
-      gopayCheck.setImage(UIImage(systemName: "square"), for: .normal)
+      gopayCheck.setImage(UIImage(systemName: "circle"), for: .normal)
     }
   }
   
   @IBOutlet weak var creditCheck: UIButton!{
     didSet {
-      creditCheck.setImage(UIImage(systemName: "square"), for: .normal)
+      creditCheck.setImage(UIImage(systemName: "circle"), for: .normal)
     }
   }
   
@@ -62,32 +59,29 @@ class ChoosePaymentViewController: UIViewController {
   
   @IBAction func backButtonClicked(_ sender: UIButton) {
     self.dismiss(animated: true)
-    delegate?.backToCart()
   }
   
   @IBAction func gopayButtonCheck(_ sender: Any) {
-    if gopayCheck.currentImage == UIImage(systemName: "square") {
+    if gopayCheck.currentImage == UIImage(systemName: "circle") {
       choosedPayment = "Gopay"
-      gopayCheck.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
-      creditCheck.setImage(UIImage(systemName: "square"), for: .normal)
-      gopayView.backgroundColor = UIColor(named: "CreditValid")
-      creditCardView.backgroundColor = UIColor(named: "greyFont")
-    } else if gopayCheck.currentImage == UIImage(systemName: "checkmark.square") {
+      gopayCheck.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+      creditCheck.setImage(UIImage(systemName: "circle"), for: .normal)
+      creditCardView.backgroundColor = UIColor(named: "sizeColor")
+    } else if gopayCheck.currentImage == UIImage(systemName: "checkmark.circle") {
       choosedPayment = ""
-      gopayCheck.setImage(UIImage(systemName: "square"), for: .normal)
+      gopayCheck.setImage(UIImage(systemName: "circle"), for: .normal)
     }
   }
   
   @IBAction func creditCardCheck(_ sender: UIButton) {
-    if creditCheck.currentImage == UIImage(systemName: "square") {
+    if creditCheck.currentImage == UIImage(systemName: "circle") {
       choosedPayment = "CreditCard"
-      creditCheck.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
-      gopayCheck.setImage(UIImage(systemName: "square"), for: .normal)
-      creditCardView.backgroundColor = UIColor(named: "CreditValid")
-      gopayView.backgroundColor = UIColor(named: "greyFont")
-    } else if creditCheck.currentImage == UIImage(systemName: "checkmark.square") {
+      creditCheck.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+      gopayCheck.setImage(UIImage(systemName: "circle"), for: .normal)
+      gopayView.backgroundColor = UIColor(named: "sizeColor")
+    } else if creditCheck.currentImage == UIImage(systemName: "checkmark.circle") {
       choosedPayment = ""
-      creditCheck.setImage(UIImage(systemName: "square"), for: .normal)
+      creditCheck.setImage(UIImage(systemName: "circle"), for: .normal)
     }
   }
   

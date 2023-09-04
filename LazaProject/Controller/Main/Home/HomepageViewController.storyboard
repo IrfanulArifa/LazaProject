@@ -25,7 +25,7 @@
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ejA-gg-GyQ">
                                 <rect key="frame" x="20" y="101" width="353" height="668"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ivf-QD-N9x">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -36,7 +36,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Py4-CW-OiQ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Dhc-SG-5Sh" firstAttribute="centerX" secondItem="jOX-Wf-cWT" secondAttribute="centerX" id="85w-Ve-6Z6"/>
                             <constraint firstItem="Dhc-SG-5Sh" firstAttribute="top" secondItem="jOX-Wf-cWT" secondAttribute="top" constant="60" id="HA8-uz-lnu"/>
@@ -71,7 +71,7 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2HP-LO-qgU">
                                 <rect key="frame" x="0.0" y="81" width="393" height="638"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pd5-HF-ZcR">
                                 <rect key="frame" x="0.0" y="719" width="393" height="50"/>
@@ -109,7 +109,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="HL1-ez-Pux" firstAttribute="leading" secondItem="pd5-HF-ZcR" secondAttribute="leading" constant="20" id="28G-JU-bbK"/>
                                     <constraint firstAttribute="trailing" secondItem="GUp-SY-JOn" secondAttribute="trailing" constant="20" id="3Am-fG-Hnd"/>
@@ -132,7 +132,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5X3-PC-H0X"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ZhE-8x-B9O" firstAttribute="centerY" secondItem="WG3-7B-WS5" secondAttribute="centerY" id="0WL-cQ-Jxj"/>
                             <constraint firstItem="8sW-Lq-rTZ" firstAttribute="centerY" secondItem="WG3-7B-WS5" secondAttribute="centerY" id="2s5-As-DqG"/>
@@ -193,7 +193,7 @@
                                             <constraint firstAttribute="height" constant="50" id="EQS-8e-GZw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="whiteFont"/>
+                                        <color key="textColor" name="blackFont"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -202,7 +202,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="PurpleButton"/>
+                                <color key="backgroundColor" name="sizeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="TNv-87-8rl" secondAttribute="trailing" id="2dN-6G-E3X"/>
                                     <constraint firstAttribute="height" constant="50" id="8Uf-YD-EPP"/>
@@ -229,8 +229,9 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Irfanularifa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlL-rH-Fe7">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
+                                        <color key="backgroundColor" name="sizeColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="whiteFont"/>
+                                        <color key="textColor" name="blackFont"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -259,7 +260,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Irfanularifa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CF-jV-q8K">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="whiteFont"/>
+                                        <color key="textColor" name="blackFont"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -268,7 +269,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="PurpleButton"/>
+                                <color key="backgroundColor" name="sizeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2OM-2l-GQW"/>
                                     <constraint firstItem="4CF-jV-q8K" firstAttribute="top" secondItem="hzX-op-VVn" secondAttribute="top" id="BDm-kG-puh"/>
@@ -320,7 +321,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="umR-HU-OqX"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="W7w-EG-Fb0" firstAttribute="leading" secondItem="umR-HU-OqX" secondAttribute="leading" constant="20" id="0B0-8A-Xdm"/>
                             <constraint firstItem="hzX-op-VVn" firstAttribute="top" secondItem="Im9-e0-lbw" secondAttribute="bottom" constant="5" id="0oT-Jc-Tfq"/>
@@ -588,7 +589,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8hN-t2-e1j"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cAZ-ks-p2V" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="5L1-Bj-KWx"/>
                             <constraint firstItem="Hp1-7x-ga7" firstAttribute="leading" secondItem="8hN-t2-e1j" secondAttribute="leading" constant="20" id="89f-pO-ObJ"/>
@@ -703,7 +704,7 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gyq-YZ-vnd" customClass="IntrinsicTableView" customModule="LazaProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="242" width="393" height="527"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
                             </tableView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bv1-eQ-r06">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -717,7 +718,7 @@
                             </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zsm-gb-gAX"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zsm-gb-gAX" firstAttribute="bottom" secondItem="Gyq-YZ-vnd" secondAttribute="bottom" id="0Ac-rx-ysZ"/>
                             <constraint firstItem="gym-0i-qXO" firstAttribute="top" secondItem="BMU-rP-Hjx" secondAttribute="top" constant="45" id="53i-1H-fJA"/>
@@ -873,6 +874,9 @@
         <image name="chevron.up" catalog="system" width="128" height="70"/>
         <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
         <image name="sun.max" catalog="system" width="128" height="125"/>
+        <namedColor name="BackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PurpleButton">
             <color red="0.23921568627450981" green="0.57647058823529407" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -885,9 +889,6 @@
         <namedColor name="whiteFont">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -15,6 +15,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     guard (scene is UIWindowScene) else { return }
     
+    let isDarkMode = UserDefaults.standard.bool(forKey: "darkmode")
+    if isDarkMode {
+      if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+        let appDelegate = windowScene.windows.first
+        appDelegate?.overrideUserInterfaceStyle = .dark
+      }
+    } else {
+      if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+        let appDelegate = windowScene.windows.first
+        appDelegate?.overrideUserInterfaceStyle = .light
+      }
+    }
+    
     if UserDefaults.standard.bool(forKey: "state") {
       let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
       let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController

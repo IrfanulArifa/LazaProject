@@ -11,6 +11,7 @@ import SDWebImage
 class UpdateProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
   let imagePicker = UIImagePickerController()
   let viewModel = UpdateProfileViewModel()
+  let refreshModel = RefreshTokenViewModel()
   
   @IBOutlet weak var updateProfile: UILabel!
   @IBOutlet weak var backButton: UIButton!
@@ -46,6 +47,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    refreshModel.refreshToken()
     let data = UserDefaults.standard
     fullName.text = data.string(forKey: "fullname")
     userName.text = data.string(forKey: "username")
@@ -58,6 +60,10 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
     emailAddress.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     
     imagePicker.delegate = self
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    refreshModel.refreshToken()
   }
   
   func startingAnimation() {

@@ -43,10 +43,18 @@ class SideMenuViewController: UIViewController {
   }
   
   func checkDarkMode() {
-    let currentTraitCollection = self.traitCollection
-    if currentTraitCollection.userInterfaceStyle == .dark {
+    let isDarkMode = UserDefaults.standard.bool(forKey: "darkmode")
+    if isDarkMode {
+      if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+        let appDelegate = windowScene.windows.first
+        appDelegate?.overrideUserInterfaceStyle = .dark
+      }
       switchBtn.isOn = true
     } else {
+      if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+        let appDelegate = windowScene.windows.first
+        appDelegate?.overrideUserInterfaceStyle = .light
+      }
       switchBtn.isOn = false
     }
   }
@@ -68,11 +76,13 @@ class SideMenuViewController: UIViewController {
         let appDelegate = windowScene.windows.first
         appDelegate?.overrideUserInterfaceStyle = .dark
       }
+      UserDefaults.standard.setValue(true, forKey: "darkmode")
     } else {
       if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
         let appDelegate = windowScene.windows.first
         appDelegate?.overrideUserInterfaceStyle = .light
       }
+      UserDefaults.standard.setValue(false, forKey: "darkmode")
     }
   }
   

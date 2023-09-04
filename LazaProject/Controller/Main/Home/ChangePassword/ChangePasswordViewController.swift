@@ -16,6 +16,7 @@ class ChangePasswordViewController: UIViewController {
   
   weak var delegate: accessSideMenuDelegate?
   let viewModel = ChangePasswordViewModel()
+  let refreshModel = RefreshTokenViewModel()
   var oldValid = false
   var newValid = false
   var confirmValid = false
@@ -112,7 +113,7 @@ class ChangePasswordViewController: UIViewController {
     oldPasswordTF.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     newPasswordTF.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     confirmationTF.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
-    
+    refreshModel.refreshToken()
   }
   
   private func startingAnimation() {
@@ -204,19 +205,17 @@ class ChangePasswordViewController: UIViewController {
   }
   
   func savePassword () {
+    startingAnimation()
     let token = UserDefaults.standard.string(forKey: "access_token")
-    viewModel.changePassword(token: token!, oldPassword: oldPasswordTF.text!, newPassword: newPasswordTF.text!, confirmPassword: confirmationTF.text!) { response in
-      guard let response = response else { return }
+    viewModel.changePassword(token: token!, oldPassword: oldPasswordTF.text!, newPassword: newPasswordTF.text!, confirmPassword: confirmationTF.text!) { success in
       DispatchQueue.main.async { [unowned self] in
-        self.showAlert(title: "Change Password", message: "Success") {
+        showAlert(title: "Change Password", message: "Success") {
           self.navigationController?.popViewController(animated: true)
           self.delegate?.accessSideMenu()
         }
       }
     } onError: { error in
-      DispatchQueue.main.async { [unowned self] in
-        invalidSnackBar.make(in: self.view, message: error.capitalized, duration: .lengthLong).show()
-      }
+      invalidSnackBar.make(in: self.view, message: error.capitalized, duration: .lengthLong).show()
     }
   }
 }

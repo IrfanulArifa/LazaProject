@@ -11,6 +11,7 @@ class UpdateAddressViewController: UIViewController {
   
   var addressData: AllAddressData?
   let viewModel = AddressViewModel()
+  let refreshModel = RefreshTokenViewModel()
   
   //MARK: Label
   @IBOutlet weak var updateAddress: UILabel!{
@@ -107,6 +108,11 @@ class UpdateAddressViewController: UIViewController {
     } else {
       SwitchButton.isOn = false
     }
+    refreshModel.refreshToken()
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    refreshModel.refreshToken()
   }
   
   @IBAction func backButtonClicked(_ sender: UIButton) {

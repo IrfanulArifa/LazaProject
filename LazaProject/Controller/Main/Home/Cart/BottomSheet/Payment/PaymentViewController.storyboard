@@ -84,7 +84,7 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="5254 7634 8734 7690" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qJk-vu-eYo">
                                         <rect key="frame" x="0.0" y="30.333333333333314" width="353" height="50"/>
-                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="sizeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="oEk-Qz-WfN"/>
                                         </constraints>
@@ -141,7 +141,7 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mrh Raju" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="40V-un-yrF">
                                         <rect key="frame" x="0.0" y="30.333333333333314" width="353" height="50"/>
-                                        <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="sizeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="SA7-kX-Mow"/>
                                         </constraints>
@@ -169,7 +169,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="24/24" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Htn-eF-hdg">
                                                 <rect key="frame" x="0.0" y="30.333333333333371" width="160" height="50"/>
-                                                <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="sizeColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="HdL-ld-JwR"/>
                                                     <constraint firstAttribute="height" constant="50" id="zyX-R1-8pK"/>
@@ -195,7 +195,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="7763" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iAz-Rl-j7a">
                                                 <rect key="frame" x="0.0" y="30.333333333333371" width="183" height="50"/>
-                                                <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="sizeColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="3NV-oR-HBC"/>
                                                     <constraint firstAttribute="height" constant="50" id="Qza-DS-qCr"/>
@@ -217,7 +217,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ogL-dN-Rih" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="16B-DL-yJh"/>
                             <constraint firstItem="Xfj-EN-PmE" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="60" id="3Rj-HV-mhe"/>
@@ -271,8 +271,14 @@
     <resources>
         <image name="BackButton" width="60" height="60"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
+        <namedColor name="BackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PurpleButton">
             <color red="0.23921568627450981" green="0.57647058823529407" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="sizeColor">
+            <color red="0.96078431372549022" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

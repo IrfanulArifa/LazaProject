@@ -16,7 +16,7 @@ struct UserModel {
   static let usernameKey = "username"
   static let emailKey = "email"
   static let imageKey = "image"
-  static let newUserKey = "new_user"
+  static let darkmodeKey = "darkmode"
   
   // Encaptulation ??
   static var stateLogin: Bool {
@@ -49,9 +49,9 @@ struct UserModel {
     set { UserDefaults.standard.set(newValue, forKey: imageKey)}
   }
   
-  static var new_user: Bool {
-    get { return UserDefaults.standard.bool(forKey: newUserKey)}
-    set { UserDefaults.standard.set(newValue, forKey: newUserKey)}
+  static var darkmode: Bool {
+    get { return UserDefaults.standard.bool(forKey: darkmodeKey)}
+    set { UserDefaults.standard.set(newValue, forKey: darkmodeKey)}
   }
   
   static var refresh_token: String {

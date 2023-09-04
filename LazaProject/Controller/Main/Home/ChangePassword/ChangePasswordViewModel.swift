@@ -65,14 +65,12 @@ class ChangePasswordViewModel {
       }
       
       do {
-        let jsonData = try JSONSerialization.jsonObject(with: data)
         let result = try decoder.decode(NewPassword.self, from: data)
         completion(result.data)
       } catch {
         onError("Failed to decode success response")
       }
     }
-    // Start the network request
     task.resume()
   }
 }

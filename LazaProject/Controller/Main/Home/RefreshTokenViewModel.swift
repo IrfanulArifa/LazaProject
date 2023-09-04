@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import JWTDecode
 
 class RefreshTokenViewModel {
-  
-  var reloadData: (()-> Void)?
   
   func refreshTokenIfNeeded(refresh_token: String) {
     let decoder = JSONDecoder()
@@ -36,11 +35,24 @@ class RefreshTokenViewModel {
       do {
         let result = try decoder.decode(LoginSuccess.self, from: data)
         UserDefaults.standard.setValue(result.data.access_token, forKey: "access_token")
-        self.reloadData?()
       } catch {
         print("Error Decode Data, \(error)")
       }
     }
     task.resume()
+  }
+  
+  func refreshToken() {
+    do {
+      UserDefaults.standard.synchronize()
+      let token = UserDefaults.standard.string(forKey: "access_token")
+      let refresh_token = UserDefaults.standard.string(forKey: "refresh_token")
+      let jwt = try decode(jwt: token!)
+      if jwt.expired {
+        refreshTokenIfNeeded(refresh_token: refresh_token!)
+      }
+    } catch {
+      print("Error Refresh Token")
+    }
   }
 }

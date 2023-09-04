@@ -97,8 +97,6 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
             self.logout()
           }
         }
-      } else {
-        
       }
     } catch {
       print("An error occurred while decoding the JWT: \(error)")

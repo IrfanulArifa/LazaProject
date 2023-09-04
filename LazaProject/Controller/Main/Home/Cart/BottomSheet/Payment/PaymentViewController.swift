@@ -7,11 +7,13 @@
 
 import UIKit
 
-
+protocol backToCartDelegate: AnyObject {
+  func backToCart()
+}
 
 class PaymentViewController: UIViewController {
   
-  
+  weak var delegate: backToCartDelegate?
   @IBOutlet weak var paymentTxt: UILabel!{
     didSet {
       paymentTxt.font = UIFont(name: "Poppins-SemiBold", size: 17)
@@ -90,6 +92,7 @@ class PaymentViewController: UIViewController {
   
   @IBAction func backButtonPressed(_ sender: Any) {
     self.dismiss(animated: true)
+    delegate?.backToCart()
   }
   
   @IBAction func addNewCardClicked(_ sender: UIButton) {
@@ -123,3 +126,4 @@ extension PaymentViewController: UICollectionViewDelegateFlowLayout {
     return CGSize(width: 300, height: 180)
   }
 }
+

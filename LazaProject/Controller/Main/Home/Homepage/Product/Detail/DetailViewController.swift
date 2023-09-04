@@ -35,7 +35,8 @@ class DetailViewController: UIViewController {
     
     detailTableView.register(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCell")
     detailTableView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil),forCellReuseIdentifier: "ReviewTableViewCell")
-    accessToken()
+    refreshModel.refreshToken()
+    setup()
   }
   
   // MARK: Function that Configure Data from Collection into DetailView
@@ -43,60 +44,38 @@ class DetailViewController: UIViewController {
     dataDetail = data
   }
   
-  func accessToken() {
-    do {
-      UserDefaults.standard.synchronize()
+  func setup() {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
       let token = UserDefaults.standard.string(forKey: "access_token")
-      let refresh_token = UserDefaults.standard.string(forKey: "refresh_token")
-      let jwt = try decode(jwt: token!)
-      if jwt.expired {
-        refreshModel.reloadData = {
-          DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-            guard let self = self else { return }
-            self.detailModel.loadDetail(dataDetail!)
-            self.detailModel.isInWishlist(token: token!)
-            
-            self.detailModel.reloadDetail = {
-              DispatchQueue.main.async {
-                self.detailTableView.reloadData()
-              }
-            }
-            
-            self.detailModel.reloadWishlist = {
-              self.checkWhistlist()
-            }
-          }
+      guard let self = self else { return }
+      self.detailModel.reloadDetail = {
+        DispatchQueue.main.async {
+          self.detailTableView.reloadData()
         }
-        refreshModel.refreshTokenIfNeeded(refresh_token: refresh_token!)
-      } else {
-        let token = UserDefaults.standard.string(forKey: "access_token")
-        detailModel.reloadDetail = {
-          DispatchQueue.main.async {
-            self.detailTableView.reloadData()
-          }
-        }
-        detailModel.reloadWishlist = {
-          self.checkWhistlist()
-        }
-        
-        detailModel.loadDetail(dataDetail!)
-        detailModel.isInWishlist(token: token!)
       }
-    } catch {
+      detailModel.reloadWishlist = {
+        self.checkWhistlist()
+      }
       
+      detailModel.loadDetail(dataDetail!)
+      detailModel.isInWishlist(token: token!)
     }
   }
   
   // MARK: Back button when Clicked -> Back to Previous View
   @IBAction func backButtonClicked(_ sender: UIButton) {
-    accessToken()
+    refreshModel.refreshToken()
     self.navigationController?.popViewController(animated: true)
   }
   
   
-  // MARK: Function that Set Star Image Style from RatingValue in API
-  override func viewDidAppear(_ animated: Bool) {
-    accessToken()
+  // MARK: Reload Access Token
+  override func viewWillAppear(_ animated: Bool) {
+    refreshModel.refreshToken()
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    refreshModel.refreshToken()
   }
   
   func checkWhistlist() {

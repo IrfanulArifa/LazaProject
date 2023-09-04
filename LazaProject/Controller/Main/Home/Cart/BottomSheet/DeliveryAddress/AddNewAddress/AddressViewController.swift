@@ -12,6 +12,7 @@ import UIKit
 class AddressViewController: UIViewController {
   
   private let viewModel = AddressViewModel()
+  private let refreshModel = RefreshTokenViewModel()
   
   @IBOutlet weak var addressTitle: UILabel!{
     didSet {
@@ -96,6 +97,11 @@ class AddressViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    refreshModel.refreshToken()
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    refreshModel.refreshToken()
   }
   
   @IBAction func backButtonPressed(_ sender: UIButton) {
