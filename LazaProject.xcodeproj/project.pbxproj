@@ -12,8 +12,6 @@
 		0008FF7C2A823BA60006BF26 /* PaymentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */; };
 		0008FF7D2A823BA60006BF26 /* PaymentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */; };
 		0008FF7F2A8327AE0006BF26 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF7E2A8327AE0006BF26 /* UIViewExt.swift */; };
-		0008FF842A8363670006BF26 /* ChoosePaymentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF832A8363670006BF26 /* ChoosePaymentViewController.storyboard */; };
-		0008FF882A8363DB0006BF26 /* ChoosePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF872A8363DB0006BF26 /* ChoosePaymentViewController.swift */; };
 		0008FF8C2A8373100006BF26 /* WalletCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF8A2A8373100006BF26 /* WalletCollectionViewCell.swift */; };
 		0008FF8D2A8373100006BF26 /* WalletCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF8B2A8373100006BF26 /* WalletCollectionViewCell.xib */; };
 		0008FF902A83855A0006BF26 /* AllAddressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF8F2A83855A0006BF26 /* AllAddressViewController.storyboard */; };
@@ -132,8 +130,6 @@
 		0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewCell.swift; sourceTree = "<group>"; };
 		0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCollectionViewCell.xib; sourceTree = "<group>"; };
 		0008FF7E2A8327AE0006BF26 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
-		0008FF832A8363670006BF26 /* ChoosePaymentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChoosePaymentViewController.storyboard; sourceTree = "<group>"; };
-		0008FF872A8363DB0006BF26 /* ChoosePaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePaymentViewController.swift; sourceTree = "<group>"; };
 		0008FF8A2A8373100006BF26 /* WalletCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCollectionViewCell.swift; sourceTree = "<group>"; };
 		0008FF8B2A8373100006BF26 /* WalletCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletCollectionViewCell.xib; sourceTree = "<group>"; };
 		0008FF8F2A83855A0006BF26 /* AllAddressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllAddressViewController.storyboard; sourceTree = "<group>"; };
@@ -722,7 +718,6 @@
 				0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */,
 				0008FF8B2A8373100006BF26 /* WalletCollectionViewCell.xib */,
 				0008FF8A2A8373100006BF26 /* WalletCollectionViewCell.swift */,
-				00EB8D772AA4F9EF00D9ADDC /* ChoosePayment */,
 				00EB8D762AA4F9DB00D9ADDC /* AddCard */,
 			);
 			path = Payment;
@@ -735,15 +730,6 @@
 				0008FF782A822ADB0006BF26 /* AddNewCardViewController.swift */,
 			);
 			path = AddCard;
-			sourceTree = "<group>";
-		};
-		00EB8D772AA4F9EF00D9ADDC /* ChoosePayment */ = {
-			isa = PBXGroup;
-			children = (
-				0008FF832A8363670006BF26 /* ChoosePaymentViewController.storyboard */,
-				0008FF872A8363DB0006BF26 /* ChoosePaymentViewController.swift */,
-			);
-			path = ChoosePayment;
 			sourceTree = "<group>";
 		};
 		94364406878460913452CA44 /* Pods */ = {
@@ -849,7 +835,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0086FE4C2A971BF400E41A19 /* AllCategoryCollectionViewCell.xib in Resources */,
-				0008FF842A8363670006BF26 /* ChoosePaymentViewController.storyboard in Resources */,
 				0090DFD92A81DE4C00150D9D /* OrderConfirmedViewController.storyboard in Resources */,
 				0008FF7D2A823BA60006BF26 /* PaymentCollectionViewCell.xib in Resources */,
 				0008FF762A822ABE0006BF26 /* AddNewCardViewController.storyboard in Resources */,
@@ -935,7 +920,6 @@
 				001859BE2A7A0895004EF0D5 /* DetailTableViewCell.swift in Sources */,
 				0035172E2A91FC5A004D3CD1 /* AuthenticationModel.swift in Sources */,
 				0046F08F2A9C552500FF339A /* SelectedBrandViewController.swift in Sources */,
-				0008FF882A8363DB0006BF26 /* ChoosePaymentViewController.swift in Sources */,
 				003517302A9204E1004D3CD1 /* VerificationCodeViewModel.swift in Sources */,
 				006B4C8D2A756ED8001247C4 /* UserModel.swift in Sources */,
 				008EE8BF2A7BA868002C44B9 /* AddReviewViewController.swift in Sources */,

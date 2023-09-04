@@ -31,18 +31,7 @@ class AddNewCardViewController: UIViewController, STPPaymentCardTextFieldDelegat
     super.viewDidLoad()
     
     cardPaymentTxtField.delegate = self
-//    removeCVC()
-    print()
     
-  }
-  
-  func removeCVC() {
-    if let fieldViews = cardPaymentTxtField.subviews.first {
-      for subView in fieldViews.subviews where subView.tag == 0 {
-        (subView as? UITextField)?.text = "123"
-        subView.removeFromSuperview()
-      }
-    }
   }
   
   func paymentCardTextFieldDidChange(_ textField: STPPaymentCardTextField) {
@@ -59,5 +48,9 @@ class AddNewCardViewController: UIViewController, STPPaymentCardTextFieldDelegat
 
   func paymentCardTextFieldDidEndEditingCVC(_ textField: STPPaymentCardTextField) {
   creditCardView.paymentCardTextFieldDidEndEditingCVC()
+  }
+  
+  @IBAction func backButtonClicked(_ sender: UIButton) {
+    self.navigationController?.popViewController(animated: true)
   }
 }

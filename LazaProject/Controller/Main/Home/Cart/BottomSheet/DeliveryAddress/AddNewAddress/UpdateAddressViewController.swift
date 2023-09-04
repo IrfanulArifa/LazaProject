@@ -99,6 +99,7 @@ class UpdateAddressViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.tabBarController?.tabBar.isHidden = true
     nameTF.text = addressData?.receiverName
     countryTF.text = addressData?.country
     cityTF.text = addressData?.city
@@ -116,7 +117,7 @@ class UpdateAddressViewController: UIViewController {
   }
   
   @IBAction func backButtonClicked(_ sender: UIButton) {
-    self.dismiss(animated: true)
+    self.navigationController?.popViewController(animated: true)
   }
   
   @IBAction func updateAddressClicked(_ sender: UIButton) {

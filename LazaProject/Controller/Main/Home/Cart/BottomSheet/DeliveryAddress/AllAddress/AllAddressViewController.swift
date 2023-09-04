@@ -34,6 +34,7 @@ class AllAddressViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.tabBarController?.tabBar.isHidden = true
     loadData()
   }
   
@@ -56,14 +57,13 @@ class AllAddressViewController: UIViewController {
   }
   
   @IBAction func backButtonClicked(_ sender: UIButton) {
-    self.dismiss(animated: true)
+    self.navigationController?.popViewController(animated: true)
     delegate?.backToCartFromAddress()
   }
   
   @IBAction func addNewAddressClicked(_ sender: UIButton) {
     let storyboard = UIStoryboard(name: "AddressViewController", bundle: nil).instantiateViewController(withIdentifier: "AddressViewController")
-    storyboard.modalPresentationStyle = .fullScreen
-    self.present(storyboard, animated: true)
+    self.navigationController?.pushViewController(storyboard, animated: true)
   }
   
 }

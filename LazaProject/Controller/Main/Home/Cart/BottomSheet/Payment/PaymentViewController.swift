@@ -84,6 +84,7 @@ class PaymentViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.tabBarController?.tabBar.isHidden = true
     creditCardCollection.dataSource = self
     creditCardCollection.delegate = self
     
@@ -91,7 +92,7 @@ class PaymentViewController: UIViewController {
   }
   
   @IBAction func backButtonPressed(_ sender: Any) {
-    self.dismiss(animated: true)
+    self.navigationController?.popViewController(animated: true)
     delegate?.backToCart()
   }
   

@@ -25,6 +25,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="BackButton"/>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cbG-El-6Xn"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCr-SZ-pTm">
                                 <rect key="frame" x="141.66666666666666" y="60.000000000000007" width="110" height="20.333333333333336"/>
@@ -60,6 +63,11 @@
                                     <constraint firstAttribute="height" constant="185" id="obu-M6-IXq"/>
                                     <constraint firstAttribute="width" constant="300" id="uRT-ad-b5B"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aqe-65-1rS" customClass="STPPaymentCardTextField">
                                 <rect key="frame" x="20" y="323.33333333333331" width="353" height="50"/>
@@ -70,7 +78,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="VMl-g5-gRx" secondAttribute="bottom" id="DmX-0Z-hGZ"/>
                             <constraint firstItem="U20-If-Mkj" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="45" id="J5g-bL-NtU"/>
@@ -100,6 +108,9 @@
     </scenes>
     <resources>
         <image name="BackButton" width="60" height="60"/>
+        <namedColor name="BackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PurpleButton">
             <color red="0.23921568627450981" green="0.57647058823529407" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
