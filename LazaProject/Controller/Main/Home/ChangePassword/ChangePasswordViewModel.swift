@@ -1,49 +1,47 @@
 //
-//  NewPasswordViewModel.swift
+//  ChangePasswordViewModel.swift
 //  LazaProject
 //
-//  Created by Irfanul Arifa on 20/08/23.
+//  Created by Irfanul Arifa on 04/09/23.
 //
 
 import Foundation
 
-class NewPasswordViewModel {
-  func resetPassword(email: String,
-                     otpData: String,
-                     new_password: String,
-                     re_password: String,
-                     completion: @escaping (ResetPasswordSucces?) -> Void,
-                     onError: @escaping (String) -> Void) {
+class ChangePasswordViewModel {
+  func changePassword(token: String,
+                      oldPassword: String,
+                      newPassword: String,
+                      confirmPassword: String,
+                      completion: @escaping ((NewPasswordData?)->Void),
+                      onError: @escaping (String)->Void) {
+    
     let decoder = JSONDecoder()
     
-    var component = URLComponents(string: "https://lazaapp.shop/auth/recover/password")!
-    component.queryItems = [
-      URLQueryItem(name: "email", value: email),
-      URLQueryItem(name: "code", value: otpData)
-    ]
+    let url = URL(string: "https://lazaapp.shop/user/change-password")!
     
-    var request = URLRequest(url: component.url!)
-    request.httpMethod = "POST"
+    var request = URLRequest(url: url)
+    request.httpMethod = "PUT"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
+    
     let parameters: [String: Any] = [
-      "new_password": new_password,
-      "re_password": re_password
+      "old_password":oldPassword,
+      "new_password":newPassword,
+      "re_password":confirmPassword
     ]
     
     do {
       request.httpBody = try JSONSerialization.data(withJSONObject: parameters)
     } catch {
-      print("Error creating JSON data: \(error)")
-      onError("Failed to create JSON data")
+      onError("Failed to Create JSON Data")
       return
     }
     
     let session = URLSession.shared
     
     let task = session.dataTask(with: request) { data, response, error in
-      if let error = error {
-        onError(error.localizedDescription)
-        return
+      if error != nil {
+        print("Data Tidak Masuk")
       }
       
       guard let httpResponse = response as? HTTPURLResponse else {
@@ -67,8 +65,9 @@ class NewPasswordViewModel {
       }
       
       do {
-        let result = try decoder.decode(ResetPasswordSucces.self, from: data)
-        completion(result)
+        let jsonData = try JSONSerialization.jsonObject(with: data)
+        let result = try decoder.decode(NewPassword.self, from: data)
+        completion(result.data)
       } catch {
         onError("Failed to decode success response")
       }

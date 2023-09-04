@@ -24,7 +24,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   @IBOutlet weak var helloLbl: UILabel!{
     didSet {
       helloLbl.font = UIFont(name: "Poppins-SemiBold", size: 28)
-//      helloLbl.isSkeletonable = true
+      //      helloLbl.isSkeletonable = true
       helloLbl.showAnimatedGradientSkeleton()
     }
   }
@@ -32,7 +32,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   @IBOutlet weak var welcomeTxt: UILabel!{
     didSet {
       welcomeTxt.font = UIFont(name: "Poppins-Regular", size: 20)
-//      welcomeTxt.isSkeletonable = true
+      //      welcomeTxt.isSkeletonable = true
       welcomeTxt.showAnimatedGradientSkeleton()
     }
   }
@@ -55,21 +55,18 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     super.viewDidLoad()
     self.tabBarController?.tabBar.isHidden = false
     
-    let token = UserDefaults.standard.string(forKey: "access_token")
+    let token = UserDefaults.standard.string(forKey: "refresh_token")
     isValidToken(token: token!)
     
-    if isValidLogin {
-      validSnackBar.make(in: self.view, message: "Login is Successful", duration: .lengthLong).show()
-      homeView.showAnimatedGradientSkeleton()
-      // Setup Register Collection
-      setup()
-
-      reloadCollectionData()
-
-      // Load Data From API
-      viewModel.loadData()
-    }
+    validSnackBar.make(in: self.view, message: "Login is Successful", duration: .lengthLong).show()
+    homeView.showAnimatedGradientSkeleton()
+    // Setup Register Collection
+    setup()
     
+    reloadCollectionData()
+    
+    // Load Data From API
+    viewModel.loadData()
     // Setup Tab Bar item Function Calling
     setupTabBarItemImage()
     
@@ -94,14 +91,14 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     do {
       let jwt = try decode(jwt: token)
       if jwt.expired {
-        isValidLogin = false
-        showAlert(title: "Invalid Token", message: "Please Re-Login!"){
-          DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+          guard let self = self else { return }
+          self.showAlert(title: "Login Session Failed", message: "Please Re-login") {
             self.logout()
           }
         }
       } else {
-        isValidLogin = true
+        
       }
     } catch {
       print("An error occurred while decoding the JWT: \(error)")
@@ -148,12 +145,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     tabBarItem.selectedImage = UIImage(view: label)
   }
   
-  @objc func refreshTableView(){
-    categoryTableView.refreshControl?.endRefreshing()
-    categoryTableView.reloadData()
-  }
-  
-  @IBAction func MenuButtonClicked(_ sender: UIButton) {
+  private func sideMenuClicked() {
     let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController") as! SideMenuViewController
     let sideMenu = SideMenuNavigationController(rootViewController: vc)
@@ -163,6 +155,15 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     sideMenu.leftSide = true
     sideMenu.menuWidth = 330
     present(sideMenu, animated: true)
+  }
+  
+  @objc func refreshTableView(){
+    categoryTableView.refreshControl?.endRefreshing()
+    categoryTableView.reloadData()
+  }
+  
+  @IBAction func MenuButtonClicked(_ sender: UIButton) {
+    sideMenuClicked()
   }
 }
 
@@ -243,6 +244,13 @@ extension HomepageViewController: CategoryTableViewCellDelegate{
 }
 
 extension HomepageViewController: goToTabBarDelegate {
+  func goToChangePassword() {
+    let storyboard = UIStoryboard(name: "ChangePasswordView", bundle: nil)
+    guard let vc = storyboard.instantiateViewController(withIdentifier: "ChangePasswordViewController") as? ChangePasswordViewController else { return }
+    vc.delegate = self
+    self.navigationController?.pushViewController(vc, animated: true)
+  }
+  
   func goToWishlist() {
     self.tabBarController?.selectedIndex = 1
   }
@@ -253,5 +261,11 @@ extension HomepageViewController: goToTabBarDelegate {
   
   func goToProfile() {
     self.tabBarController?.selectedIndex = 3
+  }
+}
+
+extension HomepageViewController: accessSideMenuDelegate {
+  func accessSideMenu() {
+    sideMenuClicked()
   }
 }

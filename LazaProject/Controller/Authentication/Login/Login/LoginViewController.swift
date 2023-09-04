@@ -144,10 +144,8 @@ class LoginViewController: UIViewController {
         self.hidingAnimation()
         self.showAlert(title: "Login", message: "Redirecting...") {
           DispatchQueue.main.async {
-            guard let loginAccess = response?.access_token else { print("Login Access Invalid")
-              return }
-            guard let refreshAccess = response?.refresh_token else { print("Refresh Token Invalid")
-              return }
+            guard let loginAccess = response?.access_token else { print("Login Access Invalid"); return }
+            guard let refreshAccess = response?.refresh_token else { print("Refresh Token Invalid"); return }
             self.loginModel.jumpClick = {
               DispatchQueue.main.async {
                 self.goToHome()

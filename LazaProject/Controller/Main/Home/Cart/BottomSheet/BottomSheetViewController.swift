@@ -101,7 +101,7 @@ class BottomSheetViewController: UIViewController {
   
   private func loadDataAddress() {
     viewModel.reloadData = {
-      DispatchQueue.main.async { [unowned self] in
+      DispatchQueue.main.async { [weak self] in
         guard let self = self else { return }
         let data = self.viewModel.allAddressData
         for address in data {

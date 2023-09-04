@@ -300,3 +300,20 @@ struct insertCartData: Codable {
         case updatedAt = "updated_at"
     }
 }
+
+struct NewPassword: Codable {
+    let status: String
+    let isError: Bool
+    let data: NewPasswordData
+}
+
+// MARK: - DataClass
+struct NewPasswordData: Codable {
+    let message: String
+}
+
+struct APIError: Codable {
+    let status: String
+    let isError: Bool
+    let description: String
+}

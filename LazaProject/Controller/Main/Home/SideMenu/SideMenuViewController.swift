@@ -13,6 +13,7 @@ protocol goToTabBarDelegate: AnyObject {
   func goToWishlist()
   func goToCart()
   func goToProfile()
+  func goToChangePassword()
 }
 
 class SideMenuViewController: UIViewController {
@@ -76,18 +77,23 @@ class SideMenuViewController: UIViewController {
   }
   
   @IBAction func orderClicked(_ sender: UIButton) {
-    delegate?.goToCart()
     self.dismiss(animated: true)
+    delegate?.goToCart()
   }
   
   @IBAction func myCardsClicked(_ sender: UIButton) {
-    delegate?.goToProfile()
     self.dismiss(animated: true)
+    delegate?.goToProfile()
   }
   
   @IBAction func wishlistClicked(_ sender: UIButton) {
-    delegate?.goToWishlist()
     self.dismiss(animated: true)
+    delegate?.goToWishlist()
+  }
+  
+  @IBAction func changePasswordClicked(_ sender: UIButton) {
+    self.dismiss(animated: true)
+    delegate?.goToChangePassword()
   }
   
   @IBAction func logoutClicked(_ sender: UIButton) {

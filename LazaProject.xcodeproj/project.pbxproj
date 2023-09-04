@@ -50,6 +50,9 @@
 		006B4C892A7562AB001247C4 /* TwitterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C882A7562AB001247C4 /* TwitterConstants.swift */; };
 		006B4C8B2A756A57001247C4 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C8A2A756A57001247C4 /* Regex.swift */; };
 		006B4C8D2A756ED8001247C4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C8C2A756ED8001247C4 /* UserModel.swift */; };
+		0072560B2AA579BB00C424EE /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072560A2AA579BB00C424EE /* ChangePasswordViewController.swift */; };
+		0072560D2AA579C900C424EE /* ChangePasswordView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0072560C2AA579C900C424EE /* ChangePasswordView.storyboard */; };
+		0072560F2AA579D900C424EE /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072560E2AA579D900C424EE /* ChangePasswordViewModel.swift */; };
 		007904FA2A8B339700FEBFF0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007904F92A8B339700FEBFF0 /* SignUpViewModel.swift */; };
 		007904FC2A8B676300FEBFF0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007904FB2A8B676300FEBFF0 /* LoginViewModel.swift */; };
 		007904FF2A8C7D2800FEBFF0 /* DPOTPView in Frameworks */ = {isa = PBXBuildFile; productRef = 007904FE2A8C7D2800FEBFF0 /* DPOTPView */; };
@@ -163,6 +166,9 @@
 		006B4C882A7562AB001247C4 /* TwitterConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterConstants.swift; sourceTree = "<group>"; };
 		006B4C8A2A756A57001247C4 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		006B4C8C2A756ED8001247C4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		0072560A2AA579BB00C424EE /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		0072560C2AA579C900C424EE /* ChangePasswordView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePasswordView.storyboard; sourceTree = "<group>"; };
+		0072560E2AA579D900C424EE /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		007904F92A8B339700FEBFF0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		007904FB2A8B676300FEBFF0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		007905002A8C9EA100FEBFF0 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
@@ -257,6 +263,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		007256092AA579A200C424EE /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				0072560C2AA579C900C424EE /* ChangePasswordView.storyboard */,
+				0072560A2AA579BB00C424EE /* ChangePasswordViewController.swift */,
+				0072560E2AA579D900C424EE /* ChangePasswordViewModel.swift */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
 		007B0F492A70B2410034E7A5 = {
 			isa = PBXGroup;
 			children = (
@@ -380,12 +396,12 @@
 				007B0F8A2A70F8C40034E7A5 /* HomepageViewController.storyboard */,
 				007B0F7C2A70CAD80034E7A5 /* ViewModel.swift */,
 				00EB8D522AA40A1C00D9ADDC /* RefreshTokenViewModel.swift */,
-				00EB8D682AA4F35900D9ADDC /* Product */,
 				00EB8D622AA4EF7B00D9ADDC /* SideMenu */,
 				00EB8D5E2AA4EE9500D9ADDC /* Homepage */,
 				00EB8D5F2AA4EEFA00D9ADDC /* Wishlist */,
 				00EB8D602AA4EF5700D9ADDC /* Cart */,
 				00EB8D612AA4EF7000D9ADDC /* Profile */,
+				007256092AA579A200C424EE /* ChangePassword */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -572,13 +588,6 @@
 				008EE8A52A7B88B8002C44B9 /* SizeCollectionViewCell.swift */,
 			);
 			path = Size;
-			sourceTree = "<group>";
-		};
-		00EB8D682AA4F35900D9ADDC /* Product */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Product;
 			sourceTree = "<group>";
 		};
 		00EB8D692AA4F39100D9ADDC /* DetailTableViewCell */ = {
@@ -847,6 +856,7 @@
 				0008FF902A83855A0006BF26 /* AllAddressViewController.storyboard in Resources */,
 				003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */,
 				008CE6A22A80C06600454CED /* BottomSheetViewController.storyboard in Resources */,
+				0072560D2AA579C900C424EE /* ChangePasswordView.storyboard in Resources */,
 				008CE6AE2A80D81200454CED /* PaymentViewController.storyboard in Resources */,
 				008CE69F2A80ADC400454CED /* CartTableViewCell.xib in Resources */,
 				0086FE402A96FE5700E41A19 /* AllProductViewController.storyboard in Resources */,
@@ -935,6 +945,7 @@
 				006374702A910980003EC0EF /* VerifyAccountViewController.swift in Sources */,
 				006374732A911655003EC0EF /* VerifyAccountViewModel.swift in Sources */,
 				004678462A945DF2005C0E07 /* DateUtils.swift in Sources */,
+				0072560F2AA579D900C424EE /* ChangePasswordViewModel.swift in Sources */,
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
 				0035172C2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift in Sources */,
 				00EB8D512AA31EF400D9ADDC /* SetProfileViewController.swift in Sources */,
@@ -959,6 +970,7 @@
 				00A8FDBA2A930BA4006FB87D /* DetailViewModel.swift in Sources */,
 				00A8FDB82A930487006FB87D /* HomeViewModel.swift in Sources */,
 				0008FF7F2A8327AE0006BF26 /* UIViewExt.swift in Sources */,
+				0072560B2AA579BB00C424EE /* ChangePasswordViewController.swift in Sources */,
 				007B0F812A70CD430034E7A5 /* SignUpViewController.swift in Sources */,
 				00A74B482A72468200BB07B9 /* WishlistViewController.swift in Sources */,
 				008EE8A12A7B5C56002C44B9 /* AlertManager.swift in Sources */,

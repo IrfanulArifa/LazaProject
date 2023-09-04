@@ -8,15 +8,16 @@
 import UIKit
 import SDWebImage
 import SnackBar
+import JWTDecode
 
 class DetailViewController: UIViewController {
   
   // MARK: Get Welcome Element Data
   var dataDetail: Int?
-  let viewModel = DetailViewModel()
+  let detailModel = DetailViewModel()
   var sizeProduct: Int?
   let cartModel = CartViewModel()
-  let token = UserDefaults.standard.string(forKey: "access_token")
+  let refreshModel = RefreshTokenViewModel()
   
   @IBOutlet weak var detailTableView: IntrinsicTableView!
   @IBOutlet weak var wishlistButton: UIButton!{
@@ -27,7 +28,6 @@ class DetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     self.tabBarController?.tabBar.isHidden = true
     
     detailTableView.delegate = self
@@ -35,20 +35,7 @@ class DetailViewController: UIViewController {
     
     detailTableView.register(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCell")
     detailTableView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil),forCellReuseIdentifier: "ReviewTableViewCell")
-    
-    
-    viewModel.loadDetail(dataDetail!)
-    viewModel.isInWishlist(token: token!)
-    
-    viewModel.reloadDetail = {
-      DispatchQueue.main.async {
-        self.detailTableView.reloadData()
-      }
-    }
-    
-    viewModel.reloadWishlist = {
-      self.checkWhistlist()
-    }
+    accessToken()
   }
   
   // MARK: Function that Configure Data from Collection into DetailView
@@ -56,25 +43,70 @@ class DetailViewController: UIViewController {
     dataDetail = data
   }
   
+  func accessToken() {
+    do {
+      UserDefaults.standard.synchronize()
+      let token = UserDefaults.standard.string(forKey: "access_token")
+      let refresh_token = UserDefaults.standard.string(forKey: "refresh_token")
+      let jwt = try decode(jwt: token!)
+      if jwt.expired {
+        refreshModel.reloadData = {
+          DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            guard let self = self else { return }
+            self.detailModel.loadDetail(dataDetail!)
+            self.detailModel.isInWishlist(token: token!)
+            
+            self.detailModel.reloadDetail = {
+              DispatchQueue.main.async {
+                self.detailTableView.reloadData()
+              }
+            }
+            
+            self.detailModel.reloadWishlist = {
+              self.checkWhistlist()
+            }
+          }
+        }
+        refreshModel.refreshTokenIfNeeded(refresh_token: refresh_token!)
+      } else {
+        let token = UserDefaults.standard.string(forKey: "access_token")
+        detailModel.reloadDetail = {
+          DispatchQueue.main.async {
+            self.detailTableView.reloadData()
+          }
+        }
+        detailModel.reloadWishlist = {
+          self.checkWhistlist()
+        }
+        
+        detailModel.loadDetail(dataDetail!)
+        detailModel.isInWishlist(token: token!)
+      }
+    } catch {
+      
+    }
+  }
+  
   // MARK: Back button when Clicked -> Back to Previous View
   @IBAction func backButtonClicked(_ sender: UIButton) {
+    accessToken()
     self.navigationController?.popViewController(animated: true)
   }
   
   
   // MARK: Function that Set Star Image Style from RatingValue in API
   override func viewDidAppear(_ animated: Bool) {
-    detailTableView.reloadData()
+    accessToken()
   }
   
   func checkWhistlist() {
-    guard let range = viewModel.wishlistData?.data.total else { return }
+    guard let range = detailModel.wishlistData?.data.total else { return }
     
     if range == 0 {
       resetWishlistImage()
     } else {
       for i in 0..<range{
-        if viewModel.wishlistData?.data.products[i].id == dataDetail {
+        if detailModel.wishlistData?.data.products[i].id == dataDetail {
           setWishlistImage()
           break
         } else {
@@ -98,7 +130,7 @@ class DetailViewController: UIViewController {
   
   @IBAction func wishlistButton(_ sender: UIButton) {
     let tokenAcc = UserDefaults.standard.string(forKey: "access_token")
-    viewModel.putWishlist(productId: String(dataDetail!), token: tokenAcc!) { response in
+    detailModel.putWishlist(productId: String(dataDetail!), token: tokenAcc!) { response in
       if response?.data == "successfully added wishlist" {
         DispatchQueue.main.async { [unowned self] in
           validSnackBar.make(in: self.view, message: (response?.data.capitalized)!, duration: .lengthLong).show()
@@ -118,19 +150,22 @@ class DetailViewController: UIViewController {
   }
   
   @IBAction func addToCard(_ sender: UIButton) {
-    let productID = viewModel.detailData?.data.id
-    cartModel.insertCartData(token: token!, productID: productID!, sizeID: sizeProduct!) { response in
-      DispatchQueue.main.async {
-        validSnackBar.make(in: self.view, message: "Produk Berhasil Ditambahkan", duration: .lengthLong).show()
+    let token = UserDefaults.standard.string(forKey: "access_token")
+    let productID = detailModel.detailData?.data.id
+    if sizeProduct != nil {
+      cartModel.insertCartData(token: token!, productID: productID!, sizeID: sizeProduct!) { response in
+        DispatchQueue.main.async {
+          validSnackBar.make(in: self.view, message: "Produk Berhasil Ditambahkan", duration: .lengthLong).show()
+        }
+      } onError: { error in
+        DispatchQueue.main.async {
+          invalidSnackBar.make(in: self.view, message: error.capitalized, duration: .lengthLong).show()
+        }
       }
-    } onError: { error in
-      DispatchQueue.main.async {
-        invalidSnackBar.make(in: self.view, message: error.capitalized, duration: .lengthLong).show()
-      }
+    } else {
+      invalidSnackBar.make(in: self.view, message: "Harap Pilih Size Terlebih Dahulu", duration: .lengthLong).show()
     }
-
   }
-  
 }
 
 extension DetailViewController : UITableViewDataSource {
@@ -147,7 +182,7 @@ extension DetailViewController : UITableViewDataSource {
       guard let cellA = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell") as? DetailTableViewCell else { return UITableViewCell() }
       cellA.delegate = self
       
-      guard let data = viewModel.detailData?.data else { return UITableViewCell() }
+      guard let data = detailModel.detailData?.data else { return UITableViewCell() }
       let imageURL = data.imageURL
       cellA.imageDetail.sd_setImage(with: URL(string: imageURL))
       cellA.priceDetailLabel.text = "Rp. " + String(data.price)
@@ -159,7 +194,7 @@ extension DetailViewController : UITableViewDataSource {
     } else {
       
       guard let cellB = tableView.dequeueReusableCell(withIdentifier: "ReviewTableViewCell") as? ReviewTableViewCell else { return UITableViewCell()}
-      guard let data = viewModel.detailData?.data else { return UITableViewCell() }
+      guard let data = detailModel.detailData?.data else { return UITableViewCell() }
       let dateData = DateTimeUtils().formatReview(date: data.reviews[indexPath.row-1].createdAt)
       let dataCell = data.reviews[indexPath.row-1]
       cellB.reviewDate.text = dateData
@@ -185,13 +220,13 @@ extension DetailViewController : UITableViewDelegate {
 
 extension DetailViewController: ReviewTableViewCellDelegate {
   func sizeUnclicked(_ collectionView: UICollectionView, _ didDeselectItemAt: IndexPath) {
-    sizeProduct = viewModel.detailData?.data.size[didDeselectItemAt.item].id
+    sizeProduct = detailModel.detailData?.data.size[didDeselectItemAt.item].id
     guard let cell = collectionView.cellForItem(at: didDeselectItemAt) as? SizeCollectionViewCell else { return }
     cell.sizeBackground.backgroundColor = UIColor(named: "sizeColor")
   }
   
   func sizeClicked(_ collectionView: UICollectionView, _ didSelectItemAt: IndexPath) {
-    sizeProduct = viewModel.detailData?.data.size[didSelectItemAt.item].id
+    sizeProduct = detailModel.detailData?.data.size[didSelectItemAt.item].id
     guard let cell = collectionView.cellForItem(at: didSelectItemAt) as? SizeCollectionViewCell else { return }
     cell.sizeBackground.backgroundColor = UIColor(named: "PurpleButton")
   }
