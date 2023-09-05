@@ -14,9 +14,11 @@ class VerifyAccountViewModel {
                     onError: @escaping (String) -> Void) {
     let decoder = JSONDecoder()
     
-    let url = URL(string: "https://lazaapp.shop/auth/confirm/resend")!
+    let baseUrl = Endpoint.APIAddress()+Endpoint.Path.verify.rawValue
+    
+    let url = URL(string: baseUrl)!
     var request = URLRequest(url: url)
-    request.httpMethod = "POST"
+    request.httpMethod = Endpoint.HttpMethod.POST.rawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     let parameters: [String: Any] = [
       "email": email
@@ -45,11 +47,11 @@ class VerifyAccountViewModel {
       }
       
       if httpResponse.statusCode != 200 {
-        guard let failedModel = try? decoder.decode(ResendEmailFailed.self, from: data) else {
+        guard let failedModel = try? decoder.decode(APIError.self, from: data) else {
           onError("Register failed - Failed get Data")
           return
         }
-        onError(failedModel.descriptionKey)
+        onError(failedModel.description)
         return
       }
       

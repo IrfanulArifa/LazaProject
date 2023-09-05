@@ -16,14 +16,17 @@ class NewPasswordViewModel {
                      onError: @escaping (String) -> Void) {
     let decoder = JSONDecoder()
     
-    var component = URLComponents(string: "https://lazaapp.shop/auth/recover/password")!
+    let baseUrl = Endpoint.APIAddress() + Endpoint.Path.resetPassword.rawValue
+    
+    var component = URLComponents(string: baseUrl)!
+    
     component.queryItems = [
       URLQueryItem(name: "email", value: email),
       URLQueryItem(name: "code", value: otpData)
     ]
     
     var request = URLRequest(url: component.url!)
-    request.httpMethod = "POST"
+    request.httpMethod = Endpoint.HttpMethod.POST.rawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     let parameters: [String: Any] = [
       "new_password": new_password,

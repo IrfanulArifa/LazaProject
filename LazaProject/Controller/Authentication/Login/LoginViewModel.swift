@@ -23,9 +23,11 @@ class LoginViewModel{
     
     let decoder = JSONDecoder()
     
-    let url = URL(string: "https://lazaapp.shop/login")!
+    let baseURL = Endpoint.APIAddress()+Endpoint.Path.login.rawValue
+    
+    let url = URL(string: baseURL)!
     var request = URLRequest(url: url)
-    request.httpMethod = "POST"
+    request.httpMethod = Endpoint.HttpMethod.POST.rawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     let parameters: [String: Any] = [
       "username":username,
@@ -49,11 +51,11 @@ class LoginViewModel{
         return }
       
       if httpResponse.statusCode != 200 {
-        guard let failedModel = try? decoder.decode(LoginFailed.self, from: data) else {
+        guard let failedModel = try? decoder.decode(APIError.self, from: data) else {
           onError("Login failed - Failed to decode")
           return
         }
-        onError(failedModel.descriptionKey)
+        onError(failedModel.description)
         return
       }
       
@@ -68,9 +70,12 @@ class LoginViewModel{
   }
   
   func getProfileData(token: String, refreshToken: String) {
-    let component = URLComponents(string: "https://lazaapp.shop/user/profile")!
-    var request = URLRequest(url: component.url!)
-    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
+    
+    let baseURL = Endpoint.APIAddress()+Endpoint.Path.profil.rawValue
+    
+    let url = URL(string: baseURL)!
+    var request = URLRequest(url: url)
+    request.setValue("Bearer \(token)", forHTTPHeaderField: "\(Endpoint.HTTPHeader.XAuthToken.rawValue)")
     let session = URLSession.shared
     
     let task = session.dataTask(with: request) { data, response, error in

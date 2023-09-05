@@ -14,10 +14,13 @@ class VerificationCodeViewModel {
                          completion: @escaping ((VerificationCodeSuccess?) -> Void),
                          onError: @escaping (String) -> Void){
     let decoder = JSONDecoder()
-    let url = URL(string: "https://lazaapp.shop/auth/recover/code")!
+    
+    let baseUrl = Endpoint.APIAddress() + Endpoint.Path.verification.rawValue
+    
+    let url = URL(string: baseUrl)!
     var request = URLRequest(url:url)
     
-    request.httpMethod = "POST"
+    request.httpMethod = Endpoint.HttpMethod.RawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     let parameters: [String: Any] = [
       "email":email,
@@ -48,11 +51,11 @@ class VerificationCodeViewModel {
       }
       
       if httpResponse.statusCode != 202 {
-        guard let failedModel = try? decoder.decode(VerificationCodeFailed.self, from: data) else {
+        guard let failedModel = try? decoder.decode(APIError.self, from: data) else {
           onError("Verification Failed - Failed to Decode")
           return
         }
-        onError(failedModel.descriptionKey)
+        onError(failedModel.description)
         return
       }
       

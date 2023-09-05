@@ -20,9 +20,11 @@ class SignUpViewModel {
     
     let decoder = JSONDecoder()
     
-    let url = URL(string: "https://lazaapp.shop/register")!
+    let baseURL = Endpoint.APIAddress() + Endpoint.Path.register.rawValue
+    
+    let url = URL(string: baseURL)!
     var request = URLRequest(url:url)
-    request.httpMethod = "POST"
+    request.httpMethod = Endpoint.HttpMethod.POST.rawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     let parameters: [String: Any] = [
       "full_name":fullname,
@@ -57,11 +59,11 @@ class SignUpViewModel {
       }
       
       if httpResponse.statusCode != 201 {
-        guard let failedModel = try? decoder.decode(ResponseSignUpFailed.self, from: data) else {
+        guard let failedModel = try? decoder.decode(APIError.self, from: data) else {
           onError("Register failed - Failed to decode")
           return
         }
-        onError(failedModel.descriptionKey)
+        onError(failedModel.description)
         return
       }
       
