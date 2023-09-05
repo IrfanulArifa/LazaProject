@@ -16,7 +16,11 @@ class HomeViewModel {
   
   func getProductByName(name: String) async throws -> [Datum] {
     
-    let component = URLComponents(string: "https://lazaapp.shop/products/brand?name=\(name)")!
+    var component = URLComponents(string: "https://lazaapp.shop/products/brand")!
+    
+    component.queryItems = [
+      URLQueryItem(name: "name", value: name)
+    ]
 
     let request = URLRequest(url: component.url!)
     

@@ -36,6 +36,9 @@ class AllAddressViewController: UIViewController {
     super.viewDidLoad()
     self.tabBarController?.tabBar.isHidden = true
     loadData()
+    let refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+    addressTableView.refreshControl = refreshControl
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -52,8 +55,9 @@ class AllAddressViewController: UIViewController {
     viewModel.getAllAddress()
   }
   
-  func goToEditAddress() {
-    
+  @objc func refreshTableView(){
+    addressTableView.refreshControl?.endRefreshing()
+    loadData()
   }
   
   @IBAction func backButtonClicked(_ sender: UIButton) {

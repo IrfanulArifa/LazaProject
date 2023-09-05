@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
   var sizeProduct: Int?
   let cartModel = CartViewModel()
   let refreshModel = RefreshTokenViewModel()
+  let wishlistModel = WishlistViewModel()
   
   @IBOutlet weak var detailTableView: IntrinsicTableView!
   @IBOutlet weak var wishlistButton: UIButton!{
@@ -37,6 +38,10 @@ class DetailViewController: UIViewController {
     detailTableView.register(UINib(nibName: "ReviewTableViewCell", bundle: nil),forCellReuseIdentifier: "ReviewTableViewCell")
     refreshModel.refreshToken()
     setup()
+    
+    let refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+    detailTableView.refreshControl = refreshControl
   }
   
   // MARK: Function that Configure Data from Collection into DetailView
@@ -44,8 +49,13 @@ class DetailViewController: UIViewController {
     dataDetail = data
   }
   
+  @objc func refreshTableView(){
+    detailTableView.refreshControl?.endRefreshing()
+    setup()
+  }
+  
   func setup() {
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+    DispatchQueue.main.async { [weak self] in
       let token = UserDefaults.standard.string(forKey: "access_token")
       guard let self = self else { return }
       self.detailModel.reloadDetail = {
@@ -53,12 +63,12 @@ class DetailViewController: UIViewController {
           self.detailTableView.reloadData()
         }
       }
-      detailModel.reloadWishlist = {
+      wishlistModel.reloadWishlist = {
         self.checkWhistlist()
       }
       
       detailModel.loadDetail(dataDetail!)
-      detailModel.isInWishlist(token: token!)
+      wishlistModel.getWishlist(token: token!)
     }
   }
   
@@ -79,13 +89,13 @@ class DetailViewController: UIViewController {
   }
   
   func checkWhistlist() {
-    guard let range = detailModel.wishlistData?.data.total else { return }
+    guard let range = wishlistModel.wishlistData?.data.total else { return }
     
     if range == 0 {
       resetWishlistImage()
     } else {
       for i in 0..<range{
-        if detailModel.wishlistData?.data.products[i].id == dataDetail {
+        if wishlistModel.wishlistData?.data.products[i].id == dataDetail {
           setWishlistImage()
           break
         } else {
@@ -181,7 +191,7 @@ extension DetailViewController : UITableViewDataSource {
       cellB.reviewerName.text = dataCell.fullName
       cellB.reviewerValue.text = String(dataCell.rating)
       cellB.reviewerImage.sd_setImage(with: URL(string: dataCell.imageURL))
-      cellB.setRatingImage(dataCell.rating)
+      cellB.setRatingImage(dataCell.rating, cellB.star1, cellB.star2, cellB.star3, cellB.star4, cellB.star5)
       return cellB
     }
   }

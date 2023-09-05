@@ -224,7 +224,7 @@ extension ReviewViewController: UITableViewDataSource {
       cell.reviewerName.text = newData.fullName
       cell.reviewerValue.text = "\(newData.rating)"
       cell.reviewerImage.sd_setImage(with: URL(string: newData.imageURL))
-      cell.setRatingImage(newData.rating)
+      cell.setRatingImage(newData.rating, cell.star1, cell.star2, cell.star3, cell.star4, cell.star5)
     }
     return cell
   }

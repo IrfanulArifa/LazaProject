@@ -32,7 +32,13 @@ class ReviewTableViewCell: UITableViewCell {
     // Configure the view for the selected state
   }
   
-  func setRatingImage(_ value: Double){
+  func setRatingImage(_ value: Double,
+                      _ star1: UIImageView,
+                      _ star2: UIImageView,
+                      _ star3: UIImageView,
+                      _ star4: UIImageView,
+                      _ star5: UIImageView){
+    
     let imageFull = UIImage(systemName: "star.fill")
     let imageHalf = UIImage(systemName: "star.leadinghalf.filled")
     let imageEmpty = UIImage(systemName: "star")

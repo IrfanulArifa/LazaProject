@@ -87,7 +87,7 @@ class LoginViewModel{
         do {
           let decoder = JSONDecoder()
           let result = try decoder.decode(User.self, from: data)
-          if let imageData = result.data.imageURL {
+          if result.data.imageURL != nil {
             self.jumpClick?()
             ViewModel().saveProfil(token:token, refreshToken: refreshToken ,fullname: result.data.fullName, username: result.data.username, email: result.data.email, image: result.data.imageURL ?? "")
           } else {

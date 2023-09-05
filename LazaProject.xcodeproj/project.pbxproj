@@ -18,6 +18,7 @@
 		0008FF982A838CF30006BF26 /* AllAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF962A838CF30006BF26 /* AllAddressTableViewCell.xib */; };
 		0008FF9C2A8394C50006BF26 /* SnackBar in Frameworks */ = {isa = PBXBuildFile; productRef = 0008FF9B2A8394C50006BF26 /* SnackBar */; };
 		0008FF9E2A8395470006BF26 /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF9D2A8395470006BF26 /* SnackBar.swift */; };
+		0017F10C2AA6D7A6008E71A3 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0017F10B2AA6D7A6008E71A3 /* Endpoint.swift */; };
 		001859B52A78E6E7004EF0D5 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */; };
 		001859B72A78E737004EF0D5 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */; };
 		001859BB2A7A0478004EF0D5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */; };
@@ -133,6 +134,7 @@
 		0008FF952A838CF30006BF26 /* AllAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAddressTableViewCell.swift; sourceTree = "<group>"; };
 		0008FF962A838CF30006BF26 /* AllAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllAddressTableViewCell.xib; sourceTree = "<group>"; };
 		0008FF9D2A8395470006BF26 /* SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
+		0017F10B2AA6D7A6008E71A3 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		001859B42A78E6E7004EF0D5 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		001859B62A78E737004EF0D5 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		001859BA2A7A0478004EF0D5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				0008FF7E2A8327AE0006BF26 /* UIViewExt.swift */,
 				0008FF9D2A8395470006BF26 /* SnackBar.swift */,
 				004678452A945DF2005C0E07 /* DateUtils.swift */,
+				0017F10B2AA6D7A6008E71A3 /* Endpoint.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -925,6 +928,7 @@
 				0072560F2AA579D900C424EE /* ChangePasswordViewModel.swift in Sources */,
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,
 				0035172C2A91FAA5004D3CD1 /* ForgetPasswordViewModel.swift in Sources */,
+				0017F10C2AA6D7A6008E71A3 /* Endpoint.swift in Sources */,
 				00EB8D512AA31EF400D9ADDC /* SetProfileViewController.swift in Sources */,
 				006B4C7E2A753AE2001247C4 /* ProfileViewController.swift in Sources */,
 				009486C72A9F26F500FA7955 /* CartViewModel.swift in Sources */,

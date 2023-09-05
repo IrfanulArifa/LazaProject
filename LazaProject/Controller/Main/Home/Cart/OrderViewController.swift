@@ -52,6 +52,21 @@ class OrderViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setup()
+    let refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+    cardTableView.refreshControl = refreshControl
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    self.tabBarController?.tabBar.isHidden = false
+    let userToken = UserDefaults.standard.string(forKey: "access_token")
+    DispatchQueue.main.async{ [self] in
+      loadData(token: userToken!)
+    }
+  }
+  
+  func setup() {
     let userToken = UserDefaults.standard.string(forKey: "access_token")
     
     DispatchQueue.main.async {
@@ -66,12 +81,9 @@ class OrderViewController: UIViewController {
     }
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    self.tabBarController?.tabBar.isHidden = false
-    let userToken = UserDefaults.standard.string(forKey: "access_token")
-    DispatchQueue.main.async{ [self] in
-      loadData(token: userToken!)
-    }
+  @objc func refreshTableView(){
+    cardTableView.refreshControl?.endRefreshing()
+    setup()
   }
   
   func stopAnimation(){
@@ -145,7 +157,6 @@ extension OrderViewController: UITableViewDelegate {
 
 extension OrderViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    print("Product count: \(viewModel.cartData?.products?.count ?? -1)")
     return viewModel.cartData?.products?.count ?? 0
   }
   

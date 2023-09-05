@@ -45,32 +45,6 @@ class ViewModel {
     return result.description
   }
   
-  // MARK: Get User Data from API
-  func getUser() async throws -> UserData {
-    let component = URLComponents(string: "https://fakestoreapi.com/users")!
-    let request = URLRequest(url:component.url!)
-    let (data, responses) = try await URLSession.shared.data(for: request)
-    guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
-      fatalError("Error Can't Fetching Data")
-    }
-    let decoder = JSONDecoder()
-    let result = try decoder.decode(UserData.self, from: data)
-    return result
-  }
-  
-  // MARK: Get All Size Data From API
-//  func getSize() async throws -> [Sizes] {
-//    let component = URLComponents(string: "https://lazaapp.shop/size")!
-//    let request = URLRequest(url:component.url!)
-//    let (data, responses) = try await URLSession.shared.data(for: request)
-//    guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
-//      fatalError("Error Can't Fetching Data")
-//    }
-//    let decoder = JSONDecoder()
-//    let result = try decoder.decode(Size.self, from: data)
-//    return result.data
-//  }
-  
   // MARK: Get All Size Data From API
   func getAllSize(completion: @escaping (Size) -> Void){
     let decoder = JSONDecoder()
@@ -111,24 +85,10 @@ class ViewModel {
   // MARK: Load All Data that Get From API
   func loadData(){
     Task {
-      //      await getCategoriesData()
       await getProductData()
       await getBrandData()
     }
   }
-  
-  // MARK: Load User Data
-  func loadDataUser(){
-    Task {
-      await getUserData()
-    }
-  }
-  
-//  func loadSize(){
-//    Task {
-//      await getSizeData()
-//    }
-//  }
   
   // MARK: Get Product Data from API Async -> XCode say Must Set Async
   func getProductData() async {
@@ -141,14 +101,6 @@ class ViewModel {
   }
   
   // MARK: Get User Data from API Async -> XCode say Must Set Async
-  func getUserData() async {
-    do {
-      userData = try await getUser()
-      reloadUser?()
-    } catch {
-      print("Error")
-    }
-  }
   
   func getBrandData() async {
     do {
@@ -158,15 +110,6 @@ class ViewModel {
       print("Error")
     }
   }
-  
-//  func getSizeData() async {
-//    do {
-//      size = try await getSize()
-//      reloadSize?()
-//    } catch {
-//      print("Error")
-//    }
-//  }
   
   func updateProfil(token: String, fullname: String, username: String, email: String, image: String) {
     UserModel.stateLogin = true

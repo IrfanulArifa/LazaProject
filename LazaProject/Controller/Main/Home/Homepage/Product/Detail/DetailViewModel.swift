@@ -11,10 +11,8 @@ class DetailViewModel {
   
   var detailData: Detail?
   var reviewData: ReviewData?
-  var wishlistData: WishlistModel?
   var reloadDetail: (()->Void)?
   var reloadReview: (()->Void)?
-  var reloadWishlist: (()->Void)?
   var reLogin: (()->Void)?
   
   func getDetailById(id: Int) async throws -> Detail {
@@ -30,26 +28,12 @@ class DetailViewModel {
     return result
   }
   
-  func getWishlist(token:String) async throws -> WishlistModel {
-    let component = URLComponents(string: "https://lazaapp.shop/wishlists")!
-    var request = URLRequest(url:component.url!)
-    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
-    let (data, responses) = try await URLSession.shared.data(for: request)
-    guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
-      fatalError("Error Can't Fetching Data")
-    }
-    let decoder = JSONDecoder()
-    let result = try decoder.decode(WishlistModel.self, from: data)
-    return result
-  }
+  
   
   func loadDetail(_ index: Int) {
     Task { await getDetailData(index) }
   }
   
-  func isInWishlist(token: String){
-    Task { await checkWishlistData(token) }
-  }
   
   func loadWhislist(token: String) {
 //    Task { await }
@@ -81,14 +65,7 @@ class DetailViewModel {
     return result
   }
 
-  func checkWishlistData(_ token: String) async {
-    do {
-      wishlistData = try await getWishlist(token: token)
-      reloadWishlist?()
-    } catch {
-      print("Gamasuk ke Review \(error)")
-    }
-  }
+  
   
   func getReviewData(_ index: Int) async {
     do {

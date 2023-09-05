@@ -20,7 +20,11 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
   // MARK: TextField
   @IBOutlet weak var fullName: UITextField!
   @IBOutlet weak var userName: UITextField!
-  @IBOutlet weak var emailAddress: UITextField!
+  @IBOutlet weak var emailAddress: UITextField!{
+    didSet {
+      emailAddress.isEnabled = false
+    }
+  }
   
   @IBOutlet weak var disableView: UIView!{
     didSet {
