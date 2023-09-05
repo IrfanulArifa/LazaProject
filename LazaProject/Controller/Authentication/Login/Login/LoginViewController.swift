@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
   }
   
   private func goToHome() {
-    let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "Home", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
     self.view.window?.windowScene?.keyWindow?.rootViewController = vc
   }

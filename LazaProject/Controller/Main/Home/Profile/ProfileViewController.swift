@@ -76,7 +76,7 @@ class ProfileViewController: UIViewController {
   }
   
   @IBAction func editProfileClicked(_ sender: UIButton) {
-    let storyboard = UIStoryboard(name: "UpdateProfileViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "UpdateProfile", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "UpdateProfileViewController") as? UpdateProfileViewController else { return }
     vc.modalPresentationStyle = .fullScreen
     self.present(vc, animated: true)

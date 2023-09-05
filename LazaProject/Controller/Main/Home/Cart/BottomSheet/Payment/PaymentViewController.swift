@@ -98,11 +98,10 @@ class PaymentViewController: UIViewController {
   
   @IBAction func addNewCardClicked(_ sender: UIButton) {
     let storyboard = UIStoryboard(name: "AddNewCardViewController", bundle: nil).instantiateViewController(withIdentifier: "AddNewCardViewController")
-    storyboard.modalPresentationStyle = .fullScreen
-    self.present(storyboard, animated: true)
+    self.navigationController?.pushViewController(storyboard, animated: true)
   }
   @IBAction func saveCardClicked(_ sender: Any) {
-    self.dismiss(animated: true)
+//    self.navigationController?.popViewController(animated: true)
   }
 }
 

@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     if UserDefaults.standard.bool(forKey: "state") {
-      let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
+      let storyboard = UIStoryboard(name: "Home", bundle: nil)
       let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
       self.window?.rootViewController = vc
     } else {

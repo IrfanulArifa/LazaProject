@@ -144,7 +144,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   }
   
   private func sideMenuClicked() {
-    let storyboard = UIStoryboard(name: "HomepageViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "Home", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController") as! SideMenuViewController
     let sideMenu = SideMenuNavigationController(rootViewController: vc)
     vc.delegate = self
@@ -202,14 +202,14 @@ extension HomepageViewController: UITableViewDelegate {
 
 extension HomepageViewController: ProductTableViewCellDelegate {
   func viewAllProduct() {
-    let storyboard = UIStoryboard(name: "AllProductViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "AllProduct", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "AllProductViewController") as? AllProductViewController else { return }
     vc.configureData(data: viewModel.product)
     self.navigationController?.pushViewController(vc, animated: true)
   }
   
   func productDidSelectItemAt(didSelectItemAt indexPath: IndexPath) {
-    let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "Detail", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
     vc.configure(data: viewModel.product[indexPath.item].id)
     self.navigationController?.pushViewController(vc, animated: true)
@@ -227,14 +227,14 @@ extension HomepageViewController: SideMenuNavigationControllerDelegate {
 
 extension HomepageViewController: CategoryTableViewCellDelegate{
   func categoryDidSelectItemAt(didSelectItemAt indexPath: IndexPath) {
-    let storyboard = UIStoryboard(name: "AllCategoryViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "AllCategory", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "SelectedBrandViewController") as? SelectedBrandViewController else { return }
     vc.configureBrand(name: viewModel.brand[indexPath.item].name, imageLogo: viewModel.brand[indexPath.item].logoURL)
     self.navigationController?.pushViewController(vc, animated: true)
   }
   
   func viewAllCategory() {
-    let storyboard = UIStoryboard(name: "AllCategoryViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "AllCategory", bundle: nil)
     guard let vc = storyboard.instantiateViewController(identifier: "AllCategoryViewController") as? AllCategoryViewController else { return }
     vc.configureCategory(data: viewModel.brand)
     self.navigationController?.pushViewController(vc, animated: true)
@@ -243,7 +243,7 @@ extension HomepageViewController: CategoryTableViewCellDelegate{
 
 extension HomepageViewController: goToTabBarDelegate {
   func goToChangePassword() {
-    let storyboard = UIStoryboard(name: "ChangePasswordView", bundle: nil)
+    let storyboard = UIStoryboard(name: "ChangePassword", bundle: nil)
     guard let vc = storyboard.instantiateViewController(withIdentifier: "ChangePasswordViewController") as? ChangePasswordViewController else { return }
     vc.delegate = self
     self.navigationController?.pushViewController(vc, animated: true)

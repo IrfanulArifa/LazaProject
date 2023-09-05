@@ -62,7 +62,7 @@ class AllAddressViewController: UIViewController {
   }
   
   @IBAction func addNewAddressClicked(_ sender: UIButton) {
-    let storyboard = UIStoryboard(name: "AddressViewController", bundle: nil).instantiateViewController(withIdentifier: "AddressViewController")
+    let storyboard = UIStoryboard(name: "Address", bundle: nil).instantiateViewController(withIdentifier: "AddressViewController")
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
   
@@ -115,11 +115,10 @@ extension AllAddressViewController: UITableViewDataSource{
     
     let updateData = UIContextualAction(style: .normal, title: "Edit") { [weak self] (action, view, completionHandler)  in
       DispatchQueue.main.async { [unowned self] in
-        let storyboard = UIStoryboard(name: "AddressViewController", bundle: nil)
+        let storyboard = UIStoryboard(name: "Address", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "UpdateAddressViewController") as? UpdateAddressViewController else { return }
         vc.configure(data: data)
-        vc.modalPresentationStyle = .fullScreen
-        self?.present(vc, animated: true)
+        self?.navigationController?.pushViewController(vc, animated: true)
       }
       completionHandler(true)
     }
@@ -137,7 +136,7 @@ extension AllAddressViewController: UITableViewDelegate{
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let data = viewModel.allAddressData[indexPath.row]
-    dismiss(animated: true)
+    self.navigationController?.popViewController(animated: true)
     delegate?.setAddressDelivery(data: data)
   }
 }

@@ -22,11 +22,8 @@ class SideMenuViewController: UIViewController {
   
   @IBOutlet weak var sideMenuPersonName: UILabel!
   @IBOutlet weak var personPict: UIImageView!
-  
   @IBOutlet weak var sunImage: UIImageView!
-  
   @IBOutlet weak var switchBtn: UISwitch!
-  
   func profilConfigure(data: DataClass){
     loginUser = data
   }
@@ -72,17 +69,17 @@ class SideMenuViewController: UIViewController {
   
   @IBAction func switchClicked(_ sender: UISwitch) {
     if sender.isOn {
+      UserModel.darkmode = true
       if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
         let appDelegate = windowScene.windows.first
         appDelegate?.overrideUserInterfaceStyle = .dark
       }
-      UserDefaults.standard.setValue(true, forKey: "darkmode")
     } else {
+      UserModel.darkmode = false
       if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
         let appDelegate = windowScene.windows.first
         appDelegate?.overrideUserInterfaceStyle = .light
       }
-      UserDefaults.standard.setValue(false, forKey: "darkmode")
     }
   }
   

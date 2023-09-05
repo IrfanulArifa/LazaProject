@@ -212,7 +212,7 @@ extension DetailViewController: ReviewTableViewCellDelegate {
   
   
   func actionClicked() {
-    let storyboard = UIStoryboard(name: "ReviewViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "Review", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
     guard let id = dataDetail else { return }
     vc.getProductId(product: id)

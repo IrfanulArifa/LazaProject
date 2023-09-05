@@ -77,7 +77,7 @@ class AllCategoryViewController: UIViewController {
 extension AllCategoryViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let storyboard = UIStoryboard(name: "AllCategoryViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "AllCategory", bundle: nil)
     guard let vc = storyboard.instantiateViewController(identifier: "SelectedBrandViewController") as? SelectedBrandViewController else { return }
     vc.configureBrand(name: categoryData[indexPath.item].name, imageLogo: categoryData[indexPath.item].logoURL)
     self.navigationController?.pushViewController(vc, animated: true)

@@ -230,7 +230,7 @@ extension ReviewViewController: UITableViewDataSource {
   }
   
   @IBAction func addReviewClicked(_ sender: UIButton){
-    let storyboard = UIStoryboard(name: "ReviewViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "Review", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "AddReviewViewController") as! AddReviewViewController
     vc.delegate = self
     guard let id = productId else { return }

@@ -48,7 +48,7 @@ class OrderViewController: UIViewController {
   var indexData: Int?
   
   
-  lazy var bottomSheet = UIStoryboard(name: "BottomSheetViewController", bundle: nil).instantiateViewController(withIdentifier: "BottomSheetViewController")
+  lazy var bottomSheet = UIStoryboard(name: "BottomSheet", bundle: nil).instantiateViewController(withIdentifier: "BottomSheetViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -67,6 +67,7 @@ class OrderViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    self.tabBarController?.tabBar.isHidden = false
     let userToken = UserDefaults.standard.string(forKey: "access_token")
     DispatchQueue.main.async{ [self] in
       loadData(token: userToken!)
@@ -131,7 +132,7 @@ class OrderViewController: UIViewController {
   }
   
   @IBAction func checkoutClicked(_ sender: UIButton) {
-    let storyboard = UIStoryboard(name: "OrderConfirmedViewController", bundle: nil).instantiateViewController(withIdentifier: "OrderConfirmedViewController")
+    let storyboard = UIStoryboard(name: "OrderConfirmed", bundle: nil).instantiateViewController(withIdentifier: "OrderConfirmedViewController")
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
 }
@@ -164,19 +165,15 @@ extension OrderViewController: UITableViewDataSource {
 
 extension OrderViewController: MoveIntoDelegate {
   func moveIntoDeliveries() {
-    guard let storyboard = UIStoryboard(name: "AllAddressViewController", bundle: nil).instantiateViewController(withIdentifier: "AllAddressViewController") as? AllAddressViewController else { return }
+    guard let storyboard = UIStoryboard(name: "AllAddress", bundle: nil).instantiateViewController(withIdentifier: "AllAddressViewController") as? AllAddressViewController else { return }
     storyboard.delegate = self
-//    storyboard.modalPresentationStyle = .fullScreen
     self.navigationController?.pushViewController(storyboard, animated: true)
-//    self.present(storyboard, animated: true)
   }
   
   func moveIntoPayment() {
-    guard let storyboard = UIStoryboard(name: "PaymentViewController", bundle: nil).instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController else { return }
+    guard let storyboard = UIStoryboard(name: "Payment", bundle: nil).instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController else { return }
     storyboard.delegate = self
-//    storyboard.modalPresentationStyle = .fullScreen
     self.navigationController?.pushViewController(storyboard, animated: true)
-//    self.present(storyboard, animated: true)
   }
 }
 
