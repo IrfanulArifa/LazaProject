@@ -22,6 +22,13 @@ class Endpoint {
     case verify = "auth/confirm/resend"
     case verification = "auth/recover/code"
     case resetPassword = "auth/recover/password"
+    case refresh = "auth/refresh"
+    case product = "products/brand"
+    case detail = "products/"
+    case reviews = "/reviews"
+    case wishlist = "wishlists"
+    case updateProfil = "user/update"
+    case changePassword = "user/change-password"
   }
   
   enum HttpMethod: String {

@@ -16,8 +16,11 @@ class DetailViewModel {
   var reLogin: (()->Void)?
   
   func getDetailById(id: Int) async throws -> Detail {
-    let component = URLComponents(string: "https://lazaapp.shop/products/\(id)")!
-    let request = URLRequest(url:component.url!)
+    
+    let baseUrl = Endpoint.APIAddress() + Endpoint.Path.detail.rawValue + "\(id)"
+    
+    let url = URL(string: baseUrl)!
+    let request = URLRequest(url:url)
     let (data, responses) = try await URLSession.shared.data(for: request)
     guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
       fatalError("Error Can't Fetching Data")
@@ -53,8 +56,11 @@ class DetailViewModel {
   }
   
   func getReviewById(productId: Int) async throws -> ReviewData {
-    let component = URLComponents(string: "https://lazaapp.shop/products/\(productId)/reviews")!
-    let request = URLRequest(url:component.url!)
+    
+    let baseUrl = Endpoint.APIAddress() + Endpoint.Path.detail.rawValue + "\(productId)" + Endpoint.Path.reviews.rawValue
+    
+    let url = URL(string: baseUrl)!
+    let request = URLRequest(url:url)
     let (data, responses) = try await URLSession.shared.data(for: request)
     guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
       fatalError("Token is Invalid")
@@ -82,11 +88,17 @@ class DetailViewModel {
                    onError: @escaping (String)->Void) {
     let decoder = JSONDecoder()
     
-    let url = URL(string: "https://lazaapp.shop/wishlists?ProductId=\(productId)")!
+    let baseUrl = Endpoint.APIAddress() + Endpoint.Path.wishlist.rawValue
+    
+    var component = URLComponents(string: baseUrl)!
+    
+    component.queryItems = [
+      URLQueryItem(name: "ProductId", value: productId)
+    ]
   
-    var request = URLRequest(url: url)
-    request.httpMethod = "PUT"
-    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
+    var request = URLRequest(url: component.url!)
+    request.httpMethod = Endpoint.HttpMethod.PUT.rawValue
+    request.setValue("Bearer \(token)", forHTTPHeaderField: Endpoint.HTTPHeader.XAuthToken.rawValue)
     let session = URLSession.shared
     
     let task = session.dataTask(with: request) { data, response, error in
@@ -104,11 +116,11 @@ class DetailViewModel {
         return
       }
       if httpResponse.statusCode != 200 {
-        guard let failedModel = try? decoder.decode(ResponseSignUpFailed.self, from: data) else {
+        guard let failedModel = try? decoder.decode(APIError.self, from: data) else {
           onError("Put Wishlist Failed - Failed to Decode")
           return
         }
-        onError(failedModel.descriptionKey)
+        onError(failedModel.description)
         return
       }
       do {

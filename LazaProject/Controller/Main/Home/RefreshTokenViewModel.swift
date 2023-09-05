@@ -12,10 +12,14 @@ class RefreshTokenViewModel {
   
   func refreshTokenIfNeeded(refresh_token: String) {
     let decoder = JSONDecoder()
-    let url = URL(string: "https://lazaapp.shop/auth/refresh")!
+    
+    let baseUrl = Endpoint.APIAddress() + Endpoint.Path.refresh.rawValue
+    
+    let url = URL(string: baseUrl)!
+    
     var request = URLRequest(url: url)
     
-    request.setValue("Bearer \(refresh_token)", forHTTPHeaderField: "X-Auth-Refresh")
+    request.setValue("Bearer \(refresh_token)", forHTTPHeaderField: Endpoint.HTTPHeader.XAuthRefresh.rawValue)
     
     let session = URLSession.shared
     

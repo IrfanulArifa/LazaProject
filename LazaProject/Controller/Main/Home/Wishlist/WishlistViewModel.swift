@@ -16,9 +16,11 @@ class WishlistViewModel {
   func getWishlist(token: String) {
     let decoder = JSONDecoder()
     
-    let url = URL(string: "https://lazaapp.shop/wishlists")!
+    let baseUrl = Endpoint.APIAddress() + Endpoint.Path.wishlist.rawValue
+    
+    let url = URL(string: baseUrl)!
     var request = URLRequest(url: url)
-    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
+    request.setValue("Bearer \(token)", forHTTPHeaderField: Endpoint.HTTPHeader.XAuthToken.rawValue)
     
     let session = URLSession.shared
     let task = session.dataTask(with: request) { data, response, error in

@@ -63,7 +63,7 @@ class AddReviewViewController: UIViewController {
   }
   
   func goToReview() {
-    let storyboard = UIStoryboard(name: "ReviewViewController", bundle: nil)
+    let storyboard = UIStoryboard(name: "ReviewV", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "ReviewViewController") as? ReviewViewController
     vc!.getProductId(product: product!)
     delegate?.didUpdateData()

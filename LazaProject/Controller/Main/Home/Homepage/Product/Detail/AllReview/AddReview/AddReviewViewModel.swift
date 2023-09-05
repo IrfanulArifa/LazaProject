@@ -17,11 +17,13 @@ class AddReviewViewModel {
     
     let decoder = JSONDecoder()
     
-    let url = URL(string: "https://lazaapp.shop/products/\(productId)/reviews")!
+    let baseUrl = Endpoint.APIAddress() + Endpoint.Path.detail.rawValue + "\(productId)" + Endpoint.Path.reviews.rawValue
+    
+    let url = URL(string: baseUrl)!
     var request = URLRequest(url: url)
-    request.httpMethod = "POST"
+    request.httpMethod = Endpoint.HttpMethod.POST.rawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
+    request.setValue("Bearer \(token)", forHTTPHeaderField: Endpoint.HTTPHeader.XAuthToken.rawValue)
     
     let parameters: [String: Any] = [
       "comment": comment,
@@ -53,11 +55,11 @@ class AddReviewViewModel {
       }
       
       if httpResponse.statusCode != 201 {
-        guard let failedModel = try? decoder.decode(ResponseSignUpFailed.self, from: data) else {
+        guard let failedModel = try? decoder.decode(APIError.self, from: data) else {
           onError("Register failed - Failed to decode")
           return
         }
-        onError(failedModel.descriptionKey)
+        onError(failedModel.description)
         return
       }
       

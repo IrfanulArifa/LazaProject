@@ -20,7 +20,7 @@ class VerificationCodeViewModel {
     let url = URL(string: baseUrl)!
     var request = URLRequest(url:url)
     
-    request.httpMethod = Endpoint.HttpMethod.RawValue
+    request.httpMethod = Endpoint.HttpMethod.POST.rawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     let parameters: [String: Any] = [
       "email":email,

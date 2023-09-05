@@ -17,17 +17,20 @@ class UpdateProfileViewModel {
                      completion: @escaping ((UpdateUserSuccess?)-> Void),
                      onError: @escaping (String)-> Void) {
     let decoder = JSONDecoder()
-    let url = URL(string: "https://lazaapp.shop/user/update")!
+    
+    let baseUrl = Endpoint.APIAddress() + Endpoint.Path.updateProfil.rawValue
+    
+    let url = URL(string: baseUrl)!
     guard let mediaImage = Media(withImage: image, forKey: "image") else {
       print("Media Creation Failed")
       return }
     var request = URLRequest(url: url)
-    request.httpMethod = "PUT"
+    request.httpMethod = Endpoint.HttpMethod.PUT.rawValue
     
     let boundary = generateBoundary()
     
     request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-    request.addValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
+    request.addValue("Bearer \(token)", forHTTPHeaderField: Endpoint.HTTPHeader.XAuthToken.rawValue)
     
     let parameters = [
       "full_name": fullname,
@@ -57,8 +60,8 @@ class UpdateProfileViewModel {
       
       if httpResponse.statusCode != 200 {
         do {
-          let failedModel = try decoder.decode(ResetPasswordFailed.self, from: data)
-          onError(failedModel.descriptionKey)
+          let failedModel = try decoder.decode(APIError.self, from: data)
+          onError(failedModel.description)
         } catch {
           onError("Failed to decode error response")
         }

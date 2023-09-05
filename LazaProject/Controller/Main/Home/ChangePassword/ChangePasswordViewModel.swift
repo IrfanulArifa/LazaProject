@@ -17,12 +17,14 @@ class ChangePasswordViewModel {
     
     let decoder = JSONDecoder()
     
-    let url = URL(string: "https://lazaapp.shop/user/change-password")!
+    let baseUrl = Endpoint.APIAddress() + Endpoint.Path.changePassword.rawValue
+    
+    let url = URL(string: baseUrl)!
     
     var request = URLRequest(url: url)
-    request.httpMethod = "PUT"
+    request.httpMethod = Endpoint.HttpMethod.PUT.rawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.setValue("Bearer \(token)", forHTTPHeaderField: "X-Auth-Token")
+    request.setValue("Bearer \(token)", forHTTPHeaderField: Endpoint.HTTPHeader.XAuthToken.rawValue)
     
     let parameters: [String: Any] = [
       "old_password":oldPassword,
