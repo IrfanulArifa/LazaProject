@@ -205,12 +205,6 @@ struct DeleteSuccess: Codable {
   let data: String
 }
 
-struct DeleteFailed: Codable {
-  let status: String
-  let isError: Bool
-  let description: String
-}
-
 struct CartSuccess: Codable {
     let status: String
     let isError: Bool
@@ -316,4 +310,12 @@ struct APIError: Codable {
     let status: String
     let isError: Bool
     let description: String
+}
+
+struct CardModel: Codable {
+    var owner: String
+    var number: String
+    var cvv: String
+    var expMonth: UInt
+    var expYear: UInt
 }

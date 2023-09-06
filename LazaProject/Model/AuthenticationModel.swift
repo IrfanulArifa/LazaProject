@@ -7,18 +7,6 @@
 
 import Foundation
 
-struct ResponseSignUpFailed: Codable {
-  let status: String
-  let isError: Bool
-  let descriptionKey: String
-  
-  enum CodingKeys: String, CodingKey{
-    case status
-    case isError
-    case descriptionKey = "description"
-  }
-}
-
 struct ResponseSignUpSuccess: Codable {
   let status: String
   let isError : Bool
@@ -39,18 +27,6 @@ struct Success: Codable {
   }
 }
 
-struct LoginFailed: Codable {
-  let status: String
-  let isError: Bool
-  let descriptionKey: String
-  
-  enum CodingKeys: String, CodingKey{
-    case status
-    case isError
-    case descriptionKey = "description"
-  }
-}
-
 struct LoginSuccess: Codable {
   let status: String
   let isError: Bool
@@ -60,18 +36,6 @@ struct LoginSuccess: Codable {
 struct LoginValid: Codable {
   let access_token: String
   let refresh_token: String
-}
-
-struct ResendEmailFailed: Codable {
-  let status: String
-  let isError: Bool
-  let descriptionKey: String
-  
-  enum CodingKeys: String, CodingKey {
-    case status
-    case isError
-    case descriptionKey = "description"
-  }
 }
 
 struct ResendEmailSucces: Codable {
@@ -91,50 +55,14 @@ struct ForgetPasswordSuccess: Codable {
   
 }
 
-struct ForgetPasswordFailed: Codable {
-  let status: String
-  let isError: Bool
-  let descriptionKey: String
-  
-  enum CodingKeys: String, CodingKey {
-    case status
-    case isError
-    case descriptionKey = "description"
-  }
-}
-
 struct VerificationCodeSuccess: Codable {
   let status: String
   let isError: Bool
   let data: Message
 }
 
-struct VerificationCodeFailed: Codable {
-  let status: String
-  let isError: Bool
-  let descriptionKey: String
-  
-  enum CodingKeys: String, CodingKey {
-    case status
-    case isError
-    case descriptionKey = "description"
-  }
-}
-
 struct ResetPasswordSucces: Codable {
   let status: String
   let isError: Bool
   let data: Message
-}
-
-struct ResetPasswordFailed: Codable {
-  let status: String
-  let isError: Bool
-  let descriptionKey: String
-  
-  enum CodingKeys: String, CodingKey {
-    case status
-    case isError
-    case descriptionKey = "description"
-  }
 }

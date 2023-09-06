@@ -21,9 +21,9 @@ class PaymentCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
-  func configure() {
-    paymentCardView.cardHolderString = ""
-    paymentCardView.paymentCardTextFieldDidChange(cardNumber: "`", expirationYear: UInt(25), expirationMonth: UInt(12), cvc: "")
+  func configure(name: String, number: String, expYear: UInt, expMonth: UInt, cvc: String) {
+    paymentCardView.cardHolderString = name
+    paymentCardView.paymentCardTextFieldDidChange(cardNumber: number, expirationYear: expYear, expirationMonth: expMonth, cvc: cvc)
   }
   
 }

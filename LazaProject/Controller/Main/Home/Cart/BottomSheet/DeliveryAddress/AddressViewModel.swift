@@ -61,11 +61,11 @@ class AddressViewModel {
       }
       
       if httpResponse.statusCode != 201 {
-        guard let failedModel = try? decoder.decode(ResponseSignUpFailed.self, from: data) else {
+        guard let failedModel = try? decoder.decode(APIError.self, from: data) else {
           onError("Failed to Decode")
           return
         }
-        onError(failedModel.descriptionKey)
+        onError(failedModel.description)
         return
       }
       
@@ -160,11 +160,11 @@ class AddressViewModel {
       }
       
       if httpResponse.statusCode != 200 {
-        guard let failedModel = try? decoder.decode(ResponseSignUpFailed.self, from: data) else {
+        guard let failedModel = try? decoder.decode(APIError.self, from: data) else {
           onError("Failed to Decode")
           return
         }
-        onError(failedModel.descriptionKey)
+        onError(failedModel.description)
         return
       }
       
@@ -204,7 +204,7 @@ class AddressViewModel {
       }
       
       if httpResponse.statusCode != 200 {
-        guard let failedModel = try? decoder.decode(DeleteFailed.self, from: data) else {
+        guard let failedModel = try? decoder.decode(APIError.self, from: data) else {
           onError("Failed to Decode")
           return
         }

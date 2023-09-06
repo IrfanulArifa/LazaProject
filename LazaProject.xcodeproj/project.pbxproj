@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0008FF762A822ABE0006BF26 /* AddNewCardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF752A822ABE0006BF26 /* AddNewCardViewController.storyboard */; };
 		0008FF792A822ADB0006BF26 /* AddNewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF782A822ADB0006BF26 /* AddNewCardViewController.swift */; };
 		0008FF7C2A823BA60006BF26 /* PaymentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */; };
 		0008FF7D2A823BA60006BF26 /* PaymentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */; };
@@ -73,6 +72,7 @@
 		007B0F992A71171D0034E7A5 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 007B0F972A71171D0034E7A5 /* ProductCollectionViewCell.xib */; };
 		007B0F9C2A7124E10034E7A5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 007B0F9B2A7124E10034E7A5 /* SDWebImage */; };
 		007B0F9E2A7124E10034E7A5 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 007B0F9D2A7124E10034E7A5 /* SDWebImageMapKit */; };
+		0084F4C02AA83B6300D5D1F5 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0084F4BF2AA83B6300D5D1F5 /* EditViewController.swift */; };
 		0086FE3B2A96F37300E41A19 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0086FE3A2A96F37300E41A19 /* GoogleSignIn */; };
 		0086FE3D2A96F37300E41A19 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0086FE3C2A96F37300E41A19 /* GoogleSignInSwift */; };
 		0086FE402A96FE5700E41A19 /* AllProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0086FE3F2A96FE5700E41A19 /* AllProduct.storyboard */; };
@@ -124,7 +124,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0008FF752A822ABE0006BF26 /* AddNewCardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewCardViewController.storyboard; sourceTree = "<group>"; };
 		0008FF782A822ADB0006BF26 /* AddNewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardViewController.swift; sourceTree = "<group>"; };
 		0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewCell.swift; sourceTree = "<group>"; };
 		0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -185,6 +184,7 @@
 		007B0F942A710E3C0034E7A5 /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
 		007B0F962A71171D0034E7A5 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		007B0F972A71171D0034E7A5 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		0084F4BF2AA83B6300D5D1F5 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		0086FE3F2A96FE5700E41A19 /* AllProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllProduct.storyboard; sourceTree = "<group>"; };
 		0086FE412A96FEAF00E41A19 /* AllProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductViewController.swift; sourceTree = "<group>"; };
 		0086FE452A9718F500E41A19 /* AllCategory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllCategory.storyboard; sourceTree = "<group>"; };
@@ -356,6 +356,14 @@
 				008EE88A2A7B4986002C44B9 /* Main */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		0084F4BE2AA83A9400D5D1F5 /* EditCard */ = {
+			isa = PBXGroup;
+			children = (
+				0084F4BF2AA83B6300D5D1F5 /* EditViewController.swift */,
+			);
+			path = EditCard;
 			sourceTree = "<group>";
 		};
 		008EE8892A7B4948002C44B9 /* Authentication */ = {
@@ -716,6 +724,7 @@
 				0008FF7B2A823BA60006BF26 /* PaymentCollectionViewCell.xib */,
 				0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */,
 				00EB8D762AA4F9DB00D9ADDC /* AddCard */,
+				0084F4BE2AA83A9400D5D1F5 /* EditCard */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -723,7 +732,6 @@
 		00EB8D762AA4F9DB00D9ADDC /* AddCard */ = {
 			isa = PBXGroup;
 			children = (
-				0008FF752A822ABE0006BF26 /* AddNewCardViewController.storyboard */,
 				0008FF782A822ADB0006BF26 /* AddNewCardViewController.swift */,
 			);
 			path = AddCard;
@@ -834,7 +842,6 @@
 				0086FE4C2A971BF400E41A19 /* AllCategoryCollectionViewCell.xib in Resources */,
 				0090DFD92A81DE4C00150D9D /* OrderConfirmed.storyboard in Resources */,
 				0008FF7D2A823BA60006BF26 /* PaymentCollectionViewCell.xib in Resources */,
-				0008FF762A822ABE0006BF26 /* AddNewCardViewController.storyboard in Resources */,
 				0008FF902A83855A0006BF26 /* AllAddress.storyboard in Resources */,
 				003CE9B32A779393008D32FA /* CategoryTableViewCell.xib in Resources */,
 				008CE6A22A80C06600454CED /* BottomSheet.storyboard in Resources */,
@@ -921,6 +928,7 @@
 				008EE8BF2A7BA868002C44B9 /* AddReviewViewController.swift in Sources */,
 				0086FE422A96FEAF00E41A19 /* AllProductViewController.swift in Sources */,
 				00A8FDBC2A9318DB006FB87D /* DetailModel.swift in Sources */,
+				0084F4C02AA83B6300D5D1F5 /* EditViewController.swift in Sources */,
 				0021A19B2A95E85400BDD4F9 /* UpdateProfileViewModel.swift in Sources */,
 				006374702A910980003EC0EF /* VerifyAccountViewController.swift in Sources */,
 				006374732A911655003EC0EF /* VerifyAccountViewModel.swift in Sources */,
