@@ -7,6 +7,7 @@
 
 import UIKit
 import CreditCardForm
+import SnackBar
 
 protocol updateDataCard: AnyObject {
   func reloadData()
@@ -102,16 +103,12 @@ class EditViewController: UIViewController {
     self.cvcCard = cvc
   }
   
-  @IBAction func backButtonClicked(_ sender: UIButton) {
-    self.navigationController?.popViewController(animated: true)
-  }
-  
-  @IBAction func saveCard(_ sender: UIButton) {
+  private func saveEditedCard() {
     let userid = UserDefaults.standard.integer(forKey: "userid")
     let card = CardModel(owner: ownerTF.text!, number: numberTF.text!, cvv: cvvTF.text!, expMonth: expTF.text!, expYear: expYearTF.text!, userId: userid)
     coreData.presentAlertFailed = {
       DispatchQueue.main.async { [weak self] in
-        invalidSnackBar.make(in: self!.view, message: "Failed Edit Card", duration: .lengthLong).show()
+        invalidSnackBar.make(in: (self?.view)!, message: "Failed Edit Card", duration: .lengthLong).show()
       }
     }
     
@@ -124,5 +121,30 @@ class EditViewController: UIViewController {
       }
     }
     coreData.updateData(card, numberCard: numberTF.text!)
+  }
+  
+  @IBAction func backButtonClicked(_ sender: UIButton) {
+    self.navigationController?.popViewController(animated: true)
+  }
+  
+  @IBAction func saveCard(_ sender: UIButton) {
+    let validOwner = (ownerTF.text ?? "").count > 6
+    let validNumber = (numberTF.text ?? "").count > 15
+    let validExpMonth = (expTF.text ?? "").count > 0
+    let validExpYear = (expYearTF.text ?? "").count > 0
+    let validCvv = (cvvTF.text ?? "" ).count > 0
+    if !validOwner {
+      invalidSnackBar.make(in: self.view, message: "Owner Name is Invalid", duration: .lengthLong).show()
+    } else if !validNumber {
+      invalidSnackBar.make(in: self.view, message: "CreditCard Number is Invalid", duration: .lengthLong).show()
+    } else if !validExpMonth {
+      invalidSnackBar.make(in: self.view, message: "Exp Number is Invalid", duration: .lengthLong).show()
+    } else if !validExpYear {
+      invalidSnackBar.make(in: self.view, message: "Exp Number is Invalid", duration: .lengthLong).show()
+    } else if !validCvv {
+      invalidSnackBar.make(in: self.view, message: "CVV Number is Invalid", duration: .lengthLong).show()
+    } else {
+      saveEditedCard()
+    }
   }
 }

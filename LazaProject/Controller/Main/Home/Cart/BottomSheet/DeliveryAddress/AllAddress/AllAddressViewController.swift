@@ -45,12 +45,9 @@ class AllAddressViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     refreshModel.refreshToken()
     loadData()
-  }
-  
-  override func viewDidDisappear(_ animated: Bool) {
-    refreshModel.refreshToken()
   }
   
   func loadData(){

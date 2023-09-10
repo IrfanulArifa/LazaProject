@@ -92,6 +92,7 @@ class AddNewCardViewController: UIViewController, STPPaymentCardTextFieldDelegat
   @IBAction func saveCard(_ sender: UIButton) {
     let text = cardPaymentTxtField
     let userid = UserDefaults.standard.integer(forKey: "userid")
+    print(userid)
     let card = CardModel(owner: cardOwnerTF.text!, number: (text?.cardNumber!)!, cvv: (text?.cvc)!, expMonth: String(text!.expirationMonth), expYear: String(text!.expirationYear), userId: userid)
     
     coreData.presentAlertFailed = {

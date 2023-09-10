@@ -37,6 +37,7 @@
 		004678462A945DF2005C0E07 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678452A945DF2005C0E07 /* DateUtils.swift */; };
 		0046784A2A94847D005C0E07 /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004678492A94847D005C0E07 /* AddReviewViewModel.swift */; };
 		0046F08F2A9C552500FF339A /* SelectedBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0046F08E2A9C552500FF339A /* SelectedBrandViewController.swift */; };
+		004FBAE72AADF4CA003AE807 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004FBAE62AADF4CA003AE807 /* OrderViewModel.swift */; };
 		006374702A910980003EC0EF /* VerifyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0063746F2A910980003EC0EF /* VerifyAccountViewController.swift */; };
 		006374732A911655003EC0EF /* VerifyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006374722A911655003EC0EF /* VerifyAccountViewModel.swift */; };
 		006B4C7E2A753AE2001247C4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B4C7D2A753AE2001247C4 /* ProfileViewController.swift */; };
@@ -154,6 +155,7 @@
 		004678452A945DF2005C0E07 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		004678492A94847D005C0E07 /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
 		0046F08E2A9C552500FF339A /* SelectedBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBrandViewController.swift; sourceTree = "<group>"; };
+		004FBAE62AADF4CA003AE807 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		0063746F2A910980003EC0EF /* VerifyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountViewController.swift; sourceTree = "<group>"; };
 		006374722A911655003EC0EF /* VerifyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountViewModel.swift; sourceTree = "<group>"; };
 		006B4C7D2A753AE2001247C4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				009486C62A9F26F500FA7955 /* CartViewModel.swift */,
 				008CE69C2A80ADC400454CED /* CartTableViewCell.swift */,
 				00A74B432A72465100BB07B9 /* OrderViewController.swift */,
+				004FBAE62AADF4CA003AE807 /* OrderViewModel.swift */,
 				00EB8D722AA4F83B00D9ADDC /* OrderConfirmed */,
 				00EB8D632AA4F1BD00D9ADDC /* BottomSheet */,
 			);
@@ -986,6 +989,7 @@
 				0021A19B2A95E85400BDD4F9 /* UpdateProfileViewModel.swift in Sources */,
 				006374702A910980003EC0EF /* VerifyAccountViewController.swift in Sources */,
 				006374732A911655003EC0EF /* VerifyAccountViewModel.swift in Sources */,
+				004FBAE72AADF4CA003AE807 /* OrderViewModel.swift in Sources */,
 				004678462A945DF2005C0E07 /* DateUtils.swift in Sources */,
 				0072560F2AA579D900C424EE /* ChangePasswordViewModel.swift in Sources */,
 				006B4C8B2A756A57001247C4 /* Regex.swift in Sources */,

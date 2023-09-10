@@ -320,3 +320,20 @@ struct CardModel: Codable {
   var expYear: String
   var userId: Int
 }
+
+struct Checkout: Codable {
+    let products: [ProductCheckoutData]
+    let addressId: Int
+    let bank: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case products = "products"
+        case addressId = "address_id"
+        case bank = "bank"
+    }
+}
+
+struct ProductCheckoutData: Codable {
+    let id: Int
+    let quantity: Int
+}

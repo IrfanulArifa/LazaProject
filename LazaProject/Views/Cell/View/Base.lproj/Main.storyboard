@@ -840,6 +840,7 @@
                         <outlet property="passwordTitle" destination="Zgj-Fh-83d" id="qHZ-wl-GKi"/>
                         <outlet property="passwordTxtField" destination="EeR-wc-3wX" id="Z5g-bG-w4A"/>
                         <outlet property="rememberMe" destination="KL9-XQ-foh" id="hKb-ZM-3ql"/>
+                        <outlet property="rememberMeSwitch" destination="FkF-dT-jlt" id="UP9-SN-Kiv"/>
                         <outlet property="signUpButton" destination="3Ut-kY-Bv3" id="B1J-TF-e6S"/>
                         <outlet property="signUpTitle" destination="PGZ-Mj-pk8" id="0E7-xd-Pwm"/>
                         <outlet property="usernameTitle" destination="ggM-oG-FJv" id="kpq-rY-boD"/>
@@ -1086,6 +1087,7 @@
                         <outlet property="loginBtn" destination="gRR-No-k9j" id="ICP-cA-QOO"/>
                         <outlet property="passwordTextField" destination="jbK-NE-vIw" id="esw-v3-lhP"/>
                         <outlet property="passwordTitle" destination="BFT-pm-y4K" id="gVg-3Q-gCg"/>
+                        <outlet property="rememberMeSwitch" destination="rIp-dC-BD1" id="m3E-DQ-9qG"/>
                         <outlet property="rememberTxt" destination="tEO-CM-cyu" id="urC-RU-GFd"/>
                         <outlet property="subTitle" destination="8zJ-xp-t2D" id="FDK-Gf-OHl"/>
                         <outlet property="usernameTitle" destination="QYq-zk-BN5" id="uSH-Ia-VWy"/>

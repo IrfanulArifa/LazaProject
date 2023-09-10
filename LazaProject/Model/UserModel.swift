@@ -18,6 +18,7 @@ struct UserModel {
   static let imageKey = "image"
   static let darkmodeKey = "darkmode"
   static let userIdKey = "userid"
+  static let rememberMe = "rememberme"
   
   // Encaptulation ??
   static var stateLogin: Bool {
@@ -65,13 +66,22 @@ struct UserModel {
     set { UserDefaults.standard.set(newValue, forKey: userIdKey)}
   }
   
+  static var rememberme: String {
+    get { return UserDefaults.standard.string(forKey: rememberMe) ?? "" }
+    set { UserDefaults.standard.set(newValue, forKey: rememberMe)}
+  }
+  
   // MARK: For Deleting All User
   static func deleteAll() -> Bool {
-    if let domain = Bundle.main.bundleIdentifier {
-      UserDefaults.standard.removePersistentDomain(forName: domain)
-      synchronize()
-      return true
-    } else { return false }
+    UserDefaults.standard.removeObject(forKey: "access_token")
+    UserDefaults.standard.removeObject(forKey: "refresh_token")
+    UserDefaults.standard.removeObject(forKey: "fullname")
+    UserDefaults.standard.removeObject(forKey: "username")
+    UserDefaults.standard.removeObject(forKey: "email")
+    UserDefaults.standard.removeObject(forKey: "image")
+    UserDefaults.standard.removeObject(forKey: "userid")
+    synchronize()
+    return true
   }
   
   // MARK : Synchronize

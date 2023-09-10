@@ -76,8 +76,6 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
     categoryTableView.refreshControl = refreshControl
-    
-    print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
   }
   
   override func viewWillAppear(_ animated: Bool) {

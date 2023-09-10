@@ -98,12 +98,12 @@ class BottomSheetViewController: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-//    let token = UserDefaults.standard.string(forKey: "access_token")
-//    refreshModel.refreshToken()
-//    DispatchQueue.main.async { [weak self] in
-//      self?.loadDataAddress()
-//      self?.loadDataCart(token: token!)
-//    }
+    super.viewWillAppear(animated)
+    refreshModel.refreshToken()
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
   }
   
   private func loadDataAddress() {
@@ -131,7 +131,8 @@ class BottomSheetViewController: UIViewController {
         self.totalPrice.text = "Rp. \(data!.total)"
       }
     }
-    priceModel.getAllCart(token: token)
+    priceModel.getAllCart(token: token) { data in
+    }
   }
   
   @IBAction func deliveryAddressClicked(_ sender: UIButton) {

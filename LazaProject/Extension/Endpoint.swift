@@ -29,6 +29,7 @@ class Endpoint {
     case wishlist = "wishlists"
     case updateProfil = "user/update"
     case changePassword = "user/change-password"
+    case orderBank = "order/bank"
   }
   
   enum HttpMethod: String {

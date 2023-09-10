@@ -83,18 +83,33 @@ class LoginViewController: UIViewController {
   
   @IBOutlet weak var loginBackground: UIView!
   
+  @IBOutlet weak var rememberMeSwitch: UISwitch!{
+    didSet {
+      rememberMeSwitch.isOn = false
+    }
+  }
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // MARK: Reactive TextField
     navigationController?.setNavigationBarHidden(true, animated: true)
     passwordTextField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     usernameTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
+    checkUserView()
   }
   
   private func goToVerify() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "VerifyAccountViewController") as! VerifyAccountViewController
     self.navigationController?.pushViewController(vc, animated: true)
+  }
+  
+  private func checkUserView() {
+    let rememberUser = UserDefaults.standard.string(forKey: "rememberme")
+    if rememberUser != "" {
+      usernameTxtField.text = rememberUser
+    }
   }
   
   private func goToForget() {
@@ -137,6 +152,9 @@ class LoginViewController: UIViewController {
   
   // MARK: loginButton when Clicked -> Go To HomePage View
   @IBAction func loginButtonClicked(_ sender: UIButton) {
+    if rememberMeSwitch.isOn {
+      UserDefaults.standard.set(usernameTxtField.text!, forKey: "rememberme")
+    }
     startingAnimation()
     loginModel.login(username: usernameTxtField.text!, password: passwordTextField.text!) { response in
       DispatchQueue.main.async { [weak self] in

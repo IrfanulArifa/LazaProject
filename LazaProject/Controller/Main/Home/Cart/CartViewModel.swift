@@ -12,8 +12,11 @@ class CartViewModel {
   var reloadData: (() -> Void)?
   var deleteData: (() -> Void)?
   var orderData: [Cart] = []
+  var productCheckout = [ProductCheckoutData]()
   
-  func getAllCart(token: String){
+  func getAllCart(token: String,
+                  completion: @escaping (([ProductCheckoutData])-> Void)){
+    
     let decoder = JSONDecoder()
     let url = URL(string: "https://lazaapp.shop/carts")!
     var request = URLRequest(url: url)
@@ -22,7 +25,7 @@ class CartViewModel {
     
     let session = URLSession.shared
     
-    let task = session.dataTask(with: request) { data, response, error in
+    let task = session.dataTask(with: request) { [self] data, response, error in
       if error != nil {
         print("Data Tidak Masuk")
       }
@@ -38,6 +41,14 @@ class CartViewModel {
       do {
         let result = try decoder.decode(CartSuccess.self, from: data)
         self.cartData = result.data
+        let data = result.data
+        productCheckout.removeAll()
+        data.products?.forEach({ productCart in
+          let cardProduct = ProductCheckoutData(id: productCart.id, quantity: productCart.quantity)
+          self.productCheckout.append(cardProduct)
+        })
+        let resultCart = productCheckout
+        completion(resultCart)
         self.reloadData?()
       } catch {
         print("Error Decode Data, \(error)")

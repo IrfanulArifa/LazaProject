@@ -96,6 +96,12 @@ class SignUpViewController: UIViewController {
     didSet { signUpButton.titleLabel!.font = UIFont(name: "Poppins-Regular", size: 15)}
   }
   
+  @IBOutlet weak var rememberMeSwitch: UISwitch!{
+    didSet {
+      rememberMeSwitch.isOn = false
+    }
+  }
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -104,7 +110,6 @@ class SignUpViewController: UIViewController {
     emailAddressTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     usernameTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     confirmPasswordTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
-    
   }
   
   // MARK: Back Button when Clicked -> Back to Previous View
@@ -115,6 +120,12 @@ class SignUpViewController: UIViewController {
   // MARK: SignUp Button when Clicked -> Go to Wellcome View
   @IBAction func signUpButtonClicked(_ sender: Any) {
     startingAnimation()
+    
+    let rememberUser = UserDefaults.standard.string(forKey: "rememberme")
+    if rememberUser != "" {
+      usernameTxtField.text = rememberUser
+    }
+    
     if passwordTxtField.text == "" || emailAddressTxtField.text == "" || usernameTxtField.text == "" || confirmPasswordTxtField.text == "" {
       hidingAnimation()
       invalidSnackBar.make(in: self.view, message: "Data Kosong", duration: .lengthLong).show()

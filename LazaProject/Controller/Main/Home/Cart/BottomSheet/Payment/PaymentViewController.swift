@@ -8,7 +8,8 @@
 import UIKit
 
 protocol backToCartDelegate: AnyObject {
-  func backToCart()
+  func setCardData(data: CardModel, bank: String)
+  func backToCard()
 }
 
 class PaymentViewController: UIViewController {
@@ -17,6 +18,7 @@ class PaymentViewController: UIViewController {
   
   var indexScroll: IndexPath? = [0]
   let coreData = CoreDataManager()
+  var temp: [CardModel] = []
   
   var cardData: [CardModel] = []
   
@@ -104,6 +106,18 @@ class PaymentViewController: UIViewController {
     }
   }
   
+  @IBOutlet weak var cardEmpty: UIView!{
+    didSet {
+      cardEmpty.isHidden = true
+    }
+  }
+  
+  @IBOutlet weak var cardEmptyTxt: UILabel! {
+    didSet {
+      cardEmptyTxt.isHidden = true
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tabBarController?.tabBar.isHidden = true
@@ -112,23 +126,48 @@ class PaymentViewController: UIViewController {
     
     creditCardCollection.register(UINib(nibName: "PaymentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PaymentCollectionViewCell")
     
-    coreData.retrieve { data in
-      self.cardData = data
-    }
-    let userId = UserDefaults.standard.string(forKey: "userid")
+    let userId = UserDefaults.standard.integer(forKey: "userid")
+    print(userId)
     
-    let data = cardData[0]
-    cardOwnerTxtField.text = data.owner
-    cardNumberTxtField.text = data.number
-    expTxtField.text = data.expMonth + "/" + data.expYear
-    DispatchQueue.main.async {
-      self.cvvTxtField.text = "\(String(describing: userId!))"
+    coreData.retrieve { [weak self] data in
+      for (index, userIdData) in data.enumerated() {
+        if userIdData.userId == userId {
+          print(data)
+          self?.temp.insert(userIdData, at: index)
+          self?.cardData = self!.temp
+          print(self!.cardData)
+        }
+      }
+    }
+    cardSetup()
+  }
+  
+  private func cardSetup() {
+    if cardData.count == 0 {
+      cardEmpty.isHidden = false
+      cardEmptyTxt.isHidden = false
+      cardOwnerTxtField.text = "-"
+      cardNumberTxtField.text = "-"
+      expTxtField.text = "-"
+      cvvTxtField.text = "-"
+    } else {
+      let data = cardData[0]
+      cardOwnerTxtField.text = data.owner
+      cardNumberTxtField.text = data.number
+      expTxtField.text = data.expMonth + "/" + data.expYear
+      cvvTxtField.text = "-"
     }
   }
   
   @IBAction func backButtonPressed(_ sender: Any) {
-    self.navigationController?.popViewController(animated: true)
-    delegate?.backToCart()
+    if cardData.count == 0 {
+      self.navigationController?.popViewController(animated: true)
+      delegate?.backToCard()
+    } else {
+      let data = cardData[indexScroll!.item]
+      self.navigationController?.popViewController(animated: true)
+      delegate?.setCardData(data: data, bank: "bni")
+    }
   }
   
   @IBAction func addNewCardClicked(_ sender: UIButton) {
@@ -138,16 +177,18 @@ class PaymentViewController: UIViewController {
   }
   
   @IBAction func saveCardClicked(_ sender: Any) {
-    self.navigationController?.popViewController(animated: true)
+    if cardData.count == 0 {
+      invalidSnackBar.make(in: self.view, message: "Card is Empty", duration: .lengthLong).show()
+    } else {
+      let data = cardData[indexScroll!.item]
+      self.navigationController?.popViewController(animated: true)
+      delegate?.setCardData(data: data, bank: "bni")
+    }
   }
   
   @IBAction func editCard(_ sender: UIButton) {
-    if indexScroll?.item == 0 {
-      let data = cardData[0]
-      guard let storyboard = UIStoryboard(name: "Payment", bundle: nil).instantiateViewController(withIdentifier: "EditViewController") as? EditViewController else { return }
-      storyboard.configure(name: data.owner, number: data.number, expYear: data.expYear, expMonth: data.expMonth, cvc: data.cvv)
-      storyboard.delegate = self
-      self.navigationController?.pushViewController(storyboard, animated: true)
+    if cardData.count == 0 {
+      invalidSnackBar.make(in: self.view, message: "Card is Empty", duration: .lengthLong).show()
     } else {
       let data = cardData[indexScroll!.item]
       guard let storyboard = UIStoryboard(name: "Payment", bundle: nil).instantiateViewController(withIdentifier: "EditViewController") as? EditViewController else { return }
@@ -160,12 +201,19 @@ class PaymentViewController: UIViewController {
   }
   
   @IBAction func deleteCard(_ sender: UIButton) {
-    let data = cardData[indexScroll!.item]
-    coreData.delete(data) {
-      
+    if cardData.count == 0 {
+      invalidSnackBar.make(in: self.view, message: "Card is Empty", duration: .lengthLong).show()
+    } else {
+      showValidation(title: "Delete Card", message: "Are you sure you want to delete this card?") {
+        DispatchQueue.main.async { [weak self] in
+          let data = self?.cardData[(self?.indexScroll!.item)!]
+          self?.coreData.delete(data!) { [weak self] in
+            self?.cardData.remove(at: (self?.indexScroll!.item)!)
+          }
+        }
+      }
     }
   }
-  
 }
 
 extension PaymentViewController: UICollectionViewDataSource {
@@ -202,20 +250,27 @@ extension PaymentViewController: UICollectionViewDelegateFlowLayout {
     cardOwnerTxtField.text = data.owner
     cardNumberTxtField.text = data.number
     expTxtField.text = data.expMonth + "/" + data.expYear
-    cvvTxtField.text = data.cvv
+    cvvTxtField.text = "-"
   }
 }
 
 extension PaymentViewController: updateDataCard, reloadDataPayment {
   func reloadData() {
-    coreData.retrieve { data in
-      self.cardData = data
+    let userId = UserDefaults.standard.integer(forKey: "userid")
+    coreData.retrieve { [weak self] data in
+      for (index, userIdData) in data.enumerated() {
+        if userIdData.userId == userId {
+          self?.temp.insert(userIdData, at: index)
+          self?.cardData = self!.temp
+        }
+      }
     }
-    let data = cardData[0]
+    
+    let data = cardData[indexScroll!.row]
     cardOwnerTxtField.text = data.owner
     cardNumberTxtField.text = data.number
     expTxtField.text = data.expMonth + "/" + data.expYear
-    cvvTxtField.text = data.cvv
+    cvvTxtField.text = "-"
     
     creditCardCollection.reloadData()
   }

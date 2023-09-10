@@ -55,6 +55,7 @@ class SetProfileViewController: UIViewController, UIImagePickerControllerDelegat
     navigationController?.setNavigationBarHidden(true, animated: true)
     fullnameTxtField.addTarget(self, action: #selector(checkValidation), for: .editingChanged)
     imagePicker.delegate = self
+    forgetToSave()
   }
   
   @objc private func checkValidation() {
@@ -90,30 +91,29 @@ class SetProfileViewController: UIViewController, UIImagePickerControllerDelegat
     self.view.window?.windowScene?.keyWindow?.rootViewController = vc
   }
   
-  @IBAction func cameraTapped(_ sender: UIButton) {
-    showImagePicker()
-  }
-  
-  @IBAction func saveTapped(_ sender: UIButton) {
+  private func forgetToSave() {
     let token = UserDefaults.standard.string(forKey: "access_token")
     let username = UserDefaults.standard.string(forKey: "username")
     let email = UserDefaults.standard.string(forKey: "email")
     if fullnameTxtField.text != "" {
       viewModel.updateProfile(image: profileImage.image!, token: token!, fullname: fullnameTxtField.text!, username: username!, email: email!) { response in
-        DispatchQueue.main.async { [unowned self] in
-          self.goToHome()
-        }
       } onError: { error in
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async {
           self.showAlert(title: "Failed", message: error.capitalized)
         }
       }
+
     } else {
-      invalidSnackBar.make(in: self.view, message: "Fullname Field is Empty", duration: .lengthLong).show()
+      viewModel.updateProfile(image: profileImage.image!, token: token!, fullname: username!, username: username!, email: email!) { response in
+      } onError: { error in
+        DispatchQueue.main.async {
+          self.showAlert(title: "Failed", message: error.capitalized)
+        }
+      }
     }
   }
   
-  @IBAction func skipTapped(_ sender: UIButton) {
+  private func saveDummy() {
     let token = UserDefaults.standard.string(forKey: "access_token")
     let username = UserDefaults.standard.string(forKey: "username")
     let email = UserDefaults.standard.string(forKey: "email")
@@ -139,5 +139,32 @@ class SetProfileViewController: UIViewController, UIImagePickerControllerDelegat
         }
       }
     }
+  }
+  
+  @IBAction func cameraTapped(_ sender: UIButton) {
+    showImagePicker()
+  }
+  
+  @IBAction func saveTapped(_ sender: UIButton) {
+    let token = UserDefaults.standard.string(forKey: "access_token")
+    let username = UserDefaults.standard.string(forKey: "username")
+    let email = UserDefaults.standard.string(forKey: "email")
+    if fullnameTxtField.text != "" {
+      viewModel.updateProfile(image: profileImage.image!, token: token!, fullname: fullnameTxtField.text!, username: username!, email: email!) { response in
+        DispatchQueue.main.async { [unowned self] in
+          self.goToHome()
+        }
+      } onError: { error in
+        DispatchQueue.main.async { [unowned self] in
+          self.showAlert(title: "Failed", message: error.capitalized)
+        }
+      }
+    } else {
+      invalidSnackBar.make(in: self.view, message: "Fullname Field is Empty", duration: .lengthLong).show()
+    }
+  }
+  
+  @IBAction func skipTapped(_ sender: UIButton) {
+    saveDummy()
   }
 }

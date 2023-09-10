@@ -44,8 +44,12 @@ class OrderViewController: UIViewController {
     }
   }
   
+  let orderViewModel = OrderViewModel()
   let viewModel = CartViewModel()
   var indexData: Int?
+  var bankData: String = ""
+  var addressId: Int = 0
+  var products: [ProductCheckoutData]?
   
   
   lazy var bottomSheet = UIStoryboard(name: "BottomSheet", bundle: nil).instantiateViewController(withIdentifier: "BottomSheetViewController")
@@ -103,7 +107,10 @@ class OrderViewController: UIViewController {
         }
       }
     }
-    viewModel.getAllCart(token: token)
+    viewModel.getAllCart(token: token) { [weak self] data in
+      self?.products = data
+    }
+    print(products ?? nil)
   }
   
   func reloadHarga(token: String){
@@ -117,7 +124,10 @@ class OrderViewController: UIViewController {
         }
       }
     }
-    viewModel.getAllCart(token: token)
+    
+    viewModel.getAllCart(token: token) { [weak self] data in
+      self?.products = data
+    }
   }
   
   // MARK: Setup BarItem when Clicked Change into Text
@@ -144,8 +154,22 @@ class OrderViewController: UIViewController {
   }
   
   @IBAction func checkoutClicked(_ sender: UIButton) {
-    let storyboard = UIStoryboard(name: "OrderConfirmed", bundle: nil).instantiateViewController(withIdentifier: "OrderConfirmedViewController")
-    self.navigationController?.pushViewController(storyboard, animated: true)
+    if addressId == 0 {
+      invalidSnackBar.make(in: self.view, message: "Harap Pilih Alamat Terlebih Dahulu", duration: .lengthLong).show()
+    } else if bankData == "" {
+      invalidSnackBar.make(in: self.view, message: "Harap Pilih Data Bank Terlebih Dahulu", duration: .lengthLong).show()
+    } else {
+      let token = UserDefaults.standard.string(forKey: "access_token")
+      orderViewModel.goToConfirm = {
+        DispatchQueue.main.async {
+          let storyboard = UIStoryboard(name: "OrderConfirmed", bundle: nil).instantiateViewController(withIdentifier: "OrderConfirmedViewController")
+          self.navigationController?.pushViewController(storyboard, animated: true)
+        }
+      }
+      loadData(token: token!)
+      print("Product Data: \(String(describing: products))")
+      orderViewModel.order(token: token!, products: products!, addressId: addressId, bank: bankData)
+    }
   }
 }
 
@@ -189,13 +213,26 @@ extension OrderViewController: MoveIntoDelegate {
 }
 
 extension OrderViewController: backToCartDelegate{
-  func backToCart() {
+  func backToCard() {
     let navVC = UINavigationController(rootViewController: bottomSheet)
     let vc = bottomSheet as? BottomSheetViewController
     vc?.delegate = self
     if let sheet = navVC.sheetPresentationController {
       sheet.detents = [.medium()]
     }
+    self.present(navVC, animated: true)
+  }
+  
+  func setCardData(data: CardModel, bank: String) {
+    let navVC = UINavigationController(rootViewController: bottomSheet)
+    let vc = bottomSheet as? BottomSheetViewController
+    vc?.delegate = self
+    if let sheet = navVC.sheetPresentationController {
+      sheet.detents = [.medium()]
+    }
+    vc?.ccName.text = data.owner
+    vc?.ccNum.text = data.number
+    bankData = bank
     self.present(navVC, animated: true)
   }
 }
@@ -210,6 +247,7 @@ extension OrderViewController: backToCartfromAddressDelegate{
     }
     vc?.Alamat.text = data.country
     vc?.subAlamat.text = data.city
+    addressId = data.id
     self.present(navVC, animated: true)
   }
   
@@ -226,7 +264,7 @@ extension OrderViewController: backToCartfromAddressDelegate{
 
 extension OrderViewController: deleteCart {
   func updateTotal() {
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
       let token = UserDefaults.standard.string(forKey: "access_token")
       self.reloadHarga(token: token!)
     }
@@ -240,7 +278,7 @@ extension OrderViewController: deleteCart {
       self.cardTableView.deleteRows(at: [index], with: .left)
       self.totalCart.text = "Total: \(String(describing: self.viewModel.cartData!.orderInfo.total))"
     }
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [unowned self] in
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [unowned self] in
       self.cardTableView.reloadData()
     }
   }

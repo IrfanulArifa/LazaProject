@@ -241,6 +241,22 @@
                                     <constraint firstItem="XZN-OE-Xeo" firstAttribute="leading" secondItem="xW1-tD-Abc" secondAttribute="leading" constant="170" id="etq-A9-0tx"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4j-Xt-im5">
+                                <rect key="frame" x="47" y="128" width="299" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Don't have Any Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKg-J7-WIE">
+                                        <rect key="frame" x="55.333333333333329" y="90" width="188.66666666666669" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="blackFont"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="SKg-J7-WIE" firstAttribute="centerY" secondItem="K4j-Xt-im5" secondAttribute="centerY" id="ExE-rY-AnE"/>
+                                    <constraint firstItem="SKg-J7-WIE" firstAttribute="centerX" secondItem="K4j-Xt-im5" secondAttribute="centerX" id="JGG-yK-QYK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
@@ -250,11 +266,15 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fvm-zK-wM0" secondAttribute="trailing" constant="20" id="3kY-Ib-Dsy"/>
                             <constraint firstAttribute="bottom" secondItem="ogL-dN-Rih" secondAttribute="bottom" id="7Dv-hw-98d"/>
                             <constraint firstItem="fvm-zK-wM0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="9Lz-ZG-b8a"/>
+                            <constraint firstItem="K4j-Xt-im5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="47" id="AmT-1O-fRL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xW1-tD-Abc" secondAttribute="trailing" constant="20" id="CUL-ZM-Acb"/>
                             <constraint firstItem="Ijs-q7-Umu" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="45" id="CkO-Rn-JH4"/>
+                            <constraint firstItem="K4j-Xt-im5" firstAttribute="centerX" secondItem="cbN-G8-oyT" secondAttribute="centerX" id="Dym-1s-u1u"/>
                             <constraint firstItem="xW1-tD-Abc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ETv-ru-q87"/>
                             <constraint firstItem="Ijs-q7-Umu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Elh-av-PVf"/>
+                            <constraint firstItem="K4j-Xt-im5" firstAttribute="bottom" secondItem="cbN-G8-oyT" secondAttribute="bottom" id="GuY-HN-Mdj"/>
                             <constraint firstItem="oHV-Jd-reF" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="45" id="LXc-fW-gNw"/>
+                            <constraint firstItem="K4j-Xt-im5" firstAttribute="top" secondItem="cbN-G8-oyT" secondAttribute="top" id="VRd-BC-Oh8"/>
                             <constraint firstItem="Xfj-EN-PmE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ZEC-Ug-grB"/>
                             <constraint firstItem="cbN-G8-oyT" firstAttribute="top" secondItem="Ijs-q7-Umu" secondAttribute="bottom" constant="38" id="e9l-CH-aUp"/>
                             <constraint firstItem="OWZ-4k-2nM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="h7K-KU-eno"/>
@@ -274,6 +294,8 @@
                     <connections>
                         <outlet property="addCard" destination="oHV-Jd-reF" id="2Uc-EI-Twh"/>
                         <outlet property="addNewCardBtn" destination="oHV-Jd-reF" id="5Ih-1Z-Brq"/>
+                        <outlet property="cardEmpty" destination="K4j-Xt-im5" id="5O6-3p-Jfa"/>
+                        <outlet property="cardEmptyTxt" destination="SKg-J7-WIE" id="Fwv-RC-Oj9"/>
                         <outlet property="cardNumberTxt" destination="oxy-pm-eSp" id="6DV-Vb-hSS"/>
                         <outlet property="cardNumberTxtField" destination="qJk-vu-eYo" id="BPS-zb-YtG"/>
                         <outlet property="cardOwnerTxt" destination="ED4-c3-YVB" id="ZVn-rV-NFR"/>
@@ -388,20 +410,6 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPY-eS-eGz">
-                                <rect key="frame" x="20" y="508.66666666666674" width="353" height="31"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save as primary address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UiR-eN-b0Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="304" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RPd-Yt-rNG">
-                                        <rect key="frame" x="304" y="0.0" width="51" height="31"/>
-                                    </switch>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ugm-QZ-YSi"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
@@ -411,13 +419,10 @@
                             <constraint firstItem="QTO-xA-2S7" firstAttribute="centerX" secondItem="eHs-38-R8V" secondAttribute="centerX" id="Ift-4j-lh4"/>
                             <constraint firstItem="fQr-Qb-XHj" firstAttribute="top" secondItem="UWM-Ww-zi5" secondAttribute="bottom" constant="20" id="JuO-73-Xef"/>
                             <constraint firstItem="elL-cT-HeA" firstAttribute="top" secondItem="fQr-Qb-XHj" secondAttribute="bottom" constant="20" id="Kbk-Zo-HdO"/>
-                            <constraint firstItem="ugm-QZ-YSi" firstAttribute="trailing" secondItem="gPY-eS-eGz" secondAttribute="trailing" constant="20" id="Kdb-9v-rJK"/>
-                            <constraint firstItem="gPY-eS-eGz" firstAttribute="top" secondItem="elL-cT-HeA" secondAttribute="bottom" constant="20" id="M96-bG-YbS"/>
                             <constraint firstItem="UWM-Ww-zi5" firstAttribute="centerX" secondItem="eHs-38-R8V" secondAttribute="centerX" id="M9g-e4-jQZ"/>
                             <constraint firstItem="O0t-HH-tCs" firstAttribute="top" secondItem="eHs-38-R8V" secondAttribute="top" constant="45" id="U39-LJ-TM6"/>
                             <constraint firstItem="elL-cT-HeA" firstAttribute="leading" secondItem="ugm-QZ-YSi" secondAttribute="leading" constant="20" id="UOs-k3-XDl"/>
                             <constraint firstAttribute="bottom" secondItem="tn4-9r-vRm" secondAttribute="bottom" id="WtF-ZW-exD"/>
-                            <constraint firstItem="gPY-eS-eGz" firstAttribute="leading" secondItem="ugm-QZ-YSi" secondAttribute="leading" constant="20" id="X1x-bW-c6x"/>
                             <constraint firstItem="UWM-Ww-zi5" firstAttribute="top" secondItem="QTO-xA-2S7" secondAttribute="bottom" constant="38" id="ZMz-rO-rTn"/>
                             <constraint firstItem="QTO-xA-2S7" firstAttribute="top" secondItem="eHs-38-R8V" secondAttribute="top" constant="60" id="fOS-VO-YYf"/>
                             <constraint firstItem="tn4-9r-vRm" firstAttribute="trailing" secondItem="ugm-QZ-YSi" secondAttribute="trailing" id="hZM-8o-YFk"/>
@@ -432,8 +437,6 @@
                         <outlet property="cardOwnerTF" destination="Ydi-n2-XiX" id="C9O-7g-Awl"/>
                         <outlet property="cardPaymentTxtField" destination="elL-cT-HeA" id="mcI-az-jLH"/>
                         <outlet property="creditCardView" destination="UWM-Ww-zi5" id="VMP-q7-cag"/>
-                        <outlet property="isPrimarySwitch" destination="RPd-Yt-rNG" id="MAV-wo-ZWD"/>
-                        <outlet property="saveAs" destination="UiR-eN-b0Y" id="g4w-o0-gGm"/>
                         <outlet property="saveCardBtn" destination="9Ot-hd-ui0" id="dux-mR-khs"/>
                     </connections>
                 </viewController>
