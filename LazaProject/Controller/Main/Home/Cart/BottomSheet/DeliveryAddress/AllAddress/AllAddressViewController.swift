@@ -16,6 +16,7 @@ class AllAddressViewController: UIViewController {
   
   weak var delegate: backToCartfromAddressDelegate?
   let viewModel = AddressViewModel()
+  let refreshModel = RefreshTokenViewModel()
   
   @IBOutlet weak var allAddress: UILabel!{
     didSet {
@@ -34,15 +35,22 @@ class AllAddressViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    refreshModel.refreshToken()
     self.tabBarController?.tabBar.isHidden = true
     loadData()
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
     addressTableView.refreshControl = refreshControl
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    refreshModel.refreshToken()
     loadData()
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    refreshModel.refreshToken()
   }
   
   func loadData(){

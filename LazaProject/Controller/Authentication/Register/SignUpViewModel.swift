@@ -36,7 +36,7 @@ class SignUpViewModel {
     do {
       request.httpBody = try JSONSerialization.data(withJSONObject: parameters)
     } catch {
-      print("Error saat membuat data JSON: \(error)")
+      print("Error saat membuat data JSON Sign Up: \(error)")
       completion(nil)
       return
     }
@@ -72,7 +72,7 @@ class SignUpViewModel {
         self.responseSignUp = result
         completion(result)
       } catch {
-        print("Error decoding JSON response: \(error)")
+        print("Error decoding JSON response Sign Up: \(error)")
       }
     }
     task.resume()

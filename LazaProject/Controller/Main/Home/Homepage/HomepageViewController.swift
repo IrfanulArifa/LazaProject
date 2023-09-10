@@ -18,13 +18,14 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   let viewModel = ViewModel()
   let loginModel = LoginViewModel()
   var isValidLogin = false
+  let refreshToken = RefreshTokenViewModel()
   
   @IBOutlet var homeView: UIView!
   
   @IBOutlet weak var helloLbl: UILabel!{
     didSet {
       helloLbl.font = UIFont(name: "Poppins-SemiBold", size: 28)
-      //      helloLbl.isSkeletonable = true
+//            helloLbl.isSkeletonable = true
       helloLbl.showAnimatedGradientSkeleton()
     }
   }
@@ -32,7 +33,7 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
   @IBOutlet weak var welcomeTxt: UILabel!{
     didSet {
       welcomeTxt.font = UIFont(name: "Poppins-Regular", size: 20)
-      //      welcomeTxt.isSkeletonable = true
+//            welcomeTxt.isSkeletonable = true
       welcomeTxt.showAnimatedGradientSkeleton()
     }
   }
@@ -55,6 +56,8 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     super.viewDidLoad()
     self.tabBarController?.tabBar.isHidden = false
     
+    refreshToken.refreshToken()
+    
     let token = UserDefaults.standard.string(forKey: "refresh_token")
     isValidToken(token: token!)
     
@@ -73,10 +76,13 @@ class HomepageViewController: UIViewController, UINavigationControllerDelegate {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
     categoryTableView.refreshControl = refreshControl
+    
+    print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
   }
   
   override func viewWillAppear(_ animated: Bool) {
     self.tabBarController?.tabBar.isHidden = false
+    refreshToken.refreshToken()
     categoryTableView.reloadData()
   }
   

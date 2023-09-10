@@ -37,7 +37,7 @@ class LoginViewModel{
     do {
       request.httpBody = try JSONSerialization.data(withJSONObject: parameters)
     } catch {
-      print("Error saat membuat data JSON: \(error)")
+      print("Error saat membuat data JSON Login: \(error)")
       return
     }
     
@@ -63,7 +63,7 @@ class LoginViewModel{
         let result = try decoder.decode(LoginSuccess.self, from: data)
         completion(result.data)
       } catch {
-        print("Error decoding JSON response: \(error)")
+        print("Error decoding JSON response in Login: \(error)")
       }
     }
     task.resume()
@@ -92,12 +92,11 @@ class LoginViewModel{
         do {
           let decoder = JSONDecoder()
           let result = try decoder.decode(User.self, from: data)
+          ViewModel().saveProfil(token:token, refreshToken: refreshToken ,fullname: result.data.fullName, username: result.data.username, email: result.data.email, image: result.data.imageURL ?? "", userId: result.data.id)
           if result.data.imageURL != nil {
             self.jumpClick?()
-            ViewModel().saveProfil(token:token, refreshToken: refreshToken ,fullname: result.data.fullName, username: result.data.username, email: result.data.email, image: result.data.imageURL ?? "")
           } else {
             self.jumpToSetProfile?()
-            ViewModel().saveProfil(token:token, refreshToken: refreshToken ,fullname: result.data.fullName, username: result.data.username, email: result.data.email, image: result.data.imageURL ?? "")
           }
         } catch {
           print("Error decoding JSON response: \(error)")

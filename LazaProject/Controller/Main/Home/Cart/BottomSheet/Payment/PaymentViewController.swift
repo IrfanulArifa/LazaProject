@@ -15,12 +15,10 @@ class PaymentViewController: UIViewController {
   
   weak var delegate: backToCartDelegate?
   
-  var cardData: [CardModel] = [
-    CardModel(owner: "Irfanul Arifa", number: "4242 4242 4242 4242", cvv: "123", expMonth: 12, expYear: 25),
-    CardModel(owner: "Irfanul Arifa", number: "5151 5151 5151 5151", cvv: "123", expMonth: 12, expYear: 25),
-    CardModel(owner: "Irfanul Arifa", number: "5151 5151 5151 5151", cvv: "123", expMonth: 12, expYear: 25),
-    CardModel(owner: "Irfanul Arifa", number: "5151 5151 5151 5151", cvv: "123", expMonth: 12, expYear: 25)
-  ]
+  var indexScroll: IndexPath? = [0]
+  let coreData = CoreDataManager()
+  
+  var cardData: [CardModel] = []
   
   @IBOutlet weak var paymentTxt: UILabel!{
     didSet {
@@ -42,7 +40,11 @@ class PaymentViewController: UIViewController {
     }
   }
   
-  @IBOutlet weak var cardOwnerTxtField: UITextField!
+  @IBOutlet weak var cardOwnerTxtField: UITextField!{
+    didSet {
+      cardOwnerTxtField.isEnabled = false
+    }
+  }
   @IBOutlet weak var cardNumberTxt: UILabel!{
     didSet {
       cardNumberTxt.font = UIFont(name: "Poppins-Regular", size: 15)
@@ -51,7 +53,7 @@ class PaymentViewController: UIViewController {
   
   @IBOutlet weak var cardNumberTxtField: UITextField!{
     didSet {
-      
+      cardNumberTxtField.isEnabled = false
     }
   }
   
@@ -70,11 +72,13 @@ class PaymentViewController: UIViewController {
   @IBOutlet weak var expTxtField: UITextField!{
     didSet {
       expTxtField.font = UIFont(name: "Poppins-Regular", size: 15)
+      expTxtField.isEnabled = false
     }
   }
   @IBOutlet weak var cvvTxtField: UITextField!{
     didSet {
       cvvTxtField.font = UIFont(name: "Poppins-Regular", size: 15)
+      cvvTxtField.isEnabled = false
     }
   }
   
@@ -107,6 +111,19 @@ class PaymentViewController: UIViewController {
     creditCardCollection.delegate = self
     
     creditCardCollection.register(UINib(nibName: "PaymentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PaymentCollectionViewCell")
+    
+    coreData.retrieve { data in
+      self.cardData = data
+    }
+    let userId = UserDefaults.standard.string(forKey: "userid")
+    
+    let data = cardData[0]
+    cardOwnerTxtField.text = data.owner
+    cardNumberTxtField.text = data.number
+    expTxtField.text = data.expMonth + "/" + data.expYear
+    DispatchQueue.main.async {
+      self.cvvTxtField.text = "\(String(describing: userId!))"
+    }
   }
   
   @IBAction func backButtonPressed(_ sender: Any) {
@@ -115,7 +132,8 @@ class PaymentViewController: UIViewController {
   }
   
   @IBAction func addNewCardClicked(_ sender: UIButton) {
-    let storyboard = UIStoryboard(name: "Payment", bundle: nil).instantiateViewController(withIdentifier: "AddNewCardViewController")
+    guard let storyboard = UIStoryboard(name: "Payment", bundle: nil).instantiateViewController(withIdentifier: "AddNewCardViewController") as? AddNewCardViewController else { return }
+    storyboard.delegate = self
     self.navigationController?.pushViewController(storyboard, animated: true)
   }
   
@@ -124,12 +142,28 @@ class PaymentViewController: UIViewController {
   }
   
   @IBAction func editCard(_ sender: UIButton) {
-    let storyboard = UIStoryboard(name: "Payment", bundle: nil).instantiateViewController(withIdentifier: "EditViewController")
-    self.navigationController?.pushViewController(storyboard, animated: true)
+    if indexScroll?.item == 0 {
+      let data = cardData[0]
+      guard let storyboard = UIStoryboard(name: "Payment", bundle: nil).instantiateViewController(withIdentifier: "EditViewController") as? EditViewController else { return }
+      storyboard.configure(name: data.owner, number: data.number, expYear: data.expYear, expMonth: data.expMonth, cvc: data.cvv)
+      storyboard.delegate = self
+      self.navigationController?.pushViewController(storyboard, animated: true)
+    } else {
+      let data = cardData[indexScroll!.item]
+      guard let storyboard = UIStoryboard(name: "Payment", bundle: nil).instantiateViewController(withIdentifier: "EditViewController") as? EditViewController else { return }
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        storyboard.configure(name: data.owner, number: data.number, expYear: data.expYear, expMonth: data.expMonth, cvc: data.cvv)
+      }
+      storyboard.delegate = self
+      self.navigationController?.pushViewController(storyboard, animated: true)
+    }
   }
   
   @IBAction func deleteCard(_ sender: UIButton) {
-    
+    let data = cardData[indexScroll!.item]
+    coreData.delete(data) {
+      
+    }
   }
   
 }
@@ -140,6 +174,7 @@ extension PaymentViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    indexScroll = indexPath
     let data = cardData[indexPath.item]
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaymentCollectionViewCell", for: indexPath) as? PaymentCollectionViewCell else { return UICollectionViewCell() }
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -155,12 +190,33 @@ extension PaymentViewController: UICollectionViewDelegate {
 
 extension PaymentViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let collectionViewWidth = collectionView.frame.width
     return CGSize(width: 300, height: 200)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
     return 0.0
   }
+  
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    let data = cardData[indexScroll!.item]
+    cardOwnerTxtField.text = data.owner
+    cardNumberTxtField.text = data.number
+    expTxtField.text = data.expMonth + "/" + data.expYear
+    cvvTxtField.text = data.cvv
+  }
 }
 
+extension PaymentViewController: updateDataCard, reloadDataPayment {
+  func reloadData() {
+    coreData.retrieve { data in
+      self.cardData = data
+    }
+    let data = cardData[0]
+    cardOwnerTxtField.text = data.owner
+    cardNumberTxtField.text = data.number
+    expTxtField.text = data.expMonth + "/" + data.expYear
+    cvvTxtField.text = data.cvv
+    
+    creditCardCollection.reloadData()
+  }
+}

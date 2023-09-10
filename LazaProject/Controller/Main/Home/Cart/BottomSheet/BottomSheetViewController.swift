@@ -17,6 +17,7 @@ class BottomSheetViewController: UIViewController {
   weak var delegate : MoveIntoDelegate?
   private let viewModel = AddressViewModel()
   private let priceModel = CartViewModel()
+  let refreshModel = RefreshTokenViewModel()
   
   @IBOutlet weak var deliveryAddress: UILabel!{
     didSet {
@@ -88,15 +89,21 @@ class BottomSheetViewController: UIViewController {
   }
   override func viewDidLoad() {
     super.viewDidLoad()
+    refreshModel.refreshToken()
     let token = UserDefaults.standard.string(forKey: "access_token")
-    loadDataAddress()
-    loadDataCart(token: token!)
+    DispatchQueue.main.async { [weak self] in
+      self?.loadDataAddress()
+      self?.loadDataCart(token: token!)
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    let token = UserDefaults.standard.string(forKey: "access_token")
-    loadDataAddress()
-    loadDataCart(token: token!)
+//    let token = UserDefaults.standard.string(forKey: "access_token")
+//    refreshModel.refreshToken()
+//    DispatchQueue.main.async { [weak self] in
+//      self?.loadDataAddress()
+//      self?.loadDataCart(token: token!)
+//    }
   }
   
   private func loadDataAddress() {

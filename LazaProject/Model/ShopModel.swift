@@ -206,116 +206,117 @@ struct DeleteSuccess: Codable {
 }
 
 struct CartSuccess: Codable {
-    let status: String
-    let isError: Bool
-    let data: DataCart
+  let status: String
+  let isError: Bool
+  let data: DataCart
 }
 
 struct DataCart: Codable {
-    var products: [Cart]?
-    let orderInfo: OrderInfo
-
-    enum CodingKeys: String, CodingKey {
-        case products
-        case orderInfo = "order_info"
-    }
+  var products: [Cart]?
+  let orderInfo: OrderInfo
+  
+  enum CodingKeys: String, CodingKey {
+    case products
+    case orderInfo = "order_info"
+  }
 }
 
 // MARK: - OrderInfo
 struct OrderInfo: Codable {
-    let subTotal, shippingCost, total: Int
-
-    enum CodingKeys: String, CodingKey {
-        case subTotal = "sub_total"
-        case shippingCost = "shipping_cost"
-        case total
-    }
+  let subTotal, shippingCost, total: Int
+  
+  enum CodingKeys: String, CodingKey {
+    case subTotal = "sub_total"
+    case shippingCost = "shipping_cost"
+    case total
+  }
 }
 
 // MARK: - Product
 struct Cart: Codable {
-    let id: Int
-    let productName: String
-    let imageURL: String
-    let price: Int
-    let brandName: String
-    let quantity: Int
-    let size: String
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case productName = "product_name"
-        case imageURL = "image_url"
-        case price
-        case brandName = "brand_name"
-        case quantity, size
-    }
+  let id: Int
+  let productName: String
+  let imageURL: String
+  let price: Int
+  let brandName: String
+  let quantity: Int
+  let size: String
+  
+  enum CodingKeys: String, CodingKey {
+    case id
+    case productName = "product_name"
+    case imageURL = "image_url"
+    case price
+    case brandName = "brand_name"
+    case quantity, size
+  }
 }
 
 struct ReduceCart: Codable {
-    let status: String
-    let isError: Bool
-    let data: ReduceCartData
+  let status: String
+  let isError: Bool
+  let data: ReduceCartData
 }
 
 // MARK: - DataClass
 struct ReduceCartData: Codable {
-    let userID, productID, sizeID, quantity: Int
-    let createdAt, updatedAt: String
-
-    enum CodingKeys: String, CodingKey {
-        case userID = "user_id"
-        case productID = "product_id"
-        case sizeID = "size_id"
-        case quantity
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-    }
+  let userID, productID, sizeID, quantity: Int
+  let createdAt, updatedAt: String
+  
+  enum CodingKeys: String, CodingKey {
+    case userID = "user_id"
+    case productID = "product_id"
+    case sizeID = "size_id"
+    case quantity
+    case createdAt = "created_at"
+    case updatedAt = "updated_at"
+  }
 }
 
 
 struct insertCart: Codable {
-    let status: String
-    let isError: Bool
-    let data: insertCartData
+  let status: String
+  let isError: Bool
+  let data: insertCartData
 }
 
 // MARK: - DataClass
 struct insertCartData: Codable {
-    let userID, productID, sizeID, quantity: Int
-    let createdAt, updatedAt: String
-
-    enum CodingKeys: String, CodingKey {
-        case userID = "user_id"
-        case productID = "product_id"
-        case sizeID = "size_id"
-        case quantity
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-    }
+  let userID, productID, sizeID, quantity: Int
+  let createdAt, updatedAt: String
+  
+  enum CodingKeys: String, CodingKey {
+    case userID = "user_id"
+    case productID = "product_id"
+    case sizeID = "size_id"
+    case quantity
+    case createdAt = "created_at"
+    case updatedAt = "updated_at"
+  }
 }
 
 struct NewPassword: Codable {
-    let status: String
-    let isError: Bool
-    let data: NewPasswordData
+  let status: String
+  let isError: Bool
+  let data: NewPasswordData
 }
 
 // MARK: - DataClass
 struct NewPasswordData: Codable {
-    let message: String
+  let message: String
 }
 
 struct APIError: Codable {
-    let status: String
-    let isError: Bool
-    let description: String
+  let status: String
+  let isError: Bool
+  let description: String
 }
 
 struct CardModel: Codable {
-    var owner: String
-    var number: String
-    var cvv: String
-    var expMonth: UInt
-    var expYear: UInt
+  var owner: String
+  var number: String
+  var cvv: String
+  var expMonth: String
+  var expYear: String
+  var userId: Int
 }

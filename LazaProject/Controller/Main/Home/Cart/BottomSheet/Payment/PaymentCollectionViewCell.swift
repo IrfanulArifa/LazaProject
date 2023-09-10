@@ -10,20 +10,16 @@ import CreditCardForm
 
 class PaymentCollectionViewCell: UICollectionViewCell {
 
-  @IBOutlet weak var paymentCardView: CreditCardFormView!{
-    didSet {
-      
-    }
-  }
+  @IBOutlet weak var paymentCardView: CreditCardFormView!
   
   override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-  func configure(name: String, number: String, expYear: UInt, expMonth: UInt, cvc: String) {
+  func configure(name: String, number: String, expYear: String, expMonth: String, cvc: String) {
     paymentCardView.cardHolderString = name
-    paymentCardView.paymentCardTextFieldDidChange(cardNumber: number, expirationYear: expYear, expirationMonth: expMonth, cvc: cvc)
+    paymentCardView.paymentCardTextFieldDidChange(cardNumber: number, expirationYear: UInt(expYear), expirationMonth: UInt(expMonth), cvc: cvc)
   }
   
 }

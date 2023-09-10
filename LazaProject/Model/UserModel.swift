@@ -17,6 +17,7 @@ struct UserModel {
   static let emailKey = "email"
   static let imageKey = "image"
   static let darkmodeKey = "darkmode"
+  static let userIdKey = "userid"
   
   // Encaptulation ??
   static var stateLogin: Bool {
@@ -57,6 +58,11 @@ struct UserModel {
   static var refresh_token: String {
     get { return UserDefaults.standard.string(forKey: refreshTokenKey) ?? ""}
     set { UserDefaults.standard.set(newValue, forKey: refreshTokenKey)}
+  }
+  
+  static var userid: Int {
+    get { return UserDefaults.standard.integer(forKey: userIdKey)}
+    set { UserDefaults.standard.set(newValue, forKey: userIdKey)}
   }
   
   // MARK: For Deleting All User

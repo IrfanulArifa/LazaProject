@@ -33,14 +33,14 @@ class RefreshTokenViewModel {
       guard let data = data else { return }
       
       if httpResponse.statusCode != 200 {
-        print("Error Status Code: \(httpResponse.statusCode)")
+        print("Error Status Code Refresh Token: \(httpResponse.statusCode)")
       }
       
       do {
         let result = try decoder.decode(LoginSuccess.self, from: data)
         UserDefaults.standard.setValue(result.data.access_token, forKey: "access_token")
       } catch {
-        print("Error Decode Data, \(error)")
+        print("Error Decode Data Refresh Token, \(error)")
       }
     }
     task.resume()

@@ -47,7 +47,7 @@ class WishlistViewController: UIViewController {
     self.tabBarController?.tabBar.isHidden = false
     let token = UserDefaults.standard.string(forKey: "access_token")
     refreshModel.refreshToken()
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+    DispatchQueue.main.async{ [weak self] in
       self?.reloadWishlist(token: token!)
     }
   }

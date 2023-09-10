@@ -113,7 +113,7 @@ class AddressViewController: UIViewController {
     viewModel.addNewAddress(country: countryTxtField.text!, city: cityTxtField.text!, receiverName: nameTxtField.text!, number: phoneTxtField.text!, isPrimary: isValid) { response in
       DispatchQueue.main.async {
         self.showAlert(title: "Success", message: "Success to Add New Address") {
-          self.dismiss(animated: true)
+          self.navigationController?.popViewController(animated: true)
         }
       }
     } onError: { error in

@@ -120,7 +120,7 @@ class ViewModel {
     UserModel.image = image
   }
   
-  func saveProfil(token: String, refreshToken: String, fullname: String, username: String, email: String, image: String){
+  func saveProfil(token: String, refreshToken: String, fullname: String, username: String, email: String, image: String, userId: Int){
     UserModel.stateLogin = true
     UserModel.access_token = token
     UserModel.refresh_token = refreshToken
@@ -128,5 +128,6 @@ class ViewModel {
     UserModel.username = username
     UserModel.email = email
     UserModel.image = image
+    UserModel.userid = userId
   }
 }
