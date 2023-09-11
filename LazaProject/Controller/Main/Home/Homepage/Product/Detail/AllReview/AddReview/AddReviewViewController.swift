@@ -46,8 +46,7 @@ class AddReviewViewController: UIViewController {
   @IBAction func submitReviewClicked(_ sender: UIButton) {
     guard let product = product else {
       return }
-    guard let token = UserDefaults.standard.string(forKey: "access_token") else { print("Kesini")
-      return }
+    guard let token = UserDefaults.standard.string(forKey: "access_token") else { return }
     let rating = String(format: "%.0f", sliderValue.value)
     viewModel.addReview(productId: product, comment: reviewField.text!, rating: Double(rating)!, token: token) { response in
       DispatchQueue.main.async { [unowned self] in

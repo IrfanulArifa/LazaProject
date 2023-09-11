@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol backToHome: AnyObject {
+  func backToHome()
+}
+
 class OrderConfirmedViewController: UIViewController {
   
   @IBOutlet weak var orderConfirmed: UILabel!{
@@ -32,18 +36,20 @@ class OrderConfirmedViewController: UIViewController {
       continueShopping.titleLabel!.font = UIFont(name: "Poppins-Regular", size: 15)
     }
   }
+  
+  weak var delegate: backToHome?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-  }
-  
-  @IBAction func backButtonPressed(_ sender: UIButton) {
-    self.navigationController?.popViewController(animated: true)
+    self.tabBarController?.tabBar.isHidden = true
   }
   
   @IBAction func goToOrdersClicked(_ sender: UIButton) {
-    
+    self.navigationController?.popViewController(animated: true)
   }
   
   @IBAction func continueShopping(_ sender: Any) {
+    delegate?.backToHome()
+    self.navigationController?.popViewController(animated: true)
   }
 }

@@ -110,7 +110,6 @@ class OrderViewController: UIViewController {
     viewModel.getAllCart(token: token) { [weak self] data in
       self?.products = data
     }
-    print(products ?? nil)
   }
   
   func reloadHarga(token: String){
@@ -162,12 +161,12 @@ class OrderViewController: UIViewController {
       let token = UserDefaults.standard.string(forKey: "access_token")
       orderViewModel.goToConfirm = {
         DispatchQueue.main.async {
-          let storyboard = UIStoryboard(name: "OrderConfirmed", bundle: nil).instantiateViewController(withIdentifier: "OrderConfirmedViewController")
+          guard let storyboard = UIStoryboard(name: "OrderConfirmed", bundle: nil).instantiateViewController(withIdentifier: "OrderConfirmedViewController") as? OrderConfirmedViewController else { return }
+          storyboard.delegate = self
           self.navigationController?.pushViewController(storyboard, animated: true)
         }
       }
       loadData(token: token!)
-      print("Product Data: \(String(describing: products))")
       orderViewModel.order(token: token!, products: products!, addressId: addressId, bank: bankData)
     }
   }
@@ -281,5 +280,11 @@ extension OrderViewController: deleteCart {
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [unowned self] in
       self.cardTableView.reloadData()
     }
+  }
+}
+
+extension OrderViewController: backToHome {
+  func backToHome() {
+    self.tabBarController?.selectedIndex = 0
   }
 }

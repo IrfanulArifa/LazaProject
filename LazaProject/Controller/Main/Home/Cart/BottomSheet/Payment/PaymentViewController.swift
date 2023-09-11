@@ -127,15 +127,12 @@ class PaymentViewController: UIViewController {
     creditCardCollection.register(UINib(nibName: "PaymentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PaymentCollectionViewCell")
     
     let userId = UserDefaults.standard.integer(forKey: "userid")
-    print(userId)
     
     coreData.retrieve { [weak self] data in
       for (index, userIdData) in data.enumerated() {
         if userIdData.userId == userId {
-          print(data)
           self?.temp.insert(userIdData, at: index)
           self?.cardData = self!.temp
-          print(self!.cardData)
         }
       }
     }
@@ -266,7 +263,7 @@ extension PaymentViewController: updateDataCard, reloadDataPayment {
       }
     }
     
-    let data = cardData[indexScroll!.row]
+    let data = cardData[indexScroll!.item]
     cardOwnerTxtField.text = data.owner
     cardNumberTxtField.text = data.number
     expTxtField.text = data.expMonth + "/" + data.expYear

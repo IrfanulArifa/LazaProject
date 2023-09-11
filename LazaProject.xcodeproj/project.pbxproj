@@ -263,13 +263,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		004FBAE02AADA7E9003AE807 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		004FBAE12AADA861003AE807 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,10 +356,9 @@
 		007B0F542A70B2410034E7A5 /* LazaProject */ = {
 			isa = PBXGroup;
 			children = (
-				004FBAE12AADA861003AE807 /* Views */,
-				008EE88B2A7B4AB1002C44B9 /* SplashScreen */,
-				004FBAE02AADA7E9003AE807 /* Network */,
 				006B4C842A7556A5001247C4 /* LazaProject.entitlements */,
+				008EE88B2A7B4AB1002C44B9 /* SplashScreen */,
+				004FBAE12AADA861003AE807 /* Views */,
 				007B0F732A70B85E0034E7A5 /* Controller */,
 				007B0F6E2A70B2CA0034E7A5 /* Font */,
 				007B0F6D2A70B2C50034E7A5 /* Base */,

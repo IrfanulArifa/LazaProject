@@ -25,20 +25,6 @@
                                 </constraints>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPl-5S-Y6C">
-                                <rect key="frame" x="20" y="45" width="45" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="60b-1p-5na"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="Gbt-AH-dug"/>
-                                    <constraint firstAttribute="width" constant="45" id="afF-2s-SXH"/>
-                                    <constraint firstAttribute="height" constant="45" id="r5i-Zi-eWd"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="BackButton"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7kL-2b-87m"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zm-Lw-QyJ">
                                 <rect key="frame" x="0.0" y="777" width="393" height="75"/>
                                 <subviews>
@@ -109,10 +95,8 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aZa-b1-MWa" secondAttribute="trailing" constant="25" id="B8G-Rb-dY6"/>
                             <constraint firstItem="aZa-b1-MWa" firstAttribute="top" secondItem="H0p-4p-Epq" secondAttribute="bottom" constant="10" id="BIt-vK-m1U"/>
                             <constraint firstAttribute="bottom" secondItem="4zm-Lw-QyJ" secondAttribute="bottom" id="DQj-cV-AvO"/>
-                            <constraint firstItem="LPl-5S-Y6C" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="45" id="HKf-LQ-KnE"/>
                             <constraint firstItem="4zm-Lw-QyJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="PKv-xo-bdE"/>
                             <constraint firstItem="AZP-tU-VHI" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="PqX-bd-gCL"/>
-                            <constraint firstItem="LPl-5S-Y6C" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Qyx-KP-T54"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DZa-WR-Sek" secondAttribute="trailing" constant="20" id="Tgu-Yh-nCP"/>
                             <constraint firstItem="DZa-WR-Sek" firstAttribute="top" secondItem="aZa-b1-MWa" secondAttribute="bottom" constant="100" id="U0d-dn-1tS"/>
                             <constraint firstItem="4zm-Lw-QyJ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="V9p-b8-5Ab"/>
@@ -136,7 +120,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BackButton" width="60" height="60"/>
         <image name="Order" width="1500" height="2264"/>
         <namedColor name="PurpleButton">
             <color red="0.23921568627450981" green="0.57647058823529407" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
