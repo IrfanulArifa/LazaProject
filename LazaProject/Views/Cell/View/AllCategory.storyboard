@@ -177,10 +177,18 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZw-4R-wiP">
+                                <rect key="frame" x="176" y="55.000000000000007" width="41.333333333333343" height="20.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TAo-qS-2ly"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="eZw-4R-wiP" firstAttribute="top" secondItem="snw-0c-TVL" secondAttribute="top" constant="55" id="22f-Tu-Gkn"/>
+                            <constraint firstItem="eZw-4R-wiP" firstAttribute="centerX" secondItem="snw-0c-TVL" secondAttribute="centerX" id="3ZD-K4-GhE"/>
                             <constraint firstItem="1nl-qI-5J6" firstAttribute="leading" secondItem="TAo-qS-2ly" secondAttribute="leading" constant="20" id="43e-XO-NTp"/>
                             <constraint firstItem="XJg-Ud-2L0" firstAttribute="leading" secondItem="TAo-qS-2ly" secondAttribute="leading" id="5iW-x6-r7T"/>
                             <constraint firstItem="XJg-Ud-2L0" firstAttribute="top" secondItem="rdG-Q0-NEr" secondAttribute="bottom" constant="20" id="Jgu-ke-lMD"/>
@@ -196,6 +204,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Label" destination="eZw-4R-wiP" id="Uie-LD-eIu"/>
                         <outlet property="SelectedCollection" destination="XJg-Ud-2L0" id="JBX-2s-vZa"/>
                         <outlet property="brandImage" destination="zQA-pj-Wzy" id="8DY-yA-mOh"/>
                         <outlet property="sortingButton" destination="qYq-g7-e1W" id="TR6-3N-hug"/>

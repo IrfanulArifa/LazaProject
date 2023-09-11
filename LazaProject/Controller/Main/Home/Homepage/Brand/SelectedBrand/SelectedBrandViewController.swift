@@ -23,7 +23,14 @@ class SelectedBrandViewController: UIViewController {
     }
   }
   
+  @IBOutlet weak var Label: UILabel!{
+    didSet {
+      Label.isHidden = true
+      Label.font = UIFont(name: "Poppins-SemiBold", size: 20)
+    }
+  }
   @IBOutlet weak var SelectedCollection: UICollectionView!
+  
   
   var productBrand: String?
   var productLogo: String?
@@ -44,15 +51,16 @@ class SelectedBrandViewController: UIViewController {
     SelectedCollection.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductCollectionViewCell")
     
     viewModel.reloadTable = {
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [self] in
         self.SelectedCollection.reloadData()
         self.arrayProduct = self.viewModel.productByName
         self.totalItems.text = String(self.arrayProduct.count) + " Items"
-        if self.productLogo == "" {
-          self.brandImage.removeFromSuperview()
-        } else {
+        if productLogo?.contains("https") == true {
           let imageURL = URL(string: self.productLogo!)
           self.brandImage.sd_setImage(with: imageURL)
+        } else {
+          self.Label.text = self.productBrand!
+          self.Label.isHidden = false
         }
       }
     }
@@ -69,7 +77,9 @@ class SelectedBrandViewController: UIViewController {
   }
   
   func sortData(){
-    if sortingButton.currentImage == UIImage(systemName: ""){
+    if viewModel.productByName.count == 0 {
+      sortingButton.isEnabled = false
+    } else if sortingButton.currentImage == UIImage(systemName: ""){
       let newArray = viewModel.productByName.sorted { $0.name < $1.name }
       arrayProduct = newArray
       SelectedCollection.reloadData()

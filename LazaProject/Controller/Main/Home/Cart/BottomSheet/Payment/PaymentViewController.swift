@@ -125,9 +125,12 @@ class PaymentViewController: UIViewController {
     creditCardCollection.delegate = self
     
     creditCardCollection.register(UINib(nibName: "PaymentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PaymentCollectionViewCell")
-    
+    cardSetup()
+  }
+  
+  private func cardSetup() {
     let userId = UserDefaults.standard.integer(forKey: "userid")
-    
+    temp.removeAll()
     coreData.retrieve { [weak self] data in
       for (index, userIdData) in data.enumerated() {
         if userIdData.userId == userId {
@@ -136,10 +139,6 @@ class PaymentViewController: UIViewController {
         }
       }
     }
-    cardSetup()
-  }
-  
-  private func cardSetup() {
     if cardData.count == 0 {
       cardEmpty.isHidden = false
       cardEmptyTxt.isHidden = false
@@ -154,6 +153,7 @@ class PaymentViewController: UIViewController {
       expTxtField.text = data.expMonth + "/" + data.expYear
       cvvTxtField.text = "-"
     }
+    creditCardCollection.reloadData()
   }
   
   @IBAction func backButtonPressed(_ sender: Any) {
@@ -168,6 +168,8 @@ class PaymentViewController: UIViewController {
   }
   
   @IBAction func addNewCardClicked(_ sender: UIButton) {
+    cardEmpty.isHidden = true
+    cardEmptyTxt.isHidden = true
     guard let storyboard = UIStoryboard(name: "Payment", bundle: nil).instantiateViewController(withIdentifier: "AddNewCardViewController") as? AddNewCardViewController else { return }
     storyboard.delegate = self
     self.navigationController?.pushViewController(storyboard, animated: true)
@@ -203,6 +205,12 @@ class PaymentViewController: UIViewController {
     } else {
       showValidation(title: "Delete Card", message: "Are you sure you want to delete this card?") {
         DispatchQueue.main.async { [weak self] in
+          self?.coreData.reloadTable = {
+            DispatchQueue.main.async { [weak self] in
+              self?.cardSetup()
+              self?.creditCardCollection.reloadData()
+            }
+          }
           let data = self?.cardData[(self?.indexScroll!.item)!]
           self?.coreData.delete(data!) { [weak self] in
             self?.cardData.remove(at: (self?.indexScroll!.item)!)
@@ -251,9 +259,16 @@ extension PaymentViewController: UICollectionViewDelegateFlowLayout {
   }
 }
 
-extension PaymentViewController: updateDataCard, reloadDataPayment {
+extension PaymentViewController: reloadDataPayment {
+  func addNewCard() {
+    cardSetup()
+  }
+}
+
+extension PaymentViewController: updateDataCard {
   func reloadData() {
     let userId = UserDefaults.standard.integer(forKey: "userid")
+    temp.removeAll()
     coreData.retrieve { [weak self] data in
       for (index, userIdData) in data.enumerated() {
         if userIdData.userId == userId {

@@ -10,7 +10,7 @@ import CreditCardForm
 import Stripe
 
 protocol reloadDataPayment: AnyObject {
-  func reloadData()
+  func addNewCard()
 }
 
 class AddNewCardViewController: UIViewController, STPPaymentCardTextFieldDelegate {
@@ -103,7 +103,7 @@ class AddNewCardViewController: UIViewController, STPPaymentCardTextFieldDelegat
     coreData.presentAlertSucces = {
       DispatchQueue.main.async { [weak self] in
         self?.showAlert(title: "Success", message: "Success Add Card") {
-          self?.delegate?.reloadData()
+          self?.delegate?.addNewCard()
           self?.navigationController?.popViewController(animated: true)
         }
       }

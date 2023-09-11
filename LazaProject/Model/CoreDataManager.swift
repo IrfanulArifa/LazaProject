@@ -12,6 +12,8 @@ import UIKit
 class CoreDataManager {
   var presentAlertSucces: (() -> Void)?
   var presentAlertFailed: (() -> Void)?
+  var reloadTable: (() -> Void)?
+  var reloadData: (() -> Void)?
   let appDelegate = UIApplication.shared.delegate as? AppDelegate
   
   func create(_ cardModel: CardModel) {
@@ -65,7 +67,6 @@ class CoreDataManager {
         )
         creditCard.append(card)
       }
-      
       completion(creditCard) // Mengirimkan data yang ditemukan
       print("Success")
     } catch let error {
@@ -121,8 +122,8 @@ class CoreDataManager {
         managedContext.delete(dataToDelete as! NSManagedObject)
       }
       try managedContext.save()
+      reloadTable?()
       completion()
-      
     } catch let error {
       print("Unable to delete data", error)
     }

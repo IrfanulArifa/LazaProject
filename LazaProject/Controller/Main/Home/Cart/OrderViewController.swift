@@ -30,13 +30,6 @@ class OrderViewController: UIViewController {
     }
   }
   
-  @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!{
-    didSet {
-      indicatorLoading.isHidden = false
-      indicatorLoading.startAnimating()
-    }
-  }
-  
   @IBOutlet weak var dataKosong: UILabel!{
     didSet {
       dataKosong.font = UIFont(name: "Poppins-Regular", size: 20)
@@ -74,7 +67,6 @@ class OrderViewController: UIViewController {
     let userToken = UserDefaults.standard.string(forKey: "access_token")
     
     DispatchQueue.main.async {
-      self.stopAnimation()
       self.setupTabBarItemImage() // Calling Function
       
       self.cardTableView.delegate = self
@@ -88,11 +80,6 @@ class OrderViewController: UIViewController {
   @objc func refreshTableView(){
     cardTableView.refreshControl?.endRefreshing()
     setup()
-  }
-  
-  func stopAnimation(){
-    indicatorLoading.stopAnimating()
-    indicatorLoading.isHidden = true
   }
   
   func loadData(token: String){
@@ -153,21 +140,31 @@ class OrderViewController: UIViewController {
   }
   
   @IBAction func checkoutClicked(_ sender: UIButton) {
-    if addressId == 0 {
-      invalidSnackBar.make(in: self.view, message: "Harap Pilih Alamat Terlebih Dahulu", duration: .lengthLong).show()
-    } else if bankData == "" {
-      invalidSnackBar.make(in: self.view, message: "Harap Pilih Data Bank Terlebih Dahulu", duration: .lengthLong).show()
-    } else {
-      let token = UserDefaults.standard.string(forKey: "access_token")
-      orderViewModel.goToConfirm = {
-        DispatchQueue.main.async {
-          guard let storyboard = UIStoryboard(name: "OrderConfirmed", bundle: nil).instantiateViewController(withIdentifier: "OrderConfirmedViewController") as? OrderConfirmedViewController else { return }
-          storyboard.delegate = self
-          self.navigationController?.pushViewController(storyboard, animated: true)
-        }
+    if products?.isEmpty == true {
+      DispatchQueue.main.async { [unowned self] in
+        invalidSnackBar.make(in: self.view, message: "Data Cart Kosong", duration: .lengthLong).show()
       }
-      loadData(token: token!)
-      orderViewModel.order(token: token!, products: products!, addressId: addressId, bank: bankData)
+    } else if addressId == 0 {
+      DispatchQueue.main.async { [unowned self] in
+        invalidSnackBar.make(in: self.view, message: "Harap Pilih Alamat Terlebih Dahulu", duration: .lengthLong).show()
+      }
+    } else if bankData == "" {
+      DispatchQueue.main.async { [unowned self] in
+        invalidSnackBar.make(in: self.view, message: "Harap Pilih Data Bank Terlebih Dahulu", duration: .lengthLong).show()
+      }
+    } else {
+      DispatchQueue.main.async { [weak self] in
+        let token = UserDefaults.standard.string(forKey: "access_token")
+        self?.orderViewModel.goToConfirm = {
+          DispatchQueue.main.async {
+            guard let storyboard = UIStoryboard(name: "OrderConfirmed", bundle: nil).instantiateViewController(withIdentifier: "OrderConfirmedViewController") as? OrderConfirmedViewController else { return }
+            storyboard.delegate = self
+            self?.navigationController?.pushViewController(storyboard, animated: true)
+          }
+        }
+        self?.loadData(token: token!)
+        self?.orderViewModel.order(token: token!, products: (self?.products!)!, addressId: self!.addressId, bank: self!.bankData)
+      }
     }
   }
 }

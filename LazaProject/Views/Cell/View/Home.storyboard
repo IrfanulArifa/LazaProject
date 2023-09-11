@@ -121,9 +121,6 @@
                                     <constraint firstItem="GUp-SY-JOn" firstAttribute="centerY" secondItem="pd5-HF-ZcR" secondAttribute="centerY" id="rH2-Am-LX4"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZhE-8x-B9O">
-                                <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
-                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Order Masih Kosong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sW-Lq-rTZ">
                                 <rect key="frame" x="84.333333333333329" y="414" width="224.33333333333337" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -134,7 +131,6 @@
                         <viewLayoutGuide key="safeArea" id="5X3-PC-H0X"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ZhE-8x-B9O" firstAttribute="centerY" secondItem="WG3-7B-WS5" secondAttribute="centerY" id="0WL-cQ-Jxj"/>
                             <constraint firstItem="8sW-Lq-rTZ" firstAttribute="centerY" secondItem="WG3-7B-WS5" secondAttribute="centerY" id="2s5-As-DqG"/>
                             <constraint firstItem="2HP-LO-qgU" firstAttribute="top" secondItem="Et3-lv-Ooh" secondAttribute="bottom" id="4br-WI-3bu"/>
                             <constraint firstItem="Et3-lv-Ooh" firstAttribute="top" secondItem="WG3-7B-WS5" secondAttribute="top" constant="60" id="9kI-Ko-pTZ"/>
@@ -146,7 +142,6 @@
                             <constraint firstItem="pd5-HF-ZcR" firstAttribute="top" secondItem="2HP-LO-qgU" secondAttribute="bottom" id="fIS-GM-95h"/>
                             <constraint firstItem="5X3-PC-H0X" firstAttribute="trailing" secondItem="Et3-lv-Ooh" secondAttribute="trailing" constant="20" id="nSh-J8-MiK"/>
                             <constraint firstItem="pd5-HF-ZcR" firstAttribute="trailing" secondItem="5X3-PC-H0X" secondAttribute="trailing" id="rfc-Nf-Zep"/>
-                            <constraint firstItem="ZhE-8x-B9O" firstAttribute="centerX" secondItem="WG3-7B-WS5" secondAttribute="centerX" id="x0B-bN-JeP"/>
                             <constraint firstItem="pd5-HF-ZcR" firstAttribute="leading" secondItem="5X3-PC-H0X" secondAttribute="leading" id="zf8-Z8-wqh"/>
                         </constraints>
                     </view>
@@ -156,13 +151,12 @@
                         <outlet property="cartTitle" destination="Et3-lv-Ooh" id="3oL-cD-Hwa"/>
                         <outlet property="checkoutButton" destination="GUp-SY-JOn" id="quq-1y-AMk"/>
                         <outlet property="dataKosong" destination="8sW-Lq-rTZ" id="FRe-g3-wct"/>
-                        <outlet property="indicatorLoading" destination="ZhE-8x-B9O" id="u9c-ml-RXL"/>
                         <outlet property="totalCart" destination="HL1-ez-Pux" id="wtp-VC-CBx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x81-yE-QhC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2340" y="1472"/>
+            <point key="canvasLocation" x="2338.1679389312976" y="1471.8309859154931"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Vah-UY-9yl">
