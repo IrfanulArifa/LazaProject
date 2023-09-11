@@ -264,7 +264,6 @@
 		004FBAE22AADA94D003AE807 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				004FBAE52AADA98B003AE807 /* View */,
 				004FBAE42AADA95F003AE807 /* CollectionViewCell */,
 				004FBAE32AADA956003AE807 /* TableViewCell */,
 			);
@@ -296,29 +295,10 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
-		004FBAE52AADA98B003AE807 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				007B0F5B2A70B2410034E7A5 /* Main.storyboard */,
-				007B0F8A2A70F8C40034E7A5 /* Home.storyboard */,
-				0086FE452A9718F500E41A19 /* AllCategory.storyboard */,
-				00A74B412A72065500BB07B9 /* Detail.storyboard */,
-				0086FE3F2A96FE5700E41A19 /* AllProduct.storyboard */,
-				008EE8B12A7B8FA8002C44B9 /* Review.storyboard */,
-				0090DFD82A81DE4C00150D9D /* OrderConfirmed.storyboard */,
-				008CE6A12A80C06600454CED /* BottomSheet.storyboard */,
-				008CE6A72A80D72500454CED /* Address.storyboard */,
-				0008FF8F2A83855A0006BF26 /* AllAddress.storyboard */,
-				008CE6AD2A80D81200454CED /* Payment.storyboard */,
-				0072560C2AA579C900C424EE /* ChangePassword.storyboard */,
-				009486CD2AA1CC0100FA7955 /* UpdateProfile.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		007256092AA579A200C424EE /* ChangePassword */ = {
 			isa = PBXGroup;
 			children = (
+				0072560C2AA579C900C424EE /* ChangePassword.storyboard */,
 				0072560A2AA579BB00C424EE /* ChangePasswordViewController.swift */,
 				0072560E2AA579D900C424EE /* ChangePasswordViewModel.swift */,
 			);
@@ -430,6 +410,7 @@
 		008EE8892A7B4948002C44B9 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				007B0F5B2A70B2410034E7A5 /* Main.storyboard */,
 				00EB8D542AA4E99700D9ADDC /* Login */,
 				00EB8D552AA4EAA900D9ADDC /* Register */,
 				00EB8D562AA4EAE000D9ADDC /* ForgotPassword */,
@@ -440,6 +421,7 @@
 		008EE88A2A7B4986002C44B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				007B0F8A2A70F8C40034E7A5 /* Home.storyboard */,
 				008EE8952A7B4B56002C44B9 /* Home */,
 			);
 			path = Main;
@@ -573,6 +555,7 @@
 		00EB8D602AA4EF5700D9ADDC /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				008CE6A12A80C06600454CED /* BottomSheet.storyboard */,
 				009486C62A9F26F500FA7955 /* CartViewModel.swift */,
 				008CE69C2A80ADC400454CED /* CartTableViewCell.swift */,
 				00A74B432A72465100BB07B9 /* OrderViewController.swift */,
@@ -613,6 +596,7 @@
 		00EB8D642AA4F20600D9ADDC /* DeliveryAddress */ = {
 			isa = PBXGroup;
 			children = (
+				008CE6A72A80D72500454CED /* Address.storyboard */,
 				009320152A9D98C100B1E703 /* AddressViewModel.swift */,
 				00EB8D742AA4F8AC00D9ADDC /* AllAddress */,
 				00EB8D662AA4F26000D9ADDC /* AddNewAddress */,
@@ -623,6 +607,7 @@
 		00EB8D652AA4F22B00D9ADDC /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				00A74B412A72065500BB07B9 /* Detail.storyboard */,
 				00A8FDB92A930BA4006FB87D /* DetailViewModel.swift */,
 				00A74B3F2A72064300BB07B9 /* DetailViewController.swift */,
 				00EB8D692AA4F39100D9ADDC /* DetailTableViewCell */,
@@ -669,6 +654,7 @@
 		00EB8D6B2AA4F42F00D9ADDC /* AllReview */ = {
 			isa = PBXGroup;
 			children = (
+				008EE8B12A7B8FA8002C44B9 /* Review.storyboard */,
 				008EE8AD2A7B8ED2002C44B9 /* ReviewViewController.swift */,
 				00EB8D6C2AA4F46800D9ADDC /* AddReview */,
 			);
@@ -687,6 +673,7 @@
 		00EB8D6D2AA4F4D800D9ADDC /* Brand */ = {
 			isa = PBXGroup;
 			children = (
+				0086FE452A9718F500E41A19 /* AllCategory.storyboard */,
 				003CE9B02A779393008D32FA /* CategoryTableViewCell.swift */,
 				007B0F902A710A660034E7A5 /* CategoryCollectionViewCell.swift */,
 				00EB8D6E2AA4F54800D9ADDC /* AllBrand */,
@@ -725,6 +712,7 @@
 		00EB8D712AA4F74E00D9ADDC /* AllProduct */ = {
 			isa = PBXGroup;
 			children = (
+				0086FE3F2A96FE5700E41A19 /* AllProduct.storyboard */,
 				0086FE412A96FEAF00E41A19 /* AllProductViewController.swift */,
 				007B0F962A71171D0034E7A5 /* ProductCollectionViewCell.swift */,
 			);
@@ -734,6 +722,7 @@
 		00EB8D722AA4F83B00D9ADDC /* OrderConfirmed */ = {
 			isa = PBXGroup;
 			children = (
+				0090DFD82A81DE4C00150D9D /* OrderConfirmed.storyboard */,
 				0090DFDA2A81DE5900150D9D /* OrderConfirmedViewController.swift */,
 			);
 			path = OrderConfirmed;
@@ -742,6 +731,7 @@
 		00EB8D732AA4F86B00D9ADDC /* UpdateProfile */ = {
 			isa = PBXGroup;
 			children = (
+				009486CD2AA1CC0100FA7955 /* UpdateProfile.storyboard */,
 				00A8FDC52A934DA2006FB87D /* UpdateProfileViewController.swift */,
 				0021A19A2A95E85400BDD4F9 /* UpdateProfileViewModel.swift */,
 			);
@@ -751,6 +741,7 @@
 		00EB8D742AA4F8AC00D9ADDC /* AllAddress */ = {
 			isa = PBXGroup;
 			children = (
+				0008FF8F2A83855A0006BF26 /* AllAddress.storyboard */,
 				0008FF952A838CF30006BF26 /* AllAddressTableViewCell.swift */,
 				0008FF922A8387010006BF26 /* AllAddressViewController.swift */,
 			);
@@ -760,6 +751,7 @@
 		00EB8D752AA4F9A100D9ADDC /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				008CE6AD2A80D81200454CED /* Payment.storyboard */,
 				008CE6B02A80D82800454CED /* PaymentViewController.swift */,
 				0008FF7A2A823BA60006BF26 /* PaymentCollectionViewCell.swift */,
 				00EB8D762AA4F9DB00D9ADDC /* AddCard */,

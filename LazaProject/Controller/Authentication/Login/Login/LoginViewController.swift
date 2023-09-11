@@ -88,8 +88,6 @@ class LoginViewController: UIViewController {
       rememberMeSwitch.isOn = false
     }
   }
-  
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     // MARK: Reactive TextField
@@ -156,7 +154,7 @@ class LoginViewController: UIViewController {
       UserDefaults.standard.set(usernameTxtField.text!, forKey: "rememberme")
     }
     startingAnimation()
-    loginModel.login(username: usernameTxtField.text!, password: passwordTextField.text!) { response in
+    loginModel.login(username: usernameTxtField.text!, password: passwordTextField.text!) { [weak self] response in
       DispatchQueue.main.async { [weak self] in
         guard let self = self else { return }
         self.hidingAnimation()
@@ -165,16 +163,16 @@ class LoginViewController: UIViewController {
             guard let loginAccess = response?.access_token else { print("Login Access Invalid"); return }
             guard let refreshAccess = response?.refresh_token else { print("Refresh Token Invalid"); return }
             self.loginModel.jumpClick = {
-              DispatchQueue.main.async {
+              DispatchQueue.main.async { [unowned self] in
                 self.goToHome()
               }
             }
             self.loginModel.jumpToSetProfile = {
-              DispatchQueue.main.async {
+              DispatchQueue.main.async { [unowned self] in
                 self.goToSetProfile()
               }
             }
-            self.loginModel.invalidToken = {
+            self.loginModel.invalidToken = { [unowned self] in
               DispatchQueue.main.async {
                 self.showAlert(title: "Login Failed", message: "Invalid Token")
               }
