@@ -104,21 +104,10 @@ class BottomSheetViewController: UIViewController {
   
   override func viewDidDisappear(_ animated: Bool) {
     super.viewDidDisappear(animated)
+    refreshModel.refreshToken()
   }
   
   private func loadDataAddress() {
-    viewModel.reloadData = {
-      DispatchQueue.main.async { [weak self] in
-        guard let self = self else { return }
-        let data = self.viewModel.allAddressData
-        for address in data {
-          if address.isPrimary != nil {
-            self.Alamat.text = address.country
-            self.subAlamat.text = address.city
-          }
-        }
-      }
-    }
     viewModel.getAllAddress()
   }
   
