@@ -68,7 +68,6 @@ class CoreDataManager {
         creditCard.append(card)
       }
       completion(creditCard) // Mengirimkan data yang ditemukan
-      print("Success")
     } catch let error {
       print("Failed to fetch data", error)
     }

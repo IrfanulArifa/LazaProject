@@ -259,31 +259,8 @@ extension PaymentViewController: UICollectionViewDelegateFlowLayout {
   }
 }
 
-extension PaymentViewController: reloadDataPayment {
-  func addNewCard() {
-    cardSetup()
-  }
-}
-
-extension PaymentViewController: updateDataCard {
+extension PaymentViewController: updateDataCard, reloadDataPayment {
   func reloadData() {
-    let userId = UserDefaults.standard.integer(forKey: "userid")
-    temp.removeAll()
-    coreData.retrieve { [weak self] data in
-      for (index, userIdData) in data.enumerated() {
-        if userIdData.userId == userId {
-          self?.temp.insert(userIdData, at: index)
-          self?.cardData = self!.temp
-        }
-      }
-    }
-    
-    let data = cardData[indexScroll!.item]
-    cardOwnerTxtField.text = data.owner
-    cardNumberTxtField.text = data.number
-    expTxtField.text = data.expMonth + "/" + data.expYear
-    cvvTxtField.text = "-"
-    
-    creditCardCollection.reloadData()
+    cardSetup()
   }
 }
