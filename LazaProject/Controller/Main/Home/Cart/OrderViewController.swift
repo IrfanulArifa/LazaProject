@@ -43,12 +43,14 @@ class OrderViewController: UIViewController {
   var bankData: String = ""
   var addressId: Int = 0
   var products: [ProductCheckoutData]?
+  let refreshModel = RefreshTokenViewModel()
   
   
   lazy var bottomSheet = UIStoryboard(name: "BottomSheet", bundle: nil).instantiateViewController(withIdentifier: "BottomSheetViewController")
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    refreshModel.refreshToken()
     setup()
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
@@ -57,6 +59,7 @@ class OrderViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     self.tabBarController?.tabBar.isHidden = false
+    refreshModel.refreshToken()
     let userToken = UserDefaults.standard.string(forKey: "access_token")
     DispatchQueue.main.async{ [self] in
       loadData(token: userToken!)
@@ -216,6 +219,8 @@ extension OrderViewController: backToCartDelegate{
     if let sheet = navVC.sheetPresentationController {
       sheet.detents = [.medium()]
     }
+    vc?.ccName.text = "Please set your Credit Card"
+    vc?.ccNum.text = ""
     self.present(navVC, animated: true)
   }
   

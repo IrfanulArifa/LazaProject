@@ -46,13 +46,17 @@ class ProfileViewController: UIViewController {
     didSet { editProfile.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 15)}
   }
   
+  let refreshModel = RefreshTokenViewModel()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    refreshModel.refreshToken()
     setupTabBarItemImage()
   }
   
   override func viewWillAppear(_ animated: Bool) {
+    refreshModel.refreshToken()
     UserModel.synchronize()
     let data = UserDefaults.standard
     nameLabel.text = data.string(forKey: "fullname")

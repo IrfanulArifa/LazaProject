@@ -41,7 +41,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
   // MARK: ChecklistValidation
   @IBOutlet weak var fullnameCheck: UIImageView!{
     didSet {
-      fullnameCheck.isHidden = true
+      fullnameCheck.isHidden = false
     }
   }
   

@@ -22,11 +22,13 @@ class AddressViewModel {
                      onError: @escaping (String)->Void){
     let decoder = JSONDecoder()
     
-    let url = URL(string: "https://lazaapp.shop/address")!
+    let baseURL = Endpoint.APIAddress() + Endpoint.Path.address.rawValue
+    
+    let url = URL(string: baseURL)!
     var request = URLRequest(url: url)
-    request.httpMethod = "POST"
+    request.httpMethod = Endpoint.HttpMethod.POST.rawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.setValue("Bearer \(userToken!)", forHTTPHeaderField: "X-Auth-Token")
+    request.setValue("Bearer \(userToken!)", forHTTPHeaderField: Endpoint.HTTPHeader.XAuthToken.rawValue)
     
     let parameters: [String: Any] = [
       "country":country,
@@ -82,10 +84,12 @@ class AddressViewModel {
   func getAllAddress(){
     let decoder = JSONDecoder()
     
-    let url = URL(string: "https://lazaapp.shop/address")!
+    let baseURL = Endpoint.APIAddress() + Endpoint.Path.address.rawValue
+    
+    let url = URL(string: baseURL)!
     var request = URLRequest(url: url)
-    request.httpMethod = "GET"
-    request.setValue("Bearer \(userToken!)", forHTTPHeaderField: "X-Auth-Token")
+    request.httpMethod = Endpoint.HttpMethod.GET.rawValue
+    request.setValue("Bearer \(userToken!)", forHTTPHeaderField: Endpoint.HTTPHeader.XAuthToken.rawValue)
     
     let session = URLSession.shared
     
@@ -122,11 +126,13 @@ class AddressViewModel {
   func updateAddress(idAddress: Int, country: String, city: String, receiverName: String, number: String, isPrimary: Bool, completion: @escaping (UpdateUserAddressData?)-> Void, onError: @escaping (String) -> Void ) {
     let decoder = JSONDecoder()
     
-    let url = URL(string: "https://lazaapp.shop/address/\(idAddress)")!
+    let baseURL = Endpoint.APIAddress() + Endpoint.Path.addressint.rawValue + "\(idAddress)"
+    
+    let url = URL(string: baseURL)!
     var request = URLRequest(url: url)
-    request.httpMethod = "PUT"
+    request.httpMethod = Endpoint.HttpMethod.PUT.rawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.setValue("Bearer \(userToken!)", forHTTPHeaderField: "X-Auth-Token")
+    request.setValue("Bearer \(userToken!)", forHTTPHeaderField: Endpoint.HTTPHeader.XAuthToken.rawValue)
     
     let parameters: [String: Any] = [
       "country":country,
@@ -181,10 +187,12 @@ class AddressViewModel {
   func deleteAddress(idAddress: Int, completion: @escaping (DeleteSuccess?) -> Void, onError: @escaping (String) -> Void ){
     let decoder = JSONDecoder()
     
-    let url = URL(string: "https://lazaapp.shop/address/\(idAddress)")!
+    let baseURL = Endpoint.APIAddress() + Endpoint.Path.addressint.rawValue + "\(idAddress)"
+    
+    let url = URL(string: baseURL)!
     var request = URLRequest(url: url)
-    request.httpMethod = "DELETE"
-    request.setValue("Bearer \(userToken!)", forHTTPHeaderField: "X-Auth-Token")
+    request.httpMethod = Endpoint.HttpMethod.DELETE.rawValue
+    request.setValue("Bearer \(userToken!)", forHTTPHeaderField: Endpoint.HTTPHeader.XAuthToken.rawValue)
     
     let session = URLSession.shared
     let task = session.dataTask(with: request) { data, response, error in

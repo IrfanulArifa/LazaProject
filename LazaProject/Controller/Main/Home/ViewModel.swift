@@ -22,8 +22,10 @@ class ViewModel {
   // MARK: Get Product Data from API
   
   func getProduct() async throws -> [Datum] {
-    let component = URLComponents(string: "https://lazaapp.shop/products")!
-    let request = URLRequest(url:component.url!)
+    
+    let baseURL = Endpoint.APIAddress() + Endpoint.Path.allproduct.rawValue
+    let url = URL(string: baseURL)!
+    let request = URLRequest(url:url)
     let (data, responses) = try await URLSession.shared.data(for: request)
     guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
       fatalError("Error Can't Fetching Data")
@@ -34,8 +36,9 @@ class ViewModel {
   }
   
   func getBrand() async throws -> [Description] {
-    let component = URLComponents(string: "https://lazaapp.shop/brand")!
-    let request = URLRequest(url:component.url!)
+    let baseURL = Endpoint.APIAddress() + Endpoint.Path.allbrand.rawValue
+    let url = URL(string: baseURL)!
+    let request = URLRequest(url:url)
     let (data, responses) = try await URLSession.shared.data(for: request)
     guard (responses as? HTTPURLResponse)?.statusCode == 200 else {
       fatalError("Error Can't Fetching Data")

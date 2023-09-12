@@ -23,6 +23,8 @@ class Endpoint {
     case verification = "auth/recover/code"
     case resetPassword = "auth/recover/password"
     case refresh = "auth/refresh"
+    case allproduct = "products"
+    case allbrand = "brand"
     case product = "products/brand"
     case detail = "products/"
     case reviews = "/reviews"
@@ -30,6 +32,8 @@ class Endpoint {
     case updateProfil = "user/update"
     case changePassword = "user/change-password"
     case orderBank = "order/bank"
+    case address = "address"
+    case addressint = "address/"
   }
   
   enum HttpMethod: String {
